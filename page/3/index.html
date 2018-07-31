@@ -150,6 +150,69 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-my-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/12/my-world/">My World</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/12/my-world/" class="archive-article-date">
+  	<time datetime="2018-07-12T00:57:39.081Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
+<h2 id="if判断语句的练习"><a href="#if判断语句的练习" class="headerlink" title="if判断语句的练习"></a>if判断语句的练习</h2><h3 id="本代码描述的是不同人物运用不同攻击，击杀BOSS所用的次数"><a href="#本代码描述的是不同人物运用不同攻击，击杀BOSS所用的次数" class="headerlink" title="本代码描述的是不同人物运用不同攻击，击杀BOSS所用的次数"></a>本代码描述的是不同人物运用不同攻击，击杀BOSS所用的次数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$import</span> math</span><br><span class="line">name = input(<span class="string">'输入人物名称:'</span>)</span><br><span class="line">kills = input(<span class="string">'输入技能攻击:'</span>)</span><br><span class="line">boos = 10000  <span class="comment">#boss血量</span></span><br><span class="line">str1=<span class="string">'杀死BOSS，需要&#123;0&#125;次上述攻击'</span></span><br><span class="line">number = 0</span><br><span class="line"><span class="keyword">if</span> name==<span class="string">'赵云'</span>:</span><br><span class="line">    physical_attack = 80 <span class="comment">#物理攻击力</span></span><br><span class="line">    skill_attack = 120  <span class="comment">#技能攻击力</span></span><br><span class="line">    all_energy = 500 <span class="comment">#人物总能量</span></span><br><span class="line">    energy = 50 <span class="comment">#一次技能耗费的能量</span></span><br><span class="line">    skill_number = math.floor(all_energy/energy) <span class="comment">#能够释放技能总数</span></span><br><span class="line">    <span class="keyword">if</span> kills==<span class="string">'物理攻击'</span>:</span><br><span class="line">        number = math.ceil(boos/physical_attack)</span><br><span class="line">    <span class="keyword">elif</span> kills==<span class="string">'技能攻击'</span>:</span><br><span class="line">        number = math.ceil(boos/skill_attack)</span><br><span class="line">    <span class="keyword">elif</span> kills==<span class="string">'混合攻击'</span>:</span><br><span class="line">        <span class="comment">#number = math.ceil((boos-(skill_number*skill_attack))/physical_attack+skill_number)</span></span><br><span class="line"></span><br><span class="line">        physical_number = math.ceil((boos-(skill_number*skill_attack))/physical_attack)  <span class="comment">#物理攻击的次数</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'混合攻击时，技能攻击次数为&#123;0&#125;，物理攻击次数为&#123;1&#125;'</span>.format(skill_number,physical_number))</span><br><span class="line">        <span class="built_in">exit</span>()</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        str1=<span class="string">'攻击方式输入错误，请重新输入!'</span></span><br><span class="line"><span class="keyword">elif</span> name==<span class="string">'李白'</span>:</span><br><span class="line">    physical_attack = 30 <span class="comment">#物理攻击力</span></span><br><span class="line">    skill_attack = 100  <span class="comment">#技能攻击力</span></span><br><span class="line">    all_energy = 350 <span class="comment">#人物总能量</span></span><br><span class="line">    energy = 80 <span class="comment">#一次技能耗费的能量</span></span><br><span class="line">    skill_number = math.floor(all_energy/energy) <span class="comment">#能够释放技能总数</span></span><br><span class="line">    <span class="keyword">if</span> kills==<span class="string">'物理攻击'</span>:</span><br><span class="line">        number = math.ceil(boos/physical_attack)</span><br><span class="line">    <span class="keyword">elif</span> kills==<span class="string">'技能攻击'</span>:</span><br><span class="line">        number = math.ceil(boos/skill_attack)</span><br><span class="line">    <span class="keyword">elif</span> kills==<span class="string">'混合攻击'</span>:</span><br><span class="line">        <span class="comment">#number = math.ceil((boos-(skill_number*skill_attack))/physical_attack+skill_number)</span></span><br><span class="line"></span><br><span class="line">        physical_number = math.ceil((boos-(skill_number*skill_attack))/physical_attack)  <span class="comment">#物理攻击的次数</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'混合攻击时，技能攻击次数为&#123;0&#125;，物理攻击次数为&#123;1&#125;'</span>.format(skill_number,physical_number))</span><br><span class="line">        <span class="built_in">exit</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        str1=<span class="string">'攻击方式输入错误，请重新输入!'</span></span><br><span class="line"><span class="keyword">elif</span> name==<span class="string">'刘备'</span>:</span><br><span class="line">    physical_attack = 50 <span class="comment">#物理攻击力</span></span><br><span class="line">    skill_attack = 200 <span class="comment">#技能攻击力</span></span><br><span class="line">    all_energy = 400 <span class="comment">#人物总能量</span></span><br><span class="line">    energy = 100 <span class="comment">#一次技能耗费的能量</span></span><br><span class="line">    skill_number = math.floor(all_energy/energy) <span class="comment">#能够释放技能总数</span></span><br><span class="line">    <span class="keyword">if</span> kills==<span class="string">'物理攻击'</span>:</span><br><span class="line">        number = math.ceil(boos/physical_attack)</span><br><span class="line">    <span class="keyword">elif</span> kills==<span class="string">'技能攻击'</span>:</span><br><span class="line">        number = math.ceil(boos/skill_attack)</span><br><span class="line">    <span class="keyword">elif</span> kills==<span class="string">'混合攻击'</span>:</span><br><span class="line">        <span class="comment">#number = math.ceil((boos-(skill_number*skill_attack))/physical_attack+skill_number)</span></span><br><span class="line"></span><br><span class="line">        physical_number = math.ceil((boos-(skill_number*skill_attack))/physical_attack)  <span class="comment">#物理攻击的次数</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'混合攻击时，技能攻击次数为&#123;0&#125;，物理攻击次数为&#123;1&#125;'</span>.format(skill_number,physical_number))</span><br><span class="line">        <span class="built_in">exit</span>()</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        str1=<span class="string">'攻击方式输入错误，请重新输入!'</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    str1=<span class="string">'没有此人物，请重新输入!'</span></span><br><span class="line"><span class="built_in">print</span>(str1.format(number))</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/12/my-world/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
