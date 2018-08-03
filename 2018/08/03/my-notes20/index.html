@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 我的地盘我做主</title>
+  <title>my notes (20) | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="python、爬虫、Web开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的地盘我做主">
-<meta property="og:url" content="http://yoursite.com/archives/2018/page/3/index.html">
+  <meta name="description" content="Welcome to Hexo! json123456789import json dic = &amp;#123;&apos;name&apos;:&apos;张三&apos;,&apos;age&apos;:22,&apos;dress&apos;:&apos;河南&apos;&amp;#125;dum = json.dumps(dic)print(type(dum),dum)# 在内存中转换loa = json.loads(dum)print(loa)# 反转换 123456789dic = &amp;#123;">
+<meta name="keywords" content="python、爬虫、Web开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="my notes (20)">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/my-notes20/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
+<meta property="og:description" content="Welcome to Hexo! json123456789import json dic = &amp;#123;&apos;name&apos;:&apos;张三&apos;,&apos;age&apos;:22,&apos;dress&apos;:&apos;河南&apos;&amp;#125;dum = json.dumps(dic)print(type(dum),dum)# 在内存中转换loa = json.loads(dum)print(loa)# 反转换 123456789dic = &amp;#123;">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-03T13:37:17.593Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的地盘我做主">
+<meta name="twitter:title" content="my notes (20)">
+<meta name="twitter:description" content="Welcome to Hexo! json123456789import json dic = &amp;#123;&apos;name&apos;:&apos;张三&apos;,&apos;age&apos;:22,&apos;dress&apos;:&apos;河南&apos;&amp;#125;dum = json.dumps(dic)print(type(dum),dum)# 在内存中转换loa = json.loads(dum)print(loa)# 反转换 123456789dic = &amp;#123;">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -148,133 +152,162 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-my-notes20" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      my notes (20)
+    </h1>
+  
+
+        
+        <a href="/2018/08/03/my-notes20/" class="archive-article-date">
+  	<time datetime="2018-08-03T13:13:21.201Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
+<h2 id="json"><a href="#json" class="headerlink" title="json"></a>json</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import json </span><br><span class="line">dic = &#123;<span class="string">'name'</span>:<span class="string">'张三'</span>,<span class="string">'age'</span>:22,<span class="string">'dress'</span>:<span class="string">'河南'</span>&#125;</span><br><span class="line">dum = json.dumps(dic)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(dum),dum)</span><br><span class="line"><span class="comment"># 在内存中转换</span></span><br><span class="line"></span><br><span class="line">loa = json.loads(dum)</span><br><span class="line"><span class="built_in">print</span>(loa)</span><br><span class="line"><span class="comment"># 反转换</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'name'</span>:<span class="string">'张三'</span>,<span class="string">'age'</span>:22,<span class="string">'dress'</span>:<span class="string">'河南'</span>&#125;</span><br><span class="line">my = open(<span class="string">'myfile.txt'</span>,<span class="string">'w'</span>,encoding=<span class="string">'UTF-8'</span>)</span><br><span class="line">json.dump(dic,my)</span><br><span class="line">my.close()</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'myfile.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">'UTF-8'</span>)</span><br><span class="line">loa = json.load(f)</span><br><span class="line"><span class="built_in">print</span>(loa)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<h2 id="pickle"><a href="#pickle" class="headerlink" title="pickle"></a>pickle</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">f = open(<span class="string">'myfile.dat'</span>,<span class="string">'wb'</span>)</span><br><span class="line">dic = &#123;<span class="string">'name'</span>:<span class="string">'张三'</span>,<span class="string">'age'</span>:22,<span class="string">'dress'</span>:<span class="string">'郑州'</span>&#125;</span><br><span class="line">dic1 = &#123;<span class="string">'name'</span>:<span class="string">'李四'</span>,<span class="string">'age'</span>:22,<span class="string">'dress'</span>:<span class="string">'中牟县'</span>&#125;</span><br><span class="line">pickle.dump(dic,f)</span><br><span class="line">pickle.dump(dic1,f)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'myfile.dat'</span>,<span class="string">'rb'</span>)</span><br><span class="line"><span class="keyword">while</span> True:</span><br><span class="line">    try:</span><br><span class="line">        a = pickle.load(f)</span><br><span class="line">        <span class="built_in">print</span>(a)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'文件已经读完'</span>)</span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = pickle.dumps(dic)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a),a)</span><br><span class="line"></span><br><span class="line">b = pickle.loads(a)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br></pre></td></tr></table></figure>
+<h2 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import hashlib</span><br><span class="line">m = hashlib.md5()</span><br><span class="line">m.update(<span class="string">'123456'</span>.encode(<span class="string">'UTF-8'</span>))</span><br><span class="line"><span class="built_in">print</span>(m.hexdigest)</span><br><span class="line"><span class="comment"># md5算法加密</span></span><br><span class="line"></span><br><span class="line">m1 = hashlib.md5(<span class="string">'zy'</span>.encode(<span class="string">'UTF-8'</span>))</span><br><span class="line">m1.update(<span class="string">'123456'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line"><span class="built_in">print</span>(m1.hexdigest)</span><br><span class="line"><span class="comment"># 加盐</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">import configparser</span><br><span class="line"><span class="comment"># 生成一个配置文件对象</span></span><br><span class="line">config = configparser.ConfigParser()</span><br><span class="line">config[<span class="string">'account'</span>] = &#123;</span><br><span class="line">    <span class="string">'username'</span>:<span class="string">'tom'</span>,</span><br><span class="line">    <span class="string">'password'</span>:<span class="string">'123'</span></span><br><span class="line">&#125; </span><br><span class="line">with open(<span class="string">'user.ini'</span>,<span class="string">'w'</span>) as f:</span><br><span class="line">    config.write(f)</span><br><span class="line"><span class="comment"># 写内容</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config = configparser.ConfigParser()</span><br><span class="line"><span class="comment"># 将配置文件的内容读取</span></span><br><span class="line">config.read(<span class="string">'user.ini'</span>)</span><br><span class="line"><span class="built_in">print</span>(config.sections()) <span class="comment"># 得到配置文件所有的小节名称</span></span><br><span class="line"><span class="built_in">print</span>(config.options(<span class="string">'account'</span>))  <span class="comment"># 通过小节名字得到其内部内容,(只有KEY值)</span></span><br><span class="line"><span class="built_in">print</span>(config[<span class="string">'account'</span>][<span class="string">'username'</span>])</span><br><span class="line"><span class="built_in">print</span>(config[<span class="string">'account'</span>][<span class="string">'password'</span>])</span><br><span class="line"><span class="comment"># 读内容 返回为列表</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config1 = configparser.ConfigParser()</span><br><span class="line">config1.read(<span class="string">'user.ini'</span>)</span><br><span class="line">config1.add_section(<span class="string">'info'</span>)</span><br><span class="line"><span class="comment"># 添加一个小节</span></span><br><span class="line">config1.set(<span class="string">'info'</span>,<span class="string">'address'</span>,<span class="string">'zhengzhou'</span>)</span><br><span class="line">config1.set(<span class="string">'info'</span>,<span class="string">'name'</span>,<span class="string">'zhangsan'</span>)</span><br><span class="line"><span class="comment"># 在小节内添加内容</span></span><br><span class="line">with open(<span class="string">'user.ini'</span>,<span class="string">'w'</span>) as f:</span><br><span class="line">    config1.write(f)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config = configparser.ConfigParser()</span><br><span class="line">config.read(<span class="string">'user.ini'</span>)</span><br><span class="line"><span class="comment"># 删除指定小节里边的内容</span></span><br><span class="line">config.remove_option(<span class="string">'account'</span>,<span class="string">'password'</span>)</span><br><span class="line">with open(<span class="string">'user.ini'</span>,<span class="string">'w'</span>) as f:</span><br><span class="line">    config.write(f)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config = configparser.ConfigParser()</span><br><span class="line">config.read(<span class="string">'user.ini'</span>)</span><br><span class="line"><span class="comment"># 删除整个小节</span></span><br><span class="line">config.remove_section(<span class="string">'time'</span>)</span><br><span class="line">with open(<span class="string">'user.ini'</span>,<span class="string">'w'</span>) as f:</span><br><span class="line">    config.write(f)</span><br></pre></td></tr></table></figure>
+<h2 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from collections import Counter</span><br><span class="line">c = Counter(<span class="string">'dasfsdadsfsdsaasfsdfsf'</span>)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"><span class="built_in">print</span>(c.keys())</span><br><span class="line"><span class="comment"># 计数器  返回列表</span></span><br></pre></td></tr></table></figure>
+<h2 id="time函数"><a href="#time函数" class="headerlink" title="time函数"></a>time函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"><span class="built_in">print</span>(time.time())</span><br><span class="line"><span class="built_in">print</span>(time.strftime(<span class="string">'%Y-%m-%d %H:%M:%S %A %w'</span>))</span><br><span class="line"><span class="built_in">print</span>(time.localtime()) <span class="comment"># 英国结构化时间</span></span><br><span class="line"></span><br><span class="line">p = time.strptime(<span class="string">'2018-8-3'</span>,<span class="string">'%Y-%m-%d'</span>)</span><br><span class="line"><span class="built_in">print</span>(time.mktime(p))</span><br><span class="line"><span class="comment"># 转时间戳</span></span><br><span class="line"></span><br><span class="line">p2 = time.localtime(1500000000)</span><br><span class="line"><span class="built_in">print</span>(time.strftime(<span class="string">'%Y-%m-%d'</span>,p2))</span><br><span class="line"><span class="comment"># 时间戳转格式化时间</span></span><br></pre></td></tr></table></figure>
+<h2 id="random函数"><a href="#random函数" class="headerlink" title="random函数"></a>random函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line"><span class="built_in">print</span>(random.random()) <span class="comment"># 随机产生[0,1)之间的数</span></span><br><span class="line"><span class="built_in">print</span>(random.uniform(1,3)) <span class="comment">#1到3之间的浮点数</span></span><br><span class="line"><span class="built_in">print</span>(random.randrange(1,10))</span><br><span class="line"><span class="built_in">print</span>(random.randint(1,10))</span><br><span class="line"><span class="built_in">print</span>(random.choice([1,2,3,4,5,6,7,8,9,10])) <span class="comment">#随机抽取一个数</span></span><br><span class="line"><span class="built_in">print</span>(random.sample([1,2,[3,4]],2)) <span class="comment">#随机返回两个</span></span><br><span class="line">item = [1,2,3,4,5]</span><br><span class="line">random.shuffle(item) <span class="comment">#打乱顺序 无返回值</span></span><br><span class="line"><span class="built_in">print</span>(item)</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/13/my-notes2/" class="archive-article-date">
-  	<time datetime="2018-07-13T01:34:10.766Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/my-notes2/">my notes (2)</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/03/my-notes20/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/my-notes1/" class="archive-article-date">
-  	<time datetime="2018-07-12T13:03:26.869Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/02/my-notes19/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">my notes (19)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/my-notes1/">my notes (1)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/my-world/" class="archive-article-date">
-  	<time datetime="2018-07-12T00:57:39.081Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/my-world/">My World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/09/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-09T12:20:52.644Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/09/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 
 
@@ -301,8 +334,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
