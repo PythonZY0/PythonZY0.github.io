@@ -150,6 +150,328 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-my-notes21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/my-notes21/">my notes (21)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/06/my-notes21/" class="archive-article-date">
+  	<time datetime="2018-08-06T12:51:37.748Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="面向对象的概念"><a href="#面向对象的概念" class="headerlink" title="面向对象的概念"></a>面向对象的概念</h3><pre><code class="bash">1、类：指具有相同属性或行为的一组事物。
+   对象：是指类的具体化。
+类与对象的关系
+类是一组对象的抽象表示，而对象是类的具体化表现。
+2、类的语法结构
+class 类名：
+     变量声明语句
+     执行语句
+     def func(self):
+         执行语句
+其中，类名首字母要求大写（约定俗成），遵守Python命名规则，不能以数字开头，通常我们都是字母开头。
+注意：
+1）如果类中声明了函数，其函数的参数，必须有一个默认的参数为self，self代表了该类的实例化对象。
+2）如果在类中声明了变量，且该变量位于函数体之外，这个变量我们成为类变量，类变量是公共的。类变量的调用可以直接使用类名进行调用，比如：
+class Dog:  <span class="comment"># 定义一个类，类名Animal</span>
+    color = <span class="string">'灰色'</span>
+    leg_num = 4
+    weight = 20
+    width = 150
+
+    def wangwang(self):
+        <span class="built_in">print</span>(<span class="string">'wangwangwangwang'</span>)
+
+    def eat(self):
+        <span class="built_in">print</span>(<span class="string">'一顿饭20块钱'</span>)
+
+    def run(self):
+        <span class="built_in">print</span>(<span class="string">'非常快'</span>)
+
+
+husky = Dog()  <span class="comment"># 将类实例化成对象，对象为dog</span>
+husky.run()
+Dog.color
+
+类变量，作为公共的变量，不管类实例化多少个对象，都只实例一份类变量。而且类变量会在对象实例化之前载入内容，一旦改变了类变量中的内容，所有对象中调用这个类变量的值都会随之改变。
+
+3)在类实例化对象时，会将其定义的属性和行为，生成一份副本给具体的实例化对象。对象与对象之间，他们的属性和行为是不相互干扰的。
+
+class Dog:  <span class="comment"># 定义一个类，类名Animal</span>
+    color = <span class="string">'灰色'</span>
+
+    def __init__(self, num):
+        self.num = num
+
+
+    def getNum(self):
+        <span class="built_in">print</span>(self.num)
+
+
+husky = Dog(5)  <span class="comment"># 将类实例化成对象，对象为dog</span>
+samoye = Dog(3)
+husky.getNum()
+samoye.getNum()
+
+我们在实例化Dog类时，生成两个对象husky、samoye，这两对象在实例化的过程中会生成两套成员变量和函数，他们的相互不干扰的。我们可以观察上面的代码，发现num变量属于成员变量，即husky和samoye各有持有相同的成员变量，但是修改num的值，husky为5，而samoye为3。结果表明他们的成员变量只能归各自的对象所拥有，并进行改变。对象与对象之间不会相互影响。
+4）使用构造函数，来初始化成员变量
+class Person:
+
+    def __init__(self):  <span class="comment"># 构造函数，在实例化对象时被默认调用，用来给对象的成员变量赋值</span>
+        self.name = <span class="string">'tom'</span>
+        self.age = 21
+        self.tel = <span class="string">'1350000000'</span>
+        self.address = <span class="string">'北京'</span>
+        self.sex = <span class="string">'男'</span>
+
+    def setName(self, name):
+        self.name = name
+
+    def getName(self):
+        <span class="built_in">return</span> self.name
+p1 = Person()
+p1.name
+使用__init__()函数，用来初始化成员变量。对象在实例化时，会默认的调用__init__()函数，同时将成员变量进行初始化。同时，在构造函数中，使用self.变量名进行初始化的成员变量，都是公有的。即在类外可以通过实例化的对象调用。
+</code></pre>
+<h3 id="类变量与成员变量的区别"><a href="#类变量与成员变量的区别" class="headerlink" title="类变量与成员变量的区别"></a>类变量与成员变量的区别</h3><pre><code class="bash">1、类变量是声明在类中，位于函数之外声明的变量。这些变量时公共的，即在类外使用类名.类变量的方式进行调用。我们一旦修改类变量的值，所有调用类变量的内容均发生改变。
+2、成员变量，是声明在类中的构造函数中，通过self.变量来进行声明赋值的。这些成员变量是公有的，即在类外可以通过对象名.成员变量的方式进行调用。所有的对象都有自己的成员变量，也就意味着每个对象的成员变量都是独立的，不会相互干扰。
+3、类变量是该类所有实例化对象所公有的，它会早于对象实例化之前被载入内容中。
+成员变量都是跟随对象实例化的过程中，被声明出来的。它是伴随着对象的产生而产生，消亡而消亡的。
+4、成员变量和方法，默认情况下都是公有的。也就是说在类外可以直接使用对象进行调用。我们可以通过为成员变量设置双下划线，将其标识为私有的成员变量，例如：self.__name = <span class="string">'tom'</span>。私有的成员变量只能在类内进行直接使用，类外必须通过相关方法进行间接调用。
+</code></pre>
+<h2 id="练习例子"><a href="#练习例子" class="headerlink" title="练习例子"></a>练习例子</h2><h3 id="goods-py"><a href="#goods-py" class="headerlink" title="goods.py"></a>goods.py</h3><pre><code class="bash">class Goods():
+    def  __init__(self,no,name,price,address,desc,num): 
+        self.__no = no
+        self.__name = name
+        self.__price = price
+        self.__address = address
+        self.__desc = desc
+        self.__num = num
+
+    def getNo(self):
+        <span class="built_in">return</span> self.__no
+
+
+    def setName(self,name):
+        self.__name = name
+
+    def getName(self):
+        <span class="built_in">return</span> self.__name
+
+
+    def setPrice(self,price):
+        self.__price = price
+
+    def getPrice(self):
+        <span class="built_in">return</span> self.__price
+
+
+    def setAddress(self,address):
+        self.__address = address
+
+    def getAddress(self):
+        <span class="built_in">return</span> self.__address
+
+
+    def setDesc(self,desc):
+        self.__desc = desc
+
+    def getDesc(self):
+        <span class="built_in">return</span> self.__desc
+
+    def setNum(self,num):
+        self.__num = num
+
+    def getNum(self):
+        <span class="built_in">return</span> self.__num
+
+    <span class="comment"># 计算商品总价</span>
+    def getTotal(self):
+        <span class="built_in">return</span> self.__price * self.__num
+</code></pre>
+<h3 id="Car-py"><a href="#Car-py" class="headerlink" title="Car.py"></a>Car.py</h3><pre><code class="bash">class Car:
+    def __init__(self):
+        self.__goodstotal = 0
+        self.__goodsnum = 0
+        self.__carlist = []
+
+    def setGoodsTotal(self,goodstotal):
+        self.__goodstotal = goodstotal
+
+    def getGoodsTotal(self):
+        <span class="built_in">return</span> self.__goodstotal
+
+
+    def setGoodsNum(self,goodsnum):
+        self.__goodsnum = goodsnum
+
+    def getGoodsNum(self):
+        <span class="built_in">return</span> self.__goodsnum
+
+
+    def setCarList(self,carlist):
+        self.__carlist = carlist
+
+    def getCarLiat(self):
+        <span class="built_in">return</span> self.__carlist
+
+
+    def addGoods(self,goods):
+        flag = False
+        <span class="keyword">if</span> self.__carlist != []:
+            <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
+                <span class="keyword">if</span> item.getNo() == goods.getNo():
+                    num = goods.getNum() + item.getNum()
+                    item.setNum(num)
+                    flag = True
+                    <span class="built_in">break</span>
+            <span class="keyword">if</span> not flag:
+                self.__carlist.append(goods)
+        <span class="keyword">else</span>:    
+            self.__carlist.append(goods)
+
+
+    def removeGoods(self,goodsno):
+        <span class="keyword">if</span> self.__carlist != []:
+            <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
+                <span class="keyword">if</span> goodsno == item.getNo():
+                    self.__carlist.remove(item)
+                    <span class="built_in">break</span>
+        <span class="keyword">else</span>:
+            <span class="built_in">print</span>(<span class="string">'购物车为空！'</span>)
+
+    def clearCar(self):
+        <span class="keyword">if</span> self.__carlist != []:
+            self.__carlist.clear()
+        <span class="keyword">else</span>:
+            <span class="built_in">print</span>(<span class="string">'购物车为空！'</span>)
+
+    def modifyNum(self,g_no,g_num):
+        flag = False
+        <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
+            <span class="keyword">if</span> item.getNo() == g_no:
+                <span class="keyword">if</span> g_num &lt; 0 and item.getNum() &lt; abs(g_num):
+                    <span class="built_in">break</span>
+                <span class="keyword">else</span>:
+                    num = item.getNum() + g_num
+                    item.setNum(num)
+            flag = True        
+        <span class="keyword">if</span> not flag:
+            <span class="built_in">print</span>(<span class="string">'商品编号错误或者商品数量不够'</span>) 
+
+    def findAll(self):
+        t_num = 0
+        t_total = 0
+        <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
+            <span class="built_in">print</span>(<span class="string">'商品编号 商品名称 商品单价 商品数量 商品产地 描述 商品总价'</span>)
+            <span class="built_in">print</span>(<span class="string">'{0:8s} {1:6s} {2:4d} {3:4d} {4:6s} {5:20s} {6:4d}'</span>.format(item.getNo(),\
+            item.getName(),item.getPrice(),item.getNum(),item.getAddress(),item.getDesc(),\
+            item.getTotal()))
+            t_num = t_num + item.getNum()
+            t_total = t_total + item.getTotal()
+        <span class="built_in">print</span>(<span class="string">'购物车商品总数量：{0:2d}    购物车商品总价{1:4d}'</span>.format(t_num,t_total))
+    def getAllGoodsPrice(self):
+        <span class="built_in">return</span> sum([item.getTotal() <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist])
+</code></pre>
+<h3 id="buy-py"><a href="#buy-py" class="headerlink" title="buy.py"></a>buy.py</h3><pre><code class="bash">from goods import Goods
+from Car import Car
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    tv = Goods(<span class="string">'10001'</span>,<span class="string">'小米智能电视'</span>,2990,<span class="string">'北京'</span>,<span class="string">'这是一个智能电视,高清，数字'</span>,2)
+    sofa = Goods(<span class="string">'10002'</span>,<span class="string">'芝华士头等舱'</span>,8999,<span class="string">'广州'</span>,<span class="string">'这是一款功能沙发，提供按摩功能'</span>,1)
+    goods_car = Car()
+    goods_car.addGoods(tv)
+    goods_car.addGoods(sofa)
+    <span class="built_in">print</span>(<span class="string">'添加后结果'</span>)
+    goods_car.findAll()
+
+
+
+    <span class="string">''</span><span class="string">'</span>
+<span class="string">    goods_car.clearCar()</span>
+<span class="string">    goods_car.findAll()</span>
+<span class="string">    goods_car.clearCar()</span>
+<span class="string">    '</span><span class="string">''</span>
+
+
+    <span class="string">''</span><span class="string">'</span>
+<span class="string">    goods_car.removeGoods('</span>10001<span class="string">')</span>
+<span class="string">    goods_car.removeGoods('</span>10002<span class="string">')</span>
+<span class="string">    print('</span>............删除后结果...............<span class="string">')</span>
+<span class="string">    goods_car.findAll()</span>
+<span class="string">    goods_car.removeGoods('</span>10001<span class="string">')</span>
+<span class="string">    '</span><span class="string">''</span>
+
+
+    <span class="string">''</span><span class="string">'</span>
+<span class="string">    tv1 = Goods('</span>10001<span class="string">','</span>小米智能电视<span class="string">',2990,'</span>北京<span class="string">','</span>这是一个智能电视,高清，数字<span class="string">',1)</span>
+<span class="string">    sofa2 = Goods('</span>10002<span class="string">','</span>芝华士头等舱<span class="string">',8999,'</span>广州<span class="string">','</span>这是一款功能沙发，提供按摩功能<span class="string">',1)</span>
+<span class="string">    goods_car.addGoods(tv1)</span>
+<span class="string">    goods_car.addGoods(sofa2)</span>
+<span class="string">    print()</span>
+<span class="string">    goods_car.findAll()</span>
+<span class="string">    '</span><span class="string">''</span>
+
+    <span class="string">''</span><span class="string">'</span>
+<span class="string">    goods_car.modifyNum('</span>10001<span class="string">',1)</span>
+<span class="string">    print('</span>...........数量修改后结果...........<span class="string">')</span>
+<span class="string">    goods_car.findAll()</span>
+<span class="string">    '</span><span class="string">''</span>
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/06/my-notes21/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-my-notes20" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -720,70 +1042,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/26/my-notes13/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-my-notes12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/26/my-notes12/">my notes (12)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/26/my-notes12/" class="archive-article-date">
-  	<time datetime="2018-07-26T11:22:36.226Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="局部变量和全局变量"><a href="#局部变量和全局变量" class="headerlink" title="局部变量和全局变量"></a>局部变量和全局变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1）Python中，函数在调用的时候Python才会给函数一个内存地址，用来执行函数内部的相关代码。</span><br><span class="line">2)Python程序在运行时，首先会将程序最外部的变量载入内容，并给其分配相关的内存空间。我们称这种变量为全局变量。</span><br><span class="line">3）函数中声明的变量，只有在函数被执行时，才会被分配内存空间进行执行。我们称这种变量为局部变量。</span><br><span class="line">4）Python程序执行的过程中，执行函数时首先会检查其函数内部的局部变量是否存在，如果存在就调用它，如果不存在就从外部全局变量中进行调用，如果仍然没有发现相关内容，则报错。</span><br><span class="line">5）globals()与locals()</span><br><span class="line">在Python中，通过globals()观察全局作用域中内容，包括：内置函数、自定义函数、全局变量；通过locals()观察局部作用域中的内容，包括：局部变量，嵌套函数（内部函数）inner </span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">a = 10</span><br><span class="line">b = 20</span><br><span class="line">def show():</span><br><span class="line">    c = 30</span><br><span class="line">    d = 40</span><br><span class="line">    <span class="built_in">print</span>(globals()) <span class="comment">#查看全局变量</span></span><br><span class="line">    <span class="built_in">print</span>(locals()) <span class="comment">#查看局部变量</span></span><br><span class="line"></span><br><span class="line">show()</span><br><span class="line"></span><br><span class="line">6）当函数中出现嵌套情况时，最内层函数执行调用变量，会采用“就近原则”即先查找自身范围内的变量，如果没有找到，则向上查找，直到程序最外部结束。</span><br></pre></td></tr></table></figure>
-<h2 id="global与nonlocal"><a href="#global与nonlocal" class="headerlink" title="global与nonlocal"></a>global与nonlocal</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">global用来修饰局部变量时，表示该变量将作为全局变量来使用。即不仅在函数中可以被调用，同时在文件最外部也可以被调用。</span><br><span class="line">nonlocal用来修饰嵌套函数内部的变量，对父级作用域（外层函数）中的变量进行引用和修改，那么从该层(包括父级)以下都将调用该变量的值。注意，该关键字只能影响其直接父级函数。</span><br><span class="line">使用global关键字修饰的变量之前可以并不存在</span><br><span class="line">而使用nonlocal关键字修饰的变量在嵌套作用域中必须已经存在。</span><br><span class="line"></span><br><span class="line">总结：在函数中定义的变量，我们成为局部变量。包括在函数内部定义的变量、作为参数传递进来的变量。局部变量起作用的范围，我们称为局部作用域。因为Python在调用局部变量时，需要给它分配内存地址，我们称为这个地址为局部命名空间。</span><br><span class="line">在文件最外层定义的变量，我们成为全局变量，可以在文件中的任意位置进行调用。全局变量起作用的范围，我们称为全局作用域。Python在载入文件时，就需要给全局变量分配内存地址，这个地址我们称为全局命名空间。</span><br><span class="line"></span><br><span class="line">Python运行时处理变量的步骤：</span><br><span class="line">1、从Python解释器开始执行之后，就在内存中开辟里一个空间，每当遇到一个变量的时候，就把变量名和值之间对应的关系记录下来，但是当遇到函数定义的时候，解释器只是象征性的将函数名读入内存，表示知道这个函数存在了，至于函数内部的变量和逻辑，解释器根本不关心。</span><br><span class="line">2、函数执行时，函数中的变量会储存在新开辟出来的内存中，函数中的变量只能在函数内部使用，并且会随着函数执行完毕，这块内存中的所有内容也会被清空</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">def f1():</span><br><span class="line">    global a  <span class="comment">#将局部变量变为全局变量</span></span><br><span class="line">    a = 10</span><br><span class="line">    def f2():</span><br><span class="line">        <span class="built_in">print</span>(a)</span><br><span class="line">    f2()</span><br><span class="line"></span><br><span class="line">f1()</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"></span><br><span class="line">def f3():</span><br><span class="line">    b = 10</span><br><span class="line">    def f4():</span><br><span class="line">        nonlocal b</span><br><span class="line">        b =20</span><br><span class="line">        <span class="built_in">print</span>(b)</span><br><span class="line">    f4()</span><br><span class="line">    <span class="built_in">print</span>(b)</span><br><span class="line"></span><br><span class="line">f3()</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">10</span><br><span class="line">10</span><br><span class="line">20</span><br><span class="line">20</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/26/my-notes12/">展开全文 >></a>
         </p>
       
 

@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 我的地盘我做主</title>
+  <title>my notes (21) | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="python、爬虫、Web开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的地盘我做主">
-<meta property="og:url" content="http://yoursite.com/archives/2018/page/3/index.html">
+  <meta name="description" content="Welcome to Hexo! 面向对象面向对象的概念1、类：指具有相同属性或行为的一组事物。    对象：是指类的具体化。 类与对象的关系 类是一组对象的抽象表示，而对象是类的具体化表现。 2、类的语法结构 class 类名：      变量声明语句      执行语句      def func(self):          执行语句 其中，类名首字母要求大写（约定俗成），遵守Python">
+<meta name="keywords" content="python、爬虫、Web开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="my notes (21)">
+<meta property="og:url" content="http://yoursite.com/2018/08/06/my-notes21/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
+<meta property="og:description" content="Welcome to Hexo! 面向对象面向对象的概念1、类：指具有相同属性或行为的一组事物。    对象：是指类的具体化。 类与对象的关系 类是一组对象的抽象表示，而对象是类的具体化表现。 2、类的语法结构 class 类名：      变量声明语句      执行语句      def func(self):          执行语句 其中，类名首字母要求大写（约定俗成），遵守Python">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-06T12:57:01.357Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的地盘我做主">
+<meta name="twitter:title" content="my notes (21)">
+<meta name="twitter:description" content="Welcome to Hexo! 面向对象面向对象的概念1、类：指具有相同属性或行为的一组事物。    对象：是指类的具体化。 类与对象的关系 类是一组对象的抽象表示，而对象是类的具体化表现。 2、类的语法结构 class 类名：      变量声明语句      执行语句      def func(self):          执行语句 其中，类名首字母要求大写（约定俗成），遵守Python">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -148,160 +152,414 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-my-notes21" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      my notes (21)
+    </h1>
+  
+
+        
+        <a href="/2018/08/06/my-notes21/" class="archive-article-date">
+  	<time datetime="2018-08-06T12:51:37.748Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="面向对象的概念"><a href="#面向对象的概念" class="headerlink" title="面向对象的概念"></a>面向对象的概念</h3><pre><code class="bash">1、类：指具有相同属性或行为的一组事物。
+   对象：是指类的具体化。
+类与对象的关系
+类是一组对象的抽象表示，而对象是类的具体化表现。
+2、类的语法结构
+class 类名：
+     变量声明语句
+     执行语句
+     def func(self):
+         执行语句
+其中，类名首字母要求大写（约定俗成），遵守Python命名规则，不能以数字开头，通常我们都是字母开头。
+注意：
+1）如果类中声明了函数，其函数的参数，必须有一个默认的参数为self，self代表了该类的实例化对象。
+2）如果在类中声明了变量，且该变量位于函数体之外，这个变量我们成为类变量，类变量是公共的。类变量的调用可以直接使用类名进行调用，比如：
+class Dog:  <span class="comment"># 定义一个类，类名Animal</span>
+    color = <span class="string">'灰色'</span>
+    leg_num = 4
+    weight = 20
+    width = 150
+
+    def wangwang(self):
+        <span class="built_in">print</span>(<span class="string">'wangwangwangwang'</span>)
+
+    def eat(self):
+        <span class="built_in">print</span>(<span class="string">'一顿饭20块钱'</span>)
+
+    def run(self):
+        <span class="built_in">print</span>(<span class="string">'非常快'</span>)
+
+
+husky = Dog()  <span class="comment"># 将类实例化成对象，对象为dog</span>
+husky.run()
+Dog.color
+
+类变量，作为公共的变量，不管类实例化多少个对象，都只实例一份类变量。而且类变量会在对象实例化之前载入内容，一旦改变了类变量中的内容，所有对象中调用这个类变量的值都会随之改变。
+
+3)在类实例化对象时，会将其定义的属性和行为，生成一份副本给具体的实例化对象。对象与对象之间，他们的属性和行为是不相互干扰的。
+
+class Dog:  <span class="comment"># 定义一个类，类名Animal</span>
+    color = <span class="string">'灰色'</span>
+
+    def __init__(self, num):
+        self.num = num
+
+
+    def getNum(self):
+        <span class="built_in">print</span>(self.num)
+
+
+husky = Dog(5)  <span class="comment"># 将类实例化成对象，对象为dog</span>
+samoye = Dog(3)
+husky.getNum()
+samoye.getNum()
+
+我们在实例化Dog类时，生成两个对象husky、samoye，这两对象在实例化的过程中会生成两套成员变量和函数，他们的相互不干扰的。我们可以观察上面的代码，发现num变量属于成员变量，即husky和samoye各有持有相同的成员变量，但是修改num的值，husky为5，而samoye为3。结果表明他们的成员变量只能归各自的对象所拥有，并进行改变。对象与对象之间不会相互影响。
+4）使用构造函数，来初始化成员变量
+class Person:
+
+    def __init__(self):  <span class="comment"># 构造函数，在实例化对象时被默认调用，用来给对象的成员变量赋值</span>
+        self.name = <span class="string">'tom'</span>
+        self.age = 21
+        self.tel = <span class="string">'1350000000'</span>
+        self.address = <span class="string">'北京'</span>
+        self.sex = <span class="string">'男'</span>
+
+    def setName(self, name):
+        self.name = name
+
+    def getName(self):
+        <span class="built_in">return</span> self.name
+p1 = Person()
+p1.name
+使用__init__()函数，用来初始化成员变量。对象在实例化时，会默认的调用__init__()函数，同时将成员变量进行初始化。同时，在构造函数中，使用self.变量名进行初始化的成员变量，都是公有的。即在类外可以通过实例化的对象调用。
+</code></pre>
+<h3 id="类变量与成员变量的区别"><a href="#类变量与成员变量的区别" class="headerlink" title="类变量与成员变量的区别"></a>类变量与成员变量的区别</h3><pre><code class="bash">1、类变量是声明在类中，位于函数之外声明的变量。这些变量时公共的，即在类外使用类名.类变量的方式进行调用。我们一旦修改类变量的值，所有调用类变量的内容均发生改变。
+2、成员变量，是声明在类中的构造函数中，通过self.变量来进行声明赋值的。这些成员变量是公有的，即在类外可以通过对象名.成员变量的方式进行调用。所有的对象都有自己的成员变量，也就意味着每个对象的成员变量都是独立的，不会相互干扰。
+3、类变量是该类所有实例化对象所公有的，它会早于对象实例化之前被载入内容中。
+成员变量都是跟随对象实例化的过程中，被声明出来的。它是伴随着对象的产生而产生，消亡而消亡的。
+4、成员变量和方法，默认情况下都是公有的。也就是说在类外可以直接使用对象进行调用。我们可以通过为成员变量设置双下划线，将其标识为私有的成员变量，例如：self.__name = <span class="string">'tom'</span>。私有的成员变量只能在类内进行直接使用，类外必须通过相关方法进行间接调用。
+</code></pre>
+<h2 id="练习例子"><a href="#练习例子" class="headerlink" title="练习例子"></a>练习例子</h2><h3 id="goods-py"><a href="#goods-py" class="headerlink" title="goods.py"></a>goods.py</h3><pre><code class="bash">class Goods():
+    def  __init__(self,no,name,price,address,desc,num): 
+        self.__no = no
+        self.__name = name
+        self.__price = price
+        self.__address = address
+        self.__desc = desc
+        self.__num = num
+
+    def getNo(self):
+        <span class="built_in">return</span> self.__no
+
+
+    def setName(self,name):
+        self.__name = name
+
+    def getName(self):
+        <span class="built_in">return</span> self.__name
+
+
+    def setPrice(self,price):
+        self.__price = price
+
+    def getPrice(self):
+        <span class="built_in">return</span> self.__price
+
+
+    def setAddress(self,address):
+        self.__address = address
+
+    def getAddress(self):
+        <span class="built_in">return</span> self.__address
+
+
+    def setDesc(self,desc):
+        self.__desc = desc
+
+    def getDesc(self):
+        <span class="built_in">return</span> self.__desc
+
+    def setNum(self,num):
+        self.__num = num
+
+    def getNum(self):
+        <span class="built_in">return</span> self.__num
+
+    <span class="comment"># 计算商品总价</span>
+    def getTotal(self):
+        <span class="built_in">return</span> self.__price * self.__num
+</code></pre>
+<h3 id="Car-py"><a href="#Car-py" class="headerlink" title="Car.py"></a>Car.py</h3><pre><code class="bash">class Car:
+    def __init__(self):
+        self.__goodstotal = 0
+        self.__goodsnum = 0
+        self.__carlist = []
+
+    def setGoodsTotal(self,goodstotal):
+        self.__goodstotal = goodstotal
+
+    def getGoodsTotal(self):
+        <span class="built_in">return</span> self.__goodstotal
+
+
+    def setGoodsNum(self,goodsnum):
+        self.__goodsnum = goodsnum
+
+    def getGoodsNum(self):
+        <span class="built_in">return</span> self.__goodsnum
+
+
+    def setCarList(self,carlist):
+        self.__carlist = carlist
+
+    def getCarLiat(self):
+        <span class="built_in">return</span> self.__carlist
+
+
+    def addGoods(self,goods):
+        flag = False
+        <span class="keyword">if</span> self.__carlist != []:
+            <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
+                <span class="keyword">if</span> item.getNo() == goods.getNo():
+                    num = goods.getNum() + item.getNum()
+                    item.setNum(num)
+                    flag = True
+                    <span class="built_in">break</span>
+            <span class="keyword">if</span> not flag:
+                self.__carlist.append(goods)
+        <span class="keyword">else</span>:    
+            self.__carlist.append(goods)
+
+
+    def removeGoods(self,goodsno):
+        <span class="keyword">if</span> self.__carlist != []:
+            <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
+                <span class="keyword">if</span> goodsno == item.getNo():
+                    self.__carlist.remove(item)
+                    <span class="built_in">break</span>
+        <span class="keyword">else</span>:
+            <span class="built_in">print</span>(<span class="string">'购物车为空！'</span>)
+
+    def clearCar(self):
+        <span class="keyword">if</span> self.__carlist != []:
+            self.__carlist.clear()
+        <span class="keyword">else</span>:
+            <span class="built_in">print</span>(<span class="string">'购物车为空！'</span>)
+
+    def modifyNum(self,g_no,g_num):
+        flag = False
+        <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
+            <span class="keyword">if</span> item.getNo() == g_no:
+                <span class="keyword">if</span> g_num &lt; 0 and item.getNum() &lt; abs(g_num):
+                    <span class="built_in">break</span>
+                <span class="keyword">else</span>:
+                    num = item.getNum() + g_num
+                    item.setNum(num)
+            flag = True        
+        <span class="keyword">if</span> not flag:
+            <span class="built_in">print</span>(<span class="string">'商品编号错误或者商品数量不够'</span>) 
+
+    def findAll(self):
+        t_num = 0
+        t_total = 0
+        <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
+            <span class="built_in">print</span>(<span class="string">'商品编号 商品名称 商品单价 商品数量 商品产地 描述 商品总价'</span>)
+            <span class="built_in">print</span>(<span class="string">'{0:8s} {1:6s} {2:4d} {3:4d} {4:6s} {5:20s} {6:4d}'</span>.format(item.getNo(),\
+            item.getName(),item.getPrice(),item.getNum(),item.getAddress(),item.getDesc(),\
+            item.getTotal()))
+            t_num = t_num + item.getNum()
+            t_total = t_total + item.getTotal()
+        <span class="built_in">print</span>(<span class="string">'购物车商品总数量：{0:2d}    购物车商品总价{1:4d}'</span>.format(t_num,t_total))
+    def getAllGoodsPrice(self):
+        <span class="built_in">return</span> sum([item.getTotal() <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist])
+</code></pre>
+<h3 id="buy-py"><a href="#buy-py" class="headerlink" title="buy.py"></a>buy.py</h3><pre><code class="bash">from goods import Goods
+from Car import Car
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    tv = Goods(<span class="string">'10001'</span>,<span class="string">'小米智能电视'</span>,2990,<span class="string">'北京'</span>,<span class="string">'这是一个智能电视,高清，数字'</span>,2)
+    sofa = Goods(<span class="string">'10002'</span>,<span class="string">'芝华士头等舱'</span>,8999,<span class="string">'广州'</span>,<span class="string">'这是一款功能沙发，提供按摩功能'</span>,1)
+    goods_car = Car()
+    goods_car.addGoods(tv)
+    goods_car.addGoods(sofa)
+    <span class="built_in">print</span>(<span class="string">'添加后结果'</span>)
+    goods_car.findAll()
+
+
+
+    <span class="string">''</span><span class="string">'</span>
+<span class="string">    goods_car.clearCar()</span>
+<span class="string">    goods_car.findAll()</span>
+<span class="string">    goods_car.clearCar()</span>
+<span class="string">    '</span><span class="string">''</span>
+
+
+    <span class="string">''</span><span class="string">'</span>
+<span class="string">    goods_car.removeGoods('</span>10001<span class="string">')</span>
+<span class="string">    goods_car.removeGoods('</span>10002<span class="string">')</span>
+<span class="string">    print('</span>............删除后结果...............<span class="string">')</span>
+<span class="string">    goods_car.findAll()</span>
+<span class="string">    goods_car.removeGoods('</span>10001<span class="string">')</span>
+<span class="string">    '</span><span class="string">''</span>
+
+
+    <span class="string">''</span><span class="string">'</span>
+<span class="string">    tv1 = Goods('</span>10001<span class="string">','</span>小米智能电视<span class="string">',2990,'</span>北京<span class="string">','</span>这是一个智能电视,高清，数字<span class="string">',1)</span>
+<span class="string">    sofa2 = Goods('</span>10002<span class="string">','</span>芝华士头等舱<span class="string">',8999,'</span>广州<span class="string">','</span>这是一款功能沙发，提供按摩功能<span class="string">',1)</span>
+<span class="string">    goods_car.addGoods(tv1)</span>
+<span class="string">    goods_car.addGoods(sofa2)</span>
+<span class="string">    print()</span>
+<span class="string">    goods_car.findAll()</span>
+<span class="string">    '</span><span class="string">''</span>
+
+    <span class="string">''</span><span class="string">'</span>
+<span class="string">    goods_car.modifyNum('</span>10001<span class="string">',1)</span>
+<span class="string">    print('</span>...........数量修改后结果...........<span class="string">')</span>
+<span class="string">    goods_car.findAll()</span>
+<span class="string">    '</span><span class="string">''</span>
+</code></pre>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/13/my-notes3/" class="archive-article-date">
-  	<time datetime="2018-07-13T07:43:23.868Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/my-notes3/">my notes (3)</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/06/my-notes21/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/13/my-notes2/" class="archive-article-date">
-  	<time datetime="2018-07-13T01:34:10.766Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/03/my-notes20/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">my notes (20)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/13/my-notes2/">my notes (2)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/my-notes1/" class="archive-article-date">
-  	<time datetime="2018-07-12T13:03:26.869Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/my-notes1/">my notes (1)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/12/my-world/" class="archive-article-date">
-  	<time datetime="2018-07-12T00:57:39.081Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/12/my-world/">My World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/09/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-09T12:20:52.644Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/09/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
   
 
 
@@ -328,8 +586,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
