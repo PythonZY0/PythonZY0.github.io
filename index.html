@@ -150,6 +150,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-my-notes23" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/27/my-notes23/">my notes (23)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/27/my-notes23/" class="archive-article-date">
+  	<time datetime="2018-08-27T11:14:41.125Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
+<h2 id="网络爬虫-urllib库"><a href="#网络爬虫-urllib库" class="headerlink" title="网络爬虫 - urllib库"></a>网络爬虫 - urllib库</h2><h3 id="urllib库的基本使用"><a href="#urllib库的基本使用" class="headerlink" title="urllib库的基本使用"></a>urllib库的基本使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">函数格式：urllib.request.openurl(url, data, timeout)</span><br><span class="line">参数说明：</span><br><span class="line">url：指定的请求网址</span><br><span class="line">data：请求时提交给服务器端的数据，如果在openurl中使用了data参数，那么提交方式为post，默认情况下为get。</span><br><span class="line">timeout：指定连接url的超时时间，单位为秒。</span><br><span class="line">response = urllib.request.openurl()函数返回一个HTTPResponse对象</span><br><span class="line">我们可以使用response对象中的相关方法：</span><br><span class="line"><span class="built_in">read</span>()读取响应体中的内容</span><br><span class="line">status/getcode()返回响应码</span><br><span class="line">reason 返回响应信息的内容</span><br><span class="line">info()返回响应头信息</span><br><span class="line">geturl()返回请求的url地址</span><br></pre></td></tr></table></figure>
+<h3 id="request请求对象"><a href="#request请求对象" class="headerlink" title="request请求对象"></a>request请求对象</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">req = urllib.request.Request(url,data,headers,method)</span><br><span class="line">参数说明：</span><br><span class="line">url：指定的请求网址</span><br><span class="line">data：请求时提交给服务器端的数据，如果在openurl中使用了data参数，那么提交方式为post，默认情况下为get。</span><br><span class="line">headers：请求对象的头信息，用来将一个爬虫伪装成一个普通的浏览器请求，主要设置user-agent</span><br><span class="line">method：请求的方式，默认为get，可以设置为get或post</span><br></pre></td></tr></table></figure>
+<h3 id="urllib-error"><a href="#urllib-error" class="headerlink" title="urllib.error"></a>urllib.error</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在urllib库中有三个error对象</span><br><span class="line">HTTPError：HTTP访问异常</span><br><span class="line">URLError：url地址异常</span><br><span class="line">ContentTooShortError：文件大小异常</span><br><span class="line">注意，HTTPError是URLError的子类。</span><br><span class="line">HTTPError，只有一个属性reason</span><br><span class="line">URLError，有code，reason，headers三个属性。</span><br></pre></td></tr></table></figure>
+<h3 id="urllib-robotparser"><a href="#urllib-robotparser" class="headerlink" title="urllib.robotparser"></a>urllib.robotparser</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作用：用来解析指定网站的robots.txt文件。用来分析哪些内容是允许抓取，哪些内容是不允许的。</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/27/my-notes23/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-my-notes22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -980,73 +1046,6 @@ from Car import Car
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/27/my-notes15/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-my-notes14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/26/my-notes14/">my notes (14)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/26/my-notes14/" class="archive-article-date">
-  	<time datetime="2018-07-26T12:01:34.863Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">使用lambda关键字进行修饰，没有显式声明函数的名字。格式如下：</span><br><span class="line">lambda 参数：表达式（返回值）</span><br><span class="line">注意，在使用匿名函数时，因为其自身的情况限制，匿名函数并不能执行比较复杂的业务逻辑，即函数内的代码不能过多。lambda本身是一个表达式</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line"></span><br><span class="line">a = lambda x:x*2</span><br><span class="line"><span class="built_in">print</span>(a(2))</span><br><span class="line"><span class="comment"># 匿名函数</span></span><br><span class="line"></span><br><span class="line">max_num = lambda x,y,z:x <span class="keyword">if</span> x&gt;y and x&gt;z <span class="keyword">else</span> (y <span class="keyword">if</span> y&gt;x and y&gt;z <span class="keyword">else</span> z)</span><br><span class="line"><span class="built_in">print</span>(max_num(3,5,4))</span><br><span class="line">max = lambda x,y,z:max(x,y,z)</span><br><span class="line"><span class="built_in">print</span>(max_num(3,5,4))</span><br><span class="line"><span class="comment"># 匿名函数也可以调其他函数</span></span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
-<h3 id="map函数（映射函数）"><a href="#map函数（映射函数）" class="headerlink" title="map函数（映射函数）"></a>map函数（映射函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">函数格式：map(func,iterable)</span><br><span class="line">返回值：map 对象（迭代器）</span><br><span class="line">说明：map函数主要作用是，将指定函数与序列中的元素进行映射，并完成函数中功能的批量操作，返回值为一个迭代器。我们可以使用<span class="keyword">for</span>循环或next()函数进行遍历。通常情况下，如果映射的函数较为简单，我们就不单独声明函数，而是采用匿名函数来实现，这样也能提高运行效率。</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">def func(x):</span><br><span class="line">    <span class="built_in">print</span>(x*x)</span><br><span class="line"></span><br><span class="line">result = map(func,[1,2,3])</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> result:</span><br><span class="line">    <span class="built_in">print</span>(item)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">1</span><br><span class="line">None</span><br><span class="line">4</span><br><span class="line">None</span><br><span class="line">9</span><br><span class="line">None</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">result = map(lambda x:x*x,[1,2,3])</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> result:</span><br><span class="line">    <span class="built_in">print</span>(item)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">1</span><br><span class="line">4</span><br><span class="line">9</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">up = map(lambda x:x.upper(),[<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>])</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> up:</span><br><span class="line">    <span class="built_in">print</span>(item)</span><br><span class="line"><span class="comment">#print(next(up))</span></span><br><span class="line"><span class="comment">#map()函数返回 map对象（迭代器）,可以用for循环 或者next（）遍历</span></span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">ONE</span><br><span class="line">TWO</span><br><span class="line">THREE</span><br></pre></td></tr></table></figure>
-<h3 id="reduce函数（归纳函数）"><a href="#reduce函数（归纳函数）" class="headerlink" title="reduce函数（归纳函数）"></a>reduce函数（归纳函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">函数格式：reduce(func,iterator)</span><br><span class="line">返回值：返回函数计算结果，具体类型根据函数的返回值来定</span><br><span class="line">说明：reduce函数中的func，一定要设为两个参数，用来接收迭代器返回的值。操作顺序为首先接收第一、第二个值，进行运算；运算结果再与第三个值进行运行，以此类推，直到迭代器迭代完全部数据。</span><br><span class="line"></span><br><span class="line">from functools import reduce</span><br><span class="line">def f(x,y):</span><br><span class="line">    <span class="built_in">return</span> x*y</span><br><span class="line"></span><br><span class="line">a = reduce(f,range(1,4))</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="comment"># 先将1赋值给x，然后将2赋值给y，乘积再赋值给x，3再赋值给y进行计算</span></span><br><span class="line"></span><br><span class="line">结果：6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = reduce(lambda x,y:x*y,range(1,4))</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"></span><br><span class="line">结果：6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">list1 = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>]</span><br><span class="line">iter(list1)</span><br><span class="line">a = reduce(lambda x,y:x+y,list1)</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">abcd</span><br></pre></td></tr></table></figure>
-<h3 id="filter函数（过滤函数）"><a href="#filter函数（过滤函数）" class="headerlink" title="filter函数（过滤函数）"></a>filter函数（过滤函数）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">函数格式：filter(func,iterable)</span><br><span class="line">返回值：返回一个迭代器</span><br><span class="line">说明：过滤函数与映射函数类似，都需要将函数作用于序列中的每个元素，根据函数判断True或False，返回相关元素。</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">def odd(x):</span><br><span class="line">    <span class="keyword">if</span> x%2!=0:</span><br><span class="line">        <span class="built_in">return</span> x</span><br><span class="line"></span><br><span class="line">a = filter(odd,range(1,11))</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> a:</span><br><span class="line">    <span class="built_in">print</span>(item)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">7</span><br><span class="line">9</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b = filter(lambda x:x%2!=0,range(1,11))</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> b:</span><br><span class="line">    <span class="built_in">print</span>(item)</span><br><span class="line"><span class="comment"># filter(表达式,序列) 过滤函数</span></span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">7</span><br><span class="line">9</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#练习</span></span><br><span class="line">str1 = (<span class="string">'hipython'</span>,<span class="string">'pyth'</span>,<span class="string">'lovepython'</span>,<span class="string">'PYTHON'</span>,<span class="string">'XMU'</span>)</span><br><span class="line">kw = filter(lambda x:x.find(<span class="string">'python'</span>)!=-1,str1)</span><br><span class="line">i = 0</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> kw:</span><br><span class="line">    <span class="built_in">print</span>(item)</span><br><span class="line">    i +=1</span><br><span class="line"><span class="built_in">print</span>(i)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">hipython</span><br><span class="line">lovepython</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">递归概念：就是使用自身函数对自身进行调用，每调用一次将当前次的运行结果保存到函数的堆栈中，以副本形式保存，一直到最后完成全部调用。然后逐一向外将当期函数的结果返回并退出到其调用的位置。</span><br><span class="line">在Python中，通常推荐使用迭代，递归本身对内存的消耗和运行效率低下的问题较少使用。</span><br><span class="line"></span><br><span class="line"><span class="comment"># 递归函数</span></span><br><span class="line">def a_sum(x):</span><br><span class="line">    <span class="keyword">if</span> not x:</span><br><span class="line">        <span class="built_in">return</span> 0</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">return</span> x[0]+a_sum(x[1:])</span><br><span class="line"></span><br><span class="line">sum = a_sum([1,2,3,4,5])</span><br><span class="line"><span class="built_in">print</span>(sum)</span><br><span class="line"></span><br><span class="line">结果：12</span><br><span class="line"></span><br><span class="line">def fac(n):</span><br><span class="line">    <span class="keyword">if</span> n==1:</span><br><span class="line">        <span class="built_in">return</span> 1</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">return</span>  n*fac(n-1)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(fac(5))</span><br><span class="line"></span><br><span class="line">结果：120</span><br><span class="line"></span><br><span class="line">import math</span><br><span class="line"><span class="built_in">print</span>(math.factorial(5))</span><br><span class="line"><span class="comment"># 递归函数math.factorial()</span></span><br><span class="line"></span><br><span class="line">结果：120</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/26/my-notes14/">展开全文 >></a>
         </p>
       
 
