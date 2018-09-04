@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 我的地盘我做主</title>
+  <title>my notes (26) | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="python、爬虫、Web开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的地盘我做主">
-<meta property="og:url" content="http://yoursite.com/archives/2018/page/2/index.html">
+  <meta name="description" content="Welcome to Hexo! 数据库—事务背景：银行转账过程中，如果发生了意外，需要使用事务进行处理。 A账号有余额1000元，向余额为200元的B账号进行转账500元。由于发生了某些故障，造成A账号在转账过程中出现了错误，需要使用事务回滚（rollback）。如果A账号成功扣款，转账完成，B账号余额增加500元。  不使用事务产生的问题： 1、当A账号进行转账扣款时，发生错误。B账号并没有收">
+<meta name="keywords" content="python、爬虫、Web开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="my notes (26)">
+<meta property="og:url" content="http://yoursite.com/2018/09/04/my-notes26/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
+<meta property="og:description" content="Welcome to Hexo! 数据库—事务背景：银行转账过程中，如果发生了意外，需要使用事务进行处理。 A账号有余额1000元，向余额为200元的B账号进行转账500元。由于发生了某些故障，造成A账号在转账过程中出现了错误，需要使用事务回滚（rollback）。如果A账号成功扣款，转账完成，B账号余额增加500元。  不使用事务产生的问题： 1、当A账号进行转账扣款时，发生错误。B账号并没有收">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-04T10:48:57.438Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的地盘我做主">
+<meta name="twitter:title" content="my notes (26)">
+<meta name="twitter:description" content="Welcome to Hexo! 数据库—事务背景：银行转账过程中，如果发生了意外，需要使用事务进行处理。 A账号有余额1000元，向余额为200元的B账号进行转账500元。由于发生了某些故障，造成A账号在转账过程中出现了错误，需要使用事务回滚（rollback）。如果A账号成功扣款，转账完成，B账号余额增加500元。  不使用事务产生的问题： 1、当A账号进行转账扣款时，发生错误。B账号并没有收">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -148,295 +152,184 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-my-notes26" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      my notes (26)
+    </h1>
+  
+
+        
+        <a href="/2018/09/04/my-notes26/" class="archive-article-date">
+  	<time datetime="2018-09-04T10:46:31.399Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
+<h2 id="数据库—事务"><a href="#数据库—事务" class="headerlink" title="数据库—事务"></a>数据库—事务</h2><pre><code class="bash">背景：银行转账过程中，如果发生了意外，需要使用事务进行处理。
+A账号有余额1000元，向余额为200元的B账号进行转账500元。由于发生了某些故障，造成A账号在转账过程中出现了错误，需要使用事务回滚（rollback）。如果A账号成功扣款，转账完成，B账号余额增加500元。
+</code></pre>
+<pre><code class="bash">不使用事务产生的问题：
+1、当A账号进行转账扣款时，发生错误。B账号并没有收到转账金额500元。而A账号已经提示完成扣款。
+2、当A账号进行转账发生错误，未成功扣款，而B账号提示收到转账金额500元。
+我们称上述的情况产生的数据为脏数据。
+具体步骤：
+1、关闭MySQL自动提交功能。<span class="built_in">set</span> autocommit = 0;
+2、开启事务：start transaction/begin
+3、执行相应的SQL操作
+4、提交或回滚
+5、将MySQL自动提交功能开启 <span class="built_in">set</span> autocommit = 1;
+概念：在MySQL中事务主要用于处理操作量大，复杂度高的数据。只有定义了InnoDB引擎的数据库才支持事务。事务处理可以用来维护数据库的完整性，保证SQL操作要么全完成，要么全不执行。
+事务满足四个特性：ACID
+A：原子性。一个事务中的所有操作，会作为一个整体来看待即，在执行时如果有一个操作没有成功，那么所有操作都将被回滚。回到事务开始前的状态。
+C：一致性。在事务开始之前和事务结束之后，数据库的完整性没有被破坏，说明写入的资料符合数据库的所有设置的规则，包括数据的精度。
+I：隔离性。数据库允许同时并发多个事务，并且同时对数据库进行读写操作，隔离性可以保证防止多个事务并发执行时由于交叉执行从而导致数据不一致。
+事务的隔离分为：读未提交、读提交、可重复读、串行化。
+D：持久性。事务处理结束后，对数据的修改是永久的，即存储在数据库中。
+</code></pre>
+<h2 id="MySQL数据库中myisam与innodb的区别"><a href="#MySQL数据库中myisam与innodb的区别" class="headerlink" title="MySQL数据库中myisam与innodb的区别"></a>MySQL数据库中myisam与innodb的区别</h2><pre><code class="bash">1、MyISAM是非事务安全型的，而InnoDB是事务安全型
+2、MyISAM是锁支持到表级，而InnoDB支持行级。
+3、MyISAM支持全文检索，而InnoDB不支持全文检索
+4、MyISAM表保存为文件形式的，有利于跨平台时进行数据转移，而InnoDB比MyISAM更安全，可以保证表中数据不丢失的情况下，切换非事务到事务表。
+5、如果在实际应用中，需要执行大量的select查询，那么MyISAM是优先选择的。
+如果需要执行大量的增删改操作，那么InnoDB是优先选择的，可以提高多用户并发操作的性能。
+通常，我们在实现构建数据库服务器时，采用读写分离的方式，即设置一台读服务器，一台写服务器，同时两台服务器进行数据同步。
+</code></pre>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/31/my-notes16/" class="archive-article-date">
-  	<time datetime="2018-07-31T13:04:20.264Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/31/my-notes16/">my notes (16)</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/04/my-notes26/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/30/my-practice2/" class="archive-article-date">
-  	<time datetime="2018-07-30T01:20:37.038Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-30</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/27/my-notes25/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">my notes (25)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/30/my-practice2/">my practice (2)</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/27/my-notes15/" class="archive-article-date">
-  	<time datetime="2018-07-27T13:00:35.522Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/27/my-notes15/">my notes (15)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/26/my-notes14/" class="archive-article-date">
-  	<time datetime="2018-07-26T12:01:34.863Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/26/my-notes14/">my notes (14)</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/26/my-notes13/" class="archive-article-date">
-  	<time datetime="2018-07-26T11:43:52.517Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/26/my-notes13/">my notes (13)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/26/my-notes12/" class="archive-article-date">
-  	<time datetime="2018-07-26T11:22:36.226Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/26/my-notes12/">my notes (12)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/25/my-notes11/" class="archive-article-date">
-  	<time datetime="2018-07-25T13:52:02.306Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/25/my-notes11/">my notes (11)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/25/my-notes10/" class="archive-article-date">
-  	<time datetime="2018-07-25T08:21:52.665Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/25/my-notes10/">my notes (10)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/20/my-practice1/" class="archive-article-date">
-  	<time datetime="2018-07-20T13:34:10.715Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/20/my-practice1/">my practice (1)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/19/my-notes9/" class="archive-article-date">
-  	<time datetime="2018-07-19T09:47:59.535Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/19/my-notes9/">my notes (9)</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2018/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -463,8 +356,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
