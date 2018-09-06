@@ -150,6 +150,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-my-notes27" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/06/my-notes27/">my notes (26)</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/06/my-notes27/" class="archive-article-date">
+  	<time datetime="2018-09-06T11:49:42.159Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
+<h2 id="mongo-命令"><a href="#mongo-命令" class="headerlink" title="mongo 命令"></a>mongo 命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">use 数据库名</span><br><span class="line">如果数据库存在则选择数据库，如果不存在则创建数据库。</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">db.createCollection(<span class="string">"集合名"</span>)</span><br><span class="line">创建集合</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line"> post=&#123;<span class="string">"name"</span>:<span class="string">"Pony Ma"</span>, <span class="string">"age"</span>:45, <span class="string">"sex"</span>:<span class="string">"M"</span>, <span class="string">"marry"</span>:<span class="literal">true</span> ,<span class="string">"date"</span>:new Date()&#125;</span><br><span class="line">&#123;</span><br><span class="line">        <span class="string">"name"</span> : <span class="string">"Pony Ma"</span>,</span><br><span class="line">        <span class="string">"age"</span> : 45,</span><br><span class="line">        <span class="string">"sex"</span> : <span class="string">"M"</span>,</span><br><span class="line">        <span class="string">"marry"</span> : <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"date"</span> : ISODate(<span class="string">"2018-09-06T01:03:39.075Z"</span>)</span><br><span class="line">&#125;</span><br><span class="line">db.pyuser(集合名称).insert(post)</span><br><span class="line"></span><br><span class="line">插入数据</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">db.(集合名称).find().pretty()</span><br><span class="line">查找，格式化显示</span><br><span class="line"></span><br><span class="line">查看一年级二班grade_1_3中所有年龄大于7岁并且小于 14 岁的学生</span><br><span class="line">db.grade_1_3.find(&#123;age:&#123;<span class="variable">$gt</span>:7,<span class="variable">$lt</span>:14&#125;&#125;).pretty()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看一年级二班grade_1_3所有年龄是 14 岁或 6 岁的学生</span><br><span class="line">db.grade_1_3.find(&#123;<span class="variable">$or</span>:[&#123;age:14&#125;,&#123;age:6&#125;]&#125;).pretty()</span><br><span class="line"></span><br><span class="line">查看一年级二班grade_1_3中所有兴趣爱好包括画画的学生</span><br><span class="line">db.grade_1_3.find(&#123;hobby:<span class="string">'画画'</span>&#125;).pretty()</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">db.(集合名称).distinct(分组字段，&#123;其他条件&#125;)</span><br><span class="line">分组查询</span><br><span class="line">例如：</span><br><span class="line">查看一年级三班的学生，男生（sex为 1）年龄值有哪些</span><br><span class="line">db.grade_1_3.distinct(<span class="string">'age'</span>,&#123;<span class="string">'sex'</span>:1&#125;)</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">db.（集合名称）.find().<span class="built_in">limit</span>(2).sort(&#123;age:1&#125;)</span><br><span class="line"><span class="built_in">limit</span>()表示查询前n行数据，sort表示排序，&#123;age:1&#125;中1代表升序，-1代表降序</span><br><span class="line"></span><br><span class="line">对age进行排序</span><br><span class="line">db.grade_1_3.find().sort(&#123;age:1&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.(集合名称).remove()删除</span><br><span class="line"></span><br><span class="line">一年级二班grade_1_3， 删除所有 22 岁的学生</span><br><span class="line">db.grade_1_3.remove(&#123;<span class="string">'age'</span>:22&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.(集合名称).update(&#123;查找条件&#125;,&#123;<span class="variable">$set</span>:&#123;修改内容&#125;&#125;)</span><br><span class="line"></span><br><span class="line">一年级二班grade_1_3中，修改名为“张三”的学生，年龄为 8 岁，兴趣爱好为 跳舞和画画</span><br><span class="line">db.grade_1_3.insert(&#123;<span class="string">'name'</span>:<span class="string">'张三'</span>&#125;,&#123;<span class="variable">$set</span>:&#123;<span class="string">'age'</span>:8,<span class="string">'hobby'</span>:[<span class="string">'跳舞'</span>,<span class="string">'画画'</span>]&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="insert和save的区别"><a href="#insert和save的区别" class="headerlink" title="insert和save的区别"></a>insert和save的区别</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert()和save()都可以进行插入数据操作</span><br><span class="line">insert()插入数据时，设置_id属性，当表格拥有相同的_id时，则会报错。</span><br><span class="line">save()插入数据时，表格拥有相同的_id，则进行数据的修改。</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/06/my-notes27/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-my-notes26" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1039,74 +1105,9 @@ from Car import Car
 
 
   
-    <article id="post-my-notes17" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/31/my-notes17/">my notes (17)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/31/my-notes17/" class="archive-article-date">
-  	<time datetime="2018-07-31T13:21:09.882Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="Excel文件的操作"><a href="#Excel文件的操作" class="headerlink" title="Excel文件的操作"></a>Excel文件的操作</h2><h3 id="xlrd-读"><a href="#xlrd-读" class="headerlink" title="xlrd (读)"></a>xlrd (读)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">xlrd:用来读取Excel文件中的内容</span><br><span class="line">xlwt：用来生成Excel文件</span><br><span class="line">xlutils：用来实现Excel文件的复制</span><br><span class="line">2、</span><br><span class="line">首先：xlrd</span><br><span class="line">open_workbook()</span><br><span class="line">函数格式：open_workbook(文件名)</span><br><span class="line">返回值：返回Excel对象</span><br><span class="line">说明：打开指定的Excel文件，生成一个Excel对象用来实现读取行、列及单元格内容</span><br><span class="line"></span><br><span class="line">函数格式：sheet_by_name(sheet页面名)/sheet_by_index(sheet页索引位，默认从0开始)</span><br><span class="line">返回值：sheet页对象</span><br><span class="line">说明：找到指定的sheet页，生成一个对应的sheet页对象，对其内部的数据进行检索</span><br><span class="line"></span><br><span class="line">函数格式：sheet.cell(rownum,colnum)</span><br><span class="line">返回值：返回指定行列的单元格对象，如果要获取其中的内容，调用value属性。</span><br><span class="line">说明：通过指定行、列，能够确认一个单元格。</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line"></span><br><span class="line">import xlrd  <span class="comment">#读Excel文件</span></span><br><span class="line">def readExcel(bookname,sheetname):</span><br><span class="line">    <span class="comment"># 打开Excel文件</span></span><br><span class="line">    wb = xlrd.open_workbook(bookname)</span><br><span class="line">    <span class="comment"># 找sheet表</span></span><br><span class="line">    sheet = wb.sheet_by_name(sheetname)</span><br><span class="line">    <span class="comment">#for rownum in range(sheet.nrows):</span></span><br><span class="line">        <span class="comment">#print(sheet.row_values(rownum))</span></span><br><span class="line">    <span class="built_in">print</span>(sheet.nrows)  <span class="comment"># 查询行数</span></span><br><span class="line">    <span class="built_in">print</span>(sheet.ncols)  <span class="comment"># 查询列数</span></span><br><span class="line">    <span class="keyword">for</span> rownum <span class="keyword">in</span> range(sheet.nrows):</span><br><span class="line">        <span class="keyword">for</span> colnum <span class="keyword">in</span> range(sheet.ncols):</span><br><span class="line">            <span class="built_in">print</span>(sheet.cell(rownum,colnum).value,end=<span class="string">' '</span>)</span><br><span class="line">        <span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line">bookname = input(<span class="string">'输入文件名：'</span>)</span><br><span class="line">sheetname = input(<span class="string">'输入表名：'</span>)</span><br><span class="line">readExcel(bookname,sheetname)</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line"></span><br><span class="line">输入文件名：person.xls</span><br><span class="line">输入表名：人员信息表</span><br><span class="line">4</span><br><span class="line">7</span><br><span class="line">姓名 年龄 性别 出生年月 家庭住址 婚姻状况 身份证号码</span><br><span class="line">小文 22.0 女 19960101 不详 不详 41111111111111</span><br><span class="line">小彬彬 21.0 男 19960202 河南省郑州市 已婚 4101222222222</span><br><span class="line">丹丹 22.0 女 19960303 河南郑州 已婚 41013333333333</span><br></pre></td></tr></table></figure>
-<h3 id="xlwd-（写）"><a href="#xlwd-（写）" class="headerlink" title="xlwd （写）"></a>xlwd （写）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">函数名称：Workbook()</span><br><span class="line">返回值：返回一个新创建的Excel空对象</span><br><span class="line">说明：该函数用来生成一个Excel对象，但是该对象没有任何内容</span><br><span class="line"></span><br><span class="line">函数名称：add_sheet(sheet名字)</span><br><span class="line">返回值：返回一个新创建的sheet页对象</span><br><span class="line">说明：该函数用来新增一个空的sheet页对象</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">函数名称：write(row, col, value)</span><br><span class="line">返回值：无</span><br><span class="line">说明：对指定的行列单元格内，写入value内容。</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line"></span><br><span class="line">import xlwt  <span class="comment">#写Excel文件</span></span><br><span class="line">def savaExcel(title,data):</span><br><span class="line">    <span class="comment"># 生成Excel对象</span></span><br><span class="line">    wbt = xlwt.Workbook()</span><br><span class="line">    <span class="comment"># 生成一个sheet页</span></span><br><span class="line">    sheet = wbt.add_sheet(<span class="string">'人员信息表'</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(title)):</span><br><span class="line">        sheet.write(0,i,title[i])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> range(len(data)):</span><br><span class="line">        <span class="keyword">for</span> n <span class="keyword">in</span> range(len(data[m])):</span><br><span class="line">            sheet.write(m+1,n,data[m][n])</span><br><span class="line"></span><br><span class="line">    wbt.save(<span class="string">'person.xls'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 作为Excel表中的标题名称</span></span><br><span class="line">title = [<span class="string">'姓名'</span>,<span class="string">'年龄'</span>,<span class="string">'性别'</span>,<span class="string">'出生年月'</span>,<span class="string">'家庭住址'</span>,<span class="string">'婚姻状况'</span>,<span class="string">'身份证号码'</span>]</span><br><span class="line"><span class="comment"># 生成Excel中的数据</span></span><br><span class="line">data = [</span><br><span class="line">    [<span class="string">'小文'</span>,22,<span class="string">'女'</span>,<span class="string">'19960101'</span>,<span class="string">'不详'</span>,<span class="string">'不详'</span>,<span class="string">'41111111111111'</span>],</span><br><span class="line">    [<span class="string">'小彬彬'</span>,21,<span class="string">'男'</span>,<span class="string">'19960202'</span>,<span class="string">'河南省郑州市'</span>,<span class="string">'已婚'</span>,<span class="string">'4101222222222'</span>],</span><br><span class="line">    [<span class="string">'丹丹'</span>,22,<span class="string">'女'</span>,<span class="string">'19960303'</span>,<span class="string">'河南郑州'</span>,<span class="string">'已婚'</span>,<span class="string">'41013333333333'</span>]</span><br><span class="line">]</span><br><span class="line">savaExcel(title,data)</span><br></pre></td></tr></table></figure>
-<h3 id="xlutils-（改）"><a href="#xlutils-（改）" class="headerlink" title="xlutils （改）"></a>xlutils （改）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">函数格式：copy(Excel对象)</span><br><span class="line">返回值：返回一个指定对象的副本</span><br><span class="line">说明：在Python中对Excel的修改，都是生成一个对应的副本，修改后保存。</span><br><span class="line"></span><br><span class="line">函数格式：get_sheet(索引位)</span><br><span class="line">返回值：返回一个指定对象副本中的sheet页</span><br><span class="line">说明：我们实际修改的数据，都是位于sheet页中。因此要获取到指定的sheet页。</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line"></span><br><span class="line">wb = xlrd.open_workbook(<span class="string">'person.xls'</span>)</span><br><span class="line">sheet = wb.sheet_by_name(<span class="string">'人员信息表'</span>)</span><br><span class="line">new_wb = copy(wb) <span class="comment">#将原来的Excel拷贝一个副本</span></span><br><span class="line">new_sheet = new_wb.get_sheet(0) <span class="comment">#重新在新的Excel中获得sheet页</span></span><br><span class="line">new_sheet.write(1,0,<span class="string">'小彬'</span>)</span><br><span class="line">new_wb.save(<span class="string">'person_new.xls'</span>)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/31/my-notes17/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
