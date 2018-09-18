@@ -150,6 +150,262 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-lesson18" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/18/lesson18/">Excel文件  （代码）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/lesson18/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:19:08.058Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>import xlwt  #写Excel文件<br>import xlrd  #读Excel文件<br>from xlutils.copy import copy #修改Excel文件</p>
+<p>‘’’<br>def savaExcel(title,data):</p>
+<pre><code># 生成Excel对象
+wbt = xlwt.Workbook()
+# 生成一个sheet页
+sheet = wbt.add_sheet(&apos;人员信息表&apos;)
+for i in range(len(title)):
+    sheet.write(0,i,title[i])
+
+for m in range(len(data)):
+    for n in range(len(data[m])):
+        sheet.write(m+1,n,data[m][n])
+
+wbt.save(&apos;person.xls&apos;)
+</code></pre><h1 id="作为Excel表中的标题名称"><a href="#作为Excel表中的标题名称" class="headerlink" title="作为Excel表中的标题名称"></a>作为Excel表中的标题名称</h1><p>title = [‘姓名’,’年龄’,’性别’,’出生年月’,’家庭住址’,’婚姻状况’,’身份证号码’]</p>
+<h1 id="生成Excel中的数据"><a href="#生成Excel中的数据" class="headerlink" title="生成Excel中的数据"></a>生成Excel中的数据</h1><p>data = [<br>    [‘小文’,22,’女’,’19960101’,’不详’,’不详’,’41111111111111’],<br>    [‘小彬彬’,21,’男’,’19960202’,’河南省郑州市’,’已婚’,’4101222222222’],<br>    [‘丹丹’,22,’女’,’19960303’,’河南郑州’,’已婚’,’41013333333333’]<br>]<br>savaExcel(title,data)<br>‘’’</p>
+<p>‘’’<br>def readExcel(bookname,sheetname):</p>
+<pre><code># 打开Excel文件
+wb = xlrd.open_workbook(bookname)
+# 找sheet表
+sheet = wb.sheet_by_name(sheetname)
+#for rownum in range(sheet.nrows):
+    #print(sheet.row_values(rownum))
+print(sheet.nrows)  # 查询行数
+print(sheet.ncols)  # 查询列数
+for rownum in range(sheet.nrows):
+    for colnum in range(sheet.ncols):
+        print(sheet.cell(rownum,colnum).value,end=&apos; &apos;)
+    print()
+</code></pre><p>bookname = input(‘输入文件名：’)<br>sheetname = input(‘输入表名：’)<br>readExcel(bookname,sheetname)<br>‘’’</p>
+<p>‘’’<br>wb = xlrd.open_workbook(‘person.xls’)<br>sheet = wb.sheet_by_name(‘人员信息表’)<br>new_wb = copy(wb) #将原来的Excel拷贝一个副本<br>new_sheet = new_wb.get_sheet(0) #重新在新的Excel中获得sheet页<br>new_sheet.write(1,0,’小彬’)<br>new_wb.save(‘person_new.xls’)<br>‘’’</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/lesson18/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-lesson14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/18/lesson14/">日志例子  （代码）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/lesson14/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:18:18.729Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>import logging<br>def log(msg):</p>
+<pre><code>#创建一个日志对象,并设置日志级别
+logger = logging.getLogger(&apos;pythonlogger&apos;)
+logger.setLevel(logging.INFO)
+
+#创建一个handler， 用来将日志内容存入文件中
+file=logging.FileHandler(&apos;test.log&apos;)
+file.setLevel(logging.INFO)
+
+#创建一个handler，用来将日志输出到控制台
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+
+#定义日志输出格式
+formatter = logging.Formatter(&apos;%(asctime)s - %(name)s - %(levelname)s - %(message)s&apos;)
+file.setFormatter(formatter)
+console.setFormatter(formatter)
+
+# 将logger添加到handler
+logger.addHandler(file)
+logger.addHandler(console)
+
+logger.info(msg)
+
+# 移除Handler
+logger.removeHandler(file)
+logger.removeHandler(console)
+</code></pre><p>def mylogger(f):<br>    def inner(<em>var):<br>        if f(</em>var):<br>            log(f.<strong>name</strong>+’操作成功’)<br>        else:<br>            log(f.<strong>name</strong>+’操作失败’)<br>    return inner</p>
+<p>def menu():<br>    print(‘<em>‘</em>30)<br>    print(‘1、登陆’)<br>    print(‘2、查询’)<br>    print(‘3、退出’)<br>    print(‘<em>‘</em>30)</p>
+<p>@mylogger<br>def load(username, password):<br>    flag = False<br>    if ‘tom’ == username and ‘123456’ == password:<br>        flag = True<br>    else:<br>        flag = False<br>    return flag</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    while True:<br>        menu()<br>        num = input(‘请输入菜单编号：’)<br>        if ‘1’ == num:<br>            username = input(‘请输入用户名：’)<br>            password = input(‘请输入密码：’)<br>            load(username, password)<br>        else:<br>            pass</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/lesson14/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-lesson13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/18/lesson13/">日志  （代码）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/lesson13/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:18:18.727Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="log-日志"><a href="#log-日志" class="headerlink" title="log 日志"></a>log 日志</h1><p>import logging</p>
+<p>#创建一个日志对象,并设置日志级别<br>logger = logging.getLogger(‘pythonlogger’)<br>logger.setLevel(logging.INFO)</p>
+<p>#创建一个handler， 用来将日志内容存入文件中<br>file=logging.FileHandler(‘test.log’)<br>file.setLevel(logging.INFO)</p>
+<p>#创建一个handler，用来将日志输出到控制台<br>console = logging.StreamHandler()<br>console.setLevel(logging.INFO)</p>
+<p>#定义日志输出格式<br>formatter = logging.Formatter(‘%(asctime)s - %(name)s - %(levelname)s - %(message)s’)<br>file.setFormatter(formatter)<br>console.setFormatter(formatter)</p>
+<h1 id="将logger添加到handler"><a href="#将logger添加到handler" class="headerlink" title="将logger添加到handler"></a>将logger添加到handler</h1><p>logger.addHandler(file)<br>logger.addHandler(console)</p>
+<p>logger.info(‘我是一条日志’)</p>
+<h1 id="移除Handler"><a href="#移除Handler" class="headerlink" title="移除Handler"></a>移除Handler</h1><p>logger.removeHandler(file)<br>logger.removeHandler(console)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/lesson13/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-lesson15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -708,265 +964,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/18/lesson7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-lesson5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/18/lesson5/">for循环  （代码）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/18/lesson5/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:16:26.268Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>‘’’<br>str1 = ‘hello world’<br>for item in str1:<br>    print(item,end=’ ‘)</p>
-<p>#快速遍历，只能在集合中运用</p>
-<p>print(‘\n’)</p>
-<p>#range(start,stop[,step]) </p>
-<p>#start代表开始的位置 </p>
-<p>#stop代表输出的次数 注意：从0开始输出，要想输出n则需要写成n+1 </p>
-<p>#step代表步长</p>
-<p>for i in range(len(str1)):<br>    print(str1[i],end=’ ‘)</p>
-<p>print(‘\n’)</p>
-<p>for i in range(2,5):<br>    print(str1[i],end=’ ‘)</p>
-<p>print(‘\n’)</p>
-<p>for i in range(2,101,2):<br>    print(i,end=’ ‘)</p>
-<p>#输出100以内的偶数</p>
-<p>print(‘\n’)</p>
-<p>for i in range(1,101):<br>    if i%2!=0:<br>        print(i,end=’ ‘)</p>
-<p>#输出100以内的奇数</p>
-<p>print(‘\n’)</p>
-<p>num = 0<br>for i in range(1,101):<br>    if i%2!=0:<br>        num = num+i<br>print(‘1到100的基数和为{0}’.format(num))<br>‘’’</p>
-<p>‘’’<br>sum1 = 0<br>for i in range(1,5):<br>    if i%2!=0:<br>        sum = 1<br>        for j in range(1,i+1):<br>            sum *= j<br>        sum1 += sum<br>print(sum1)</p>
-<p>sum1 = 0<br>for i in range(1,11,2):<br>    sum = 1<br>    for j in range(1,i+1):<br>        sum *= j<br>    sum1 += sum<br>print(sum1)<br>‘’’</p>
-<p>‘’’<br>for i in range(10):<br>    if i==5:<br>        break<br>    print(i)<br>print(‘ok’)</p>
-<p>#break中断for循环，执行下边的语句<br>for i in range(10):<br>    if i==5:<br>        continue<br>    print(i)<br>print(‘ok’)</p>
-<p>#continue结束本次循环，继续下次循环<br>‘’’</p>
-<p>‘’’<br>i = 1<br>sum = 0<br>while i&lt;=100:<br>    if i%2==0:<br>        sum +=i<br>    i +=1<br>print(‘100以内偶数之和{0}’.format(sum))<br>‘’’</p>
-<p>‘’’<br>count = 2<br>msg = ‘’<br>while count &gt;=0:<br>    username = input(‘请输入用户名’)<br>    password = input(‘请输入密码’)<br>    if username == ‘zy’ and password == ‘123456’:<br>        msg = ‘欢迎您!’</p>
-<pre><code>    #break
-else:
-    if count &gt; 0:
-        msg = &apos;用户名或密码不正确，您还有{0}次机会&apos;.format(count)
-    else:
-        msg = &apos;三次机会已经使用完，请重置密码&apos;
-        #break
-count = count-1
-print(msg)
-</code></pre><p>‘’’</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/18/lesson5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-lesson3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/18/lesson3/">字符串  （代码）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/18/lesson3/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:14:59.727Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>‘’’<br>string1 = ‘hello world’<br>string2 = “hello world”<br>print(id(string1))<br>print(id(string2))<br>‘’’</p>
-<p>‘’’<br>s1 = ‘abc’<br>s2 = ‘ab’<br>print(s1&gt;s2)<br>a1 = ‘a   b’<br>a2 = ‘a  b’<br>print(a1&gt;a2)</p>
-<p>#字符串比较是逐个比较，只要出现一方的字码值大于另一方，比较结束<br>print(ord(‘a’))<br>print(ord(‘A’))</p>
-<p>#ord 求ASCII码值<br>print(chr(122))  #chr将ASCII码值转换为字符<br>print(chr(123))<br>print(chr(124))<br>print(chr(125))<br>print(chr(126))<br>‘’’</p>
-<p>‘’’<br>a=input(‘请输入一个子字符：’) #input 输入的是字符串<br>b=input(‘请输入另一个字符：’)<br>print(a&gt;b)<br>print(a&lt;b)<br>print(a&gt;=b)<br>print(a&lt;=b)<br>print(a!=b)<br>print(a==b)<br>print(type(a)) #查看字符类型<br>‘’’</p>
-<p>‘’’<br>str1=’hello’<br>print(str1.find(‘ll’))<br>print(str1.find(‘hl’))</p>
-<p>#查找‘ll’在‘hello’中的索引位置，返回首字符‘l’的索引位置，如果没有找到返回-1</p>
-<p>#注意：如果出现多个查找内容，只会返回第一次出现的索引位置<br>string1 = ‘apple,banana,apple’<br>print(string1.find(‘apple’))<br>print(string1.find(‘apple’,5)) #从第五个字符开始查找<br>print(string1.find(‘apple’,14,20)) #从第十四个字符开始，二十结束</p>
-<p>#index速度优于find，index查找不到报错ValueError，而find返回-1<br>print(str1.index(‘l’))<br>print(string1.index(‘apple’,5))<br>print(string1.index(‘apple’,5,20))<br>‘’’</p>
-<p>‘’’<br>str1 = ‘tv,pc,notebook’<br>print(str1.split(‘,’)) #split为拆分字符串，引号内为分隔符<br>print(str1.split()) #没有分隔符会将整体作为一个元素输出<br>print(str1.split(‘：’)) #使用不正确的分隔符，不会报错，整体作为一个元素输出<br>‘’’</p>
-<p>‘’’<br>print(‘恭喜{0}公司上市成功，公司年利润{1}亿元’.format(‘张总’,500))<br>print(‘恭喜{name}公司上市成功，公司年利润{money}亿元’.format(name=’张总’,money=500))<br>‘’’</p>
-<p>‘’’<br>str1 = ‘ zhang yu ‘<br>print(str1)<br>print(str1.strip())<br>print(str1)<br>print(‘\n’)<br>str2 = ‘azhangyua’<br>print(str2.strip(‘a’))<br>print(str2)<br>print(‘\n’)<br>str3 = ‘<em>azhangyua</em>‘<br>print(str3.strip(‘<em>a’))<br>print(str3)<br>str4 = ‘</em>azhangyu<em>a’<br>print(str4.strip(‘</em>a’))</p>
-<h1 id="去除字符串左右两端的指定字符，默认为空格"><a href="#去除字符串左右两端的指定字符，默认为空格" class="headerlink" title="去除字符串左右两端的指定字符，默认为空格"></a>去除字符串左右两端的指定字符，默认为空格</h1><h1 id="注意：返回结果为一个新的字符串，原来的str1和str2的值不变"><a href="#注意：返回结果为一个新的字符串，原来的str1和str2的值不变" class="headerlink" title="注意：返回结果为一个新的字符串，原来的str1和str2的值不变"></a>注意：返回结果为一个新的字符串，原来的str1和str2的值不变</h1><h1 id="在运算str3中，将a作为一个序列删除，也就是首先去除，然后去除a"><a href="#在运算str3中，将a作为一个序列删除，也就是首先去除，然后去除a" class="headerlink" title="在运算str3中，将a作为一个序列删除，也就是首先去除，然后去除a"></a>在运算str3中，将<em>a作为一个序列删除，也就是首先去除</em>，然后去除a</h1><p>‘’’</p>
-<p>‘’’<br>str1 = ‘welecome to zhengzhou’<br>print(str1)<br>new_str = ‘beijing’<br>print(str1.replace(‘zhengzhou’,new_str))<br>print(str1.replace(‘zhengzhou’,’shanghai’))<br>str2 = ‘oppo,vivo,apple,oppo,oppo’<br>print(str2)<br>old_str3 = ‘oppo’<br>new_str3 = ‘xiaomi’<br>print(str2.replace(old_str3,new_str3))<br>print(str2.replace(old_str3,new_str3,2))</p>
-<p>#replace(old,new[,max]) 替换语句 将old的值替换为new的值 max表示替换的数目<br>‘’’</p>
-<p>‘’’<br>a = ‘123’<br>b = ‘zy’<br>c = ‘12zy’<br>d=’ ‘<br>print(b.isalpha()) #判断字符串是否由字母组成<br>print(a.isdigit()) #判断字符串是否由数字组成<br>print(c.isalnum()) #判断字符串是否由字母或数字组成<br>print(d.isspace()) #判断字符串是否为空格组成<br>‘’’</p>
-<p>‘’’</p>
-<p>#[]代表切片，也就是截取字符串<br>a = ‘ABCDEFG’<br>print(a[0])<br>print(a[3])<br>print(a[-1])  #-1代表反向第一个字符，从右向左依次为-1，-2，-3…<br>print(a[0:2])  #[0:2]表示将第0个字符到第2个字符之前截取出来<br>print(a[0:])   #默认从第0个字符截取到最后<br>print(a[:3])<br>print(a[:])<br>print(a[::])<br>print(a[0:7:2]) #2代表步长，就是每隔（步长-1）个截取一位</p>
-<p>#切片时只能从左往右切片，从右往左切片的话会返回空值，例如[-1:-3] [-1:0]</p>
-<h1 id="特例-使用步长实现字符串反转，即反向截取且反向输出"><a href="#特例-使用步长实现字符串反转，即反向截取且反向输出" class="headerlink" title="特例  使用步长实现字符串反转，即反向截取且反向输出"></a>特例  使用步长实现字符串反转，即反向截取且反向输出</h1><p>a = ‘hello world’<br>print(a[10::-1])<br>print(a[-1::-1])<br>‘’’</p>
-<p>‘’’<br>a = ‘hello ‘<br>b = ‘world’<br>print(a+b)<br>c = ‘zy ‘<br>print(c*10)</p>
-<h1 id="字符串中-代表连接，-n代表重复n次"><a href="#字符串中-代表连接，-n代表重复n次" class="headerlink" title="字符串中+代表连接，*n代表重复n次"></a>字符串中+代表连接，*n代表重复n次</h1><p>print(a.upper())<br>print(a.lower())<br>‘’’</p>
-<p>‘’’<br>str1 = ‘hello world’<br>str2 = ‘wor’  #’wor’作为一个整体<br>str3 = ‘a’<br>print(str2 in str1)<br>print(str3 in str1)</p>
-<p>#判断str1是否包含str2或str3，包含 返回true 否则返回false<br>‘’’</p>
-<p>‘’’</p>
-<p>#将一个名字从“名，中间名，姓”的顺序变为“姓，名，中间名”的格式。</p>
-<h1 id="例如’John-M-Cleese’将变成’Cleese-John-M’"><a href="#例如’John-M-Cleese’将变成’Cleese-John-M’" class="headerlink" title="例如’John M. Cleese’将变成’Cleese,John M’"></a>例如’John M. Cleese’将变成’Cleese,John M’</h1><p>name = ‘John M.Cleese’<br>first_name = name[0:6]<br>last_name = name[7:]<br>print(last_name +’,’+first_name)<br>str1 = name.split(‘.’)<br>print(str1[1]+’,’+str1[0])</p>
-<p>name1 = ‘John M. Cleese’<br>str2 = name1.split(‘ ‘)<br>print(str2)<br>print(str2[2]+’,’+str2[0]+’ ‘+str2[1].strip(‘.’))<br>‘’’</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/18/lesson3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-lesson2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/18/lesson2/">进制转换、浮点数、decimal函数  （代码）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/18/lesson2/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:14:40.586Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>‘’’<br>print(‘5%2’)</p>
-<p>i=1+2\<br>    +3+4+\<br>    5<br>print(i)  #一行写不完可以多行书写,只需要加一个’\’</p>
-<p>i = ‘z’+’h’+\<br>    ‘a’+’n’+\<br>        ‘g’<br>print(i)<br>‘’’</p>
-<p>‘’’<br>i=10<br>print(oct(i)) #十进制转八进制<br>print(hex(i)) #十进制转十六进制<br>print(bin(i)) #十进制转二进制<br>print(int(0o12)) #括号内的其他进制转换为十进制<br>print(‘八进制：%o,十进制：%x’ %(10,10)) #八进制和十六进制占位符<br>‘’’</p>
-<p>‘’’<br>a=5<br>print(a/2) #在python默认的是浮点型<br>print(a%2) #求余数<br>print(divmod(5,3))  #求商和余数<br>print(a//2) #求整数（小数位全部舍去只留整数，不进行四舍五入）<br>import math #使用floor和ceil时首先引入 math 包<br>print(math.floor(a/2)) #就低原则 只舍不入<br>print(int(a/2))  #和//类似  只留整数<br>print(math.ceil(a/2))  #就高原则 只入不舍<br>print(round(1.5))  #四舍五入（浮点型是近似值，.5不一定入）<br>print(round(1.5,1)) #保留小数点后一位<br>print(a<strong>2) #求幂次方，相当于5的2次幂<br>print(pow(5,2)) #等同于print(a</strong>2)<br>print(abs(-10)) #求绝对值<br>‘’’</p>
-<p>‘’’<br>a=True<br>b=False<br>print(a+b)<br>print(a+1,a-1,a*1,a/1)</p>
-<p>#True和False可以当做1和0进行算数运算<br>print(not a)<br>print(not b)</p>
-<p>#求反  ‘非’<br>‘’’</p>
-<p>‘’’<br>from decimal import Decimal<br>i=12.45567<br>j=34.55555<br>a=Decimal(i).quantize(Decimal(‘0.00’))<br>b=Decimal(j).quantize(Decimal(‘0.00’))<br>print(a)<br>print(b)<br>print(a+b)<br>print(a*b)</p>
-<p>#运用Decimal精确浮点型小数，可以进行精准的四舍五入计算<br>‘’’</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/18/lesson2/">展开全文 >></a>
         </p>
       
 

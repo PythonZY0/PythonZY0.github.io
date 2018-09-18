@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 我的地盘我做主</title>
+  <title>连接数据库mysql | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="python、爬虫、Web开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的地盘我做主">
-<meta property="og:url" content="http://yoursite.com/archives/2018/page/2/index.html">
+  <meta name="description" content="import json import pymysql class Movies:     def __init__(self):         pass     CON = pymysql.connect(         host=&apos;localhost&apos;,  # 数据库地址，localhost代表本地         port=3306,  # 数据库端口号         user=&apos;roo">
+<meta name="keywords" content="python、爬虫、Web开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="连接数据库mysql">
+<meta property="og:url" content="http://yoursite.com/2018/09/18/mysql1/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
+<meta property="og:description" content="import json import pymysql class Movies:     def __init__(self):         pass     CON = pymysql.connect(         host=&apos;localhost&apos;,  # 数据库地址，localhost代表本地         port=3306,  # 数据库端口号         user=&apos;roo">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-18T12:39:06.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的地盘我做主">
+<meta name="twitter:title" content="连接数据库mysql">
+<meta name="twitter:description" content="import json import pymysql class Movies:     def __init__(self):         pass     CON = pymysql.connect(         host=&apos;localhost&apos;,  # 数据库地址，localhost代表本地         port=3306,  # 数据库端口号         user=&apos;roo">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -148,295 +152,218 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mysql1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      连接数据库mysql
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/mysql1/" class="archive-article-date">
+  	<time datetime="2018-09-18T12:38:27.904Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code class="bash">import json
+import pymysql
+class Movies:
+    def __init__(self):
+        pass
+    CON = pymysql.connect(
+        host=<span class="string">'localhost'</span>,  <span class="comment"># 数据库地址，localhost代表本地</span>
+        port=3306,  <span class="comment"># 数据库端口号</span>
+        user=<span class="string">'root'</span>,  <span class="comment"># 数据库用户名</span>
+        password=<span class="string">'123456'</span>,  <span class="comment"># 数据库密码</span>
+        db=<span class="string">'movie'</span>  <span class="comment"># 数据库名字</span>
+    )
+    def getJson(self):
+        with open(<span class="string">'./in_theaters.json'</span>,<span class="string">'r'</span>) as f:
+            load = json.load(f)
+        <span class="built_in">return</span> load
+
+    def getList(self,load):
+        get_list = []
+        lis = load[<span class="string">'subjects'</span>]
+        <span class="keyword">for</span> item <span class="keyword">in</span> lis:
+            list1 = []
+            genres = <span class="string">''</span>
+            kname = <span class="string">''</span>
+            list1.append(item[<span class="string">'title'</span>])
+            list1.append(item[<span class="string">'directors'</span>][0][<span class="string">'name'</span>])
+            list2 = item[<span class="string">'casts'</span>]
+            <span class="keyword">for</span> kw <span class="keyword">in</span> list2:
+                kname = kname + <span class="string">','</span> + kw[<span class="string">'name'</span>]
+            list1.append(kname)
+            <span class="keyword">for</span> kv <span class="keyword">in</span> item[<span class="string">'genres'</span>]:
+                genres = genres + <span class="string">','</span> + kv
+            list1.append(genres)
+            list1.append(item[<span class="string">'mainland_pubdate'</span>])
+            list1.append(item[<span class="string">'rating'</span>][<span class="string">'average'</span>])
+            get_list.append(list1)
+        <span class="built_in">return</span> get_list
+
+
+    def insertINFO(self,get_list):
+        cursor = self.CON.cursor()
+        <span class="keyword">for</span> item <span class="keyword">in</span> get_list:
+            cursor.execute(<span class="string">"insert into movies(mname,director,actor,type,show_time,score) values('{0}','{1}','{2}','{3}','{4}',{5})"</span>.format(item[0],item[1],item[2],item[3],item[4],item[5],))
+            self.CON.commit()
+            cursor.close()
+            self.CON.close()
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    movie = Movies()
+    load = movie.getJson()
+    get_list = movie.getList(load)
+    <span class="built_in">print</span>(get_list)
+    movie.insertINFO(get_list)
+
+</code></pre>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/pachong4/" class="archive-article-date">
-  	<time datetime="2018-09-18T12:06:04.375Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/18/pachong4/">智联招聘（爬虫，json）</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/18/mysql1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/pachong3/" class="archive-article-date">
-  	<time datetime="2018-09-18T12:02:42.211Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/09/18/mysql2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          连接数据库mysql  练习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/18/html/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">简单的html</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/18/pachong3/">我买网（爬虫，json）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/pachong2/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:56:56.836Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/18/pachong2/">豆瓣电影（爬虫，json）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/pachong1/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:54:35.561Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/18/pachong1/">豆瓣电影（爬虫，html）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/lesson23/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:20:30.619Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/18/lesson23/">json、pickle、计数器、time函数、random函数、文件操作  （代码）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/lesson22/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:19:45.651Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/18/lesson22/">异常  （代码）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/lesson21/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:19:45.650Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/18/lesson21/">xml和Excel操作例子  （代码）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/lesson20/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:19:45.649Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/18/lesson20/">xml文件  （代码）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/lesson17/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:19:08.060Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/18/lesson17/">二进制文件  （代码）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/18/lesson16/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:19:08.059Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/18/lesson16/">文件.txt的操作  （代码）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2018/page/3/">3</a><a class="page-number" href="/archives/2018/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2018/page/7/">7</a><a class="extend next" rel="next" href="/archives/2018/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -463,8 +390,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -150,6 +150,245 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-pachong4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/18/pachong4/">智联招聘（爬虫，json）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/pachong4/" class="archive-article-date">
+  	<time datetime="2018-09-18T12:06:04.375Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import  math</span><br><span class="line">import json</span><br><span class="line">from urllib import parse</span><br><span class="line">import xlwt</span><br><span class="line">class LagouSpider:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.__url = url</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取到指定url地址的第num页岗位信息，</span></span><br><span class="line">    def get_json(self):</span><br><span class="line">        my_headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'fe-api.zhaopin.com'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=self.__url, headers=my_headers)</span><br><span class="line">            response.raise_for_status() <span class="comment">#判断状态码是否为200  不是抛异常</span></span><br><span class="line">            response.encoding = <span class="string">'utf-8'</span></span><br><span class="line">            page = response.json()</span><br><span class="line">            <span class="built_in">return</span> page</span><br><span class="line">        except requests.HTTPError as he:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'访问服务器错误'</span>)</span><br><span class="line"></span><br><span class="line">    def get_page_num(self, count):</span><br><span class="line">        result = math.ceil(count/60)</span><br><span class="line">        <span class="keyword">if</span> result &gt; 30:</span><br><span class="line">            result = 30</span><br><span class="line">        <span class="built_in">return</span> result</span><br><span class="line"></span><br><span class="line">    def get_page(self,dic):</span><br><span class="line">        get_list = []</span><br><span class="line">        list2 = dic[<span class="string">"data"</span>][<span class="string">"results"</span>]</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> list2:</span><br><span class="line">            list3 = []</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"number"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"size"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"type"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"workingExp"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"eduLevel"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"salary"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"emplType"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"jobName"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"welfare"</span>])</span><br><span class="line">            get_list.append(list3)</span><br><span class="line">        <span class="built_in">return</span> get_list</span><br><span class="line"></span><br><span class="line">    def write_excel(self, lis):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'招聘信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'公司编号'</span>, <span class="string">'公司名称'</span>, <span class="string">'公司大小'</span>, <span class="string">'公司类型'</span>, <span class="string">'工作年限'</span>, <span class="string">'学历'</span>, <span class="string">'工资'</span>, <span class="string">'工作类型'</span>, <span class="string">'职位名称'</span>, <span class="string">'公司福利'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m+1, n, lis[m][n])</span><br><span class="line">        wbt.save(<span class="string">'zhilian.xls'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    i = 60</span><br><span class="line">    ajax_url = <span class="string">'https://fe-api.zhaopin.com/c/i/sou?start=60&amp;pageSize=60&amp;cityId=530&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D'</span></span><br><span class="line">    spider = LagouSpider(ajax_url)</span><br><span class="line">    dic = spider.get_json()</span><br><span class="line">    num = spider.get_page_num(dic[<span class="string">'data'</span>][<span class="string">'numFound'</span>])</span><br><span class="line">    city_num = input(<span class="string">'城市编码：'</span>)</span><br><span class="line">    info_list = []</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> range(num):</span><br><span class="line">        ajax_url = <span class="string">'https://fe-api.zhaopin.com/c/i/sou?start=&#123;0&#125;&amp;pageSize=60&amp;cityId=&#123;1&#125;&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D'</span>.format(i,city_num)</span><br><span class="line">        i = i+60</span><br><span class="line">        spider = LagouSpider(ajax_url)</span><br><span class="line">        dic = spider.get_json()</span><br><span class="line">        lis = spider.get_page(dic)</span><br><span class="line">        info_list += lis</span><br><span class="line">    spider.write_excel(info_list)</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/pachong4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-pachong3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/18/pachong3/">我买网（爬虫，json）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/pachong3/" class="archive-article-date">
+  	<time datetime="2018-09-18T12:02:42.211Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from urllib import parse</span><br><span class="line">import xlwt</span><br><span class="line">import json</span><br><span class="line">class LagouSpider:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.__url = url</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取到指定url地址的第num页岗位信息，</span></span><br><span class="line">    def get_json(self):</span><br><span class="line">        my_headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'price.womai.com'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=self.__url, headers=my_headers)</span><br><span class="line">            response.raise_for_status() <span class="comment">#判断状态码是否为200  不是抛异常</span></span><br><span class="line">            response.encoding = response.apparent_encoding</span><br><span class="line">            info = response.text</span><br><span class="line">            num = info.find(<span class="string">'&#123;'</span>)</span><br><span class="line">            page = info[num:-1]</span><br><span class="line">            page = json.loads(page)</span><br><span class="line">            <span class="built_in">return</span> page</span><br><span class="line">        except requests.HTTPError as he:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'访问服务器错误'</span>)</span><br><span class="line"></span><br><span class="line">    def get_page(self,dic):</span><br><span class="line">        get_list = []</span><br><span class="line">        lis = dic[<span class="string">'result'</span>]</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            list1 = []</span><br><span class="line">            list1.append(item[<span class="string">'id'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'price'</span>][<span class="string">'buyPrice'</span>][<span class="string">'priceValue'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'price'</span>][<span class="string">'WMPrice'</span>][<span class="string">'priceValue'</span>])</span><br><span class="line">            list1.append(<span class="string">'http://www.womai.com/Product-0-&#123;0&#125;.htm?piwik_keyword=%25E5%2586%25B0%25E7%25AE%25B1'</span>.format(item[<span class="string">'id'</span>]))</span><br><span class="line">            get_list.append(list1)</span><br><span class="line">        <span class="built_in">return</span> get_list</span><br><span class="line"></span><br><span class="line">    def write_excel(self, lis):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'招聘信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'id'</span>, <span class="string">'buyPrice'</span>, <span class="string">'WMPrice'</span>, <span class="string">'链接'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m+1, n, lis[m][n])</span><br><span class="line">        wbt.save(<span class="string">'womaiwang.xls'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    ajax_url =<span class="string">'http://price.womai.com/PriceServer/open/productlist.do?ids=655198%2C657378%2C657379%2C630669%2C512850%2C338835%2C657023%2C630065%2C642260%2C642259%2C607161%2C650947%2C639387%2C624926%2C624875%2C633490&amp;prices=buyPrice%2CWMPrice%2CmarketPrice%2CspecialPrice&amp;defData=n&amp;mid=0&amp;cityid=31000&amp;usergroupid=100&amp;callback=jsonp1534499503419'</span></span><br><span class="line">    spider = LagouSpider(ajax_url)</span><br><span class="line">    page = spider.get_json()</span><br><span class="line">    list1 = spider.get_page(page)</span><br><span class="line">    spider.write_excel(list1)</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/pachong3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-pachong2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/18/pachong2/">豆瓣电影（爬虫，json）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/pachong2/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:56:56.836Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code class="bash">import requests
+import json
+import xlwt
+class Movie:
+    def __init__(self, url):
+        self.__url = url
+
+    def getHtml(self):
+        try:
+            response = requests.get(self.__url)
+            response.raise_for_status()
+            response.encoding = response.apparent_encoding
+            html = response.json()
+            <span class="built_in">return</span> html
+        except requests.HTTPError as re:
+            <span class="built_in">print</span>(<span class="string">'访问服务器出错'</span>)
+
+    def get_info(self, dic):
+        lis = dic[<span class="string">'subjects'</span>]
+        movie_list = []
+        <span class="keyword">for</span> item <span class="keyword">in</span> lis:
+            list1 = []
+            actor = []
+            list1.append(item[<span class="string">'title'</span>])
+            list1.append(<span class="string">','</span>.join(item[<span class="string">'genres'</span>]))
+            list1.append(item[<span class="string">'rating'</span>][<span class="string">'average'</span>])
+            list1.append(item[<span class="string">'year'</span>])
+            <span class="keyword">for</span> act <span class="keyword">in</span> item[<span class="string">'casts'</span>]:
+                actor.append(act[<span class="string">'name'</span>])
+            list1.append(<span class="string">','</span>.join(actor))
+            list1.append(item[<span class="string">'directors'</span>][0][<span class="string">'name'</span>])
+            movie_list.append(list1)
+        <span class="built_in">return</span> movie_list
+
+    def write_excel(self, lis):
+        wbt = xlwt.Workbook()
+        sheet = wbt.add_sheet(<span class="string">'电影信息表'</span>)
+        get_total = [<span class="string">'电影名称'</span>, <span class="string">'电影类型'</span>, <span class="string">'评分'</span>, <span class="string">'上映时间'</span>, <span class="string">'主演'</span>, <span class="string">'导演'</span>]
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):
+            sheet.write(0, i, get_total[i])
+        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):
+            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):
+                sheet.write(m+1, n, lis[m][n])
+        wbt.save(<span class="string">'movie.xls'</span>)
+
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    url = <span class="string">'http://api.douban.com/v2/movie/top250'</span>
+    spoder = Movie(url)
+    html = spoder.getHtml()
+    movie_list = spoder.get_info(html)
+    spoder.write_excel(movie_list)
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/pachong2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-pachong1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -720,262 +959,6 @@ saveXLS2(title[:6],list1)
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/18/lesson16/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-lesson18" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/18/lesson18/">Excel文件  （代码）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/18/lesson18/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:19:08.058Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>import xlwt  #写Excel文件<br>import xlrd  #读Excel文件<br>from xlutils.copy import copy #修改Excel文件</p>
-<p>‘’’<br>def savaExcel(title,data):</p>
-<pre><code># 生成Excel对象
-wbt = xlwt.Workbook()
-# 生成一个sheet页
-sheet = wbt.add_sheet(&apos;人员信息表&apos;)
-for i in range(len(title)):
-    sheet.write(0,i,title[i])
-
-for m in range(len(data)):
-    for n in range(len(data[m])):
-        sheet.write(m+1,n,data[m][n])
-
-wbt.save(&apos;person.xls&apos;)
-</code></pre><h1 id="作为Excel表中的标题名称"><a href="#作为Excel表中的标题名称" class="headerlink" title="作为Excel表中的标题名称"></a>作为Excel表中的标题名称</h1><p>title = [‘姓名’,’年龄’,’性别’,’出生年月’,’家庭住址’,’婚姻状况’,’身份证号码’]</p>
-<h1 id="生成Excel中的数据"><a href="#生成Excel中的数据" class="headerlink" title="生成Excel中的数据"></a>生成Excel中的数据</h1><p>data = [<br>    [‘小文’,22,’女’,’19960101’,’不详’,’不详’,’41111111111111’],<br>    [‘小彬彬’,21,’男’,’19960202’,’河南省郑州市’,’已婚’,’4101222222222’],<br>    [‘丹丹’,22,’女’,’19960303’,’河南郑州’,’已婚’,’41013333333333’]<br>]<br>savaExcel(title,data)<br>‘’’</p>
-<p>‘’’<br>def readExcel(bookname,sheetname):</p>
-<pre><code># 打开Excel文件
-wb = xlrd.open_workbook(bookname)
-# 找sheet表
-sheet = wb.sheet_by_name(sheetname)
-#for rownum in range(sheet.nrows):
-    #print(sheet.row_values(rownum))
-print(sheet.nrows)  # 查询行数
-print(sheet.ncols)  # 查询列数
-for rownum in range(sheet.nrows):
-    for colnum in range(sheet.ncols):
-        print(sheet.cell(rownum,colnum).value,end=&apos; &apos;)
-    print()
-</code></pre><p>bookname = input(‘输入文件名：’)<br>sheetname = input(‘输入表名：’)<br>readExcel(bookname,sheetname)<br>‘’’</p>
-<p>‘’’<br>wb = xlrd.open_workbook(‘person.xls’)<br>sheet = wb.sheet_by_name(‘人员信息表’)<br>new_wb = copy(wb) #将原来的Excel拷贝一个副本<br>new_sheet = new_wb.get_sheet(0) #重新在新的Excel中获得sheet页<br>new_sheet.write(1,0,’小彬’)<br>new_wb.save(‘person_new.xls’)<br>‘’’</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/18/lesson18/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-lesson14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/18/lesson14/">日志例子  （代码）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/18/lesson14/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:18:18.729Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>import logging<br>def log(msg):</p>
-<pre><code>#创建一个日志对象,并设置日志级别
-logger = logging.getLogger(&apos;pythonlogger&apos;)
-logger.setLevel(logging.INFO)
-
-#创建一个handler， 用来将日志内容存入文件中
-file=logging.FileHandler(&apos;test.log&apos;)
-file.setLevel(logging.INFO)
-
-#创建一个handler，用来将日志输出到控制台
-console = logging.StreamHandler()
-console.setLevel(logging.INFO)
-
-#定义日志输出格式
-formatter = logging.Formatter(&apos;%(asctime)s - %(name)s - %(levelname)s - %(message)s&apos;)
-file.setFormatter(formatter)
-console.setFormatter(formatter)
-
-# 将logger添加到handler
-logger.addHandler(file)
-logger.addHandler(console)
-
-logger.info(msg)
-
-# 移除Handler
-logger.removeHandler(file)
-logger.removeHandler(console)
-</code></pre><p>def mylogger(f):<br>    def inner(<em>var):<br>        if f(</em>var):<br>            log(f.<strong>name</strong>+’操作成功’)<br>        else:<br>            log(f.<strong>name</strong>+’操作失败’)<br>    return inner</p>
-<p>def menu():<br>    print(‘<em>‘</em>30)<br>    print(‘1、登陆’)<br>    print(‘2、查询’)<br>    print(‘3、退出’)<br>    print(‘<em>‘</em>30)</p>
-<p>@mylogger<br>def load(username, password):<br>    flag = False<br>    if ‘tom’ == username and ‘123456’ == password:<br>        flag = True<br>    else:<br>        flag = False<br>    return flag</p>
-<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    while True:<br>        menu()<br>        num = input(‘请输入菜单编号：’)<br>        if ‘1’ == num:<br>            username = input(‘请输入用户名：’)<br>            password = input(‘请输入密码：’)<br>            load(username, password)<br>        else:<br>            pass</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/18/lesson14/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-lesson13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/18/lesson13/">日志  （代码）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/18/lesson13/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:18:18.727Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="log-日志"><a href="#log-日志" class="headerlink" title="log 日志"></a>log 日志</h1><p>import logging</p>
-<p>#创建一个日志对象,并设置日志级别<br>logger = logging.getLogger(‘pythonlogger’)<br>logger.setLevel(logging.INFO)</p>
-<p>#创建一个handler， 用来将日志内容存入文件中<br>file=logging.FileHandler(‘test.log’)<br>file.setLevel(logging.INFO)</p>
-<p>#创建一个handler，用来将日志输出到控制台<br>console = logging.StreamHandler()<br>console.setLevel(logging.INFO)</p>
-<p>#定义日志输出格式<br>formatter = logging.Formatter(‘%(asctime)s - %(name)s - %(levelname)s - %(message)s’)<br>file.setFormatter(formatter)<br>console.setFormatter(formatter)</p>
-<h1 id="将logger添加到handler"><a href="#将logger添加到handler" class="headerlink" title="将logger添加到handler"></a>将logger添加到handler</h1><p>logger.addHandler(file)<br>logger.addHandler(console)</p>
-<p>logger.info(‘我是一条日志’)</p>
-<h1 id="移除Handler"><a href="#移除Handler" class="headerlink" title="移除Handler"></a>移除Handler</h1><p>logger.removeHandler(file)<br>logger.removeHandler(console)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/18/lesson13/">展开全文 >></a>
         </p>
       
 

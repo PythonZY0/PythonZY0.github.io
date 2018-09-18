@@ -150,6 +150,337 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-mysql3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/18/mysql3/">mysql</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/mysql3/" class="archive-article-date">
+  	<time datetime="2018-09-18T12:45:09.348Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">import pymysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据库连接</span></span><br><span class="line">connection = pymysql.connect(</span><br><span class="line">    host=<span class="string">'localhost'</span>,    <span class="comment">#数据库地址，localhost代表本地</span></span><br><span class="line">    port=3306,           <span class="comment">#数据库端口号</span></span><br><span class="line">    user=<span class="string">'root'</span>,         <span class="comment"># 数据库用户名</span></span><br><span class="line">    password=<span class="string">'123456'</span>,   <span class="comment"># 数据库密码</span></span><br><span class="line">    db=<span class="string">'work'</span>            <span class="comment"># 数据库名字</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># # 创建游标,默认生成元组格式</span></span><br><span class="line"><span class="comment"># cursor = connection.cursor()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成字典类型游标</span></span><br><span class="line">cursor = connection.cursor(cursor=pymysql.cursors.DictCursor)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询语句</span></span><br><span class="line">cursor.execute(<span class="string">'select * from emp'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取第一行数据</span></span><br><span class="line">row = cursor.fetchone()</span><br><span class="line"><span class="built_in">print</span>(row)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取前N行数据</span></span><br><span class="line">rows = cursor.fetchmany(5)</span><br><span class="line"><span class="built_in">print</span>(rows)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取全部数据</span></span><br><span class="line">row_all = cursor.fetchall()</span><br><span class="line"><span class="built_in">print</span>(row_all)</span><br><span class="line"></span><br><span class="line">cursor.close()</span><br><span class="line">connection.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">import pymysql</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">connection = pymysql.connect(</span></span><br><span class="line"><span class="string">    host='</span>localhost<span class="string">',    #数据库地址，localhost代表本地</span></span><br><span class="line"><span class="string">    port=3306,           #数据库端口号</span></span><br><span class="line"><span class="string">    user='</span>root<span class="string">',         # 数据库用户名</span></span><br><span class="line"><span class="string">    password='</span>123456<span class="string">',   # 数据库密码</span></span><br><span class="line"><span class="string">    db='</span>mydb<span class="string">'            # 数据库名字</span></span><br><span class="line"><span class="string">)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">cursor = connection.cursor()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 添加数据（一条）</span></span><br><span class="line"><span class="string">flag = cursor.execute("insert into persons(pno,pname,age,hire_date,salary) values(10004,'</span>jack<span class="string">',22,'</span>2018-08-30<span class="string">',3200)")</span></span><br><span class="line"><span class="string">print(flag)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 修改数据</span></span><br><span class="line"><span class="string">cursor.execute("update persons set pname='</span>tomas<span class="string">' where pno='</span>10004<span class="string">'")</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 删除数据</span></span><br><span class="line"><span class="string">cursor.execute("delete from persons where pno='</span>10004<span class="string">'")</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">connection.commit()</span></span><br><span class="line"><span class="string">cursor.close()</span></span><br><span class="line"><span class="string">connection.close()</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/mysql3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/18/mysql2/">连接数据库mysql  练习</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/mysql2/" class="archive-article-date">
+  	<time datetime="2018-09-18T12:39:48.657Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code class="bash">from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, Date, Float, or_
+from sqlalchemy.orm import  sessionmaker, aliased
+from sqlalchemy.sql import func
+
+
+Base = declarative_base()
+class Emp(Base):
+    __tablename__ = <span class="string">'emp'</span>
+    EMPNO = Column(Integer, primary_key=True, autoincrement=False)
+    ENAME = Column(String(10))
+    JOB = Column(String(9))
+    MGR = Column(Integer)
+    HIREDATE = Column(Date)
+    SAL = Column(Float)
+    COMM = Column(Float)
+    DEPTNO = Column(Integer)
+
+
+class Dept(Base):
+    __tablename__ = <span class="string">'dept'</span>
+    DEPTNO = Column(Integer, primary_key=True, autoincrement=False)
+    DNAME = Column(String(14))
+    LOC = Column(String(13))
+
+class OrmDB:
+    def __init__(self, username, password, host, port, dbname):
+        sql = <span class="string">'mysql+pymysql://{0}:{1}@{2}:{3}/{4}?charset=utf8'</span>.format(username, password, host, port, dbname)
+        engine = create_engine(sql, max_overflow=5)
+        Session =sessionmaker(<span class="built_in">bind</span>=engine)   <span class="comment"># 创建一个sessionmaker对象</span>
+        self.session = Session()    <span class="comment"># 创建一个session对象，用来调用内置的增删改查命令</span>
+
+    def findAll2(self):
+        ret = self.session.query(Emp, Dept).filter(Emp.DEPTNO == Dept.DEPTNO).all()
+        <span class="built_in">return</span> ret
+
+
+    def findAll3(self):
+        ret = self.session.query(Emp, Dept).filter(Emp.DEPTNO==20, Emp.DEPTNO == Dept.DEPTNO).all()
+        <span class="built_in">return</span> ret
+
+    def findAll4(self):
+        ret = self.session.query(func.avg(Emp.SAL), Emp.DEPTNO).group_by(Emp.DEPTNO).order_by(func.avg(Emp.SAL).desc()).all()
+        <span class="built_in">return</span> ret
+
+    def findAll5(self):
+        w = aliased(Emp)
+        b = aliased(Emp)
+        ret = self.session.query(w).filter(w.MGR == b.EMPNO).all()
+        <span class="built_in">return</span> ret
+
+    def findAll6(self):
+        ret = self.session.query(Emp).filter(or_(Emp.SAL &lt; 3000, Emp.HIREDATE &gt; <span class="string">'1981-10-01'</span>)).order_by(Emp.SAL.desc(), Emp.HIREDATE).all()
+        <span class="built_in">return</span> ret
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    db = OrmDB(<span class="string">'root'</span>, <span class="string">'123456'</span>, <span class="string">'localhost'</span>, 3306, <span class="string">'work'</span>)
+
+    <span class="comment"># 第二题：查询所有员工的姓名、编号、薪资、岗位、部门名、部门地址</span>
+    <span class="comment"># items = db.findAll2()</span>
+    <span class="comment"># for i in range(len(items)):</span>
+    <span class="comment">#     print(items[i][0].EMPNO, items[i][0].ENAME, items[i][0].SAL, items[i][0].JOB, items[i][1].DNAME, items[i][1].LOC)</span>
+
+
+    <span class="comment"># 第三题：查询所有部门编号20的员工信息及部门名</span>
+    <span class="comment"># items = db.findAll3()</span>
+    <span class="comment"># for i in range(len(items)):</span>
+    <span class="comment">#     print(items[i][0].EMPNO, items[i][0].ENAME, items[i][0].JOB, items[i][0].MGR, items[i][0].HIREDATE, items[i][0].SAL, items[i][0].COMM,items[i][1].DEPTNO, items[i][1].DNAME)</span>
+
+    <span class="comment"># 第四题：查询所有部门的平均工资，并按照降序排列</span>
+    <span class="comment"># items = db.findAll4()</span>
+    <span class="comment"># for i in range(len(items)):</span>
+    <span class="comment">#     print(items[i][0], items[i][1])</span>
+
+
+    <span class="comment"># 第五题：查询所有员工的编号，员工姓名，岗位，领导编号，领导姓名</span>
+    <span class="comment"># items = db.findAll5()</span>
+    <span class="comment"># print(items)</span>
+    <span class="comment"># for i in range(len(items)):</span>
+    <span class="comment">#     print(items[i].ENAME)</span>
+
+    <span class="comment"># 第六题：查询岗位薪资低于3000元，或者入职时间晚于1981-10-01的员工姓名、编号，岗位，薪资、入职时间，同时对薪资降序和入职时间升序排列</span>
+    <span class="comment"># items = db.findAll6()</span>
+    <span class="comment"># for i in range(len(items)):</span>
+    <span class="comment">#     print(items[i].EMPNO, items[i].ENAME, items[i].JOB, items[i].SAL, items[i].HIREDATE)</span>
+
+
+
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/mysql2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/18/mysql1/">连接数据库mysql</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/mysql1/" class="archive-article-date">
+  	<time datetime="2018-09-18T12:38:27.904Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code class="bash">import json
+import pymysql
+class Movies:
+    def __init__(self):
+        pass
+    CON = pymysql.connect(
+        host=<span class="string">'localhost'</span>,  <span class="comment"># 数据库地址，localhost代表本地</span>
+        port=3306,  <span class="comment"># 数据库端口号</span>
+        user=<span class="string">'root'</span>,  <span class="comment"># 数据库用户名</span>
+        password=<span class="string">'123456'</span>,  <span class="comment"># 数据库密码</span>
+        db=<span class="string">'movie'</span>  <span class="comment"># 数据库名字</span>
+    )
+    def getJson(self):
+        with open(<span class="string">'./in_theaters.json'</span>,<span class="string">'r'</span>) as f:
+            load = json.load(f)
+        <span class="built_in">return</span> load
+
+    def getList(self,load):
+        get_list = []
+        lis = load[<span class="string">'subjects'</span>]
+        <span class="keyword">for</span> item <span class="keyword">in</span> lis:
+            list1 = []
+            genres = <span class="string">''</span>
+            kname = <span class="string">''</span>
+            list1.append(item[<span class="string">'title'</span>])
+            list1.append(item[<span class="string">'directors'</span>][0][<span class="string">'name'</span>])
+            list2 = item[<span class="string">'casts'</span>]
+            <span class="keyword">for</span> kw <span class="keyword">in</span> list2:
+                kname = kname + <span class="string">','</span> + kw[<span class="string">'name'</span>]
+            list1.append(kname)
+            <span class="keyword">for</span> kv <span class="keyword">in</span> item[<span class="string">'genres'</span>]:
+                genres = genres + <span class="string">','</span> + kv
+            list1.append(genres)
+            list1.append(item[<span class="string">'mainland_pubdate'</span>])
+            list1.append(item[<span class="string">'rating'</span>][<span class="string">'average'</span>])
+            get_list.append(list1)
+        <span class="built_in">return</span> get_list
+
+
+    def insertINFO(self,get_list):
+        cursor = self.CON.cursor()
+        <span class="keyword">for</span> item <span class="keyword">in</span> get_list:
+            cursor.execute(<span class="string">"insert into movies(mname,director,actor,type,show_time,score) values('{0}','{1}','{2}','{3}','{4}',{5})"</span>.format(item[0],item[1],item[2],item[3],item[4],item[5],))
+            self.CON.commit()
+            cursor.close()
+            self.CON.close()
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    movie = Movies()
+    load = movie.getJson()
+    get_list = movie.getList(load)
+    <span class="built_in">print</span>(get_list)
+    movie.insertINFO(get_list)
+
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/mysql1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-html" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -560,245 +891,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/18/pachong5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-pachong4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/18/pachong4/">智联招聘（爬虫，json）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/18/pachong4/" class="archive-article-date">
-  	<time datetime="2018-09-18T12:06:04.375Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import  math</span><br><span class="line">import json</span><br><span class="line">from urllib import parse</span><br><span class="line">import xlwt</span><br><span class="line">class LagouSpider:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.__url = url</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取到指定url地址的第num页岗位信息，</span></span><br><span class="line">    def get_json(self):</span><br><span class="line">        my_headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'fe-api.zhaopin.com'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=self.__url, headers=my_headers)</span><br><span class="line">            response.raise_for_status() <span class="comment">#判断状态码是否为200  不是抛异常</span></span><br><span class="line">            response.encoding = <span class="string">'utf-8'</span></span><br><span class="line">            page = response.json()</span><br><span class="line">            <span class="built_in">return</span> page</span><br><span class="line">        except requests.HTTPError as he:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'访问服务器错误'</span>)</span><br><span class="line"></span><br><span class="line">    def get_page_num(self, count):</span><br><span class="line">        result = math.ceil(count/60)</span><br><span class="line">        <span class="keyword">if</span> result &gt; 30:</span><br><span class="line">            result = 30</span><br><span class="line">        <span class="built_in">return</span> result</span><br><span class="line"></span><br><span class="line">    def get_page(self,dic):</span><br><span class="line">        get_list = []</span><br><span class="line">        list2 = dic[<span class="string">"data"</span>][<span class="string">"results"</span>]</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> list2:</span><br><span class="line">            list3 = []</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"number"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"size"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"type"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"workingExp"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"eduLevel"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"salary"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"emplType"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"jobName"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"welfare"</span>])</span><br><span class="line">            get_list.append(list3)</span><br><span class="line">        <span class="built_in">return</span> get_list</span><br><span class="line"></span><br><span class="line">    def write_excel(self, lis):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'招聘信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'公司编号'</span>, <span class="string">'公司名称'</span>, <span class="string">'公司大小'</span>, <span class="string">'公司类型'</span>, <span class="string">'工作年限'</span>, <span class="string">'学历'</span>, <span class="string">'工资'</span>, <span class="string">'工作类型'</span>, <span class="string">'职位名称'</span>, <span class="string">'公司福利'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m+1, n, lis[m][n])</span><br><span class="line">        wbt.save(<span class="string">'zhilian.xls'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    i = 60</span><br><span class="line">    ajax_url = <span class="string">'https://fe-api.zhaopin.com/c/i/sou?start=60&amp;pageSize=60&amp;cityId=530&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D'</span></span><br><span class="line">    spider = LagouSpider(ajax_url)</span><br><span class="line">    dic = spider.get_json()</span><br><span class="line">    num = spider.get_page_num(dic[<span class="string">'data'</span>][<span class="string">'numFound'</span>])</span><br><span class="line">    city_num = input(<span class="string">'城市编码：'</span>)</span><br><span class="line">    info_list = []</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> range(num):</span><br><span class="line">        ajax_url = <span class="string">'https://fe-api.zhaopin.com/c/i/sou?start=&#123;0&#125;&amp;pageSize=60&amp;cityId=&#123;1&#125;&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D'</span>.format(i,city_num)</span><br><span class="line">        i = i+60</span><br><span class="line">        spider = LagouSpider(ajax_url)</span><br><span class="line">        dic = spider.get_json()</span><br><span class="line">        lis = spider.get_page(dic)</span><br><span class="line">        info_list += lis</span><br><span class="line">    spider.write_excel(info_list)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/18/pachong4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-pachong3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/18/pachong3/">我买网（爬虫，json）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/18/pachong3/" class="archive-article-date">
-  	<time datetime="2018-09-18T12:02:42.211Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from urllib import parse</span><br><span class="line">import xlwt</span><br><span class="line">import json</span><br><span class="line">class LagouSpider:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.__url = url</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取到指定url地址的第num页岗位信息，</span></span><br><span class="line">    def get_json(self):</span><br><span class="line">        my_headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'price.womai.com'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=self.__url, headers=my_headers)</span><br><span class="line">            response.raise_for_status() <span class="comment">#判断状态码是否为200  不是抛异常</span></span><br><span class="line">            response.encoding = response.apparent_encoding</span><br><span class="line">            info = response.text</span><br><span class="line">            num = info.find(<span class="string">'&#123;'</span>)</span><br><span class="line">            page = info[num:-1]</span><br><span class="line">            page = json.loads(page)</span><br><span class="line">            <span class="built_in">return</span> page</span><br><span class="line">        except requests.HTTPError as he:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'访问服务器错误'</span>)</span><br><span class="line"></span><br><span class="line">    def get_page(self,dic):</span><br><span class="line">        get_list = []</span><br><span class="line">        lis = dic[<span class="string">'result'</span>]</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            list1 = []</span><br><span class="line">            list1.append(item[<span class="string">'id'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'price'</span>][<span class="string">'buyPrice'</span>][<span class="string">'priceValue'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'price'</span>][<span class="string">'WMPrice'</span>][<span class="string">'priceValue'</span>])</span><br><span class="line">            list1.append(<span class="string">'http://www.womai.com/Product-0-&#123;0&#125;.htm?piwik_keyword=%25E5%2586%25B0%25E7%25AE%25B1'</span>.format(item[<span class="string">'id'</span>]))</span><br><span class="line">            get_list.append(list1)</span><br><span class="line">        <span class="built_in">return</span> get_list</span><br><span class="line"></span><br><span class="line">    def write_excel(self, lis):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'招聘信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'id'</span>, <span class="string">'buyPrice'</span>, <span class="string">'WMPrice'</span>, <span class="string">'链接'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m+1, n, lis[m][n])</span><br><span class="line">        wbt.save(<span class="string">'womaiwang.xls'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    ajax_url =<span class="string">'http://price.womai.com/PriceServer/open/productlist.do?ids=655198%2C657378%2C657379%2C630669%2C512850%2C338835%2C657023%2C630065%2C642260%2C642259%2C607161%2C650947%2C639387%2C624926%2C624875%2C633490&amp;prices=buyPrice%2CWMPrice%2CmarketPrice%2CspecialPrice&amp;defData=n&amp;mid=0&amp;cityid=31000&amp;usergroupid=100&amp;callback=jsonp1534499503419'</span></span><br><span class="line">    spider = LagouSpider(ajax_url)</span><br><span class="line">    page = spider.get_json()</span><br><span class="line">    list1 = spider.get_page(page)</span><br><span class="line">    spider.write_excel(list1)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/18/pachong3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-pachong2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/18/pachong2/">豆瓣电影（爬虫，json）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/18/pachong2/" class="archive-article-date">
-  	<time datetime="2018-09-18T11:56:56.836Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code class="bash">import requests
-import json
-import xlwt
-class Movie:
-    def __init__(self, url):
-        self.__url = url
-
-    def getHtml(self):
-        try:
-            response = requests.get(self.__url)
-            response.raise_for_status()
-            response.encoding = response.apparent_encoding
-            html = response.json()
-            <span class="built_in">return</span> html
-        except requests.HTTPError as re:
-            <span class="built_in">print</span>(<span class="string">'访问服务器出错'</span>)
-
-    def get_info(self, dic):
-        lis = dic[<span class="string">'subjects'</span>]
-        movie_list = []
-        <span class="keyword">for</span> item <span class="keyword">in</span> lis:
-            list1 = []
-            actor = []
-            list1.append(item[<span class="string">'title'</span>])
-            list1.append(<span class="string">','</span>.join(item[<span class="string">'genres'</span>]))
-            list1.append(item[<span class="string">'rating'</span>][<span class="string">'average'</span>])
-            list1.append(item[<span class="string">'year'</span>])
-            <span class="keyword">for</span> act <span class="keyword">in</span> item[<span class="string">'casts'</span>]:
-                actor.append(act[<span class="string">'name'</span>])
-            list1.append(<span class="string">','</span>.join(actor))
-            list1.append(item[<span class="string">'directors'</span>][0][<span class="string">'name'</span>])
-            movie_list.append(list1)
-        <span class="built_in">return</span> movie_list
-
-    def write_excel(self, lis):
-        wbt = xlwt.Workbook()
-        sheet = wbt.add_sheet(<span class="string">'电影信息表'</span>)
-        get_total = [<span class="string">'电影名称'</span>, <span class="string">'电影类型'</span>, <span class="string">'评分'</span>, <span class="string">'上映时间'</span>, <span class="string">'主演'</span>, <span class="string">'导演'</span>]
-        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):
-            sheet.write(0, i, get_total[i])
-        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):
-            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):
-                sheet.write(m+1, n, lis[m][n])
-        wbt.save(<span class="string">'movie.xls'</span>)
-
-
-<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
-    url = <span class="string">'http://api.douban.com/v2/movie/top250'</span>
-    spoder = Movie(url)
-    html = spoder.getHtml()
-    movie_list = spoder.get_info(html)
-    spoder.write_excel(movie_list)
-</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/18/pachong2/">展开全文 >></a>
         </p>
       
 
