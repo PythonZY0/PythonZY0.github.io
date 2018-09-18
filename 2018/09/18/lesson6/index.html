@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 我的地盘我做主</title>
+  <title>列表 元组 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="python、爬虫、Web开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的地盘我做主">
-<meta property="og:url" content="http://yoursite.com/archives/2018/page/3/index.html">
+  <meta name="description" content="‘’’list1 = [1,2,3,4]list2 = [‘one’,’two’,’three’,’four’]list3 = [1,’two’,3,’four’]list4 = list()  #空列表list1.append(5) #在list1末尾追加一个元素list1.extend([6,7]) #在list1末尾追加一个子列表print(list1+list2) #‘+’将两个列表连接一">
+<meta name="keywords" content="python、爬虫、Web开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="列表 元组">
+<meta property="og:url" content="http://yoursite.com/2018/09/18/lesson6/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
+<meta property="og:description" content="‘’’list1 = [1,2,3,4]list2 = [‘one’,’two’,’three’,’four’]list3 = [1,’two’,3,’four’]list4 = list()  #空列表list1.append(5) #在list1末尾追加一个元素list1.extend([6,7]) #在list1末尾追加一个子列表print(list1+list2) #‘+’将两个列表连接一">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-18T11:25:30.092Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的地盘我做主">
+<meta name="twitter:title" content="列表 元组">
+<meta name="twitter:description" content="‘’’list1 = [1,2,3,4]list2 = [‘one’,’two’,’three’,’four’]list3 = [1,’two’,3,’four’]list4 = list()  #空列表list1.append(5) #在list1末尾追加一个元素list1.extend([6,7]) #在list1末尾追加一个子列表print(list1+list2) #‘+’将两个列表连接一">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -148,295 +152,188 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-lesson6" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      列表 元组
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/lesson6/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:16:26.272Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>‘’’<br>list1 = [1,2,3,4]<br>list2 = [‘one’,’two’,’three’,’four’]<br>list3 = [1,’two’,3,’four’]<br>list4 = list()  #空列表<br>list1.append(5) #在list1末尾追加一个元素<br>list1.extend([6,7]) #在list1末尾追加一个子列表<br>print(list1+list2) #‘+’将两个列表连接一起生成一个新的列表，原来两个列表不变<br>print(list1)<br>list2.insert(2,3) #‘2’代表索引位，‘3’代表插入的元素<br>print(list2)<br>list2.insert(4,[4,5])  #插入一个列表时，是将整个列表当一个整体插入<br>print(list2)<br>list3[0] = ‘one’  #修改列表中元素  [0]表示索引位置<br>print(list3)<br>list2.remove([4,5]) #移除列表中元素，指定元素移除<br>print(list2)<br>list2.pop(2) #从列表中弹出元素，指定索引位置弹出。 默认pop()弹出尾部的元素<br>print(list2)</p>
+<p>#pop()会返回弹出的元素，remove则不会<br>del list2[0] #删除索引位置的元素<br>print(list2)<br>del list2[0:2] #从索引位0开始删除到索引位2之前<br>print(list2)<br>del list2 #彻底删除列表<br>list1.clear()<br>print(list1)</p>
+<p>#del 可以将列表内容进行删除，同时将列表所占内存释放。 clear()是将列表清空，原列表为空</p>
+<p>str1 = [1,2]<br>print(str1*2)</p>
+<p>#使用‘*’可以将目标列表的内容重复N次，生成一个新的列表</p>
+<p>print(max(str1)) #str1中元素最大值<br>print(min(str1)) #求最小值<br>str2 = [‘one’,’two’,’three’,’four’]<br>print(max(str2)) #列表为字符串时，计算时比较字符串的码值<br>print(min(str2))</p>
+<p>#max()和min()计算时只支持列表内为同类型，不支持混合类型计算<br>‘’’</p>
+<p>‘’’<br>str1 = [1,2,3,4,5]<br>for item in range(len(str1)):<br>    print(str1[item])</p>
+<p>i = 0<br>while i&lt;len(str1):<br>    print(str1[i])<br>    i +=1<br>‘’’</p>
+<p>‘’’<br>list1 = [80,15,22,20,44,55]<br>max_num = 0<br>for i in range(len(list1)-1):<br>    if list1[i] &gt; list1[i+1]:<br>        max_num =list1[i]<br>        list1[i] = list1[i+1]<br>        list1[i+1] = max_num</p>
+<pre><code>#else:
+    #max_num = list1[i+1]
+</code></pre><p>print(list1)<br>print(max_num)</p>
+<h1 id="求最大值"><a href="#求最大值" class="headerlink" title="求最大值"></a>求最大值</h1><p>list2 = [49,33,44,2,33,42]<br>for m in range(len(list2)):<br>    for n in range(m+1,len(list2)):<br>        first = list2[m]<br>        second = list2[n]<br>        if first &gt; second:<br>            list2[m] = list2[n]<br>            list2[n] = first<br>print(list2)</p>
+<h1 id="冒泡排序法"><a href="#冒泡排序法" class="headerlink" title="冒泡排序法"></a>冒泡排序法</h1><p>list1.sort()<br>print(list1)  #升序<br>list1.sort(reverse=True)<br>print(list1) #降序</p>
+<p>#sort()只能使用于列表<br>print(sorted(list1)) #升序<br>print(sorted(list1,reverse=True)) #降序</p>
+<p>#sorted()是python内置函数，支持列表，元组，字典等</p>
+<h1 id="sort-排序是永久性排序，也就是会改变原列表的元素顺序；sortde-排序-返回一个新列表，不会改变原列表"><a href="#sort-排序是永久性排序，也就是会改变原列表的元素顺序；sortde-排序-返回一个新列表，不会改变原列表" class="headerlink" title="sort()排序是永久性排序，也就是会改变原列表的元素顺序；sortde()排序 返回一个新列表，不会改变原列表"></a>sort()排序是永久性排序，也就是会改变原列表的元素顺序；sortde()排序 返回一个新列表，不会改变原列表</h1><p>print(list2.count(33)) #查看‘33’在list2中出现的次数</p>
+<p>str1 = ‘534535632’<br>list3 = list(str1)<br>print(list3)</p>
+<h1 id="字符串按元素顺序逐一转成列表"><a href="#字符串按元素顺序逐一转成列表" class="headerlink" title="字符串按元素顺序逐一转成列表"></a>字符串按元素顺序逐一转成列表</h1><p>str2 = ‘大米 面条 烧鸡’<br>list4 = str2.split(‘ ‘)<br>print(list4)</p>
+<h1 id="分割函数-返回列表"><a href="#分割函数-返回列表" class="headerlink" title="分割函数  返回列表"></a>分割函数  返回列表</h1><p>str3 = ‘ ‘.join(list4)<br>print(str3)</p>
+<h1 id="列表转字符串"><a href="#列表转字符串" class="headerlink" title="列表转字符串"></a>列表转字符串</h1><p>import operator<br>l1 = [1,2,3,4]<br>l2 = [1,2,4,5]<br>print(operator.ge(l1,l2))</p>
+<p>#列表的比较<br>‘’’</p>
+<p>‘’’</p>
+<h1 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h1><p>tuple1 = (1,2,3)<br>tuple2 = (1,)<br>list1 = list(tuple1)<br>print(list1)<br>tuple3 = tuple(list1)<br>print(tuple3)<br>‘’’</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/04/my-notes26/" class="archive-article-date">
-  	<time datetime="2018-09-04T10:46:31.399Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/04/my-notes26/">数据库—事务</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/18/lesson6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/my-notes25/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:25:48.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/09/18/lesson9/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          迭代器、生成器、深拷贝和浅拷贝
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/18/lesson7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">字典</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/my-notes25/">正则表达式</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/my-notes24/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:21:04.669Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/my-notes24/">requests库</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/my-notes23/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:14:41.125Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/my-notes23/">网络爬虫 - urllib库</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/21/my-notes22/" class="archive-article-date">
-  	<time datetime="2018-08-21T01:04:30.350Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/21/my-notes22/">HTTP与HTTPS的区别、网络七层模型、HTTP的请求机制、请求方法中get与post的区别、HTML网页结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/06/my-notes21/" class="archive-article-date">
-  	<time datetime="2018-08-06T12:51:37.748Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/06/my-notes21/">面向对象</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/03/my-notes20/" class="archive-article-date">
-  	<time datetime="2018-08-03T13:13:21.201Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/03/my-notes20/">json、pickle、hashlib、配置文件、计数器、time函数、random函数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/02/my-notes19/" class="archive-article-date">
-  	<time datetime="2018-08-02T12:33:23.450Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/my-notes19/">异常</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/31/my-notes18/" class="archive-article-date">
-  	<time datetime="2018-07-31T13:30:40.255Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/31/my-notes18/">对XML文件的解析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/31/my-notes17/" class="archive-article-date">
-  	<time datetime="2018-07-31T13:21:09.882Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/31/my-notes17/">Excel文件的操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2018/page/4/">4</a><a class="page-number" href="/archives/2018/page/5/">5</a><a class="extend next" rel="next" href="/archives/2018/page/4/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -463,8 +360,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

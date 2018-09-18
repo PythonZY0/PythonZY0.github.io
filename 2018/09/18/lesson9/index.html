@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 我的地盘我做主</title>
+  <title>迭代器、生成器、深拷贝和浅拷贝 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="python、爬虫、Web开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的地盘我做主">
-<meta property="og:url" content="http://yoursite.com/archives/2018/page/3/index.html">
+  <meta name="description" content="‘’’ 迭代器ls = [1,2,3,4]iter_ls = iter(ls)for i in iter_ls:    print(i) print() list1 = [1,2,3,4]iter_list1 = iter(list1)print(next(iter_list1)) print() from collections import Iterablestring = ‘hello’pr">
+<meta name="keywords" content="python、爬虫、Web开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="迭代器、生成器、深拷贝和浅拷贝">
+<meta property="og:url" content="http://yoursite.com/2018/09/18/lesson9/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
+<meta property="og:description" content="‘’’ 迭代器ls = [1,2,3,4]iter_ls = iter(ls)for i in iter_ls:    print(i) print() list1 = [1,2,3,4]iter_list1 = iter(list1)print(next(iter_list1)) print() from collections import Iterablestring = ‘hello’pr">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-18T11:26:39.941Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的地盘我做主">
+<meta name="twitter:title" content="迭代器、生成器、深拷贝和浅拷贝">
+<meta name="twitter:description" content="‘’’ 迭代器ls = [1,2,3,4]iter_ls = iter(ls)for i in iter_ls:    print(i) print() list1 = [1,2,3,4]iter_list1 = iter(list1)print(next(iter_list1)) print() from collections import Iterablestring = ‘hello’pr">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -148,295 +152,186 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-lesson9" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      迭代器、生成器、深拷贝和浅拷贝
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/lesson9/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:17:00.235Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>‘’’</p>
+<h1 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h1><p>ls = [1,2,3,4]<br>iter_ls = iter(ls)<br>for i in iter_ls:<br>    print(i)</p>
+<p>print()</p>
+<p>list1 = [1,2,3,4]<br>iter_list1 = iter(list1)<br>print(next(iter_list1))</p>
+<p>print()</p>
+<p>from collections import Iterable<br>string = ‘hello’<br>print(isinstance(string,Iterable))</p>
+<h1 id="判断string是否为可迭代化的"><a href="#判断string是否为可迭代化的" class="headerlink" title="判断string是否为可迭代化的"></a>判断string是否为可迭代化的</h1><p>print(isinstance(10,int))</p>
+<h1 id="判断数据的数据类型"><a href="#判断数据的数据类型" class="headerlink" title="判断数据的数据类型"></a>判断数据的数据类型</h1><p>print()</p>
+<p>list2 = [‘one’,’two’,’three’]<br>for i,item in enumerate(list2):<br>    print(i,item)</p>
+<h1 id="生成一个枚举对象，同时输出下标和元素"><a href="#生成一个枚举对象，同时输出下标和元素" class="headerlink" title="生成一个枚举对象，同时输出下标和元素"></a>生成一个枚举对象，同时输出下标和元素</h1><p>print()<br>‘’’</p>
+<p>‘’’</p>
+<p>#生成器<br>def fid():<br>    a,b = 0,1<br>    while True:<br>        yield b<br>        a,b = b,a+b<br>f = fid()<br>ls = [next(f) for i in range(10)]<br>ls2 = [next(f) for i in range(10)]<br>print(ls)<br>print(ls2)</p>
+<p>def getList(n):<br>    result = []<br>    for i in range(n):<br>        result.append(i)<br>    return result</p>
+<p>for item in getList(10):<br>    print(item,end=’ ‘)</p>
+<p>print()</p>
+<p>def iter_gene(n):<br>    for i in range(n):<br>        yield i</p>
+<p>for item in getList(10):<br>    print(item,end=’ ‘)</p>
+<p>def gene():<br>    num = 100<br>    while True:<br>        yield num<br>        num += 1<br>f = gene()<br>while True:<br>    cus = input(‘请取号就诊，输入您的姓名：’)<br>    print(‘请就诊号{0}的患者{1}到相关科室就诊’.format(next(f),cus))<br>‘’’</p>
+<p>‘’’<br>def gene():<br>    i = 1000<br>    j = 1000<br>    k = 1000<br>    no = ‘’<br>    while True:<br>        if ‘骨科’==cn:<br>            no = ‘骨科’+str(i)<br>            yield no<br>            i+=1<br>        elif ‘内科’==cn:<br>            no = ‘内科’+str(j)<br>            yield no<br>            j+=1<br>        elif ‘外科’==cn:<br>            no = ‘外科’+str(k)<br>            yield no<br>            k+=1<br>        else:<br>            pass<br>f = gene()<br>while True:<br>    cn = input(‘请输入您就诊科室:’)<br>    print(next(f))<br>‘’’</p>
+<p>‘’’<br>ls1 = [1,2,3,[‘one’,’two’],5]<br>ls2 = ls1.copy()<br>print(‘初始化ls1的内容%s’ %str(ls1))<br>print(‘ls2浅拷贝ls1%s’ %str(ls2))<br>ls1[0] = ‘one’<br>print(ls1)<br>print(ls2)<br>ls1[3][0] = 1<br>print(ls1)<br>print(ls2) </p>
+<h1 id="copy-函数为浅拷贝-功能是值传递"><a href="#copy-函数为浅拷贝-功能是值传递" class="headerlink" title="copy()函数为浅拷贝 功能是值传递"></a>copy()函数为浅拷贝 功能是值传递</h1><h1 id="拷贝时遇到一维内容只传递值（如-1-2-3-5），此时ls1和ls2的地址不同，所以，无论ls1第一层内容怎样改变，ls2都不会改变。"><a href="#拷贝时遇到一维内容只传递值（如-1-2-3-5），此时ls1和ls2的地址不同，所以，无论ls1第一层内容怎样改变，ls2都不会改变。" class="headerlink" title="拷贝时遇到一维内容只传递值（如:1,2,3,5），此时ls1和ls2的地址不同，所以，无论ls1第一层内容怎样改变，ls2都不会改变。"></a>拷贝时遇到一维内容只传递值（如:1,2,3,5），此时ls1和ls2的地址不同，所以，无论ls1第一层内容怎样改变，ls2都不会改变。</h1><h1 id="但是当遇到二维内容时-如-‘one’-’two’-，是将其地址copy给ls2。所以，当ls1的二维内容改变时，ls2也随之改变。"><a href="#但是当遇到二维内容时-如-‘one’-’two’-，是将其地址copy给ls2。所以，当ls1的二维内容改变时，ls2也随之改变。" class="headerlink" title="但是当遇到二维内容时(如:[‘one’,’two’])，是将其地址copy给ls2。所以，当ls1的二维内容改变时，ls2也随之改变。"></a>但是当遇到二维内容时(如:[‘one’,’two’])，是将其地址copy给ls2。所以，当ls1的二维内容改变时，ls2也随之改变。</h1><p>print()</p>
+<p>import copy<br>ls1 = [1,2,3,[‘one’,’two’],5]<br>ls2 = copy.deepcopy(ls1)<br>print(ls1)<br>print(ls2)<br>ls1[3][0] = 1<br>print(ls1)<br>print(ls2) </p>
+<h1 id="deepcopy-函数为深拷贝，无论ls1一维或二维内容怎样改变，ls2都不会改变。"><a href="#deepcopy-函数为深拷贝，无论ls1一维或二维内容怎样改变，ls2都不会改变。" class="headerlink" title="deepcopy()函数为深拷贝，无论ls1一维或二维内容怎样改变，ls2都不会改变。"></a>deepcopy()函数为深拷贝，无论ls1一维或二维内容怎样改变，ls2都不会改变。</h1><p>‘’’<br>‘’’<br>import time<br>import os<br>print(time.strftime(‘%Y-%m-%d’,time.localtime()))<br>os.system(‘cls’)<br>‘’’</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/04/my-notes26/" class="archive-article-date">
-  	<time datetime="2018-09-04T10:46:31.399Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/04/my-notes26/">数据库—事务</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/18/lesson9/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/my-notes25/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:25:48.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/09/18/lesson8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          集合
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/18/lesson6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">列表 元组</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/my-notes25/">正则表达式</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/my-notes24/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:21:04.669Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/my-notes24/">requests库</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/my-notes23/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:14:41.125Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/my-notes23/">网络爬虫 - urllib库</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/21/my-notes22/" class="archive-article-date">
-  	<time datetime="2018-08-21T01:04:30.350Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/21/my-notes22/">HTTP与HTTPS的区别、网络七层模型、HTTP的请求机制、请求方法中get与post的区别、HTML网页结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/06/my-notes21/" class="archive-article-date">
-  	<time datetime="2018-08-06T12:51:37.748Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/06/my-notes21/">面向对象</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/03/my-notes20/" class="archive-article-date">
-  	<time datetime="2018-08-03T13:13:21.201Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/03/my-notes20/">json、pickle、hashlib、配置文件、计数器、time函数、random函数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/02/my-notes19/" class="archive-article-date">
-  	<time datetime="2018-08-02T12:33:23.450Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/my-notes19/">异常</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/31/my-notes18/" class="archive-article-date">
-  	<time datetime="2018-07-31T13:30:40.255Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/31/my-notes18/">对XML文件的解析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/31/my-notes17/" class="archive-article-date">
-  	<time datetime="2018-07-31T13:21:09.882Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/31/my-notes17/">Excel文件的操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2018/page/4/">4</a><a class="page-number" href="/archives/2018/page/5/">5</a><a class="extend next" rel="next" href="/archives/2018/page/4/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -463,8 +358,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

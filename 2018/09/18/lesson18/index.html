@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 我的地盘我做主</title>
+  <title>Excel文件 | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="python、爬虫、Web开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的地盘我做主">
-<meta property="og:url" content="http://yoursite.com/archives/2018/page/3/index.html">
+  <meta name="description" content="import xlwt  #写Excel文件import xlrd  #读Excel文件from xlutils.copy import copy #修改Excel文件 ‘’’def savaExcel(title,data): # 生成Excel对象 wbt = xlwt.Workbook() # 生成一个sheet页 sheet = wbt.add_sheet(&amp;apos;人员信息表&amp;apos">
+<meta name="keywords" content="python、爬虫、Web开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Excel文件">
+<meta property="og:url" content="http://yoursite.com/2018/09/18/lesson18/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
+<meta property="og:description" content="import xlwt  #写Excel文件import xlrd  #读Excel文件from xlutils.copy import copy #修改Excel文件 ‘’’def savaExcel(title,data): # 生成Excel对象 wbt = xlwt.Workbook() # 生成一个sheet页 sheet = wbt.add_sheet(&amp;apos;人员信息表&amp;apos">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-18T11:30:43.427Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的地盘我做主">
+<meta name="twitter:title" content="Excel文件">
+<meta name="twitter:description" content="import xlwt  #写Excel文件import xlrd  #读Excel文件from xlutils.copy import copy #修改Excel文件 ‘’’def savaExcel(title,data): # 生成Excel对象 wbt = xlwt.Workbook() # 生成一个sheet页 sheet = wbt.add_sheet(&amp;apos;人员信息表&amp;apos">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -148,295 +152,194 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-lesson18" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Excel文件
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/lesson18/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:19:08.058Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>import xlwt  #写Excel文件<br>import xlrd  #读Excel文件<br>from xlutils.copy import copy #修改Excel文件</p>
+<p>‘’’<br>def savaExcel(title,data):</p>
+<pre><code># 生成Excel对象
+wbt = xlwt.Workbook()
+# 生成一个sheet页
+sheet = wbt.add_sheet(&apos;人员信息表&apos;)
+for i in range(len(title)):
+    sheet.write(0,i,title[i])
+
+for m in range(len(data)):
+    for n in range(len(data[m])):
+        sheet.write(m+1,n,data[m][n])
+
+wbt.save(&apos;person.xls&apos;)
+</code></pre><h1 id="作为Excel表中的标题名称"><a href="#作为Excel表中的标题名称" class="headerlink" title="作为Excel表中的标题名称"></a>作为Excel表中的标题名称</h1><p>title = [‘姓名’,’年龄’,’性别’,’出生年月’,’家庭住址’,’婚姻状况’,’身份证号码’]</p>
+<h1 id="生成Excel中的数据"><a href="#生成Excel中的数据" class="headerlink" title="生成Excel中的数据"></a>生成Excel中的数据</h1><p>data = [<br>    [‘小文’,22,’女’,’19960101’,’不详’,’不详’,’41111111111111’],<br>    [‘小彬彬’,21,’男’,’19960202’,’河南省郑州市’,’已婚’,’4101222222222’],<br>    [‘丹丹’,22,’女’,’19960303’,’河南郑州’,’已婚’,’41013333333333’]<br>]<br>savaExcel(title,data)<br>‘’’</p>
+<p>‘’’<br>def readExcel(bookname,sheetname):</p>
+<pre><code># 打开Excel文件
+wb = xlrd.open_workbook(bookname)
+# 找sheet表
+sheet = wb.sheet_by_name(sheetname)
+#for rownum in range(sheet.nrows):
+    #print(sheet.row_values(rownum))
+print(sheet.nrows)  # 查询行数
+print(sheet.ncols)  # 查询列数
+for rownum in range(sheet.nrows):
+    for colnum in range(sheet.ncols):
+        print(sheet.cell(rownum,colnum).value,end=&apos; &apos;)
+    print()
+</code></pre><p>bookname = input(‘输入文件名：’)<br>sheetname = input(‘输入表名：’)<br>readExcel(bookname,sheetname)<br>‘’’</p>
+<p>‘’’<br>wb = xlrd.open_workbook(‘person.xls’)<br>sheet = wb.sheet_by_name(‘人员信息表’)<br>new_wb = copy(wb) #将原来的Excel拷贝一个副本<br>new_sheet = new_wb.get_sheet(0) #重新在新的Excel中获得sheet页<br>new_sheet.write(1,0,’小彬’)<br>new_wb.save(‘person_new.xls’)<br>‘’’</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/04/my-notes26/" class="archive-article-date">
-  	<time datetime="2018-09-04T10:46:31.399Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/04/my-notes26/">数据库—事务</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/18/lesson18/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/my-notes25/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:25:48.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/09/18/lesson16/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          文件.txt的操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/18/lesson14/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">日志例子</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/my-notes25/">正则表达式</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/my-notes24/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:21:04.669Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/my-notes24/">requests库</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/27/my-notes23/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:14:41.125Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/27/my-notes23/">网络爬虫 - urllib库</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/21/my-notes22/" class="archive-article-date">
-  	<time datetime="2018-08-21T01:04:30.350Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/21/my-notes22/">HTTP与HTTPS的区别、网络七层模型、HTTP的请求机制、请求方法中get与post的区别、HTML网页结构</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/06/my-notes21/" class="archive-article-date">
-  	<time datetime="2018-08-06T12:51:37.748Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/06/my-notes21/">面向对象</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/03/my-notes20/" class="archive-article-date">
-  	<time datetime="2018-08-03T13:13:21.201Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/03/my-notes20/">json、pickle、hashlib、配置文件、计数器、time函数、random函数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/02/my-notes19/" class="archive-article-date">
-  	<time datetime="2018-08-02T12:33:23.450Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/02/my-notes19/">异常</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/31/my-notes18/" class="archive-article-date">
-  	<time datetime="2018-07-31T13:30:40.255Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/31/my-notes18/">对XML文件的解析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/31/my-notes17/" class="archive-article-date">
-  	<time datetime="2018-07-31T13:21:09.882Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/31/my-notes17/">Excel文件的操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2018/page/4/">4</a><a class="page-number" href="/archives/2018/page/5/">5</a><a class="extend next" rel="next" href="/archives/2018/page/4/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -463,8 +366,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

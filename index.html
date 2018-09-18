@@ -150,38 +150,58 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-my-notes27" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-lesson23" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/06/my-notes27/">mongo 命令</a>
+      <a class="article-title" href="/2018/09/18/lesson23/">json、pickle、计数器、time函数、random函数、文件操作</a>
     </h1>
   
 
         
-        <a href="/2018/09/06/my-notes27/" class="archive-article-date">
-  	<time datetime="2018-09-06T11:49:42.159Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-06</time>
+        <a href="/2018/09/18/lesson23/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:20:30.619Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="mongo-命令"><a href="#mongo-命令" class="headerlink" title="mongo 命令"></a>mongo 命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">use 数据库名</span><br><span class="line">如果数据库存在则选择数据库，如果不存在则创建数据库。</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">db.createCollection(<span class="string">"集合名"</span>)</span><br><span class="line">创建集合</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line"> post=&#123;<span class="string">"name"</span>:<span class="string">"Pony Ma"</span>, <span class="string">"age"</span>:45, <span class="string">"sex"</span>:<span class="string">"M"</span>, <span class="string">"marry"</span>:<span class="literal">true</span> ,<span class="string">"date"</span>:new Date()&#125;</span><br><span class="line">&#123;</span><br><span class="line">        <span class="string">"name"</span> : <span class="string">"Pony Ma"</span>,</span><br><span class="line">        <span class="string">"age"</span> : 45,</span><br><span class="line">        <span class="string">"sex"</span> : <span class="string">"M"</span>,</span><br><span class="line">        <span class="string">"marry"</span> : <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"date"</span> : ISODate(<span class="string">"2018-09-06T01:03:39.075Z"</span>)</span><br><span class="line">&#125;</span><br><span class="line">db.pyuser(集合名称).insert(post)</span><br><span class="line"></span><br><span class="line">插入数据</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">db.(集合名称).find().pretty()</span><br><span class="line">查找，格式化显示</span><br><span class="line"></span><br><span class="line">查看一年级二班grade_1_3中所有年龄大于7岁并且小于 14 岁的学生</span><br><span class="line">db.grade_1_3.find(&#123;age:&#123;<span class="variable">$gt</span>:7,<span class="variable">$lt</span>:14&#125;&#125;).pretty()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">查看一年级二班grade_1_3所有年龄是 14 岁或 6 岁的学生</span><br><span class="line">db.grade_1_3.find(&#123;<span class="variable">$or</span>:[&#123;age:14&#125;,&#123;age:6&#125;]&#125;).pretty()</span><br><span class="line"></span><br><span class="line">查看一年级二班grade_1_3中所有兴趣爱好包括画画的学生</span><br><span class="line">db.grade_1_3.find(&#123;hobby:<span class="string">'画画'</span>&#125;).pretty()</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">db.(集合名称).distinct(分组字段，&#123;其他条件&#125;)</span><br><span class="line">分组查询</span><br><span class="line">例如：</span><br><span class="line">查看一年级三班的学生，男生（sex为 1）年龄值有哪些</span><br><span class="line">db.grade_1_3.distinct(<span class="string">'age'</span>,&#123;<span class="string">'sex'</span>:1&#125;)</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">db.（集合名称）.find().<span class="built_in">limit</span>(2).sort(&#123;age:1&#125;)</span><br><span class="line"><span class="built_in">limit</span>()表示查询前n行数据，sort表示排序，&#123;age:1&#125;中1代表升序，-1代表降序</span><br><span class="line"></span><br><span class="line">对age进行排序</span><br><span class="line">db.grade_1_3.find().sort(&#123;age:1&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.(集合名称).remove()删除</span><br><span class="line"></span><br><span class="line">一年级二班grade_1_3， 删除所有 22 岁的学生</span><br><span class="line">db.grade_1_3.remove(&#123;<span class="string">'age'</span>:22&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.(集合名称).update(&#123;查找条件&#125;,&#123;<span class="variable">$set</span>:&#123;修改内容&#125;&#125;)</span><br><span class="line"></span><br><span class="line">一年级二班grade_1_3中，修改名为“张三”的学生，年龄为 8 岁，兴趣爱好为 跳舞和画画</span><br><span class="line">db.grade_1_3.insert(&#123;<span class="string">'name'</span>:<span class="string">'张三'</span>&#125;,&#123;<span class="variable">$set</span>:&#123;<span class="string">'age'</span>:8,<span class="string">'hobby'</span>:[<span class="string">'跳舞'</span>,<span class="string">'画画'</span>]&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.grade_1_3.find(&#123;<span class="string">'age'</span>:&#123;<span class="variable">$ne</span>:10&#125;&#125;).pretty() 不等于</span><br><span class="line">db.grade_1_3.find(&#123;<span class="string">'age'</span>:&#123;<span class="variable">$ne</span>:10&#125;&#125;,&#123;age:1&#125;).pretty()  年龄不等于10，且&#123;age:1&#125;表示只输出age字段</span><br><span class="line">db.grade_1_3.find(&#123;age:&#123;<span class="variable">$in</span>:[6,8]&#125;&#125;)  年龄是6或者8</span><br><span class="line">db.grade_1_3.find(&#123;age:&#123;<span class="variable">$nin</span>:[6,8]&#125;&#125;)  年龄不是6或者8</span><br><span class="line">db.grade_1_3.find(&#123;<span class="string">'uname'</span>:&#123;<span class="variable">$exists</span>:1&#125;&#125;) 具有uname属性的信息</span><br><span class="line">db.grade_1_3.find(&#123;age:&#123;<span class="variable">$type</span>:<span class="string">'double'</span>&#125;,name:&#123;<span class="variable">$type</span>:<span class="string">'string'</span>&#125;&#125;)  年龄类型为double且姓名类型为string</span><br><span class="line"></span><br><span class="line">grade_1_3指的是集合名</span><br></pre></td></tr></table></figure>
-<h2 id="insert和save的区别"><a href="#insert和save的区别" class="headerlink" title="insert和save的区别"></a>insert和save的区别</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">insert()和save()都可以进行插入数据操作</span><br><span class="line">insert()插入数据时，设置_id属性，当表格拥有相同的_id时，则会报错。</span><br><span class="line">save()插入数据时，表格拥有相同的_id，则进行数据的修改。</span><br></pre></td></tr></table></figure>
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.collection.createIndex(&#123;keys,options&#125;)</span><br><span class="line">keys 是要被创建为索引的字段，options为1 则表示升序创建索引  -1则降序</span><br><span class="line">collection 指的是集合名</span><br><span class="line"></span><br><span class="line">删除索引 db.collection.dropIndexes()</span><br><span class="line">删除所有索引只留集合自动生成的_id索引</span><br><span class="line"></span><br><span class="line">获取集合索引</span><br><span class="line">db.collection.getIndexes()</span><br></pre></td></tr></table></figure>
-<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">db.pyuser.aggregate([&#123;<span class="variable">$group</span>:&#123;<span class="string">'_id'</span>:<span class="string">'$sex'</span>&#125;&#125;]))</span><br><span class="line">分组</span><br><span class="line">pyuser为集合名，sex为分组字段</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">db.pyuser.aggregate([&#123;<span class="variable">$group</span>:&#123;<span class="string">'_id'</span>:<span class="string">'$sex'</span>,total:&#123;<span class="variable">$sum</span>:1&#125;&#125;&#125;])</span><br><span class="line">分组求和</span><br><span class="line">total为别名，可改变。但是<span class="string">'_id'</span>不能变</span><br><span class="line"></span><br><span class="line">db.pyuser.aggregate([&#123;<span class="variable">$group</span>:&#123;<span class="string">'_id'</span>:<span class="string">'$sex'</span>,total:&#123;<span class="variable">$avg</span>:<span class="string">'$score'</span>&#125;&#125;&#125;])</span><br><span class="line">按sex分组，求score平均数</span><br><span class="line"></span><br><span class="line">db.pyuser.aggregate([&#123;<span class="variable">$group</span>:&#123;<span class="string">'_id'</span>:<span class="string">'$sex'</span>,total:&#123;<span class="variable">$min</span>:<span class="string">'$score'</span>&#125;&#125;&#125;])</span><br><span class="line">按sex分组，求score的最小值</span><br><span class="line"></span><br><span class="line">db.pyuser.aggregate([&#123;<span class="variable">$group</span>:&#123;<span class="string">'_id'</span>:<span class="string">'$sex'</span>,total:&#123;<span class="variable">$max</span>:<span class="string">'$score'</span>&#125;&#125;&#125;])</span><br><span class="line">按sex分组，求score的最大值</span><br><span class="line"></span><br><span class="line">&gt; db.pyuser.aggregate([&#123;<span class="variable">$group</span>:&#123;<span class="string">'_id'</span>:<span class="string">'$sex'</span>,total:&#123;<span class="variable">$push</span>:<span class="string">'$score'</span>&#125;&#125;&#125;])</span><br><span class="line">&#123; <span class="string">"_id"</span> : <span class="string">"f"</span>, <span class="string">"total"</span> : [ 95 ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : <span class="string">"m"</span>, <span class="string">"total"</span> : [ 100, 90, 85, 75 ] &#125;</span><br><span class="line">按sex分组，将所有score值显示</span><br><span class="line"></span><br><span class="line">&gt; db.pyuser.aggregate([&#123;<span class="variable">$group</span>:&#123;<span class="string">'_id'</span>:<span class="string">'$sex'</span>,scores:&#123;<span class="variable">$push</span>:<span class="string">'$score'</span>&#125;,names:&#123;<span class="variable">$pus</span></span><br><span class="line">h:<span class="string">'$name'</span>&#125;&#125;&#125;])</span><br><span class="line">按sex分组，将所有score和name值全部显示，scores和names为别名</span><br><span class="line"></span><br><span class="line">&gt; db.pyuser.aggregate([&#123;<span class="variable">$group</span>:&#123;<span class="string">'_id'</span>:<span class="string">'$sex'</span>,names:&#123;<span class="variable">$addToSet</span>:<span class="string">'$name'</span>&#125;&#125;&#125;])</span><br><span class="line">&#123; <span class="string">"_id"</span> : <span class="string">"f"</span>, <span class="string">"names"</span> : [ <span class="string">"董明珠"</span> ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : <span class="string">"m"</span>, <span class="string">"names"</span> : [ <span class="string">"Robin Li"</span>, <span class="string">"IG.wxz"</span>, <span class="string">"Pone Ma"</span>, <span class="string">"Jack Ma"</span> ] &#125;</span><br><span class="line">按sex分组，对name去重并输出全部name值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; db.pyuser.aggregate([&#123;<span class="variable">$group</span>:&#123;<span class="string">'_id'</span>:<span class="string">'$sex'</span>,names:&#123;<span class="variable">$addToSet</span>:<span class="string">'$name'</span>&#125;,scores:&#123;$</span><br><span class="line">addToSet:<span class="string">'$score'</span>&#125;&#125;&#125;])</span><br><span class="line">&#123; <span class="string">"_id"</span> : <span class="string">"f"</span>, <span class="string">"names"</span> : [ <span class="string">"董明珠"</span> ], <span class="string">"scores"</span> : [ 95 ] &#125;</span><br><span class="line">&#123; <span class="string">"_id"</span> : <span class="string">"m"</span>, <span class="string">"names"</span> : [ <span class="string">"Robin Li"</span>, <span class="string">"IG.wxz"</span>, <span class="string">"Pone Ma"</span>, <span class="string">"Jack Ma"</span> ], <span class="string">"scores</span></span><br><span class="line"><span class="string">"</span> : [ 75, 85, 90, 100 ] &#125;</span><br><span class="line">按sex分组，对name和score去重并输出全部name值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; db.pyuser.aggregate([&#123;<span class="variable">$group</span>:&#123;_id:<span class="string">'$sex'</span>,firstname:&#123;<span class="variable">$first</span>:<span class="string">'$name'</span>&#125;&#125;&#125;])</span><br><span class="line">按sex分组，并取第一个name值输出</span><br><span class="line"></span><br><span class="line">db.pyuser.aggregate([&#123;<span class="variable">$group</span>:&#123;<span class="string">'_id'</span>:null,total:&#123;<span class="variable">$sum</span>:<span class="string">'$score'</span>&#125;&#125;&#125;])</span><br><span class="line">不分组，输出score的和</span><br></pre></td></tr></table></figure>
-<h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">管道在Unix和Linux中一般用于将当前命令的输出结果作为下一个条件/命令的参数</span><br><span class="line">MongoDB的聚合管道是将MongoDB文档在一个管道处理文笔后将结果传递给下一个管道处理，管道的操作时可以处理的。</span><br><span class="line"></span><br><span class="line">管道操作有以下几个：</span><br><span class="line">db.pyuser.aggregate(&#123;<span class="variable">$project</span>:&#123;<span class="string">'_id'</span>:0,<span class="string">'name'</span>:1,scores:&#123;<span class="variable">$add</span>:[<span class="string">'$score'</span>,-10]&#125;&#125;&#125;)</span><br><span class="line">查询name和score，并将score值减10，不改变数据库数值。</span><br><span class="line"></span><br><span class="line">db.pyuser.aggregate([&#123;<span class="variable">$project</span>:&#123;<span class="string">'_id'</span>:0&#125;&#125;,&#123;<span class="variable">$match</span>:&#123;<span class="string">'score'</span>:&#123;<span class="variable">$lt</span>:90&#125;&#125;&#125;])</span><br><span class="line">查询score值小于90的信息，且将id过滤不输出。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; db.pyuser.aggregate([&#123;<span class="variable">$match</span>:&#123;<span class="string">'score'</span>:&#123;<span class="variable">$gt</span>:80,<span class="variable">$lt</span>:100&#125;&#125;&#125;,&#123;<span class="variable">$group</span>:&#123;_id:<span class="string">'$sex'</span>,c</span><br><span class="line">ount:&#123;<span class="variable">$sum</span>:1&#125;&#125;&#125;])</span><br><span class="line">查询score大于80小于100的信息，再按性别分组统计人数。</span><br><span class="line"></span><br><span class="line">db.pyuser.aggregate([&#123;<span class="variable">$sort</span>:&#123;score:1&#125;&#125;])</span><br><span class="line">按score排序 1为升序 -1为降序</span><br><span class="line"></span><br><span class="line">db.pyuser.aggregate([&#123;<span class="variable">$limit</span>:n&#125;])</span><br><span class="line">输出前N条数据，n为你需要的数据条数</span><br><span class="line"></span><br><span class="line">db.pyuser.aggregate([&#123;<span class="variable">$skip</span>:n&#125;])</span><br><span class="line">过滤掉前n条数据，显示剩余的数据</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">注意：</span><br><span class="line"><span class="variable">$match</span> 中不能和<span class="variable">$where</span> 表达式混合使用</span><br><span class="line">如果<span class="variable">$match</span> 位于管道的第一阶段，可以利用索引提高查询速度</span><br><span class="line"><span class="variable">$match</span> 尽量出现在管道的最前面，过滤出需要的数据，在后续的阶段中可以提高效率</span><br><span class="line"><span class="variable">$match</span>中使用<span class="variable">$text</span>操作符的话，只能位于管道的第一个阶段</span><br></pre></td></tr></table></figure>
-<h2 id="表达式运算符"><a href="#表达式运算符" class="headerlink" title="表达式运算符"></a>表达式运算符</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.pyuser.aggregate([&#123;<span class="variable">$project</span>:&#123;_id:0,score:1,newscore:&#123;<span class="variable">$or</span>:[&#123;<span class="variable">$gt</span>:[<span class="string">'$secore'</span>,85]</span><br><span class="line">&#125;,&#123;<span class="variable">$lt</span>:[<span class="string">'$score'</span>,100]&#125;]&#125;&#125;&#125;])</span><br><span class="line">or 或者  返回为<span class="literal">false</span>和<span class="literal">true</span></span><br><span class="line"></span><br><span class="line">&gt; db.pyuser.aggregate([&#123;<span class="variable">$project</span>:&#123;_id:0,score:1,scores:&#123;<span class="variable">$not</span>:[&#123;<span class="variable">$gt</span>:[<span class="string">'$score'</span>,80]</span><br><span class="line">&#125;]&#125;&#125;&#125;])</span><br><span class="line">not表示非，反的意思。 返回<span class="literal">false</span>和<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&gt; db.pyuser.aggregate([&#123;<span class="variable">$project</span>:&#123;_id:0,name:1,score:1,sex:1,newscore:&#123;<span class="variable">$and</span>:[&#123;<span class="variable">$n</span></span><br><span class="line">e:[<span class="string">'$score'</span>,90]&#125;,&#123;<span class="variable">$ne</span>:[<span class="string">'$sex'</span>,<span class="string">'f'</span>]&#125;]&#125;&#125;&#125;])</span><br><span class="line">score不等于90且sex不等于f</span><br><span class="line"></span><br><span class="line">&gt; db.pyuser.aggregate([&#123;<span class="variable">$project</span>:&#123;_id:0,name:1,score:1,sex:1,newscore:&#123;<span class="variable">$and</span>:[&#123;<span class="variable">$n</span></span><br><span class="line">e:[<span class="string">'$score'</span>,90]&#125;,&#123;<span class="variable">$eq</span>:[<span class="string">'$sex'</span>,<span class="string">'m'</span>]&#125;]&#125;&#125;&#125;])</span><br><span class="line">score不等于90且sex等于m</span><br></pre></td></tr></table></figure>
-<h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.pytimer.aggregate([&#123;<span class="variable">$project</span>:&#123;newyear:&#123;<span class="variable">$year</span>:<span class="string">'$date'</span>&#125;&#125;&#125;])</span><br><span class="line">&#123; <span class="string">"_id"</span> : ObjectId(<span class="string">"5b95e5e51128dc61ad4d9442"</span>), <span class="string">"newyear"</span> : 2018 &#125;</span><br><span class="line">取时间的年份</span><br></pre></td></tr></table></figure>
-<h2 id="聚合管道的优化"><a href="#聚合管道的优化" class="headerlink" title="聚合管道的优化"></a>聚合管道的优化</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">这是一个策略：</span><br><span class="line">1）将<span class="variable">$match</span>和<span class="variable">$sort</span>放到管道的前面，可以给集合建立索引，提高处理数据的效率</span><br><span class="line">2）可以使用<span class="variable">$match</span> <span class="variable">$limit</span> 对文档进行提前过滤，减少后续处理文档的数量</span><br><span class="line"></span><br><span class="line">阶段优化</span><br><span class="line">1）<span class="variable">$sort</span> + <span class="variable">$match</span></span><br><span class="line">顺序优化</span><br><span class="line">如果<span class="variable">$match</span>在<span class="variable">$sort</span>之后，优化器会自动把<span class="variable">$match</span> 放到<span class="variable">$sort</span>之前</span><br><span class="line"></span><br><span class="line">2）<span class="variable">$limit</span> + <span class="variable">$skip</span></span><br><span class="line">如果子<span class="variable">$skip</span>在<span class="variable">$limit</span>之后，优化器会把<span class="variable">$limit</span>移动到<span class="variable">$skip</span>之前</span><br><span class="line">移动后的<span class="variable">$limit</span>的值等于原来的值加上<span class="variable">$skip</span>的值</span><br><span class="line">skip 10 <span class="built_in">limit</span> 5 ====&gt; <span class="built_in">limit</span> 15 skip 10</span><br><span class="line"></span><br><span class="line">集合管道的限制作用就是 对返回结果大小和内存的限制</span><br><span class="line"></span><br><span class="line">MongoDB对返回结果的大小限制</span><br><span class="line">返回一个文档大小不能超过16M 只是MongoDB 2.6之前的规定的</span><br><span class="line">2.6之后返回结果可以是一个游标</span><br></pre></td></tr></table></figure>
+        <p>import json </p>
+<p>‘’’<br>dic = {‘name’:’张三’,’age’:22,’dress’:’河南’}<br>dum = json.dumps(dic)<br>print(type(dum),dum)</p>
+<p>loa = json.loads(dum)<br>print(loa)<br>‘’’</p>
+<p>‘’’<br>dic = {‘name’:’张三’,’age’:22,’dress’:’河南’}<br>my = open(‘myfile.txt’,’w’,encoding=’UTF-8’)<br>json.dump(dic,my)<br>my.close()</p>
+<p>f = open(‘myfile.txt’,’r’,encoding=’UTF-8’)<br>loa = json.load(f)<br>print(loa)<br>f.close()<br>‘’’</p>
+<p>‘’’<br>import pickle<br>f = open(‘myfile.dat’,’wb’)<br>dic = {‘name’:’张三’,’age’:22,’dress’:’郑州’}<br>dic1 = {‘name’:’李四’,’age’:22,’dress’:’中牟县’}<br>pickle.dump(dic,f)<br>pickle.dump(dic1,f)<br>f.close()</p>
+<p>f = open(‘myfile.dat’,’rb’)<br>while True:<br>    try:<br>        a = pickle.load(f)<br>        print(a)<br>    except Exception as e:<br>        print(‘文件已经读完’)<br>        break<br>f.close()</p>
+<p>a = pickle.dumps(dic)<br>print(type(a),a)</p>
+<p>b = pickle.loads(a)<br>print(b)<br>‘’’</p>
+<p>‘’’<br>import hashlib<br>m = hashlib.md5()<br>m.update(‘123456’.encode(‘UTF-8’))<br>print(m.hexdigest)</p>
+<h1 id="md5算法加密"><a href="#md5算法加密" class="headerlink" title="md5算法加密"></a>md5算法加密</h1><p>m1 = hashlib.md5(‘zy’.encode(‘UTF-8’))<br>m1.update(‘123456’.encode(‘utf-8’))<br>print(m1.hexdigest)</p>
+<h1 id="加盐"><a href="#加盐" class="headerlink" title="加盐"></a>加盐</h1><p>‘’’</p>
+<p>‘’’<br>import configparser</p>
+<h1 id="生成一个配置文件对象"><a href="#生成一个配置文件对象" class="headerlink" title="生成一个配置文件对象"></a>生成一个配置文件对象</h1><p>config = configparser.ConfigParser()<br>config[‘account’] = {<br>    ‘username’:’tom’,<br>    ‘password’:’123’<br>}<br>with open(‘user.ini’,’w’) as f:<br>    config.write(f)</p>
+<h1 id="写内容"><a href="#写内容" class="headerlink" title="写内容"></a>写内容</h1><p>config = configparser.ConfigParser()</p>
+<h1 id="将配置文件的内容读取"><a href="#将配置文件的内容读取" class="headerlink" title="将配置文件的内容读取"></a>将配置文件的内容读取</h1><p>config.read(‘user.ini’)<br>print(config.sections()) # 得到配置文件所有的小节名称<br>print(config.options(‘account’))  # 通过小节名字得到其内部内容,(只有KEY值)<br>print(config[‘account’][‘username’])<br>print(config[‘account’][‘password’])</p>
+<h1 id="读内容-返回为列表"><a href="#读内容-返回为列表" class="headerlink" title="读内容 返回为列表"></a>读内容 返回为列表</h1><p>config1 = configparser.ConfigParser()<br>config1.read(‘user.ini’)<br>config1.add_section(‘info’)</p>
+<h1 id="添加一个小节"><a href="#添加一个小节" class="headerlink" title="添加一个小节"></a>添加一个小节</h1><p>config1.set(‘info’,’address’,’zhengzhou’)<br>config1.set(‘info’,’name’,’zhangsan’)</p>
+<h1 id="在小节内添加内容"><a href="#在小节内添加内容" class="headerlink" title="在小节内添加内容"></a>在小节内添加内容</h1><p>with open(‘user.ini’,’w’) as f:<br>    config1.write(f)<br>‘’’</p>
+<p>‘’’<br>import configparser</p>
+<p>config = configparser.ConfigParser()<br>config.read(‘user.ini’)</p>
+<h1 id="删除指定小节里边的内容"><a href="#删除指定小节里边的内容" class="headerlink" title="删除指定小节里边的内容"></a>删除指定小节里边的内容</h1><p>config.remove_option(‘account’,’password’)<br>with open(‘user.ini’,’w’) as f:<br>    config.write(f)<br>‘’’</p>
+<p>‘’’<br>import configparser</p>
+<p>config = configparser.ConfigParser()<br>config.read(‘user.ini’)</p>
+<h1 id="删除整个小节"><a href="#删除整个小节" class="headerlink" title="删除整个小节"></a>删除整个小节</h1><p>config.remove_section(‘time’)<br>with open(‘user.ini’,’w’) as f:<br>    config.write(f)<br>‘’’</p>
+<h1 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h1><p>‘’’<br>from collections import Counter<br>c = Counter(‘dasfsdadsfsdsaasfsdfsf’)<br>print(c)<br>print(c.keys())</p>
+<h1 id="计数器-返回列表"><a href="#计数器-返回列表" class="headerlink" title="计数器  返回列表"></a>计数器  返回列表</h1><p>‘’’</p>
+<h1 id="time函数"><a href="#time函数" class="headerlink" title="time函数"></a>time函数</h1><p>‘’’<br>import time<br>print(time.time())<br>print(time.strftime(‘%Y-%m-%d %H:%M:%S %A %w’))<br>print(time.localtime()) # 本地结构化时间</p>
+<p>p = time.strptime(‘2018-8-3’,’%Y-%m-%d’)<br>print(time.mktime(p))</p>
+<h1 id="转时间戳"><a href="#转时间戳" class="headerlink" title="转时间戳"></a>转时间戳</h1><p>p2 = time.localtime(1500000000)<br>print(time.strftime(‘%Y-%m-%d’,p2))</p>
+<h1 id="时间戳转格式化时间"><a href="#时间戳转格式化时间" class="headerlink" title="时间戳转格式化时间"></a>时间戳转格式化时间</h1><p>‘’’</p>
+<h1 id="random"><a href="#random" class="headerlink" title="random"></a>random</h1><p>‘’’<br>import random<br>print(random.random()) # 随机产生[0,1)之间的数<br>print(random.uniform(1,3)) #1到3之间的浮点数<br>print(random.randrange(1,10))<br>print(random.randint(1,10))<br>print(random.choice([1,2,3,4,5,6,7,8,9,10])) #随机抽取一个数<br>print(random.sample([1,2,[3,4]],2)) #随机返回两个<br>item = [1,2,3,4,5]<br>random.shuffle(item) #打乱顺序 无返回值<br>print(item)<br>‘’’<br>import time<br>print(time.strftime(‘%Y-%m-%d %H:%M:%S %A %w’))</p>
 
       
 
@@ -194,7 +214,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/06/my-notes27/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/lesson23/">展开全文 >></a>
         </p>
       
 
@@ -224,57 +244,151 @@
 
 
   
-    <article id="post-my-notes26" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-lesson22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/04/my-notes26/">数据库—事务</a>
+      <a class="article-title" href="/2018/09/18/lesson22/">异常</a>
     </h1>
   
 
         
-        <a href="/2018/09/04/my-notes26/" class="archive-article-date">
-  	<time datetime="2018-09-04T10:46:31.399Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
+        <a href="/2018/09/18/lesson22/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:19:45.651Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="数据库—事务"><a href="#数据库—事务" class="headerlink" title="数据库—事务"></a>数据库—事务</h2><pre><code class="bash">背景：银行转账过程中，如果发生了意外，需要使用事务进行处理。
-A账号有余额1000元，向余额为200元的B账号进行转账500元。由于发生了某些故障，造成A账号在转账过程中出现了错误，需要使用事务回滚（rollback）。如果A账号成功扣款，转账完成，B账号余额增加500元。
+        <p>‘’’<br>try:<br>    print(a)<br>except NameError as name:<br>    print(‘该变量没有被声明’)</p>
+<p>s = 1<br>b = ‘a’<br>try:<br>    n = s+b<br>    print(‘try里边异常后边的内容不会执行’)</p>
+<pre><code># 一但捕获异常，try内部异常代码以下内容不再执行
+</code></pre><p>except TypeError as ty:<br>    print(‘语法错误’)</p>
+<p>print(‘异常以外的代码还会继续执行’)</p>
+<h1 id="try执行完以后会接着执行try下边的代码"><a href="#try执行完以后会接着执行try下边的代码" class="headerlink" title="try执行完以后会接着执行try下边的代码"></a>try执行完以后会接着执行try下边的代码</h1><p>try:<br>    num = int(input(‘输入整数：’))<br>except ValueError as t:<br>    print(‘输入的不是数值’)<br>else:<br>    print(‘没有捕获异常时执行’)</p>
+<h1 id="else-在没有捕获异常时执行"><a href="#else-在没有捕获异常时执行" class="headerlink" title="else 在没有捕获异常时执行"></a>else 在没有捕获异常时执行</h1><p>try:<br>    num = int(input(‘输入整数：’))<br>except ValueError as t:<br>    print(‘输入的不是数值’)<br>finally:<br>    print(‘哈哈’)</p>
+<h1 id="无论是否捕获异常，finall都会执行"><a href="#无论是否捕获异常，finall都会执行" class="headerlink" title="无论是否捕获异常，finall都会执行"></a>无论是否捕获异常，finall都会执行</h1><p>‘’’</p>
+<p>‘’’<br>try:<br>    f = open(‘test.txt’, ‘r’)<br>    line = f.readline( )<br>    print(line)<br>except FileNotFoundError as fe:<br>    print(‘文件不存在’)<br>except IOError as ioe:<br>    print(‘文件读取有错误’)<br>finally:<br>    try:<br>        f.close( )<br>    except NameError as ne:<br>        print(‘变量未声明’)</p>
+<p>try:<br>    raise NameError(‘变量’)<br>except NameError as na:<br>    print(‘变量未声明’)</p>
+<h1 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h1><p>‘’’</p>
+<p>from error import MyError<br>try:<br>    raise MyError(‘My error’)<br>except MyError as my:<br>    print(‘自定义类’)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/18/lesson22/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-lesson21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/18/lesson21/">xml和Excel操作例子</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/18/lesson21/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:19:45.650Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>from xml.dom import minidom  # 引入minidom，以dom方式解析xml文件<br>import xlwt<br>from xml.etree import ElementTree</p>
+<p>def readXML(xmlfile):<br>    dic = {}<br>    title = []<br>    cars = []</p>
+<pre><code># 载入xml文档进行解析，生成一个document对象
+document = minidom.parse(xmlfile)
+# 获得文档元素对象,此处获得了根节点
+root = document.documentElement
+# 根据根节点，向下查找内部所有的car节点，并将节点名字返回
+sheet_name = root.getElementsByTagName(&apos;car&apos;)[0].nodeName
+# 通过getElementsByTagName()函数，获得指定的节点对象，不管节点对象有几个，都是返回一个列表类型
+node = root.getElementsByTagName(&apos;car&apos;)
+for i in range(len(node)):
+    item = []
+    item.append(node[i].getElementsByTagName(&apos;brand&apos;)[0].firstChild.data)
+    item.append(node[i].getElementsByTagName(&apos;compony&apos;)[0].firstChild.data)
+    item.append(node[i].getElementsByTagName(&apos;price&apos;)[0].firstChild.data)
+    item.append(node[i].getElementsByTagName(&apos;color&apos;)[0].firstChild.data)
+    item.append(node[i].getElementsByTagName(&apos;model&apos;)[0].firstChild.data)
+    item.append(node[i].getElementsByTagName(&apos;county&apos;)[0].firstChild.data)
+    cars.append(item)
+dic[sheet_name] = cars
+dic[&apos;title&apos;] = [&apos;brand&apos;,&apos;compony&apos;,&apos;price&apos;,&apos;color&apos;,&apos;model&apos;,&apos;county&apos;]
+return dic
+</code></pre><p>def saveXLS(dic):</p>
+<pre><code># 生成一个Excel文件对象
+book = xlwt.Workbook()
+sheet = book.add_sheet(&apos;car&apos;)
+for i in range(len(dic[&apos;title&apos;])):
+    sheet.write(0, i, dic[&apos;title&apos;][i])
+
+for m in range(len(dic[&apos;car&apos;])):
+    for n in range(len(dic[&apos;car&apos;][m])):
+        sheet.write(m+1, n, dic[&apos;car&apos;][m][n])
+
+book.save(&apos;car.xls&apos;)
+</code></pre><p>def readXML2(element):<br>    list2 = list()<br>    if len(element)&gt;0:<br>        for child in element:<br>            if child.tag != ‘car’:<br>                print(child.tag,’——&gt;’,child.text)<br>                list2.append(child.text)<br>                title.append(child.tag)<br>            readXML2(child)<br>        list1.append(list2)</p>
+<p>def saveXLS2(title,list1):<br>    book = xlwt.Workbook()<br>    sheet = book.add_sheet(‘car’)<br>    for i in range(len(title)):<br>        sheet.write(0, i, title[i])</p>
+<pre><code>for m in range(len(list1)):
+    for n in range(len(list1[m])):
+        sheet.write(m+1, n, list1[m][n])
+
+book.save(&apos;car2.xls&apos;)
+</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:</p>
+<pre><code>#dic = readXML(&apos;lesson19.xml&apos;)
+#saveXLS(dic)
+tree = ElementTree.parse(&apos;lesson19.xml&apos;)
+root = tree.getroot() # 获取根节点
+list1 = list()
+title = list()
+readXML2(root)
+saveXLS2(title[:6],list1)
 </code></pre>
-<pre><code class="bash">不使用事务产生的问题：
-1、当A账号进行转账扣款时，发生错误。B账号并没有收到转账金额500元。而A账号已经提示完成扣款。
-2、当A账号进行转账发生错误，未成功扣款，而B账号提示收到转账金额500元。
-我们称上述的情况产生的数据为脏数据。
-具体步骤：
-1、关闭MySQL自动提交功能。<span class="built_in">set</span> autocommit = 0;
-2、开启事务：start transaction/begin
-3、执行相应的SQL操作
-4、提交或回滚
-5、将MySQL自动提交功能开启 <span class="built_in">set</span> autocommit = 1;
-概念：在MySQL中事务主要用于处理操作量大，复杂度高的数据。只有定义了InnoDB引擎的数据库才支持事务。事务处理可以用来维护数据库的完整性，保证SQL操作要么全完成，要么全不执行。
-事务满足四个特性：ACID
-A：原子性。一个事务中的所有操作，会作为一个整体来看待即，在执行时如果有一个操作没有成功，那么所有操作都将被回滚。回到事务开始前的状态。
-C：一致性。在事务开始之前和事务结束之后，数据库的完整性没有被破坏，说明写入的资料符合数据库的所有设置的规则，包括数据的精度。
-I：隔离性。数据库允许同时并发多个事务，并且同时对数据库进行读写操作，隔离性可以保证防止多个事务并发执行时由于交叉执行从而导致数据不一致。
-事务的隔离分为：读未提交、读提交、可重复读、串行化。
-D：持久性。事务处理结束后，对数据的修改是永久的，即存储在数据库中。
-</code></pre>
-<h2 id="MySQL数据库中myisam与innodb的区别"><a href="#MySQL数据库中myisam与innodb的区别" class="headerlink" title="MySQL数据库中myisam与innodb的区别"></a>MySQL数据库中myisam与innodb的区别</h2><pre><code class="bash">1、MyISAM是非事务安全型的，而InnoDB是事务安全型
-2、MyISAM是锁支持到表级，而InnoDB支持行级。
-3、MyISAM支持全文检索，而InnoDB不支持全文检索
-4、MyISAM表保存为文件形式的，有利于跨平台时进行数据转移，而InnoDB比MyISAM更安全，可以保证表中数据不丢失的情况下，切换非事务到事务表。
-5、如果在实际应用中，需要执行大量的select查询，那么MyISAM是优先选择的。
-如果需要执行大量的增删改操作，那么InnoDB是优先选择的，可以提高多用户并发操作的性能。
-通常，我们在实现构建数据库服务器时，采用读写分离的方式，即设置一台读服务器，一台写服务器，同时两台服务器进行数据同步。
-</code></pre>
-
       
 
       
@@ -286,7 +400,7 @@ D：持久性。事务处理结束后，对数据的修改是永久的，即存�
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/04/my-notes26/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/lesson21/">展开全文 >></a>
         </p>
       
 
@@ -316,31 +430,49 @@ D：持久性。事务处理结束后，对数据的修改是永久的，即存�
 
 
   
-    <article id="post-my-notes25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-lesson20" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/27/my-notes25/">正则表达式</a>
+      <a class="article-title" href="/2018/09/18/lesson20/">xml文件</a>
     </h1>
   
 
         
-        <a href="/2018/08/27/my-notes25/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:25:48.764Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+        <a href="/2018/09/18/lesson20/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:19:45.649Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><h3 id="正则表达式的概念"><a href="#正则表达式的概念" class="headerlink" title="正则表达式的概念"></a>正则表达式的概念</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">正则表达式就是使用一些特定的表达式，来表示符合其规范的字符串。</span><br></pre></td></tr></table></figure>
-<h3 id="常用操作符"><a href="#常用操作符" class="headerlink" title="常用操作符"></a>常用操作符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">^:^ab,代表着必须是ab开头，[^ab]代表不能是a或b开头</span><br><span class="line">$:表示字符串结尾，放在正则表达式的结尾</span><br><span class="line">[]：代表了值域的范围，例如：[0-9][a-z]</span><br><span class="line">&#123;&#125;：代表了字符出现的次数,例如：&#123;n&#125;代表了出现n次，&#123;n,m&#125;代表出现了n到m次</span><br><span class="line">*:代表了字符出现0-n次</span><br><span class="line">+：代表了字符出现1-n次</span><br><span class="line">？：代表了字符出现0-1次</span><br></pre></td></tr></table></figure>
-<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">1）search()：会在指定的字符串中查找，是否有匹配正则表达式的内容</span><br><span class="line">函数格式：search(pattern, str)</span><br><span class="line">参数说明：</span><br><span class="line">pattern：正则表达式</span><br><span class="line">str：字符串</span><br><span class="line">返回值：match对象，可以通过match.group(0)返回匹配正则表达式的内容</span><br><span class="line">2）match():会从字符串的开始进行匹配</span><br><span class="line">函数格式：match(pattern, str) </span><br><span class="line">返回值：match对象</span><br><span class="line">3）findall():会从指定的字符串中，匹配所有满足正则表达式的内容</span><br><span class="line">函数格式：findall(pattern,str)</span><br><span class="line">返回值：返回所有匹配的内容，以列表形式。</span><br><span class="line">4）split():根据字符串匹配正则表达式的情况来切分</span><br><span class="line">函数格式：split(pattern, str, maxsplit)</span><br><span class="line">maxsplit：最大切分次数，剩余部分将作为一个整体输出</span><br><span class="line">返回值：将切分后的字符串，以列表形式返回</span><br><span class="line">5）finditer():根据字符串匹配正则表达式，返回一个迭代对象，其中的每一个对象都是match对象</span><br><span class="line">函数格式：finditer(pattern,str)</span><br><span class="line">返回值：返回迭代对象，其中每个对象都是match类型</span><br><span class="line"></span><br><span class="line">6）sub():根据正则表达式，将指定的字符串内容替换</span><br><span class="line">函数格式：sub(pattern, repl, string, count)</span><br><span class="line">参数说明：</span><br><span class="line">repl：替换匹配字符串的字符串</span><br><span class="line">count：匹配的最大次数</span><br><span class="line">返回值：返回替换后的字符串</span><br><span class="line">7）compile():生成正则表达式对象</span><br><span class="line">函数格式：compile(pattern)</span><br><span class="line">返回值：返回一个正则表达式对象</span><br></pre></td></tr></table></figure>
-<h3 id="match对象"><a href="#match对象" class="headerlink" title="match对象"></a>match对象</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1）match对象属性</span><br><span class="line">string：待匹配的字符串</span><br><span class="line">pos：匹配文本的开始位置</span><br><span class="line">endpos：匹配文件的结束位置</span><br><span class="line">re：正则表达式</span><br><span class="line">2）match方法</span><br><span class="line">group(0)：获得匹配后的字符串</span><br><span class="line">start()：返回文本开始的位置</span><br><span class="line">end()：返回文本结束的位置</span><br><span class="line">span()：返回文本开始，结束的位置，以元组的形式返回</span><br></pre></td></tr></table></figure>
+        <p>‘’’<br>from xml.dom import minidom  #引入minidom 以dom方式解析xml文件</p>
+<h1 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h1><p>dom = minidom.parse(‘lesson19.xml’)</p>
+<h1 id="得到文档的元素对象"><a href="#得到文档的元素对象" class="headerlink" title="得到文档的元素对象"></a>得到文档的元素对象</h1><p>root = dom.documentElement<br>print(root.nodeName)<br>print(root.nodeValue)<br>print(root.nodeType)</p>
+<h1 id="获得在根节点下，所有名字为‘car’的节点对象"><a href="#获得在根节点下，所有名字为‘car’的节点对象" class="headerlink" title="获得在根节点下，所有名字为‘car’的节点对象"></a>获得在根节点下，所有名字为‘car’的节点对象</h1><p>node = root.getElementsByTagName(‘car’)</p>
+<h1 id="获得car节点中，第一个节点中brand子节点的文本内容"><a href="#获得car节点中，第一个节点中brand子节点的文本内容" class="headerlink" title="获得car节点中，第一个节点中brand子节点的文本内容"></a>获得car节点中，第一个节点中brand子节点的文本内容</h1><p>print(node[0].getElementsByTagName(‘brand’)[0].firstChild.data)</p>
+<h1 id="可以直接在root下边查找brand"><a href="#可以直接在root下边查找brand" class="headerlink" title="可以直接在root下边查找brand"></a>可以直接在root下边查找brand</h1><p>print(root.getElementsByTagName(‘brand’)[0].firstChild.data)</p>
+<p>for i in range(len(node[0].childNodes)):<br>    if node[0].childNodes[i].nodeType == 1:<br>        print(node[0].childNodes[i].nodeName,end=’ ‘)<br>print()</p>
+<p>def func(nodes):<br>    for i in range(len(nodes)):<br>        print(root.getElementsByTagName(‘brand’)[i].firstChild.data, end=’ ‘)<br>        print(root.getElementsByTagName(‘compony’)[i].firstChild.data, end=’ ‘)<br>        print(root.getElementsByTagName(‘price’)[i].firstChild.data, end=’ ‘)<br>        print(root.getElementsByTagName(‘color’)[i].firstChild.data, end=’ ‘)<br>        print(root.getElementsByTagName(‘model’)[i].firstChild.data, end=’ ‘)<br>        print(root.getElementsByTagName(‘county’)[i].firstChild.data, end=’ ‘)<br>        print()<br>func(node)<br>‘’’</p>
+<p>‘’’<br>from xml.etree import ElementTree</p>
+<p>tree = ElementTree.parse(‘lesson19.xml’)<br>root = tree.getroot() # 获取根节点<br>for child in root:<br>    print(‘遍历root’,child.tag,’——–&gt;’,child.attrib)<br>    for node in child:<br>        print(‘遍历child’,node.tag,’——–&gt;’,node.text)<br>‘’’</p>
+<p>‘’’<br>from xml.etree import ElementTree</p>
+<p>tree = ElementTree.parse(‘lesson19.xml’)<br>root = tree.getroot() # 获取根节点<br>list1 = list()</p>
+<p>def parseXML(element):<br>    list2 = list()<br>    if len(element)&gt;0:<br>        for child in element:<br>            if child.tag != ‘car’:<br>                print(child.tag,’——&gt;’,child.text)<br>                list2.append(child.text)<br>            parseXML(child)<br>        list1.append(list2)<br>        print(list1)</p>
+<p>parseXML(root)<br>‘’’</p>
+<p>‘’’</p>
+<h1 id="SAX解析文件步骤"><a href="#SAX解析文件步骤" class="headerlink" title="SAX解析文件步骤"></a>SAX解析文件步骤</h1><p>from xml import sax<br>from xml.sax import ContentHandler</p>
+<p>#创建一个解析器<br>parser = sax.make_parser()</p>
+<h1 id="解析指定文档"><a href="#解析指定文档" class="headerlink" title="解析指定文档"></a>解析指定文档</h1><p>parser.parse(‘lesson19.xml’)</p>
+<h1 id="给解析器指定一个handler"><a href="#给解析器指定一个handler" class="headerlink" title="给解析器指定一个handler"></a>给解析器指定一个handler</h1><p>parser.setContentHandler(sax.ContentHandler)</p>
+<p>def startElement():<br>    pass</p>
+<p>def endElement():<br>    pass</p>
+<p>def characters():<br>    pass<br>‘’’</p>
+
       
 
       
@@ -352,7 +484,7 @@ D：持久性。事务处理结束后，对数据的修改是永久的，即存�
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/27/my-notes25/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/lesson20/">展开全文 >></a>
         </p>
       
 
@@ -382,32 +514,39 @@ D：持久性。事务处理结束后，对数据的修改是永久的，即存�
 
 
   
-    <article id="post-my-notes24" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-lesson17" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/27/my-notes24/">requests库</a>
+      <a class="article-title" href="/2018/09/18/lesson17/">二进制文件</a>
     </h1>
   
 
         
-        <a href="/2018/08/27/my-notes24/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:21:04.669Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+        <a href="/2018/09/18/lesson17/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:19:08.060Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="requests库"><a href="#requests库" class="headerlink" title="requests库"></a>requests库</h2><h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">1）函数格式：requests.get(url,[param], **kvw)</span><br><span class="line">参数说明:</span><br><span class="line">url：指定爬取的网络地址</span><br><span class="line">param：需要传递的参数，参数格式：字典或字节流</span><br><span class="line">返回值：response对象</span><br><span class="line">属性：</span><br><span class="line">status_code:状态码</span><br><span class="line">headers:头信息</span><br><span class="line">text：抓取到的页面内容</span><br><span class="line">encoding：页面的编码格式（从headers获取到）</span><br><span class="line">apparent_encoding：页面的编码格式（从网页内容中获取到）</span><br><span class="line">content：二进制形式的信息</span><br><span class="line">注意：text属性返回的页面信息，是根据encoding来显示的。所以我们在使用requests抓取页面信息时，将encoding属性进行设置，通常设为utf-8。</span><br><span class="line"></span><br><span class="line">get()函数代表了发出一个request请求，而requests.get()表示返回一个response对象</span><br><span class="line"></span><br><span class="line">2）</span><br><span class="line">requests.request(<span class="string">'GET'</span>,url, **kvw)</span><br><span class="line">requests.request(<span class="string">'HEAD'</span>,url, **kvw)</span><br><span class="line">requests.request(<span class="string">'POST'</span>,url, **kvw)</span><br><span class="line">requests.request(<span class="string">'PUT'</span>,url, **kvw)</span><br><span class="line">requests.request(<span class="string">'PATCH'</span>,url, **kvw)</span><br><span class="line">requests.request(<span class="string">'DELETE'</span>,url, **kvw)</span><br><span class="line">**kvw:控制访问的参数，为可选项</span><br><span class="line">params:字典或字节流，作为参数添加到url中（get方法使用）</span><br><span class="line">data：字典、字节流或文件对象（post方法使用）</span><br><span class="line">json：JSON格式数据，作为request的内容</span><br><span class="line">headers：字典，HTTP头信息</span><br><span class="line">cookies：字典或cookie jar，存在于request的cookie中</span><br><span class="line">auth：元组，支持HTTP认证</span><br><span class="line">files：字典类型，传输文件</span><br><span class="line">timeout：设定超时时间，秒为单位</span><br><span class="line">stream：True/False，默认为True。获取内容立即下载。</span><br><span class="line">cert：本地SSL整数路径</span><br><span class="line">verfiy：True/False，默认为True。认证SSL开关</span><br><span class="line">allow_redirects：True/False,默认为True，重定向开发</span><br></pre></td></tr></table></figure>
-<h2 id="beautiful-soup库"><a href="#beautiful-soup库" class="headerlink" title="beautiful soup库"></a>beautiful soup库</h2><h3 id="常用格式"><a href="#常用格式" class="headerlink" title="常用格式"></a>常用格式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(content, <span class="string">'html.parser'</span>)</span><br><span class="line">参数说明：</span><br><span class="line">content：使用requests或其他方式，发出请求后获取到的服务器响应内容，通常应该为HTML格式。</span><br><span class="line">html.parser:HTML4格式解析器</span><br></pre></td></tr></table></figure>
-<h3 id="常用的属性"><a href="#常用的属性" class="headerlink" title="常用的属性"></a>常用的属性</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">标签自身属性：</span><br><span class="line">tag：标签，例如soup.tag可以将指定的标签以及内部的内容返回</span><br><span class="line">name：标签名，例如：soup.tag.name返回指定标签的名字</span><br><span class="line">attrs：标签属性，在HTML中一个标签可以有0到N个标签，因此标签属性为字典类型，例如：soup.tag.attrs[<span class="string">'class'</span>]</span><br><span class="line">string：标签内的文本内容，例如：soup.tag.string</span><br><span class="line">标签树的属性：</span><br><span class="line">contents:例如：soup.tag.contents,将指定的标签名内所有的标签都以列表形式返回。</span><br><span class="line">children：例如：soup.tag.children，将指定的标签中所有的子标签内容，都以迭代器形式返回，进行遍历查询。</span><br><span class="line">descendants：例如：soup.tag.descendants,将指定的标签中所有的子标签、孙标签都以迭代器形式返回，进行遍历查询。</span><br><span class="line">注意：BeautifulSoup对象，作为标签树的根节点，即HTML节点</span><br></pre></td></tr></table></figure>
-<h3 id="常用方法-1"><a href="#常用方法-1" class="headerlink" title="常用方法"></a>常用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1）函数格式：soup.find(name,attrs)</span><br><span class="line">参数说明：</span><br><span class="line">name：标签名</span><br><span class="line">attrs：标签中的属性值（属性=‘值’）</span><br><span class="line">返回值：返回查找到第一个符合条件的标签以及内部元素</span><br><span class="line"></span><br><span class="line">2）函数格式：soup.find_all(name,attrs)</span><br><span class="line">函数参数与上面find()相同</span><br><span class="line">返回值：返回符合条件的所有的标签，以列表形式返回。</span><br></pre></td></tr></table></figure>
-<h2 id="bs4的遍历模式"><a href="#bs4的遍历模式" class="headerlink" title="bs4的遍历模式"></a>bs4的遍历模式</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">在BeautifulSoup中，有三种遍历模式：</span><br><span class="line">1）下行遍历</span><br><span class="line">children、descendants、contents</span><br><span class="line">find()、find_all()</span><br><span class="line">2）上行遍历</span><br><span class="line">parent、parents</span><br><span class="line">find_parent()、find_parents()</span><br><span class="line">3）平行遍历</span><br><span class="line">next_sibling、next_siblings</span><br><span class="line">previous_sibling、previous_siblings</span><br><span class="line">find_next_sibling()、find_next_siblings()</span><br><span class="line">find_previous_siblings()、find_previous_sibling()</span><br></pre></td></tr></table></figure>
+        <p>‘’’<br>import struct</p>
+<p>a = 12.2<br>b = True<br>c = 10<br>sn = struct.pack(‘if?’,c,a,b)<br>f = open(‘myfile.dat’,’wb’)<br>f.write(sn)<br>f.close</p>
+<p>string = b’hello world’ #b 声明字符串需要用二进制存储<br>sn = struct.pack(‘10s’,string) # 10代表字符串长度<br>f = open(‘myfile.dat’,’wb’)<br>f.write(sn)<br>f.close</p>
+<p>f = open(‘myfile.dat’,’rb’)<br>sn = f.read()<br>sn = struct.unpack(‘10s’,sn)<br>print(sn)<br>f.close()<br>‘’’</p>
+<p>‘’’<br>import pickle<br>a = 10<br>b = 12.2<br>c = True<br>d = ‘hello’</p>
+<p>f = open(‘myfile.dat’,’wb’)<br>pickle.dump(a,f)<br>pickle.dump(b,f)<br>pickle.dump(c,f)<br>pickle.dump(d,f)<br>f.close()</p>
+<p>with open(‘myfile.dat’,’rb’) as f:<br>    x = pickle.load(f)<br>    y = pickle.load(f)<br>    z = pickle.load(f)<br>    s = pickle.load(f)<br>    print(x,y,z,s)<br>‘’’</p>
+<p>‘’’<br>f = open(‘myfile.txt’,’w’)<br>f.writelines([‘你好，我是python程序员’,’我今天中午吃凉皮’,’今天是七月倒数第二天’])<br>f.close()</p>
+<p>fn = open(‘myfile.txt’,’r+’)<br>fn.seek(0)  #seek()代表替换位置 一个汉字代表两位<br>fn.write(‘我’)</p>
+<h1 id="seek-0-1-代表当前指针位置-seek-0-2-代表指针定位在文件末尾"><a href="#seek-0-1-代表当前指针位置-seek-0-2-代表指针定位在文件末尾" class="headerlink" title="seek(0,1)代表当前指针位置  seek(0,2)代表指针定位在文件末尾"></a>seek(0,1)代表当前指针位置  seek(0,2)代表指针定位在文件末尾</h1><p>‘’’</p>
+<p>‘’’<br>from os import path<br>f = open(‘myfile.txt’,’r’)<br>size = path.getsize(‘myfile.txt’)<br>print(size)<br>while True:<br>    count = f.read(1024) #1024代表字节，也就是1kb<br>    if count == ‘’:<br>        break<br>    print(count)<br>f.close()</p>
+<h1 id="分批读文件内容"><a href="#分批读文件内容" class="headerlink" title="分批读文件内容"></a>分批读文件内容</h1><p>‘’’</p>
+
       
 
       
@@ -419,7 +558,7 @@ D：持久性。事务处理结束后，对数据的修改是永久的，即存�
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/27/my-notes24/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/lesson17/">展开全文 >></a>
         </p>
       
 
@@ -449,31 +588,63 @@ D：持久性。事务处理结束后，对数据的修改是永久的，即存�
 
 
   
-    <article id="post-my-notes23" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-lesson16" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/27/my-notes23/">网络爬虫 - urllib库</a>
+      <a class="article-title" href="/2018/09/18/lesson16/">文件.txt的操作</a>
     </h1>
   
 
         
-        <a href="/2018/08/27/my-notes23/" class="archive-article-date">
-  	<time datetime="2018-08-27T11:14:41.125Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-27</time>
+        <a href="/2018/09/18/lesson16/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:19:08.059Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="网络爬虫-urllib库"><a href="#网络爬虫-urllib库" class="headerlink" title="网络爬虫 - urllib库"></a>网络爬虫 - urllib库</h2><h3 id="urllib库的基本使用"><a href="#urllib库的基本使用" class="headerlink" title="urllib库的基本使用"></a>urllib库的基本使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">函数格式：urllib.request.openurl(url, data, timeout)</span><br><span class="line">参数说明：</span><br><span class="line">url：指定的请求网址</span><br><span class="line">data：请求时提交给服务器端的数据，如果在openurl中使用了data参数，那么提交方式为post，默认情况下为get。</span><br><span class="line">timeout：指定连接url的超时时间，单位为秒。</span><br><span class="line">response = urllib.request.openurl()函数返回一个HTTPResponse对象</span><br><span class="line">我们可以使用response对象中的相关方法：</span><br><span class="line"><span class="built_in">read</span>()读取响应体中的内容</span><br><span class="line">status/getcode()返回响应码</span><br><span class="line">reason 返回响应信息的内容</span><br><span class="line">info()返回响应头信息</span><br><span class="line">geturl()返回请求的url地址</span><br></pre></td></tr></table></figure>
-<h3 id="request请求对象"><a href="#request请求对象" class="headerlink" title="request请求对象"></a>request请求对象</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">req = urllib.request.Request(url,data,headers,method)</span><br><span class="line">参数说明：</span><br><span class="line">url：指定的请求网址</span><br><span class="line">data：请求时提交给服务器端的数据，如果在openurl中使用了data参数，那么提交方式为post，默认情况下为get。</span><br><span class="line">headers：请求对象的头信息，用来将一个爬虫伪装成一个普通的浏览器请求，主要设置user-agent</span><br><span class="line">method：请求的方式，默认为get，可以设置为get或post</span><br></pre></td></tr></table></figure>
-<h3 id="urllib-error"><a href="#urllib-error" class="headerlink" title="urllib.error"></a>urllib.error</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在urllib库中有三个error对象</span><br><span class="line">HTTPError：HTTP访问异常</span><br><span class="line">URLError：url地址异常</span><br><span class="line">ContentTooShortError：文件大小异常</span><br><span class="line">注意，HTTPError是URLError的子类。</span><br><span class="line">HTTPError，只有一个属性reason</span><br><span class="line">URLError，有code，reason，headers三个属性。</span><br></pre></td></tr></table></figure>
-<h3 id="urllib-robotparser"><a href="#urllib-robotparser" class="headerlink" title="urllib.robotparser"></a>urllib.robotparser</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作用：用来解析指定网站的robots.txt文件。用来分析哪些内容是允许抓取，哪些内容是不允许的。</span><br></pre></td></tr></table></figure>
+        <p>‘’’<br>s = ‘hello world’<br>print(repr(s))</p>
+<h1 id="转换为字符串"><a href="#转换为字符串" class="headerlink" title="转换为字符串"></a>转换为字符串</h1><p>‘’’</p>
+<p>‘’’<br>s = ‘hello’<br>for item in s:<br>    print(item.rjust(5))</p>
+<p>#靠右输出，‘5’代表空格 空格在左侧<br>for item in s:<br>    print(item.center(5))</p>
+<p>#居中输出 空格在两侧<br>for item in s:<br>    print(item.ljust(5))</p>
+<p>#居左输出 空格靠右</p>
+<p>for i in range(1,11):<br>    print(‘{0:3d}{1:4d}{2:6d}’.format(i,i<em>i,i</em>i*i))<br>‘’’</p>
+<p>file = open(‘myfile.txt’,’w’,encoding=’UTF-8’)<br>num = file.write(‘第一个文件\n’)  #返回值为写入字符的字符数量<br>print(num)</p>
+<p>str1 = [‘第一个’,’第二个’,’第三个’]<br>file.writelines(str1)  #writeline()无返回值</p>
+<p>str2 =’’’<br>dfsdgfdfsdfsdfsdfsf<br>fsdfsfsfsdfsdfsdfsf<br>sdfsdfsgsdgsdgsdgsg<br>‘’’<br>file.writelines(str2)</p>
+<p>set1 = {‘1’,’2’,’3’,’4’}<br>file.writelines(set1)</p>
+<h1 id="集合为哈希算法计算的，所以文件内容顺序会改变"><a href="#集合为哈希算法计算的，所以文件内容顺序会改变" class="headerlink" title="集合为哈希算法计算的，所以文件内容顺序会改变"></a>集合为哈希算法计算的，所以文件内容顺序会改变</h1><p>file.close()</p>
+<h1 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h1><p>kw = open(‘myfile.txt’,’a+’,encoding=’utf-8’)<br>kw.write(‘我回来了!’)</p>
+<h1 id="a-在末尾添加字符串"><a href="#a-在末尾添加字符串" class="headerlink" title="a+ 在末尾添加字符串"></a>a+ 在末尾添加字符串</h1><p>kw.close()</p>
+<p>‘’’<br>nu = open(‘myfile.txt’,’r’,encoding=’utf-8’)<br>print(nu.read(5)) #’5’代表读取几个字符，默认为全部读取<br>print(nu.read())</p>
+<h1 id="read-读取时是一个一个的读取，但是显示时是把读取的全部内容一起显示出来"><a href="#read-读取时是一个一个的读取，但是显示时是把读取的全部内容一起显示出来" class="headerlink" title="read() 读取时是一个一个的读取，但是显示时是把读取的全部内容一起显示出来"></a>read() 读取时是一个一个的读取，但是显示时是把读取的全部内容一起显示出来</h1><p>nu.close()</p>
+<p>nm = open(‘myfile.txt’,’r’,encoding=’utf-8’)<br>while True:<br>    a = nm.readline()  #只读一行<br>    print(a)<br>    if a == ‘’:<br>        break<br>nm.close()</p>
+<p>num = open(‘myfile.txt’,’r’,encoding=’utf-8’)<br>print(num.readlines())</p>
+<h1 id="把文件全部读出包括‘-n’（换行）等，返回值为列表-但列表元素还是由字符串组成"><a href="#把文件全部读出包括‘-n’（换行）等，返回值为列表-但列表元素还是由字符串组成" class="headerlink" title="把文件全部读出包括‘\n’（换行）等，返回值为列表 但列表元素还是由字符串组成"></a>把文件全部读出包括‘\n’（换行）等，返回值为列表 但列表元素还是由字符串组成</h1><p>num.close()<br>‘’’</p>
+<p>‘’’<br>import json<br>list1 = [[‘1’,’2’,’3’],[‘o’,’d’,’c’]]<br>a = json.dumps(list1)<br>ku = open(‘myfile.txt’,’w’,encoding=’utf-8’)<br>ku.writelines(a)<br>ku.close()</p>
+<p>kun = open(‘myfile.txt’,’r’,encoding=’utf-8’)<br>ls = json.load(kun)<br>print(ls)<br>kun.close()</p>
+<h1 id="json-实现了对特殊数据结构的读写，如：列表，字典"><a href="#json-实现了对特殊数据结构的读写，如：列表，字典" class="headerlink" title="json 实现了对特殊数据结构的读写，如：列表，字典"></a>json 实现了对特殊数据结构的读写，如：列表，字典</h1><h1 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h1><p>dic = {<br>    ‘o’:’1’,<br>    ‘a’:{<br>        ‘b’:’1’,<br>        ‘c’:’2’<br>    }<br>}<br>a = json.dumps(dic)<br>fn = open(‘myfile.txt’,’w’,encoding=’utf-8’)<br>fn.writelines(a)<br>fn.close()</p>
+<p>fun = open(‘myfile.txt’,’r’,encoding=’utf-8’)<br>a = json.load(fun)<br>print(a)<br>print(a[‘a’][‘b’])<br>fun.close()</p>
+<p>dic1 = {<br>    ‘a’:{<br>        ‘b’:’1’,<br>        ‘c’:’2’<br>    }<br>}<br>fnm = open(‘myfile.txt’,’w’,encoding=’utf-8’)<br>json.dump(dic1,fnm)<br>fnm.close()</p>
+<h1 id="json-dump-字典或列表等，文件"><a href="#json-dump-字典或列表等，文件" class="headerlink" title="json.dump(字典或列表等，文件)"></a>json.dump(字典或列表等，文件)</h1><p>‘’’</p>
+<p>import os<br>from os import path</p>
+<p>if path.isfile(‘myfile.txt’):<br>    print(‘这是一个文件’)<br>else:<br>    print(‘这不是文件’)</p>
+<p>if path.isdir(‘zy’):<br>    print(‘这是一个目录’)<br>    os.removedirs(‘zy’) #只能删除空目录<br>else:<br>    print(‘这不是目录’)<br>    os.mkdir(‘zy’) #本目录下创建一个目录 无返回值</p>
+<h1 id="isfile-和isdir-两个函数都是判断本目录下是否存在或者是否是文件（目录）"><a href="#isfile-和isdir-两个函数都是判断本目录下是否存在或者是否是文件（目录）" class="headerlink" title="isfile()和isdir()两个函数都是判断本目录下是否存在或者是否是文件（目录）"></a>isfile()和isdir()两个函数都是判断本目录下是否存在或者是否是文件（目录）</h1><h1 id="os-remove-‘myfile-txt’-删除文件-文件不存在会报错"><a href="#os-remove-‘myfile-txt’-删除文件-文件不存在会报错" class="headerlink" title="os.remove(‘myfile.txt’)  #删除文件,文件不存在会报错"></a>os.remove(‘myfile.txt’)  #删除文件,文件不存在会报错</h1><p>a = path.exists(‘myfile.txt’)<br>print(a)<br>b = path.exists(‘zy’)<br>print(b)</p>
+<h1 id="判断文件或目录是否存在，返回值为布尔型"><a href="#判断文件或目录是否存在，返回值为布尔型" class="headerlink" title="判断文件或目录是否存在，返回值为布尔型"></a>判断文件或目录是否存在，返回值为布尔型</h1><p>print(os.getcwd())</p>
+<h1 id="查询本目录的路径"><a href="#查询本目录的路径" class="headerlink" title="查询本目录的路径"></a>查询本目录的路径</h1><p>print(os.listdir())</p>
+<h1 id="查询本目录下所有子路径（包括文件和目录等）-返回值为列表"><a href="#查询本目录下所有子路径（包括文件和目录等）-返回值为列表" class="headerlink" title="查询本目录下所有子路径（包括文件和目录等）  返回值为列表"></a>查询本目录下所有子路径（包括文件和目录等）  返回值为列表</h1><p>print(path.getsize(‘myfile.txt’))</p>
+<h1 id="查询文件大小"><a href="#查询文件大小" class="headerlink" title="查询文件大小"></a>查询文件大小</h1><h1 id="os-rename-‘python-txt’-’mypython-txt’"><a href="#os-rename-‘python-txt’-’mypython-txt’" class="headerlink" title="os.rename(‘python.txt’,’mypython.txt’)"></a>os.rename(‘python.txt’,’mypython.txt’)</h1><h1 id="修改文件或者目录名称"><a href="#修改文件或者目录名称" class="headerlink" title="修改文件或者目录名称"></a>修改文件或者目录名称</h1><p>‘’’</p>
+<h1 id="读取文件的快捷方法"><a href="#读取文件的快捷方法" class="headerlink" title="读取文件的快捷方法"></a>读取文件的快捷方法</h1><p>with open(‘myfile.txt’,’r’) as f:<br>    for item in f:<br>        print(item)<br>‘’’</p>
+<p>‘’’<br>f = open(‘myfile.txt’,’w’,encoding=’UTF-8’)<br>for i in range(10000):<br>    f.write(‘hello’+str(i))<br>    if i%100==0:<br>        f.flush()</p>
+<p>f.close()<br>‘’’</p>
+
       
 
       
@@ -485,7 +656,7 @@ D：持久性。事务处理结束后，对数据的修改是永久的，即存�
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/27/my-notes23/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/lesson16/">展开全文 >></a>
         </p>
       
 
@@ -515,34 +686,58 @@ D：持久性。事务处理结束后，对数据的修改是永久的，即存�
 
 
   
-    <article id="post-my-notes22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-lesson18" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/21/my-notes22/">HTTP与HTTPS的区别、网络七层模型、HTTP的请求机制、请求方法中get与post的区别、HTML网页结构</a>
+      <a class="article-title" href="/2018/09/18/lesson18/">Excel文件</a>
     </h1>
   
 
         
-        <a href="/2018/08/21/my-notes22/" class="archive-article-date">
-  	<time datetime="2018-08-21T01:04:30.350Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-21</time>
+        <a href="/2018/09/18/lesson18/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:19:08.058Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="网络原理"><a href="#网络原理" class="headerlink" title="网络原理"></a>网络原理</h2><h3 id="HTTP与HTTPS的区别"><a href="#HTTP与HTTPS的区别" class="headerlink" title="HTTP与HTTPS的区别"></a>HTTP与HTTPS的区别</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP：我们称为超文本传输协议，主要用来实现从网络传输超文本到本地浏览器，实现高效且准确的超文本传送。目前HTTP的版本为1.1</span><br><span class="line">HTTPS：我们认为就是以安全为目标的HTTP通道，即在HTTP协议的基础上加入了SSL层，简称HTTPS。</span><br><span class="line">SSL的主要作用分为以下两部分：</span><br><span class="line">第一、为HTTP传输文件提供安全的传输通道</span><br><span class="line">第二、确认网站的真实性，通过HTTPS访问的网站都需要获取到CA认证。</span><br></pre></td></tr></table></figure>
-<h3 id="网络七层模型"><a href="#网络七层模型" class="headerlink" title="网络七层模型"></a>网络七层模型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">从下到上的顺序</span><br><span class="line">物理层</span><br><span class="line">数据链路层</span><br><span class="line">网络层</span><br><span class="line">传输层（TCP、UDP）</span><br><span class="line">会话层</span><br><span class="line">表示层</span><br><span class="line">应用层（HTTP FTP TFTP SMTP SNMP DNS TELNET HTTPS POP3 DHCP）</span><br></pre></td></tr></table></figure>
-<h3 id="HTTP的请求机制"><a href="#HTTP的请求机制" class="headerlink" title="HTTP的请求机制"></a>HTTP的请求机制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">第一，由客户端（浏览器）发出请求</span><br><span class="line">第二，通过网络传输，到指定的服务器地址</span><br><span class="line">第三，服务器接收相关请求，并进行解析</span><br><span class="line">第四，服务器将最终的结果响应回客户端</span><br><span class="line">第五，客户端接收到服务器响应后，通过浏览器解析，最终将内容进行展现</span><br></pre></td></tr></table></figure>
-<h3 id="客户端访问服务器，发出请求，有四部分构成"><a href="#客户端访问服务器，发出请求，有四部分构成" class="headerlink" title="客户端访问服务器，发出请求，有四部分构成"></a>客户端访问服务器，发出请求，有四部分构成</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第一，请求方法（request method），默认为get方式。只有在表单提交和文件上传时为post方法。</span><br><span class="line">第二，请求网址（request url），即在浏览器中输入的网路地址。</span><br><span class="line">第三，请求头（request header），用来标识为一个浏览器正常的访问</span><br><span class="line">第四，请求体（request body），用来传输到服务器端的相关数据</span><br></pre></td></tr></table></figure>
-<h3 id="请求方法中get与post的区别"><a href="#请求方法中get与post的区别" class="headerlink" title="请求方法中get与post的区别"></a>请求方法中get与post的区别</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一、使用get方式提交请求时，相关数据会作为url的参数被一起进行提交，我们可以直接在地址栏中观察到相关数据。而采用post方式请求的url不会包含这些数据，而是直接通过表单提交到服务器。</span><br><span class="line">第二、get方式提交请求，对于提交的数据大小不能大于1024字节，而post方式提交数据，没有大小的限制。</span><br><span class="line">总之，如果提交的信息比较敏感或者字节较大时，需要使用post方式；如果只是普通的请求使用get方式。</span><br></pre></td></tr></table></figure>
-<h2 id="HTML网页结构"><a href="#HTML网页结构" class="headerlink" title="HTML网页结构"></a>HTML网页结构</h2><h3 id="HTML基本构成"><a href="#HTML基本构成" class="headerlink" title="HTML基本构成"></a>HTML基本构成</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;:作为HTML文件的根标签，所有的页面中的标签和内容都要在HTML标签的范围内。</span><br><span class="line">&lt;head&gt;：作为HTML文件的头部标签，相关页面的信息、编码、引导外部的CSS文件和JS文件，都需要放置在head标签中。</span><br><span class="line">&lt;body&gt;：body标签中的内容，就是我们爬虫需要解析的主体。所有需要在页面上展现的内容，都会放置在该标签中。</span><br></pre></td></tr></table></figure>
-<h3 id="常见的HTML标签"><a href="#常见的HTML标签" class="headerlink" title="常见的HTML标签"></a>常见的HTML标签</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">1）h1...h6：标题标签，用来显示标题，h1最大，h6最小。</span><br><span class="line">2）&lt;p&gt;：段落标签。用来对文本内容进行分段。</span><br><span class="line">3）&lt;a&gt;：链接标签。用来跳转到指定的网址。</span><br><span class="line">&lt;a target=<span class="string">''</span> href=<span class="string">'URL'</span>&gt;链接地址&lt;/a&gt;</span><br><span class="line">其中参数target，_self:在自身的窗口重新打开指定的网址</span><br><span class="line">_blank：在一个新窗口中打开指定的网址</span><br><span class="line">4）&lt;img&gt;：图片标签。用来载入指定位置的图片，通常可以接收的图片类型：JPG、png、gif、bmp</span><br><span class="line">&lt;img src=<span class="string">""</span> alt=<span class="string">""</span>&gt;</span><br><span class="line">其中：src：指定图片的具体位置</span><br><span class="line">      alt：其中的内容，作为图片无法载入时，显示的内容。</span><br><span class="line">5）表格标签：table、tr、th、td</span><br><span class="line">&lt;table&gt;：表格标签，所有表格中的行和单元格内容都必须放置在内部。</span><br><span class="line">&lt;tr&gt;:表格行，代表表格一行</span><br><span class="line">&lt;th&gt;:表格头，代表表格的标题行</span><br><span class="line">&lt;td&gt;：表格单元格，代表表格中的每个单元内容</span><br><span class="line">6）列表</span><br><span class="line">有序列表：</span><br><span class="line">&lt;ol&gt;</span><br><span class="line">   &lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br><span class="line">无序列表:</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">   &lt;li&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">自定义列表：</span><br><span class="line">&lt;dl&gt;</span><br><span class="line">   &lt;dt&gt;</span><br><span class="line">      &lt;dd&gt;&lt;/dd&gt;</span><br><span class="line">   &lt;/dt&gt;</span><br><span class="line">&lt;/dl&gt;</span><br><span class="line">7)div与span</span><br><span class="line">div：块级元素，用来实现页面布局。自身没有任何效果</span><br><span class="line">span:内联元素，用做文本容器。</span><br><span class="line">8）表单</span><br><span class="line">&lt;form name=<span class="string">"表单名"</span> action=<span class="string">"URL"</span> method=<span class="string">"get/post"</span>&gt;</span><br><span class="line">默认情况，如果没有声明method属性，缺省值为get</span><br><span class="line">&lt;input <span class="built_in">type</span>=<span class="string">""</span>&gt;</span><br><span class="line">输入标签，<span class="built_in">type</span>属性：</span><br><span class="line">text:文本框</span><br><span class="line">password：密码框</span><br><span class="line">checkbox：复选框</span><br><span class="line">radio：单选框</span><br><span class="line">submit：提交按钮</span><br><span class="line">reset：重置按钮</span><br><span class="line">button：按钮</span><br><span class="line">file:文件上传</span><br><span class="line">&lt;textarea cols=<span class="string">"列数"</span> rows=<span class="string">"行数"</span>&gt;：文件区标签</span><br></pre></td></tr></table></figure>
+        <p>import xlwt  #写Excel文件<br>import xlrd  #读Excel文件<br>from xlutils.copy import copy #修改Excel文件</p>
+<p>‘’’<br>def savaExcel(title,data):</p>
+<pre><code># 生成Excel对象
+wbt = xlwt.Workbook()
+# 生成一个sheet页
+sheet = wbt.add_sheet(&apos;人员信息表&apos;)
+for i in range(len(title)):
+    sheet.write(0,i,title[i])
+
+for m in range(len(data)):
+    for n in range(len(data[m])):
+        sheet.write(m+1,n,data[m][n])
+
+wbt.save(&apos;person.xls&apos;)
+</code></pre><h1 id="作为Excel表中的标题名称"><a href="#作为Excel表中的标题名称" class="headerlink" title="作为Excel表中的标题名称"></a>作为Excel表中的标题名称</h1><p>title = [‘姓名’,’年龄’,’性别’,’出生年月’,’家庭住址’,’婚姻状况’,’身份证号码’]</p>
+<h1 id="生成Excel中的数据"><a href="#生成Excel中的数据" class="headerlink" title="生成Excel中的数据"></a>生成Excel中的数据</h1><p>data = [<br>    [‘小文’,22,’女’,’19960101’,’不详’,’不详’,’41111111111111’],<br>    [‘小彬彬’,21,’男’,’19960202’,’河南省郑州市’,’已婚’,’4101222222222’],<br>    [‘丹丹’,22,’女’,’19960303’,’河南郑州’,’已婚’,’41013333333333’]<br>]<br>savaExcel(title,data)<br>‘’’</p>
+<p>‘’’<br>def readExcel(bookname,sheetname):</p>
+<pre><code># 打开Excel文件
+wb = xlrd.open_workbook(bookname)
+# 找sheet表
+sheet = wb.sheet_by_name(sheetname)
+#for rownum in range(sheet.nrows):
+    #print(sheet.row_values(rownum))
+print(sheet.nrows)  # 查询行数
+print(sheet.ncols)  # 查询列数
+for rownum in range(sheet.nrows):
+    for colnum in range(sheet.ncols):
+        print(sheet.cell(rownum,colnum).value,end=&apos; &apos;)
+    print()
+</code></pre><p>bookname = input(‘输入文件名：’)<br>sheetname = input(‘输入表名：’)<br>readExcel(bookname,sheetname)<br>‘’’</p>
+<p>‘’’<br>wb = xlrd.open_workbook(‘person.xls’)<br>sheet = wb.sheet_by_name(‘人员信息表’)<br>new_wb = copy(wb) #将原来的Excel拷贝一个副本<br>new_sheet = new_wb.get_sheet(0) #重新在新的Excel中获得sheet页<br>new_sheet.write(1,0,’小彬’)<br>new_wb.save(‘person_new.xls’)<br>‘’’</p>
+
       
 
       
@@ -554,7 +749,7 @@ D：持久性。事务处理结束后，对数据的修改是永久的，即存�
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/21/my-notes22/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/lesson18/">展开全文 >></a>
         </p>
       
 
@@ -584,286 +779,57 @@ D：持久性。事务处理结束后，对数据的修改是永久的，即存�
 
 
   
-    <article id="post-my-notes21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-lesson14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/06/my-notes21/">面向对象</a>
+      <a class="article-title" href="/2018/09/18/lesson14/">日志例子</a>
     </h1>
   
 
         
-        <a href="/2018/08/06/my-notes21/" class="archive-article-date">
-  	<time datetime="2018-08-06T12:51:37.748Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-06</time>
+        <a href="/2018/09/18/lesson14/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:18:18.729Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="面向对象的概念"><a href="#面向对象的概念" class="headerlink" title="面向对象的概念"></a>面向对象的概念</h3><pre><code class="bash">1、类：指具有相同属性或行为的一组事物。
-   对象：是指类的具体化。
-类与对象的关系
-类是一组对象的抽象表示，而对象是类的具体化表现。
-2、类的语法结构
-class 类名：
-     变量声明语句
-     执行语句
-     def func(self):
-         执行语句
-其中，类名首字母要求大写（约定俗成），遵守Python命名规则，不能以数字开头，通常我们都是字母开头。
-注意：
-1）如果类中声明了函数，其函数的参数，必须有一个默认的参数为self，self代表了该类的实例化对象。
-2）如果在类中声明了变量，且该变量位于函数体之外，这个变量我们成为类变量，类变量是公共的。类变量的调用可以直接使用类名进行调用，比如：
-class Dog:  <span class="comment"># 定义一个类，类名Animal</span>
-    color = <span class="string">'灰色'</span>
-    leg_num = 4
-    weight = 20
-    width = 150
+        <p>import logging<br>def log(msg):</p>
+<pre><code>#创建一个日志对象,并设置日志级别
+logger = logging.getLogger(&apos;pythonlogger&apos;)
+logger.setLevel(logging.INFO)
 
-    def wangwang(self):
-        <span class="built_in">print</span>(<span class="string">'wangwangwangwang'</span>)
+#创建一个handler， 用来将日志内容存入文件中
+file=logging.FileHandler(&apos;test.log&apos;)
+file.setLevel(logging.INFO)
 
-    def eat(self):
-        <span class="built_in">print</span>(<span class="string">'一顿饭20块钱'</span>)
+#创建一个handler，用来将日志输出到控制台
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
 
-    def run(self):
-        <span class="built_in">print</span>(<span class="string">'非常快'</span>)
+#定义日志输出格式
+formatter = logging.Formatter(&apos;%(asctime)s - %(name)s - %(levelname)s - %(message)s&apos;)
+file.setFormatter(formatter)
+console.setFormatter(formatter)
 
+# 将logger添加到handler
+logger.addHandler(file)
+logger.addHandler(console)
 
-husky = Dog()  <span class="comment"># 将类实例化成对象，对象为dog</span>
-husky.run()
-Dog.color
+logger.info(msg)
 
-类变量，作为公共的变量，不管类实例化多少个对象，都只实例一份类变量。而且类变量会在对象实例化之前载入内容，一旦改变了类变量中的内容，所有对象中调用这个类变量的值都会随之改变。
-
-3)在类实例化对象时，会将其定义的属性和行为，生成一份副本给具体的实例化对象。对象与对象之间，他们的属性和行为是不相互干扰的。
-
-class Dog:  <span class="comment"># 定义一个类，类名Animal</span>
-    color = <span class="string">'灰色'</span>
-
-    def __init__(self, num):
-        self.num = num
-
-
-    def getNum(self):
-        <span class="built_in">print</span>(self.num)
-
-
-husky = Dog(5)  <span class="comment"># 将类实例化成对象，对象为dog</span>
-samoye = Dog(3)
-husky.getNum()
-samoye.getNum()
-
-我们在实例化Dog类时，生成两个对象husky、samoye，这两对象在实例化的过程中会生成两套成员变量和函数，他们的相互不干扰的。我们可以观察上面的代码，发现num变量属于成员变量，即husky和samoye各有持有相同的成员变量，但是修改num的值，husky为5，而samoye为3。结果表明他们的成员变量只能归各自的对象所拥有，并进行改变。对象与对象之间不会相互影响。
-4）使用构造函数，来初始化成员变量
-class Person:
-
-    def __init__(self):  <span class="comment"># 构造函数，在实例化对象时被默认调用，用来给对象的成员变量赋值</span>
-        self.name = <span class="string">'tom'</span>
-        self.age = 21
-        self.tel = <span class="string">'1350000000'</span>
-        self.address = <span class="string">'北京'</span>
-        self.sex = <span class="string">'男'</span>
-
-    def setName(self, name):
-        self.name = name
-
-    def getName(self):
-        <span class="built_in">return</span> self.name
-p1 = Person()
-p1.name
-使用__init__()函数，用来初始化成员变量。对象在实例化时，会默认的调用__init__()函数，同时将成员变量进行初始化。同时，在构造函数中，使用self.变量名进行初始化的成员变量，都是公有的。即在类外可以通过实例化的对象调用。
-</code></pre>
-<h3 id="类变量与成员变量的区别"><a href="#类变量与成员变量的区别" class="headerlink" title="类变量与成员变量的区别"></a>类变量与成员变量的区别</h3><pre><code class="bash">1、类变量是声明在类中，位于函数之外声明的变量。这些变量时公共的，即在类外使用类名.类变量的方式进行调用。我们一旦修改类变量的值，所有调用类变量的内容均发生改变。
-2、成员变量，是声明在类中的构造函数中，通过self.变量来进行声明赋值的。这些成员变量是公有的，即在类外可以通过对象名.成员变量的方式进行调用。所有的对象都有自己的成员变量，也就意味着每个对象的成员变量都是独立的，不会相互干扰。
-3、类变量是该类所有实例化对象所公有的，它会早于对象实例化之前被载入内容中。
-成员变量都是跟随对象实例化的过程中，被声明出来的。它是伴随着对象的产生而产生，消亡而消亡的。
-4、成员变量和方法，默认情况下都是公有的。也就是说在类外可以直接使用对象进行调用。我们可以通过为成员变量设置双下划线，将其标识为私有的成员变量，例如：self.__name = <span class="string">'tom'</span>。私有的成员变量只能在类内进行直接使用，类外必须通过相关方法进行间接调用。
-</code></pre>
-<h2 id="练习例子"><a href="#练习例子" class="headerlink" title="练习例子"></a>练习例子</h2><h3 id="goods-py"><a href="#goods-py" class="headerlink" title="goods.py"></a>goods.py</h3><pre><code class="bash">class Goods():
-    def  __init__(self,no,name,price,address,desc,num): 
-        self.__no = no
-        self.__name = name
-        self.__price = price
-        self.__address = address
-        self.__desc = desc
-        self.__num = num
-
-    def getNo(self):
-        <span class="built_in">return</span> self.__no
-
-
-    def setName(self,name):
-        self.__name = name
-
-    def getName(self):
-        <span class="built_in">return</span> self.__name
-
-
-    def setPrice(self,price):
-        self.__price = price
-
-    def getPrice(self):
-        <span class="built_in">return</span> self.__price
-
-
-    def setAddress(self,address):
-        self.__address = address
-
-    def getAddress(self):
-        <span class="built_in">return</span> self.__address
-
-
-    def setDesc(self,desc):
-        self.__desc = desc
-
-    def getDesc(self):
-        <span class="built_in">return</span> self.__desc
-
-    def setNum(self,num):
-        self.__num = num
-
-    def getNum(self):
-        <span class="built_in">return</span> self.__num
-
-    <span class="comment"># 计算商品总价</span>
-    def getTotal(self):
-        <span class="built_in">return</span> self.__price * self.__num
-</code></pre>
-<h3 id="Car-py"><a href="#Car-py" class="headerlink" title="Car.py"></a>Car.py</h3><pre><code class="bash">class Car:
-    def __init__(self):
-        self.__goodstotal = 0
-        self.__goodsnum = 0
-        self.__carlist = []
-
-    def setGoodsTotal(self,goodstotal):
-        self.__goodstotal = goodstotal
-
-    def getGoodsTotal(self):
-        <span class="built_in">return</span> self.__goodstotal
-
-
-    def setGoodsNum(self,goodsnum):
-        self.__goodsnum = goodsnum
-
-    def getGoodsNum(self):
-        <span class="built_in">return</span> self.__goodsnum
-
-
-    def setCarList(self,carlist):
-        self.__carlist = carlist
-
-    def getCarLiat(self):
-        <span class="built_in">return</span> self.__carlist
-
-
-    def addGoods(self,goods):
-        flag = False
-        <span class="keyword">if</span> self.__carlist != []:
-            <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
-                <span class="keyword">if</span> item.getNo() == goods.getNo():
-                    num = goods.getNum() + item.getNum()
-                    item.setNum(num)
-                    flag = True
-                    <span class="built_in">break</span>
-            <span class="keyword">if</span> not flag:
-                self.__carlist.append(goods)
-        <span class="keyword">else</span>:    
-            self.__carlist.append(goods)
-
-
-    def removeGoods(self,goodsno):
-        <span class="keyword">if</span> self.__carlist != []:
-            <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
-                <span class="keyword">if</span> goodsno == item.getNo():
-                    self.__carlist.remove(item)
-                    <span class="built_in">break</span>
-        <span class="keyword">else</span>:
-            <span class="built_in">print</span>(<span class="string">'购物车为空！'</span>)
-
-    def clearCar(self):
-        <span class="keyword">if</span> self.__carlist != []:
-            self.__carlist.clear()
-        <span class="keyword">else</span>:
-            <span class="built_in">print</span>(<span class="string">'购物车为空！'</span>)
-
-    def modifyNum(self,g_no,g_num):
-        flag = False
-        <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
-            <span class="keyword">if</span> item.getNo() == g_no:
-                <span class="keyword">if</span> g_num &lt; 0 and item.getNum() &lt; abs(g_num):
-                    <span class="built_in">break</span>
-                <span class="keyword">else</span>:
-                    num = item.getNum() + g_num
-                    item.setNum(num)
-            flag = True        
-        <span class="keyword">if</span> not flag:
-            <span class="built_in">print</span>(<span class="string">'商品编号错误或者商品数量不够'</span>) 
-
-    def findAll(self):
-        t_num = 0
-        t_total = 0
-        <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist:
-            <span class="built_in">print</span>(<span class="string">'商品编号 商品名称 商品单价 商品数量 商品产地 描述 商品总价'</span>)
-            <span class="built_in">print</span>(<span class="string">'{0:8s} {1:6s} {2:4d} {3:4d} {4:6s} {5:20s} {6:4d}'</span>.format(item.getNo(),\
-            item.getName(),item.getPrice(),item.getNum(),item.getAddress(),item.getDesc(),\
-            item.getTotal()))
-            t_num = t_num + item.getNum()
-            t_total = t_total + item.getTotal()
-        <span class="built_in">print</span>(<span class="string">'购物车商品总数量：{0:2d}    购物车商品总价{1:4d}'</span>.format(t_num,t_total))
-    def getAllGoodsPrice(self):
-        <span class="built_in">return</span> sum([item.getTotal() <span class="keyword">for</span> item <span class="keyword">in</span> self.__carlist])
-</code></pre>
-<h3 id="buy-py"><a href="#buy-py" class="headerlink" title="buy.py"></a>buy.py</h3><pre><code class="bash">from goods import Goods
-from Car import Car
-
-<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
-    tv = Goods(<span class="string">'10001'</span>,<span class="string">'小米智能电视'</span>,2990,<span class="string">'北京'</span>,<span class="string">'这是一个智能电视,高清，数字'</span>,2)
-    sofa = Goods(<span class="string">'10002'</span>,<span class="string">'芝华士头等舱'</span>,8999,<span class="string">'广州'</span>,<span class="string">'这是一款功能沙发，提供按摩功能'</span>,1)
-    goods_car = Car()
-    goods_car.addGoods(tv)
-    goods_car.addGoods(sofa)
-    <span class="built_in">print</span>(<span class="string">'添加后结果'</span>)
-    goods_car.findAll()
-
-
-
-    <span class="string">''</span><span class="string">'</span>
-<span class="string">    goods_car.clearCar()</span>
-<span class="string">    goods_car.findAll()</span>
-<span class="string">    goods_car.clearCar()</span>
-<span class="string">    '</span><span class="string">''</span>
-
-
-    <span class="string">''</span><span class="string">'</span>
-<span class="string">    goods_car.removeGoods('</span>10001<span class="string">')</span>
-<span class="string">    goods_car.removeGoods('</span>10002<span class="string">')</span>
-<span class="string">    print('</span>............删除后结果...............<span class="string">')</span>
-<span class="string">    goods_car.findAll()</span>
-<span class="string">    goods_car.removeGoods('</span>10001<span class="string">')</span>
-<span class="string">    '</span><span class="string">''</span>
-
-
-    <span class="string">''</span><span class="string">'</span>
-<span class="string">    tv1 = Goods('</span>10001<span class="string">','</span>小米智能电视<span class="string">',2990,'</span>北京<span class="string">','</span>这是一个智能电视,高清，数字<span class="string">',1)</span>
-<span class="string">    sofa2 = Goods('</span>10002<span class="string">','</span>芝华士头等舱<span class="string">',8999,'</span>广州<span class="string">','</span>这是一款功能沙发，提供按摩功能<span class="string">',1)</span>
-<span class="string">    goods_car.addGoods(tv1)</span>
-<span class="string">    goods_car.addGoods(sofa2)</span>
-<span class="string">    print()</span>
-<span class="string">    goods_car.findAll()</span>
-<span class="string">    '</span><span class="string">''</span>
-
-    <span class="string">''</span><span class="string">'</span>
-<span class="string">    goods_car.modifyNum('</span>10001<span class="string">',1)</span>
-<span class="string">    print('</span>...........数量修改后结果...........<span class="string">')</span>
-<span class="string">    goods_car.findAll()</span>
-<span class="string">    '</span><span class="string">''</span>
-</code></pre>
+# 移除Handler
+logger.removeHandler(file)
+logger.removeHandler(console)
+</code></pre><p>def mylogger(f):<br>    def inner(<em>var):<br>        if f(</em>var):<br>            log(f.<strong>name</strong>+’操作成功’)<br>        else:<br>            log(f.<strong>name</strong>+’操作失败’)<br>    return inner</p>
+<p>def menu():<br>    print(‘<em>‘</em>30)<br>    print(‘1、登陆’)<br>    print(‘2、查询’)<br>    print(‘3、退出’)<br>    print(‘<em>‘</em>30)</p>
+<p>@mylogger<br>def load(username, password):<br>    flag = False<br>    if ‘tom’ == username and ‘123456’ == password:<br>        flag = True<br>    else:<br>        flag = False<br>    return flag</p>
+<p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    while True:<br>        menu()<br>        num = input(‘请输入菜单编号：’)<br>        if ‘1’ == num:<br>            username = input(‘请输入用户名：’)<br>            password = input(‘请输入密码：’)<br>            load(username, password)<br>        else:<br>            pass</p>
 
       
 
@@ -876,7 +842,7 @@ from Car import Car
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/06/my-notes21/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/lesson14/">展开全文 >></a>
         </p>
       
 
@@ -906,35 +872,35 @@ from Car import Car
 
 
   
-    <article id="post-my-notes20" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-lesson13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/03/my-notes20/">json、pickle、hashlib、配置文件、计数器、time函数、random函数</a>
+      <a class="article-title" href="/2018/09/18/lesson13/">日志</a>
     </h1>
   
 
         
-        <a href="/2018/08/03/my-notes20/" class="archive-article-date">
-  	<time datetime="2018-08-03T13:13:21.201Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
+        <a href="/2018/09/18/lesson13/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:18:18.727Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="json"><a href="#json" class="headerlink" title="json"></a>json</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import json </span><br><span class="line">dic = &#123;<span class="string">'name'</span>:<span class="string">'张三'</span>,<span class="string">'age'</span>:22,<span class="string">'dress'</span>:<span class="string">'河南'</span>&#125;</span><br><span class="line">dum = json.dumps(dic)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(dum),dum)</span><br><span class="line"><span class="comment"># 在内存中转换</span></span><br><span class="line"></span><br><span class="line">loa = json.loads(dum)</span><br><span class="line"><span class="built_in">print</span>(loa)</span><br><span class="line"><span class="comment"># 反转换</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'name'</span>:<span class="string">'张三'</span>,<span class="string">'age'</span>:22,<span class="string">'dress'</span>:<span class="string">'河南'</span>&#125;</span><br><span class="line">my = open(<span class="string">'myfile.txt'</span>,<span class="string">'w'</span>,encoding=<span class="string">'UTF-8'</span>)</span><br><span class="line">json.dump(dic,my)</span><br><span class="line">my.close()</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'myfile.txt'</span>,<span class="string">'r'</span>,encoding=<span class="string">'UTF-8'</span>)</span><br><span class="line">loa = json.load(f)</span><br><span class="line"><span class="built_in">print</span>(loa)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
-<h2 id="pickle"><a href="#pickle" class="headerlink" title="pickle"></a>pickle</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import pickle</span><br><span class="line">f = open(<span class="string">'myfile.dat'</span>,<span class="string">'wb'</span>)</span><br><span class="line">dic = &#123;<span class="string">'name'</span>:<span class="string">'张三'</span>,<span class="string">'age'</span>:22,<span class="string">'dress'</span>:<span class="string">'郑州'</span>&#125;</span><br><span class="line">dic1 = &#123;<span class="string">'name'</span>:<span class="string">'李四'</span>,<span class="string">'age'</span>:22,<span class="string">'dress'</span>:<span class="string">'中牟县'</span>&#125;</span><br><span class="line">pickle.dump(dic,f)</span><br><span class="line">pickle.dump(dic1,f)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'myfile.dat'</span>,<span class="string">'rb'</span>)</span><br><span class="line"><span class="keyword">while</span> True:</span><br><span class="line">    try:</span><br><span class="line">        a = pickle.load(f)</span><br><span class="line">        <span class="built_in">print</span>(a)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'文件已经读完'</span>)</span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = pickle.dumps(dic)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a),a)</span><br><span class="line"></span><br><span class="line">b = pickle.loads(a)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br></pre></td></tr></table></figure>
-<h2 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import hashlib</span><br><span class="line">m = hashlib.md5()</span><br><span class="line">m.update(<span class="string">'123456'</span>.encode(<span class="string">'UTF-8'</span>))</span><br><span class="line"><span class="built_in">print</span>(m.hexdigest)</span><br><span class="line"><span class="comment"># md5算法加密</span></span><br><span class="line"></span><br><span class="line">m1 = hashlib.md5(<span class="string">'zy'</span>.encode(<span class="string">'UTF-8'</span>))</span><br><span class="line">m1.update(<span class="string">'123456'</span>.encode(<span class="string">'utf-8'</span>))</span><br><span class="line"><span class="built_in">print</span>(m1.hexdigest)</span><br><span class="line"><span class="comment"># 加盐</span></span><br></pre></td></tr></table></figure>
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">import configparser</span><br><span class="line"><span class="comment"># 生成一个配置文件对象</span></span><br><span class="line">config = configparser.ConfigParser()</span><br><span class="line">config[<span class="string">'account'</span>] = &#123;</span><br><span class="line">    <span class="string">'username'</span>:<span class="string">'tom'</span>,</span><br><span class="line">    <span class="string">'password'</span>:<span class="string">'123'</span></span><br><span class="line">&#125; </span><br><span class="line">with open(<span class="string">'user.ini'</span>,<span class="string">'w'</span>) as f:</span><br><span class="line">    config.write(f)</span><br><span class="line"><span class="comment"># 写内容</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config = configparser.ConfigParser()</span><br><span class="line"><span class="comment"># 将配置文件的内容读取</span></span><br><span class="line">config.read(<span class="string">'user.ini'</span>)</span><br><span class="line"><span class="built_in">print</span>(config.sections()) <span class="comment"># 得到配置文件所有的小节名称</span></span><br><span class="line"><span class="built_in">print</span>(config.options(<span class="string">'account'</span>))  <span class="comment"># 通过小节名字得到其内部内容,(只有KEY值)</span></span><br><span class="line"><span class="built_in">print</span>(config[<span class="string">'account'</span>][<span class="string">'username'</span>])</span><br><span class="line"><span class="built_in">print</span>(config[<span class="string">'account'</span>][<span class="string">'password'</span>])</span><br><span class="line"><span class="comment"># 读内容 返回为列表</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config1 = configparser.ConfigParser()</span><br><span class="line">config1.read(<span class="string">'user.ini'</span>)</span><br><span class="line">config1.add_section(<span class="string">'info'</span>)</span><br><span class="line"><span class="comment"># 添加一个小节</span></span><br><span class="line">config1.set(<span class="string">'info'</span>,<span class="string">'address'</span>,<span class="string">'zhengzhou'</span>)</span><br><span class="line">config1.set(<span class="string">'info'</span>,<span class="string">'name'</span>,<span class="string">'zhangsan'</span>)</span><br><span class="line"><span class="comment"># 在小节内添加内容</span></span><br><span class="line">with open(<span class="string">'user.ini'</span>,<span class="string">'w'</span>) as f:</span><br><span class="line">    config1.write(f)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config = configparser.ConfigParser()</span><br><span class="line">config.read(<span class="string">'user.ini'</span>)</span><br><span class="line"><span class="comment"># 删除指定小节里边的内容</span></span><br><span class="line">config.remove_option(<span class="string">'account'</span>,<span class="string">'password'</span>)</span><br><span class="line">with open(<span class="string">'user.ini'</span>,<span class="string">'w'</span>) as f:</span><br><span class="line">    config.write(f)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config = configparser.ConfigParser()</span><br><span class="line">config.read(<span class="string">'user.ini'</span>)</span><br><span class="line"><span class="comment"># 删除整个小节</span></span><br><span class="line">config.remove_section(<span class="string">'time'</span>)</span><br><span class="line">with open(<span class="string">'user.ini'</span>,<span class="string">'w'</span>) as f:</span><br><span class="line">    config.write(f)</span><br></pre></td></tr></table></figure>
-<h2 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from collections import Counter</span><br><span class="line">c = Counter(<span class="string">'dasfsdadsfsdsaasfsdfsf'</span>)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"><span class="built_in">print</span>(c.keys())</span><br><span class="line"><span class="comment"># 计数器  返回列表</span></span><br></pre></td></tr></table></figure>
-<h2 id="time函数"><a href="#time函数" class="headerlink" title="time函数"></a>time函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line"><span class="built_in">print</span>(time.time())</span><br><span class="line"><span class="built_in">print</span>(time.strftime(<span class="string">'%Y-%m-%d %H:%M:%S %A %w'</span>))</span><br><span class="line"><span class="built_in">print</span>(time.localtime()) <span class="comment"># 英国结构化时间</span></span><br><span class="line"></span><br><span class="line">p = time.strptime(<span class="string">'2018-8-3'</span>,<span class="string">'%Y-%m-%d'</span>)</span><br><span class="line"><span class="built_in">print</span>(time.mktime(p))</span><br><span class="line"><span class="comment"># 转时间戳</span></span><br><span class="line"></span><br><span class="line">p2 = time.localtime(1500000000)</span><br><span class="line"><span class="built_in">print</span>(time.strftime(<span class="string">'%Y-%m-%d'</span>,p2))</span><br><span class="line"><span class="comment"># 时间戳转格式化时间</span></span><br></pre></td></tr></table></figure>
-<h2 id="random函数"><a href="#random函数" class="headerlink" title="random函数"></a>random函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line"><span class="built_in">print</span>(random.random()) <span class="comment"># 随机产生[0,1)之间的数</span></span><br><span class="line"><span class="built_in">print</span>(random.uniform(1,3)) <span class="comment">#1到3之间的浮点数</span></span><br><span class="line"><span class="built_in">print</span>(random.randrange(1,10))</span><br><span class="line"><span class="built_in">print</span>(random.randint(1,10))</span><br><span class="line"><span class="built_in">print</span>(random.choice([1,2,3,4,5,6,7,8,9,10])) <span class="comment">#随机抽取一个数</span></span><br><span class="line"><span class="built_in">print</span>(random.sample([1,2,[3,4]],2)) <span class="comment">#随机返回两个</span></span><br><span class="line">item = [1,2,3,4,5]</span><br><span class="line">random.shuffle(item) <span class="comment">#打乱顺序 无返回值</span></span><br><span class="line"><span class="built_in">print</span>(item)</span><br></pre></td></tr></table></figure>
+        <h1 id="log-日志"><a href="#log-日志" class="headerlink" title="log 日志"></a>log 日志</h1><p>import logging</p>
+<p>#创建一个日志对象,并设置日志级别<br>logger = logging.getLogger(‘pythonlogger’)<br>logger.setLevel(logging.INFO)</p>
+<p>#创建一个handler， 用来将日志内容存入文件中<br>file=logging.FileHandler(‘test.log’)<br>file.setLevel(logging.INFO)</p>
+<p>#创建一个handler，用来将日志输出到控制台<br>console = logging.StreamHandler()<br>console.setLevel(logging.INFO)</p>
+<p>#定义日志输出格式<br>formatter = logging.Formatter(‘%(asctime)s - %(name)s - %(levelname)s - %(message)s’)<br>file.setFormatter(formatter)<br>console.setFormatter(formatter)</p>
+<h1 id="将logger添加到handler"><a href="#将logger添加到handler" class="headerlink" title="将logger添加到handler"></a>将logger添加到handler</h1><p>logger.addHandler(file)<br>logger.addHandler(console)</p>
+<p>logger.info(‘我是一条日志’)</p>
+<h1 id="移除Handler"><a href="#移除Handler" class="headerlink" title="移除Handler"></a>移除Handler</h1><p>logger.removeHandler(file)<br>logger.removeHandler(console)</p>
+
       
 
       
@@ -946,7 +912,7 @@ from Car import Car
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/03/my-notes20/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/lesson13/">展开全文 >></a>
         </p>
       
 
@@ -976,38 +942,51 @@ from Car import Car
 
 
   
-    <article id="post-my-notes19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-lesson15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/02/my-notes19/">异常</a>
+      <a class="article-title" href="/2018/09/18/lesson15/">高级函数、递归</a>
     </h1>
   
 
         
-        <a href="/2018/08/02/my-notes19/" class="archive-article-date">
-  	<time datetime="2018-08-02T12:33:23.450Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-02</time>
+        <a href="/2018/09/18/lesson15/" class="archive-article-date">
+  	<time datetime="2018-09-18T11:18:18.726Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">概念：指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。</span><br></pre></td></tr></table></figure>
-<h3 id="异常的阶段"><a href="#异常的阶段" class="headerlink" title="异常的阶段"></a>异常的阶段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第一、产生异常（比如：代码错误、业务逻辑错误）</span><br><span class="line">第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性）</span><br></pre></td></tr></table></figure>
-<h3 id="常见的异常类"><a href="#常见的异常类" class="headerlink" title="常见的异常类"></a>常见的异常类</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Exception：Python中所有异常的父类。</span><br><span class="line">NameError：访问了一个未声明的变量。</span><br><span class="line">keyError:访问一个不存在的字典key</span><br><span class="line">IndexError：索引超出序列的范围</span><br><span class="line">ValueError：传给函数的参数类型不正确。</span><br><span class="line">IOError：文件操作时输入输出错误</span><br></pre></td></tr></table></figure>
-<h3 id="异常处理流程"><a href="#异常处理流程" class="headerlink" title="异常处理流程"></a>异常处理流程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">基本语法：</span><br><span class="line">try：</span><br><span class="line">   可能会产生异常的代码</span><br><span class="line">except  对应的异常 as 别名：</span><br><span class="line">   异常处理语句</span><br><span class="line"></span><br><span class="line">说明：在try中，放置可能会产生错误的相关代码；except后标明对应的异常类型，一旦try中产生相关异常，except后声明的异常类能够对应捕获，执行相关异常处理语句。如果try外面后续还要其他语句，会继续执行。在产生异常是，出现异常的语句后，如果还有其他语句则不会执行。</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">try:</span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line">except NameError as name:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'该变量没有被声明'</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">   可能会产生异常的代码</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">   异常处理语句</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   程序代码</span><br><span class="line">说明：在此结构中，如果try中的代码出现异常，则使用except后面声明的异常类进行捕获处理，如果没有异常出现，则执行<span class="keyword">else</span>内部的代码。</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">try:</span><br><span class="line">    num = int(input(<span class="string">'输入整数：'</span>))</span><br><span class="line">except ValueError as t:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'输入的不是数值'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'没有捕获异常时执行'</span>)</span><br><span class="line"><span class="comment"># else 在没有捕获异常时执行</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">   可能会产生异常的代码</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">    异常处理语句</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">    异常处理语句</span><br><span class="line">说明：当try中有多行代码可能会出现不同的异常，那么使用多个except与之对应，根据产生异常的顺序来依次捕获处理。</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">try:</span><br><span class="line">    f = open(<span class="string">'test.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line">    line = f.readline( )</span><br><span class="line">    <span class="built_in">print</span>(line)</span><br><span class="line">except FileNotFoundError as fe:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'文件不存在'</span>)</span><br><span class="line">except IOError as ioe:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'文件读取有错误'</span>)</span><br><span class="line">finally:</span><br><span class="line">    try:</span><br><span class="line">        f.close( )</span><br><span class="line">    except NameError as ne:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'变量未声明'</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">try：</span><br><span class="line">   可能会出产生异常的代码</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">   异常处理语句</span><br><span class="line">finally：</span><br><span class="line">   代码</span><br><span class="line">说明：当异常捕获处理流程中，使用了finally来控制，表明不管是否出现异常进行捕获，最后代码都将允许finally内部的语句。</span><br><span class="line">注意：finally中的语句，不管前面的代码出现何种操作，比如：<span class="built_in">break</span>、<span class="built_in">return</span>、<span class="built_in">exit</span>等都会执行完finally内部的代码后，才会实现。</span><br><span class="line"></span><br><span class="line">finally的替换写法</span><br><span class="line">with open(<span class="string">'myfile.txt'</span>,<span class="string">'r'</span>) as f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        <span class="built_in">print</span>(line)</span><br><span class="line">其中打开的文件对象f，在执行完内容的读取后，被强制性关闭。及时在读取过程中，出现错误，也会被关闭。</span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">try:</span><br><span class="line">    f = open(<span class="string">'test.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line">    line = f.readline( )</span><br><span class="line">    <span class="built_in">print</span>(line)</span><br><span class="line">except FileNotFoundError as fe:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'文件不存在'</span>)</span><br><span class="line">except IOError as ioe:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'文件读取有错误'</span>)</span><br><span class="line">finally:</span><br><span class="line">    try:</span><br><span class="line">        f.close( )</span><br><span class="line">    except NameError as ne:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'变量未声明'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="异常的分类"><a href="#异常的分类" class="headerlink" title="异常的分类"></a>异常的分类</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">在Python中所有的异常都继承自BaseExcept,如下：</span><br><span class="line">          |------&gt;KeyboardInterrupt（键盘中断异常） </span><br><span class="line">          |</span><br><span class="line">BaseExcept|------&gt;SystemExit(系统退出异常)</span><br><span class="line">          |</span><br><span class="line">          |------&gt;Except（其他所有异常的父类）    </span><br><span class="line">其中：keyboardInterrupt在使用强制中断程序时产生。</span><br><span class="line">SystemExit在使用sys.exit()函数时产生。</span><br></pre></td></tr></table></figure>
-<h3 id="主动抛出异常"><a href="#主动抛出异常" class="headerlink" title="主动抛出异常"></a>主动抛出异常</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">raise 异常类对象实例或自定义异常类实例</span><br><span class="line">raise IOError(<span class="string">'IO 错误'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">例子：</span><br><span class="line">try:</span><br><span class="line">    raise NameError(<span class="string">'变量'</span>)</span><br><span class="line">except NameError as na:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'变量未声明'</span>)</span><br><span class="line"><span class="comment"># 抛出异常</span></span><br></pre></td></tr></table></figure>
-<h3 id="使用异常机制的优势"><a href="#使用异常机制的优势" class="headerlink" title="使用异常机制的优势"></a>使用异常机制的优势</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一，把错误控制与业务逻辑进行区分，增强程序的可读性和健壮性。</span><br><span class="line">第二，代码结构更加清晰，复杂的业务流程的实现更加便利</span><br><span class="line">第三，程序的容错性更强，不会因为一个小bug导致整体崩溃。</span><br></pre></td></tr></table></figure>
-<h3 id="assert-断言"><a href="#assert-断言" class="headerlink" title="assert 断言"></a>assert 断言</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">语法格式：assert 表达式，断言内容。代码如下</span><br><span class="line">try:</span><br><span class="line">    assert 1==2,<span class="string">'1 不等于 2'</span></span><br><span class="line">except AssertionError as ae:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'&#123;&#125;&#123;&#125;'</span>.format(ae.__class__.__name__, ae))</span><br><span class="line">如果断言表达式为真，则正常执行，如果不为真，则返回断言内容，作为异常捕获的输出结果。</span><br></pre></td></tr></table></figure>
+        <p>‘’’<br>a = lambda x:x*2<br>print(a(2))</p>
+<h1 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h1><p>max_num = lambda x,y,z:x if x&gt;y and x&gt;z else (y if y&gt;x and y&gt;z else z)<br>print(max_num(3,5,4))<br>max = lambda x,y,z:max(x,y,z)<br>print(max_num(3,5,4))</p>
+<h1 id="匿名函数也可以调其他函数"><a href="#匿名函数也可以调其他函数" class="headerlink" title="匿名函数也可以调其他函数"></a>匿名函数也可以调其他函数</h1><p>‘’’</p>
+<p>‘’’<br>def func(x):<br>    print(x*x)</p>
+<p>result = map(func,[1,2,3])<br>for item in result:<br>    print(item)</p>
+<p>result = map(lambda x:x*x,[1,2,3])<br>for item in result:<br>    print(item)</p>
+<p>up = map(lambda x:x.upper(),[‘one’,’two’,’three’])<br>for item in up:<br>    print(item)</p>
+<p>#print(next(up))</p>
+<p>#map()函数返回 map对象（迭代器）,可以用for循环 或者next（）遍历<br>‘’’</p>
+<p>‘’’<br>from functools import reduce<br>def f(x,y):<br>    return x*y</p>
+<p>a = reduce(f,range(1,4))<br>print(a)</p>
+<h1 id="先将1赋值给x，然后将2赋值给y，乘积再赋值给x，3再赋值给y进行计算"><a href="#先将1赋值给x，然后将2赋值给y，乘积再赋值给x，3再赋值给y进行计算" class="headerlink" title="先将1赋值给x，然后将2赋值给y，乘积再赋值给x，3再赋值给y进行计算"></a>先将1赋值给x，然后将2赋值给y，乘积再赋值给x，3再赋值给y进行计算</h1><p>a = reduce(lambda x,y:x*y,range(1,4))<br>print(a)</p>
+<p>list1 = [‘a’,’b’,’c’,’d’]<br>iter(list1)<br>a = reduce(lambda x,y:x+y,list1)<br>print(a)<br>‘’’</p>
+<p>‘’’<br>def odd(x):<br>    if x%2!=0:<br>        return x</p>
+<p>a = filter(odd,range(1,11))<br>for item in a:<br>    print(item)</p>
+<p>b = filter(lambda x:x%2!=0,range(1,11))<br>for item in b:<br>    print(item)</p>
+<h1 id="filter-表达式-序列-过滤函数"><a href="#filter-表达式-序列-过滤函数" class="headerlink" title="filter(表达式,序列) 过滤函数"></a>filter(表达式,序列) 过滤函数</h1><p>#练习<br>str1 = (‘hipython’,’pyth’,’lovepython’,’PYTHON’,’XMU’)<br>kw = filter(lambda x:x.find(‘python’)!=-1,str1)<br>i = 0<br>for item in kw:<br>    print(item)<br>    i +=1<br>print(i)<br>‘’’</p>
+<p>‘’’</p>
+<h1 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h1><p>def a_sum(x):<br>    if not x:<br>        return 0<br>    else:<br>        return x[0]+a_sum(x[1:])</p>
+<p>sum = a_sum([1,2,3,4,5])<br>print(sum)</p>
+<p>def fac(n):<br>    if n==1:<br>        return 1<br>    else:<br>        return  n*fac(n-1)</p>
+<p>print(fac(5))</p>
+<p>import math<br>print(math.factorial(5))</p>
+<h1 id="递归函数math-factorial"><a href="#递归函数math-factorial" class="headerlink" title="递归函数math.factorial()"></a>递归函数math.factorial()</h1><p>‘’’</p>
+
       
 
       
@@ -1019,71 +998,7 @@ from Car import Car
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/02/my-notes19/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-my-notes18" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/31/my-notes18/">对XML文件的解析</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/31/my-notes18/" class="archive-article-date">
-  	<time datetime="2018-07-31T13:30:40.255Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://pythonzy0.github.io/" target="_blank" rel="noopener">Hexo</a>!</p>
-<h2 id="对XML文件的解析"><a href="#对XML文件的解析" class="headerlink" title="对XML文件的解析"></a>对XML文件的解析</h2><h3 id="DOM与SAX"><a href="#DOM与SAX" class="headerlink" title="DOM与SAX"></a>DOM与SAX</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">1、XML解析的两种方式：DOM与SAX</span><br><span class="line">DOM：文档对象模型，是Python处理XML文件的标准模式。一个DOM的解析器在解析XML文档时 ，一次性读入整个文档，把文档中的所有元素（标签和文本）保存在内存中的一个树形结构，然后我们可以利用DOM提供的各种函数，来读取或修改文档中的内容。</span><br><span class="line">SAX：是一种时间驱动的API，利用SAX解析XML 。主要使用解析器负责读取XML文档，并向事件处理器发生事件，比如：元素开始、元素结束。常用在1）大型文档的处理，2）只需要文件的部分内容，或者从文件中得到特定的部分3）建立自己的对象模型。</span><br><span class="line">dom与sax对比：</span><br><span class="line">1、DOM解析需要读取整个文档到内存中，并且将所有元素保存到树形结构。那也就意味着，可以根据树形结构导航到任意节点，获取其相关内容。</span><br><span class="line">2、SAX解析文档，将文档边读入，边解析的方式，不需要一次性读入全部文档内容，只需要读入一部分即可。同时，因为其边读入边解析的工作方式，能够适应大文件的解析，提高解析效率。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DOM例子1：</span><br><span class="line"></span><br><span class="line">from xml.dom import minidom  <span class="comment">#引入minidom 以dom方式解析xml文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开文件</span></span><br><span class="line">dom = minidom.parse(<span class="string">'lesson19.xml'</span>)</span><br><span class="line"><span class="comment"># 得到文档的元素对象</span></span><br><span class="line">root = dom.documentElement</span><br><span class="line"><span class="built_in">print</span>(root.nodeName)</span><br><span class="line"><span class="built_in">print</span>(root.nodeValue)</span><br><span class="line"><span class="built_in">print</span>(root.nodeType)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获得在根节点下，所有名字为‘car’的节点对象</span></span><br><span class="line">node = root.getElementsByTagName(<span class="string">'car'</span>)</span><br><span class="line"><span class="comment"># 获得car节点中，第一个节点中brand子节点的文本内容</span></span><br><span class="line"><span class="built_in">print</span>(node[0].getElementsByTagName(<span class="string">'brand'</span>)[0].firstChild.data)</span><br><span class="line"><span class="comment"># 可以直接在root下边查找brand</span></span><br><span class="line"><span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'brand'</span>)[0].firstChild.data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(node[0].childNodes)):</span><br><span class="line">    <span class="keyword">if</span> node[0].childNodes[i].nodeType == 1:</span><br><span class="line">        <span class="built_in">print</span>(node[0].childNodes[i].nodeName,end=<span class="string">' '</span>)</span><br><span class="line"><span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def func(nodes):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nodes)):</span><br><span class="line">        <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'brand'</span>)[i].firstChild.data, end=<span class="string">' '</span>)</span><br><span class="line">        <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'compony'</span>)[i].firstChild.data, end=<span class="string">' '</span>)</span><br><span class="line">        <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'price'</span>)[i].firstChild.data, end=<span class="string">' '</span>)</span><br><span class="line">        <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'color'</span>)[i].firstChild.data, end=<span class="string">' '</span>)</span><br><span class="line">        <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'model'</span>)[i].firstChild.data, end=<span class="string">' '</span>)</span><br><span class="line">        <span class="built_in">print</span>(root.getElementsByTagName(<span class="string">'county'</span>)[i].firstChild.data, end=<span class="string">' '</span>)</span><br><span class="line">        <span class="built_in">print</span>()</span><br><span class="line">func(node)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DOM例子2：</span><br><span class="line"></span><br><span class="line">from xml.etree import ElementTree</span><br><span class="line"></span><br><span class="line">tree = ElementTree.parse(<span class="string">'lesson19.xml'</span>)</span><br><span class="line">root = tree.getroot() <span class="comment"># 获取根节点</span></span><br><span class="line">list1 = list()</span><br><span class="line"></span><br><span class="line">def parseXML(element):</span><br><span class="line">    list2 = list()</span><br><span class="line">    <span class="keyword">if</span> len(element)&gt;0:</span><br><span class="line">        <span class="keyword">for</span> child <span class="keyword">in</span> element:</span><br><span class="line">            <span class="keyword">if</span> child.tag != <span class="string">'car'</span>:</span><br><span class="line">                <span class="built_in">print</span>(child.tag,<span class="string">'------&gt;'</span>,child.text)</span><br><span class="line">                list2.append(child.text)</span><br><span class="line">            parseXML(child)</span><br><span class="line">        list1.append(list2)</span><br><span class="line">        <span class="built_in">print</span>(list1)</span><br><span class="line"></span><br><span class="line">parseXML(root)</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SAX解析文件步骤：</span><br><span class="line">1、创建解析器</span><br><span class="line">parser = sax.make_parser()</span><br><span class="line">2、读取xml文档</span><br><span class="line">xml.sax.parse(xmlfile)</span><br><span class="line">3、设置ContentHandler对象，重写startDocument、endDocument、startElement、endElement方法</span><br><span class="line"></span><br><span class="line">startDocument():文档载入时调用，文档开始</span><br><span class="line">   endDocument()：当解析器达到文档结尾时调用</span><br><span class="line">   </span><br><span class="line">   startElement(name,attrs):当遇到XML标签时调用，name是标签的名字，attrs标签的属性字典</span><br><span class="line">   endElement(name):当遇到XML标签结束时调用，name是标签名</span><br><span class="line">4、使用SAX解析文件，需要为解析器配置ContentHandler，定义了如何解析标签，以及处理标签间文本内容的业务逻辑。</span><br><span class="line">carhandler = CarHandler()</span><br><span class="line">parser.setContentHandler(carhandler)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/31/my-notes18/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/18/lesson15/">展开全文 >></a>
         </p>
       
 
@@ -1115,7 +1030,7 @@ from Car import Car
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
