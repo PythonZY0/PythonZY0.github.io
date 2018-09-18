@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>链家（爬虫） | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="info.pyclass HouseInfo: def __init__(self, housecode, name, address, district, position_info, total_price, unit_price, follow_info):     self.__name = name     self.__address = address     self.__dist">
+  <meta name="description" content="info.py123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475class HouseInfo:    def __init__(self, housecode, na">
 <meta name="keywords" content="python、爬虫、Web开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="链家（爬虫）">
 <meta property="og:url" content="http://yoursite.com/2018/09/18/pachong8/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="info.pyclass HouseInfo: def __init__(self, housecode, name, address, district, position_info, total_price, unit_price, follow_info):     self.__name = name     self.__address = address     self.__dist">
+<meta property="og:description" content="info.py123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475class HouseInfo:    def __init__(self, housecode, na">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-18T12:15:31.754Z">
+<meta property="og:updated_time" content="2018-09-18T12:28:45.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="链家（爬虫）">
-<meta name="twitter:description" content="info.pyclass HouseInfo: def __init__(self, housecode, name, address, district, position_info, total_price, unit_price, follow_info):     self.__name = name     self.__address = address     self.__dist">
+<meta name="twitter:description" content="info.py123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475class HouseInfo:    def __init__(self, housecode, na">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -172,168 +172,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="info-py"><a href="#info-py" class="headerlink" title="info.py"></a>info.py</h2><p>class HouseInfo:</p>
-<pre><code>def __init__(self, housecode, name, address, district, position_info, total_price, unit_price, follow_info):
-    self.__name = name
-    self.__address = address
-    self.__district = district
-    self.__position_info = position_info
-    self.__total_price = total_price
-    self.__unit_price = unit_price
-    self.__follow_info = follow_info
-    self.__housecode = housecode
-
-@property
-def housecode(self):
-    return self.__housecode
-
-@housecode.setter
-def housecode(self, new_housecode):
-    self.__housecode = new_housecode
-
-@property
-def name(self):
-    return self.__name
-
-@name.setter
-def name(self, new_name):
-    self.__name = new_name
-
-@property
-def district(self):
-    return self.__district
-
-@district.setter
-def district(self, new_district):
-    self.__district = new_district
-
-@property
-def unit_price(self):
-    return self.__unit_price
-
-@unit_price.setter
-def unit_price(self, new_unit_price):
-    self.__unit_price = new_unit_price
-
-@property
-def total_price(self):
-    return self.__total_price
-
-@total_price.setter
-def total_price(self, new_total_price):
-    self.__total_price = new_total_price
-
-@property
-def position_info(self):
-    return self.__position_info
-
-@position_info.setter
-def position_info(self, new_position_info):
-    self.__position_info = new_position_info
-
-@property
-def follow_info(self):
-    return self.__follow_info
-
-@follow_info.setter
-def follow_info(self, new_follow_info):
-    self.__follow_info = new_follow_info
-
-@property
-def address(self):
-    return self.__address
-
-@address.setter
-def address(self, new_address):
-    self.__address = new_address
-</code></pre><h2 id="house-py"><a href="#house-py" class="headerlink" title="house.py"></a>house.py</h2><p>import requests<br>from info import HouseInfo<br>from bs4 import BeautifulSoup<br>import urllib.parse as parse<br>import xlwt<br>import xlrd</p>
-<p>class House:<br>    def <strong>init</strong>(self, url):<br>        self.url = url</p>
-<pre><code>def getHouseHTML(self, district):
-    try:
-        new_url = self.url + district
-        response = requests.get(new_url)
-        response.raise_for_status()
-        response.encoding = &apos;UTF-8&apos;
-        return response.text
-    except requests.HTTPError as e:
-        print(&apos;出错了！！！&apos;)
-
-def parseHouseHTML(self, content):
-    houseinfo_list = []
-    soup = BeautifulSoup(content, &apos;html.parser&apos;)
-    house_list = soup.find_all(&apos;div&apos;, &apos;info clear&apos;)
-    for house in house_list:
-        housecode = house.find(&apos;a&apos;)[&apos;data-housecode&apos;]
-        name = house.find(&apos;a&apos;, &apos;no_resblock_a&apos;).string
-        address = house.find(&apos;a&apos;, &apos;no_resblock_a&apos;).string
-        district = house.find(&apos;div&apos;, &apos;positionInfo&apos;).find(&apos;a&apos;).string
-        follow_info = house.find(&apos;div&apos;, &apos;followInfo&apos;).get_text()
-        total_price = house.find(&apos;div&apos;, &apos;totalPrice&apos;).find(&apos;span&apos;).string
-        unit_price = house.find(&apos;div&apos;, &apos;unitPrice&apos;)[&apos;data-price&apos;]
-        position_info = house.find(&apos;div&apos;, &apos;positionInfo&apos;).get_text()
-        houseinfo = HouseInfo(housecode, name, address, district, position_info,total_price, unit_price, follow_info)
-        houseinfo_list.append(houseinfo)
-    return houseinfo_list
-
-def getList(self,lis):
-    house_list = []
-    for item in lis:
-        list1 = []
-        list1.append(item.housecode)
-        list1.append(item.name)
-        list1.append(item.address)
-        list1.append(item.district)
-        list1.append(item.position_info)
-        list1.append(item.total_price)
-        list1.append(item.unit_price)
-        list1.append(item.follow_info)
-        house_list.append(list1)
-    return house_list
-
-def saveExcel(self, lis, lis1):
-    wbt = xlwt.Workbook()
-    sheet = wbt.add_sheet(&apos;房子基本信息表&apos;)
-    sheets = wbt.add_sheet(&apos;房子详细信息表&apos;)
-    get_total = [&apos;housecode&apos;, &apos;name&apos;, &apos;address&apos;, &apos;district&apos;, &apos;position_info&apos;,&apos;total_price&apos;, &apos;unit_price&apos;, &apos;follow_info&apos;]
-    for i in range(len(get_total)):
-        sheet.write(0, i, get_total[i])
-    for m in range(len(lis)):
-        for n in range(len(lis[m])):
-            sheet.write(m + 1, n, lis[m][n])
-    for m in range(len(lis1)):
-        for n in range(len(lis1[m])):
-            sheets.write(m, n, lis1[m][n])
-
-    wbt.save(&apos;houseInfo.xls&apos;)
-
-
-def getDetailedHTML(self, objectHouse):
-    houseID = objectHouse.housecode
-    info_url = &apos;https://zz.lianjia.com/ershoufang/{0}.html&apos;.format(houseID)
-    try:
-        res = requests.get(info_url)
-        res.raise_for_status()
-        res.encoding = &apos;UTF-8&apos;
-        return res.text
-    except requests.HTTPError as e:
-        print(&apos;出错了！！！&apos;)
-
-def getDetailedHouse(self, infoHouse):
-    house_list = []
-    soup = BeautifulSoup(infoHouse, &apos;html.parser&apos;)
-    lis = soup.find_all(&apos;div&apos;, &apos;introContent&apos;)[0].find_all(&apos;div&apos;, &apos;content&apos;)[0].find_all(&apos;li&apos;)
-    for item in lis:
-        house_list.append(item.get_text())
-    return house_list
-
-def transactionAttributes(self, infoHouse):
-    house_list = []
-    soup = BeautifulSoup(infoHouse, &apos;html.parser&apos;)
-    lis = soup.find_all(&apos;div&apos;, &apos;introContent&apos;)[0].find_all(&apos;div&apos;, &apos;content&apos;)[1].find_all(&apos;li&apos;)
-    for item in lis:
-        house_list.append(item.find_all(&apos;span&apos;)[1].string)
-    return house_list
-</code></pre><h2 id="text-house-py"><a href="#text-house-py" class="headerlink" title="text_house.py"></a>text_house.py</h2><p>from house import House<br>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    url = ‘<a href="https://zz.lianjia.com/ershoufang/pg1rs&#39;" target="_blank" rel="noopener">https://zz.lianjia.com/ershoufang/pg1rs&#39;</a><br>    house = House(url)<br>    content = house.getHouseHTML(‘高新区’)<br>    objectHouse = house.parseHouseHTML(content) #获得对象列表<br>    house_list = house.getList(objectHouse) #获得对象属性，添加到表格<br>    total_list1 = []<br>    total_list2 = []<br>    for item in objectHouse:<br>        info_house = house.getDetailedHTML(item) #打开单个住房信息网页<br>        new_house_list1 = house.getDetailedHouse(info_house)<br>        new_house_list2 = house.transactionAttributes(info_house)<br>        total_list1.append(new_house_list1)<br>        total_list2.append(new_house_list2)<br>    lis = total_list1+total_list2<br>    print(lis)<br>    house.saveExcel(house_list, lis)  # 存入Excel</p>
+        <h2 id="info-py"><a href="#info-py" class="headerlink" title="info.py"></a>info.py</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">class HouseInfo:</span><br><span class="line"></span><br><span class="line">    def __init__(self, housecode, name, address, district, position_info, total_price, unit_price, follow_info):</span><br><span class="line">        self.__name = name</span><br><span class="line">        self.__address = address</span><br><span class="line">        self.__district = district</span><br><span class="line">        self.__position_info = position_info</span><br><span class="line">        self.__total_price = total_price</span><br><span class="line">        self.__unit_price = unit_price</span><br><span class="line">        self.__follow_info = follow_info</span><br><span class="line">        self.__housecode = housecode</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def housecode(self):</span><br><span class="line">        <span class="built_in">return</span> self.__housecode</span><br><span class="line"></span><br><span class="line">    @housecode.setter</span><br><span class="line">    def housecode(self, new_housecode):</span><br><span class="line">        self.__housecode = new_housecode</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def name(self):</span><br><span class="line">        <span class="built_in">return</span> self.__name</span><br><span class="line"></span><br><span class="line">    @name.setter</span><br><span class="line">    def name(self, new_name):</span><br><span class="line">        self.__name = new_name</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def district(self):</span><br><span class="line">        <span class="built_in">return</span> self.__district</span><br><span class="line"></span><br><span class="line">    @district.setter</span><br><span class="line">    def district(self, new_district):</span><br><span class="line">        self.__district = new_district</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def unit_price(self):</span><br><span class="line">        <span class="built_in">return</span> self.__unit_price</span><br><span class="line"></span><br><span class="line">    @unit_price.setter</span><br><span class="line">    def unit_price(self, new_unit_price):</span><br><span class="line">        self.__unit_price = new_unit_price</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def total_price(self):</span><br><span class="line">        <span class="built_in">return</span> self.__total_price</span><br><span class="line"></span><br><span class="line">    @total_price.setter</span><br><span class="line">    def total_price(self, new_total_price):</span><br><span class="line">        self.__total_price = new_total_price</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def position_info(self):</span><br><span class="line">        <span class="built_in">return</span> self.__position_info</span><br><span class="line"></span><br><span class="line">    @position_info.setter</span><br><span class="line">    def position_info(self, new_position_info):</span><br><span class="line">        self.__position_info = new_position_info</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def follow_info(self):</span><br><span class="line">        <span class="built_in">return</span> self.__follow_info</span><br><span class="line"></span><br><span class="line">    @follow_info.setter</span><br><span class="line">    def follow_info(self, new_follow_info):</span><br><span class="line">        self.__follow_info = new_follow_info</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def address(self):</span><br><span class="line">        <span class="built_in">return</span> self.__address</span><br><span class="line"></span><br><span class="line">    @address.setter</span><br><span class="line">    def address(self, new_address):</span><br><span class="line">        self.__address = new_address</span><br></pre></td></tr></table></figure>
+<h2 id="house-py"><a href="#house-py" class="headerlink" title="house.py"></a>house.py</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from info import HouseInfo</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import urllib.parse as parse</span><br><span class="line">import xlwt</span><br><span class="line">import xlrd</span><br><span class="line"></span><br><span class="line">class House:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.url = url</span><br><span class="line"></span><br><span class="line">    def getHouseHTML(self, district):</span><br><span class="line">        try:</span><br><span class="line">            new_url = self.url + district</span><br><span class="line">            response = requests.get(new_url)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            response.encoding = <span class="string">'UTF-8'</span></span><br><span class="line">            <span class="built_in">return</span> response.text</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'出错了！！！'</span>)</span><br><span class="line"></span><br><span class="line">    def parseHouseHTML(self, content):</span><br><span class="line">        houseinfo_list = []</span><br><span class="line">        soup = BeautifulSoup(content, <span class="string">'html.parser'</span>)</span><br><span class="line">        house_list = soup.find_all(<span class="string">'div'</span>, <span class="string">'info clear'</span>)</span><br><span class="line">        <span class="keyword">for</span> house <span class="keyword">in</span> house_list:</span><br><span class="line">            housecode = house.find(<span class="string">'a'</span>)[<span class="string">'data-housecode'</span>]</span><br><span class="line">            name = house.find(<span class="string">'a'</span>, <span class="string">'no_resblock_a'</span>).string</span><br><span class="line">            address = house.find(<span class="string">'a'</span>, <span class="string">'no_resblock_a'</span>).string</span><br><span class="line">            district = house.find(<span class="string">'div'</span>, <span class="string">'positionInfo'</span>).find(<span class="string">'a'</span>).string</span><br><span class="line">            follow_info = house.find(<span class="string">'div'</span>, <span class="string">'followInfo'</span>).get_text()</span><br><span class="line">            total_price = house.find(<span class="string">'div'</span>, <span class="string">'totalPrice'</span>).find(<span class="string">'span'</span>).string</span><br><span class="line">            unit_price = house.find(<span class="string">'div'</span>, <span class="string">'unitPrice'</span>)[<span class="string">'data-price'</span>]</span><br><span class="line">            position_info = house.find(<span class="string">'div'</span>, <span class="string">'positionInfo'</span>).get_text()</span><br><span class="line">            houseinfo = HouseInfo(housecode, name, address, district, position_info,total_price, unit_price, follow_info)</span><br><span class="line">            houseinfo_list.append(houseinfo)</span><br><span class="line">        <span class="built_in">return</span> houseinfo_list</span><br><span class="line"></span><br><span class="line">    def getList(self,lis):</span><br><span class="line">        house_list = []</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            list1 = []</span><br><span class="line">            list1.append(item.housecode)</span><br><span class="line">            list1.append(item.name)</span><br><span class="line">            list1.append(item.address)</span><br><span class="line">            list1.append(item.district)</span><br><span class="line">            list1.append(item.position_info)</span><br><span class="line">            list1.append(item.total_price)</span><br><span class="line">            list1.append(item.unit_price)</span><br><span class="line">            list1.append(item.follow_info)</span><br><span class="line">            house_list.append(list1)</span><br><span class="line">        <span class="built_in">return</span> house_list</span><br><span class="line"></span><br><span class="line">    def saveExcel(self, lis, lis1):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'房子基本信息表'</span>)</span><br><span class="line">        sheets = wbt.add_sheet(<span class="string">'房子详细信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'housecode'</span>, <span class="string">'name'</span>, <span class="string">'address'</span>, <span class="string">'district'</span>, <span class="string">'position_info'</span>,<span class="string">'total_price'</span>, <span class="string">'unit_price'</span>, <span class="string">'follow_info'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m + 1, n, lis[m][n])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis1)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis1[m])):</span><br><span class="line">                sheets.write(m, n, lis1[m][n])</span><br><span class="line"></span><br><span class="line">        wbt.save(<span class="string">'houseInfo.xls'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def getDetailedHTML(self, objectHouse):</span><br><span class="line">        houseID = objectHouse.housecode</span><br><span class="line">        info_url = <span class="string">'https://zz.lianjia.com/ershoufang/&#123;0&#125;.html'</span>.format(houseID)</span><br><span class="line">        try:</span><br><span class="line">            res = requests.get(info_url)</span><br><span class="line">            res.raise_for_status()</span><br><span class="line">            res.encoding = <span class="string">'UTF-8'</span></span><br><span class="line">            <span class="built_in">return</span> res.text</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'出错了！！！'</span>)</span><br><span class="line"></span><br><span class="line">    def getDetailedHouse(self, infoHouse):</span><br><span class="line">        house_list = []</span><br><span class="line">        soup = BeautifulSoup(infoHouse, <span class="string">'html.parser'</span>)</span><br><span class="line">        lis = soup.find_all(<span class="string">'div'</span>, <span class="string">'introContent'</span>)[0].find_all(<span class="string">'div'</span>, <span class="string">'content'</span>)[0].find_all(<span class="string">'li'</span>)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            house_list.append(item.get_text())</span><br><span class="line">        <span class="built_in">return</span> house_list</span><br><span class="line"></span><br><span class="line">    def transactionAttributes(self, infoHouse):</span><br><span class="line">        house_list = []</span><br><span class="line">        soup = BeautifulSoup(infoHouse, <span class="string">'html.parser'</span>)</span><br><span class="line">        lis = soup.find_all(<span class="string">'div'</span>, <span class="string">'introContent'</span>)[0].find_all(<span class="string">'div'</span>, <span class="string">'content'</span>)[1].find_all(<span class="string">'li'</span>)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            house_list.append(item.find_all(<span class="string">'span'</span>)[1].string)</span><br><span class="line">        <span class="built_in">return</span> house_list</span><br></pre></td></tr></table></figure>
+<h2 id="text-house-py"><a href="#text-house-py" class="headerlink" title="text_house.py"></a>text_house.py</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from house import House</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    url = <span class="string">'https://zz.lianjia.com/ershoufang/pg1rs'</span></span><br><span class="line">    house = House(url)</span><br><span class="line">    content = house.getHouseHTML(<span class="string">'高新区'</span>)</span><br><span class="line">    objectHouse = house.parseHouseHTML(content) <span class="comment">#获得对象列表</span></span><br><span class="line">    house_list = house.getList(objectHouse) <span class="comment">#获得对象属性，添加到表格</span></span><br><span class="line">    total_list1 = []</span><br><span class="line">    total_list2 = []</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> objectHouse:</span><br><span class="line">        info_house = house.getDetailedHTML(item) <span class="comment">#打开单个住房信息网页</span></span><br><span class="line">        new_house_list1 = house.getDetailedHouse(info_house)</span><br><span class="line">        new_house_list2 = house.transactionAttributes(info_house)</span><br><span class="line">        total_list1.append(new_house_list1)</span><br><span class="line">        total_list2.append(new_house_list2)</span><br><span class="line">    lis = total_list1+total_list2</span><br><span class="line">    <span class="built_in">print</span>(lis)</span><br><span class="line">    house.saveExcel(house_list, lis)  <span class="comment"># 存入Excel</span></span><br></pre></td></tr></table></figure>
 
       
 

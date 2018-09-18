@@ -170,72 +170,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>from bs4 import BeautifulSoup as bs<br>import re<br>import time<br>import math</p>
-<p>class Movie:<br>    HEADERS = {<br>        ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0;Win64;x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36’,<br>        ‘Host’:’movie.douban.com’<br>    }<br>    def <strong>init</strong>(self, url):<br>        self.url = url</p>
-<pre><code>def getNowPlayingMovieList(self):
-    try:
-        response = requests.get(self.url, headers=Movie.HEADERS)
-        response.raise_for_status()
-        html = response.text
-        return html
-    except requests.HTTPError as e:
-        print(e)
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup as bs</span><br><span class="line">import re</span><br><span class="line">import time</span><br><span class="line">import math</span><br><span class="line"></span><br><span class="line">class Movie:</span><br><span class="line">    HEADERS = &#123;</span><br><span class="line">        <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0;Win64;x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36'</span>,</span><br><span class="line">        <span class="string">'Host'</span>:<span class="string">'movie.douban.com'</span></span><br><span class="line">    &#125;</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.url = url</span><br><span class="line"></span><br><span class="line">    def getNowPlayingMovieList(self):</span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(self.url, headers=Movie.HEADERS)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            html = response.text</span><br><span class="line">            <span class="built_in">return</span> html</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line">    def parseHTML(self, content):</span><br><span class="line">        soup = bs(content, <span class="string">'html.parser'</span>)</span><br><span class="line">        <span class="comment"># 首先，定位到热映电影的div模块， id为nowplaying</span></span><br><span class="line">        nowplaying_movie = soup.find(<span class="string">'div'</span>, id=<span class="string">'nowplaying'</span>)</span><br><span class="line">        nowplaying_movie_list = nowplaying_movie.find_all(<span class="string">'li'</span>,<span class="string">'list-item'</span>)</span><br><span class="line">        movie_list = []</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> nowplaying_movie_list:</span><br><span class="line">            movie_dict = &#123;&#125;</span><br><span class="line">            <span class="comment"># 根据热映电影的ID属性，获取到对应的值</span></span><br><span class="line">            movie_dict[<span class="string">'id'</span>] = item[<span class="string">'id'</span>]</span><br><span class="line">            movie_dict[<span class="string">'name'</span>] = item[<span class="string">'data-title'</span>]</span><br><span class="line">            movie_dict[<span class="string">'rate'</span>] = item[<span class="string">'data-score'</span>]</span><br><span class="line">            movie_list.append(movie_dict)</span><br><span class="line">        <span class="built_in">return</span> movie_list</span><br><span class="line"></span><br><span class="line">    def getCommentsNum(self, movie_id):</span><br><span class="line">        url = <span class="string">'https://movie.douban.com/subject/&#123;0&#125;'</span>.format(movie_id)</span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url, headers=Movie.HEADERS)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            html = response.text</span><br><span class="line">            soup = bs(html, <span class="string">'html.parser'</span>)</span><br><span class="line">            tmp = soup.find(<span class="string">'div'</span>, id=<span class="string">'comments-section'</span>).find(<span class="string">'span'</span>, <span class="string">'pl'</span>).find(<span class="string">'a'</span>).string</span><br><span class="line">            num = re.sub(<span class="string">'[\u4e00-\u9fa5]'</span>,<span class="string">''</span>,tmp)</span><br><span class="line">            <span class="built_in">return</span> num.strip()</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line">    def getCommentsById(self, movie_id, page_num):</span><br><span class="line">        comments_list = [] <span class="comment"># 影评列表</span></span><br><span class="line">        start = (page_num - 1) * 20</span><br><span class="line">        url = <span class="string">'https://movie.douban.com/subject/&#123;0&#125;/comments?start=&#123;1&#125;'</span>.format(movie_id, str(start))</span><br><span class="line">        response = requests.get(url, headers=Movie.HEADERS)</span><br><span class="line">        response.encoding = <span class="string">'utf-8'</span></span><br><span class="line">        html = response.text</span><br><span class="line">        soup = bs(html, <span class="string">'html.parser'</span>)</span><br><span class="line">        comments = soup.find_all(<span class="string">'div'</span>, <span class="string">'comment'</span>)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> comments:</span><br><span class="line">            string = item.find(<span class="string">'p'</span>).find(<span class="string">'span'</span>).string</span><br><span class="line">            comment = re.findall(<span class="string">'[\u4e00-\u9fa5]+'</span>, string)</span><br><span class="line">            temp = <span class="string">''</span>.join(comment)</span><br><span class="line">            comments_list.append(temp)</span><br><span class="line">        <span class="built_in">return</span> comments_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    url = <span class="string">'https://movie.douban.com/cinema/nowplaying/zhengzhou/'</span></span><br><span class="line">    movie = Movie(url)</span><br><span class="line">    html = movie.getNowPlayingMovieList()</span><br><span class="line">    movie_comments = []</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> movie.parseHTML(html):</span><br><span class="line">        <span class="comment">#time.sleep(10)</span></span><br><span class="line">        num = movie.getCommentsNum(item[<span class="string">'id'</span>])</span><br><span class="line">        pages =math.ceil(int(num) / 20) <span class="comment"># 计算出总页数</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(1, pages+1):</span><br><span class="line">            ls = movie.getCommentsById(item[<span class="string">'id'</span>], i)</span><br><span class="line">            ls.append(item[<span class="string">'name'</span>])</span><br><span class="line">            movie_comments.append(ls)</span><br><span class="line">            <span class="built_in">print</span>(ls)</span><br><span class="line">            time.sleep(10)</span><br><span class="line">        <span class="built_in">print</span>(movie_comments)</span><br></pre></td></tr></table></figure>
 
-def parseHTML(self, content):
-    soup = bs(content, &apos;html.parser&apos;)
-    # 首先，定位到热映电影的div模块， id为nowplaying
-    nowplaying_movie = soup.find(&apos;div&apos;, id=&apos;nowplaying&apos;)
-    nowplaying_movie_list = nowplaying_movie.find_all(&apos;li&apos;,&apos;list-item&apos;)
-    movie_list = []
-    for item in nowplaying_movie_list:
-        movie_dict = {}
-        # 根据热映电影的ID属性，获取到对应的值
-        movie_dict[&apos;id&apos;] = item[&apos;id&apos;]
-        movie_dict[&apos;name&apos;] = item[&apos;data-title&apos;]
-        movie_dict[&apos;rate&apos;] = item[&apos;data-score&apos;]
-        movie_list.append(movie_dict)
-    return movie_list
-
-def getCommentsNum(self, movie_id):
-    url = &apos;https://movie.douban.com/subject/{0}&apos;.format(movie_id)
-    try:
-        response = requests.get(url, headers=Movie.HEADERS)
-        response.raise_for_status()
-        html = response.text
-        soup = bs(html, &apos;html.parser&apos;)
-        tmp = soup.find(&apos;div&apos;, id=&apos;comments-section&apos;).find(&apos;span&apos;, &apos;pl&apos;).find(&apos;a&apos;).string
-        num = re.sub(&apos;[\u4e00-\u9fa5]&apos;,&apos;&apos;,tmp)
-        return num.strip()
-    except requests.HTTPError as e:
-        print(e)
-
-def getCommentsById(self, movie_id, page_num):
-    comments_list = [] # 影评列表
-    start = (page_num - 1) * 20
-    url = &apos;https://movie.douban.com/subject/{0}/comments?start={1}&apos;.format(movie_id, str(start))
-    response = requests.get(url, headers=Movie.HEADERS)
-    response.encoding = &apos;utf-8&apos;
-    html = response.text
-    soup = bs(html, &apos;html.parser&apos;)
-    comments = soup.find_all(&apos;div&apos;, &apos;comment&apos;)
-    for item in comments:
-        string = item.find(&apos;p&apos;).find(&apos;span&apos;).string
-        comment = re.findall(&apos;[\u4e00-\u9fa5]+&apos;, string)
-        temp = &apos;&apos;.join(comment)
-        comments_list.append(temp)
-    return comments_list
-</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    url = ‘<a href="https://movie.douban.com/cinema/nowplaying/zhengzhou/&#39;" target="_blank" rel="noopener">https://movie.douban.com/cinema/nowplaying/zhengzhou/&#39;</a><br>    movie = Movie(url)<br>    html = movie.getNowPlayingMovieList()<br>    movie_comments = []<br>    for item in movie.parseHTML(html):</p>
-<pre><code>#time.sleep(10)
-num = movie.getCommentsNum(item[&apos;id&apos;])
-pages =math.ceil(int(num) / 20) # 计算出总页数
-for i in range(1, pages+1):
-    ls = movie.getCommentsById(item[&apos;id&apos;], i)
-    ls.append(item[&apos;name&apos;])
-    movie_comments.append(ls)
-    print(ls)
-    time.sleep(10)
-print(movie_comments)
-</code></pre>
       
 
       

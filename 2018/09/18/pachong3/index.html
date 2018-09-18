@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>我买网（爬虫，json） | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="import requestsfrom urllib import parseimport xlwtimport jsonclass LagouSpider:    def init(self, url):        self.__url = url # 获取到指定url地址的第num页岗位信息， def get_json(self):     my_headers = {         &amp;">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556import requestsfrom urllib import parseimport xlwtimport jsonclass LagouSpider:    def __init__(s">
 <meta name="keywords" content="python、爬虫、Web开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我买网（爬虫，json）">
 <meta property="og:url" content="http://yoursite.com/2018/09/18/pachong3/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="import requestsfrom urllib import parseimport xlwtimport jsonclass LagouSpider:    def init(self, url):        self.__url = url # 获取到指定url地址的第num页岗位信息， def get_json(self):     my_headers = {         &amp;">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556import requestsfrom urllib import parseimport xlwtimport jsonclass LagouSpider:    def __init__(s">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-18T12:05:11.603Z">
+<meta property="og:updated_time" content="2018-09-18T12:30:45.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我买网（爬虫，json）">
-<meta name="twitter:description" content="import requestsfrom urllib import parseimport xlwtimport jsonclass LagouSpider:    def init(self, url):        self.__url = url # 获取到指定url地址的第num页岗位信息， def get_json(self):     my_headers = {         &amp;">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556import requestsfrom urllib import parseimport xlwtimport jsonclass LagouSpider:    def __init__(s">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -172,50 +172,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>from urllib import parse<br>import xlwt<br>import json<br>class LagouSpider:<br>    def <strong>init</strong>(self, url):<br>        self.__url = url</p>
-<pre><code># 获取到指定url地址的第num页岗位信息，
-def get_json(self):
-    my_headers = {
-        &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&apos;,
-        &apos;Host&apos;: &apos;price.womai.com&apos;
-    }
-
-    try:
-        response = requests.get(url=self.__url, headers=my_headers)
-        response.raise_for_status() #判断状态码是否为200  不是抛异常
-        response.encoding = response.apparent_encoding
-        info = response.text
-        num = info.find(&apos;{&apos;)
-        page = info[num:-1]
-        page = json.loads(page)
-        return page
-    except requests.HTTPError as he:
-        print(&apos;访问服务器错误&apos;)
-
-def get_page(self,dic):
-    get_list = []
-    lis = dic[&apos;result&apos;]
-    for item in lis:
-        list1 = []
-        list1.append(item[&apos;id&apos;])
-        list1.append(item[&apos;price&apos;][&apos;buyPrice&apos;][&apos;priceValue&apos;])
-        list1.append(item[&apos;price&apos;][&apos;WMPrice&apos;][&apos;priceValue&apos;])
-        list1.append(&apos;http://www.womai.com/Product-0-{0}.htm?piwik_keyword=%25E5%2586%25B0%25E7%25AE%25B1&apos;.format(item[&apos;id&apos;]))
-        get_list.append(list1)
-    return get_list
-
-def write_excel(self, lis):
-    wbt = xlwt.Workbook()
-    sheet = wbt.add_sheet(&apos;招聘信息表&apos;)
-    get_total = [&apos;id&apos;, &apos;buyPrice&apos;, &apos;WMPrice&apos;, &apos;链接&apos;]
-    for i in range(len(get_total)):
-        sheet.write(0, i, get_total[i])
-    for m in range(len(lis)):
-        for n in range(len(lis[m])):
-            sheet.write(m+1, n, lis[m][n])
-    wbt.save(&apos;womaiwang.xls&apos;)
-</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    ajax_url =’<a href="http://price.womai.com/PriceServer/open/productlist.do?ids=655198%2C657378%2C657379%2C630669%2C512850%2C338835%2C657023%2C630065%2C642260%2C642259%2C607161%2C650947%2C639387%2C624926%2C624875%2C633490&amp;prices=buyPrice%2CWMPrice%2CmarketPrice%2CspecialPrice&amp;defData=n&amp;mid=0&amp;cityid=31000&amp;usergroupid=100&amp;callback=jsonp1534499503419&#39;" target="_blank" rel="noopener">http://price.womai.com/PriceServer/open/productlist.do?ids=655198%2C657378%2C657379%2C630669%2C512850%2C338835%2C657023%2C630065%2C642260%2C642259%2C607161%2C650947%2C639387%2C624926%2C624875%2C633490&amp;prices=buyPrice%2CWMPrice%2CmarketPrice%2CspecialPrice&amp;defData=n&amp;mid=0&amp;cityid=31000&amp;usergroupid=100&amp;callback=jsonp1534499503419&#39;</a><br>    spider = LagouSpider(ajax_url)<br>    page = spider.get_json()<br>    list1 = spider.get_page(page)<br>    spider.write_excel(list1)</p>
-
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from urllib import parse</span><br><span class="line">import xlwt</span><br><span class="line">import json</span><br><span class="line">class LagouSpider:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.__url = url</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取到指定url地址的第num页岗位信息，</span></span><br><span class="line">    def get_json(self):</span><br><span class="line">        my_headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'price.womai.com'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=self.__url, headers=my_headers)</span><br><span class="line">            response.raise_for_status() <span class="comment">#判断状态码是否为200  不是抛异常</span></span><br><span class="line">            response.encoding = response.apparent_encoding</span><br><span class="line">            info = response.text</span><br><span class="line">            num = info.find(<span class="string">'&#123;'</span>)</span><br><span class="line">            page = info[num:-1]</span><br><span class="line">            page = json.loads(page)</span><br><span class="line">            <span class="built_in">return</span> page</span><br><span class="line">        except requests.HTTPError as he:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'访问服务器错误'</span>)</span><br><span class="line"></span><br><span class="line">    def get_page(self,dic):</span><br><span class="line">        get_list = []</span><br><span class="line">        lis = dic[<span class="string">'result'</span>]</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            list1 = []</span><br><span class="line">            list1.append(item[<span class="string">'id'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'price'</span>][<span class="string">'buyPrice'</span>][<span class="string">'priceValue'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'price'</span>][<span class="string">'WMPrice'</span>][<span class="string">'priceValue'</span>])</span><br><span class="line">            list1.append(<span class="string">'http://www.womai.com/Product-0-&#123;0&#125;.htm?piwik_keyword=%25E5%2586%25B0%25E7%25AE%25B1'</span>.format(item[<span class="string">'id'</span>]))</span><br><span class="line">            get_list.append(list1)</span><br><span class="line">        <span class="built_in">return</span> get_list</span><br><span class="line"></span><br><span class="line">    def write_excel(self, lis):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'招聘信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'id'</span>, <span class="string">'buyPrice'</span>, <span class="string">'WMPrice'</span>, <span class="string">'链接'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m+1, n, lis[m][n])</span><br><span class="line">        wbt.save(<span class="string">'womaiwang.xls'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    ajax_url =<span class="string">'http://price.womai.com/PriceServer/open/productlist.do?ids=655198%2C657378%2C657379%2C630669%2C512850%2C338835%2C657023%2C630065%2C642260%2C642259%2C607161%2C650947%2C639387%2C624926%2C624875%2C633490&amp;prices=buyPrice%2CWMPrice%2CmarketPrice%2CspecialPrice&amp;defData=n&amp;mid=0&amp;cityid=31000&amp;usergroupid=100&amp;callback=jsonp1534499503419'</span></span><br><span class="line">    spider = LagouSpider(ajax_url)</span><br><span class="line">    page = spider.get_json()</span><br><span class="line">    list1 = spider.get_page(page)</span><br><span class="line">    spider.write_excel(list1)</span><br></pre></td></tr></table></figure>
       
 
       

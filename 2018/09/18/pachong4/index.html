@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>智联招聘（爬虫，json） | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="import requestsimport  mathimport jsonfrom urllib import parseimport xlwtclass LagouSpider:    def init(self, url):        self.__url = url # 获取到指定url地址的第num页岗位信息， def get_json(self):     my_headers =">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677import requestsimport  mathimport jsonfrom urllib impor">
 <meta name="keywords" content="python、爬虫、Web开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="智联招聘（爬虫，json）">
 <meta property="og:url" content="http://yoursite.com/2018/09/18/pachong4/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="import requestsimport  mathimport jsonfrom urllib import parseimport xlwtclass LagouSpider:    def init(self, url):        self.__url = url # 获取到指定url地址的第num页岗位信息， def get_json(self):     my_headers =">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677import requestsimport  mathimport jsonfrom urllib impor">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-18T12:08:42.589Z">
+<meta property="og:updated_time" content="2018-09-18T12:30:38.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="智联招聘（爬虫，json）">
-<meta name="twitter:description" content="import requestsimport  mathimport jsonfrom urllib import parseimport xlwtclass LagouSpider:    def init(self, url):        self.__url = url # 获取到指定url地址的第num页岗位信息， def get_json(self):     my_headers =">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677import requestsimport  mathimport jsonfrom urllib impor">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -172,59 +172,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>import  math<br>import json<br>from urllib import parse<br>import xlwt<br>class LagouSpider:<br>    def <strong>init</strong>(self, url):<br>        self.__url = url</p>
-<pre><code># 获取到指定url地址的第num页岗位信息，
-def get_json(self):
-    my_headers = {
-        &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&apos;,
-        &apos;Host&apos;: &apos;fe-api.zhaopin.com&apos;
-    }
-
-    try:
-        response = requests.get(url=self.__url, headers=my_headers)
-        response.raise_for_status() #判断状态码是否为200  不是抛异常
-        response.encoding = &apos;utf-8&apos;
-        page = response.json()
-        return page
-    except requests.HTTPError as he:
-        print(&apos;访问服务器错误&apos;)
-
-def get_page_num(self, count):
-    result = math.ceil(count/60)
-    if result &gt; 30:
-        result = 30
-    return result
-
-def get_page(self,dic):
-    get_list = []
-    list2 = dic[&quot;data&quot;][&quot;results&quot;]
-    for item in list2:
-        list3 = []
-        list3.append(item[&quot;company&quot;][&quot;number&quot;])
-        list3.append(item[&quot;company&quot;][&quot;name&quot;])
-        list3.append(item[&quot;company&quot;][&quot;size&quot;][&quot;name&quot;])
-        list3.append(item[&quot;company&quot;][&quot;type&quot;][&quot;name&quot;])
-        list3.append(item[&quot;workingExp&quot;][&quot;name&quot;])
-        list3.append(item[&quot;eduLevel&quot;][&quot;name&quot;])
-        list3.append(item[&quot;salary&quot;])
-        list3.append(item[&quot;emplType&quot;])
-        list3.append(item[&quot;jobName&quot;])
-        list3.append(item[&quot;welfare&quot;])
-        get_list.append(list3)
-    return get_list
-
-def write_excel(self, lis):
-    wbt = xlwt.Workbook()
-    sheet = wbt.add_sheet(&apos;招聘信息表&apos;)
-    get_total = [&apos;公司编号&apos;, &apos;公司名称&apos;, &apos;公司大小&apos;, &apos;公司类型&apos;, &apos;工作年限&apos;, &apos;学历&apos;, &apos;工资&apos;, &apos;工作类型&apos;, &apos;职位名称&apos;, &apos;公司福利&apos;]
-    for i in range(len(get_total)):
-        sheet.write(0, i, get_total[i])
-    for m in range(len(lis)):
-        for n in range(len(lis[m])):
-            sheet.write(m+1, n, lis[m][n])
-    wbt.save(&apos;zhilian.xls&apos;)
-</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    i = 60<br>    ajax_url = ‘<a href="https://fe-api.zhaopin.com/c/i/sou?start=60&amp;pageSize=60&amp;cityId=530&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D&#39;" target="_blank" rel="noopener">https://fe-api.zhaopin.com/c/i/sou?start=60&amp;pageSize=60&amp;cityId=530&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D&#39;</a><br>    spider = LagouSpider(ajax_url)<br>    dic = spider.get_json()<br>    num = spider.get_page_num(dic[‘data’][‘numFound’])<br>    city_num = input(‘城市编码：’)<br>    info_list = []<br>    for item in range(num):<br>        ajax_url = ‘<a href="https://fe-api.zhaopin.com/c/i/sou?start={0}&amp;pageSize=60&amp;cityId={1}&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D&#39;.format(i,city_num)" target="_blank" rel="noopener">https://fe-api.zhaopin.com/c/i/sou?start={0}&amp;pageSize=60&amp;cityId={1}&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D&#39;.format(i,city_num)</a><br>        i = i+60<br>        spider = LagouSpider(ajax_url)<br>        dic = spider.get_json()<br>        lis = spider.get_page(dic)<br>        info_list += lis<br>    spider.write_excel(info_list)</p>
-
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import  math</span><br><span class="line">import json</span><br><span class="line">from urllib import parse</span><br><span class="line">import xlwt</span><br><span class="line">class LagouSpider:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.__url = url</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取到指定url地址的第num页岗位信息，</span></span><br><span class="line">    def get_json(self):</span><br><span class="line">        my_headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'fe-api.zhaopin.com'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=self.__url, headers=my_headers)</span><br><span class="line">            response.raise_for_status() <span class="comment">#判断状态码是否为200  不是抛异常</span></span><br><span class="line">            response.encoding = <span class="string">'utf-8'</span></span><br><span class="line">            page = response.json()</span><br><span class="line">            <span class="built_in">return</span> page</span><br><span class="line">        except requests.HTTPError as he:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'访问服务器错误'</span>)</span><br><span class="line"></span><br><span class="line">    def get_page_num(self, count):</span><br><span class="line">        result = math.ceil(count/60)</span><br><span class="line">        <span class="keyword">if</span> result &gt; 30:</span><br><span class="line">            result = 30</span><br><span class="line">        <span class="built_in">return</span> result</span><br><span class="line"></span><br><span class="line">    def get_page(self,dic):</span><br><span class="line">        get_list = []</span><br><span class="line">        list2 = dic[<span class="string">"data"</span>][<span class="string">"results"</span>]</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> list2:</span><br><span class="line">            list3 = []</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"number"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"size"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"type"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"workingExp"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"eduLevel"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"salary"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"emplType"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"jobName"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"welfare"</span>])</span><br><span class="line">            get_list.append(list3)</span><br><span class="line">        <span class="built_in">return</span> get_list</span><br><span class="line"></span><br><span class="line">    def write_excel(self, lis):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'招聘信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'公司编号'</span>, <span class="string">'公司名称'</span>, <span class="string">'公司大小'</span>, <span class="string">'公司类型'</span>, <span class="string">'工作年限'</span>, <span class="string">'学历'</span>, <span class="string">'工资'</span>, <span class="string">'工作类型'</span>, <span class="string">'职位名称'</span>, <span class="string">'公司福利'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m+1, n, lis[m][n])</span><br><span class="line">        wbt.save(<span class="string">'zhilian.xls'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    i = 60</span><br><span class="line">    ajax_url = <span class="string">'https://fe-api.zhaopin.com/c/i/sou?start=60&amp;pageSize=60&amp;cityId=530&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D'</span></span><br><span class="line">    spider = LagouSpider(ajax_url)</span><br><span class="line">    dic = spider.get_json()</span><br><span class="line">    num = spider.get_page_num(dic[<span class="string">'data'</span>][<span class="string">'numFound'</span>])</span><br><span class="line">    city_num = input(<span class="string">'城市编码：'</span>)</span><br><span class="line">    info_list = []</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> range(num):</span><br><span class="line">        ajax_url = <span class="string">'https://fe-api.zhaopin.com/c/i/sou?start=&#123;0&#125;&amp;pageSize=60&amp;cityId=&#123;1&#125;&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D'</span>.format(i,city_num)</span><br><span class="line">        i = i+60</span><br><span class="line">        spider = LagouSpider(ajax_url)</span><br><span class="line">        dic = spider.get_json()</span><br><span class="line">        lis = spider.get_page(dic)</span><br><span class="line">        info_list += lis</span><br><span class="line">    spider.write_excel(info_list)</span><br></pre></td></tr></table></figure>
       
 
       

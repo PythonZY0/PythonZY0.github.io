@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>豆瓣电影（爬虫，json） | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="import requestsimport jsonimport xlwtclass Movie:    def init(self, url):        self.__url = url def getHtml(self):     try:         response = requests.get(self.__url)         response.raise_for_sta">
+  <meta name="description" content="import requests import json import xlwt class Movie:     def __init__(self, url):         self.__url = url      def getHtml(self):         try:             response = requests.get(self.__url)">
 <meta name="keywords" content="python、爬虫、Web开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="豆瓣电影（爬虫，json）">
 <meta property="og:url" content="http://yoursite.com/2018/09/18/pachong2/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="import requestsimport jsonimport xlwtclass Movie:    def init(self, url):        self.__url = url def getHtml(self):     try:         response = requests.get(self.__url)         response.raise_for_sta">
+<meta property="og:description" content="import requests import json import xlwt class Movie:     def __init__(self, url):         self.__url = url      def getHtml(self):         try:             response = requests.get(self.__url)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-18T12:06:51.000Z">
+<meta property="og:updated_time" content="2018-09-18T12:30:55.741Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="豆瓣电影（爬虫，json）">
-<meta name="twitter:description" content="import requestsimport jsonimport xlwtclass Movie:    def init(self, url):        self.__url = url def getHtml(self):     try:         response = requests.get(self.__url)         response.raise_for_sta">
+<meta name="twitter:description" content="import requests import json import xlwt class Movie:     def __init__(self, url):         self.__url = url      def getHtml(self):         try:             response = requests.get(self.__url)">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -172,45 +172,59 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>import json<br>import xlwt<br>class Movie:<br>    def <strong>init</strong>(self, url):<br>        self.__url = url</p>
-<pre><code>def getHtml(self):
-    try:
-        response = requests.get(self.__url)
-        response.raise_for_status()
-        response.encoding = response.apparent_encoding
-        html = response.json()
-        return html
-    except requests.HTTPError as re:
-        print(&apos;访问服务器出错&apos;)
+        <pre><code class="bash">import requests
+import json
+import xlwt
+class Movie:
+    def __init__(self, url):
+        self.__url = url
 
-def get_info(self, dic):
-    lis = dic[&apos;subjects&apos;]
-    movie_list = []
-    for item in lis:
-        list1 = []
-        actor = []
-        list1.append(item[&apos;title&apos;])
-        list1.append(&apos;,&apos;.join(item[&apos;genres&apos;]))
-        list1.append(item[&apos;rating&apos;][&apos;average&apos;])
-        list1.append(item[&apos;year&apos;])
-        for act in item[&apos;casts&apos;]:
-            actor.append(act[&apos;name&apos;])
-        list1.append(&apos;,&apos;.join(actor))
-        list1.append(item[&apos;directors&apos;][0][&apos;name&apos;])
-        movie_list.append(list1)
-    return movie_list
+    def getHtml(self):
+        try:
+            response = requests.get(self.__url)
+            response.raise_for_status()
+            response.encoding = response.apparent_encoding
+            html = response.json()
+            <span class="built_in">return</span> html
+        except requests.HTTPError as re:
+            <span class="built_in">print</span>(<span class="string">'访问服务器出错'</span>)
 
-def write_excel(self, lis):
-    wbt = xlwt.Workbook()
-    sheet = wbt.add_sheet(&apos;电影信息表&apos;)
-    get_total = [&apos;电影名称&apos;, &apos;电影类型&apos;, &apos;评分&apos;, &apos;上映时间&apos;, &apos;主演&apos;, &apos;导演&apos;]
-    for i in range(len(get_total)):
-        sheet.write(0, i, get_total[i])
-    for m in range(len(lis)):
-        for n in range(len(lis[m])):
-            sheet.write(m+1, n, lis[m][n])
-    wbt.save(&apos;movie.xls&apos;)
-</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    url = ‘<a href="http://api.douban.com/v2/movie/top250&#39;" target="_blank" rel="noopener">http://api.douban.com/v2/movie/top250&#39;</a><br>    spoder = Movie(url)<br>    html = spoder.getHtml()<br>    movie_list = spoder.get_info(html)<br>    spoder.write_excel(movie_list)</p>
+    def get_info(self, dic):
+        lis = dic[<span class="string">'subjects'</span>]
+        movie_list = []
+        <span class="keyword">for</span> item <span class="keyword">in</span> lis:
+            list1 = []
+            actor = []
+            list1.append(item[<span class="string">'title'</span>])
+            list1.append(<span class="string">','</span>.join(item[<span class="string">'genres'</span>]))
+            list1.append(item[<span class="string">'rating'</span>][<span class="string">'average'</span>])
+            list1.append(item[<span class="string">'year'</span>])
+            <span class="keyword">for</span> act <span class="keyword">in</span> item[<span class="string">'casts'</span>]:
+                actor.append(act[<span class="string">'name'</span>])
+            list1.append(<span class="string">','</span>.join(actor))
+            list1.append(item[<span class="string">'directors'</span>][0][<span class="string">'name'</span>])
+            movie_list.append(list1)
+        <span class="built_in">return</span> movie_list
+
+    def write_excel(self, lis):
+        wbt = xlwt.Workbook()
+        sheet = wbt.add_sheet(<span class="string">'电影信息表'</span>)
+        get_total = [<span class="string">'电影名称'</span>, <span class="string">'电影类型'</span>, <span class="string">'评分'</span>, <span class="string">'上映时间'</span>, <span class="string">'主演'</span>, <span class="string">'导演'</span>]
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):
+            sheet.write(0, i, get_total[i])
+        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):
+            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):
+                sheet.write(m+1, n, lis[m][n])
+        wbt.save(<span class="string">'movie.xls'</span>)
+
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    url = <span class="string">'http://api.douban.com/v2/movie/top250'</span>
+    spoder = Movie(url)
+    html = spoder.getHtml()
+    movie_list = spoder.get_info(html)
+    spoder.write_excel(movie_list)
+</code></pre>
 
       
 

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>美团（爬虫，正则） | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="import requestsimport reimport time class Mei:    def init(self, url):        self.url = url def getHTML(self):     try:         HEADERS = {             &amp;quot;User-Agent&amp;quot;: &amp;quot;Mozilla/5.0 (Wind">
+  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869import requestsimport reimport timeclass Mei:    def __init__(self, url">
 <meta name="keywords" content="python、爬虫、Web开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="美团（爬虫，正则）">
 <meta property="og:url" content="http://yoursite.com/2018/09/18/pachong6/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="import requestsimport reimport time class Mei:    def init(self, url):        self.url = url def getHTML(self):     try:         HEADERS = {             &amp;quot;User-Agent&amp;quot;: &amp;quot;Mozilla/5.0 (Wind">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869import requestsimport reimport timeclass Mei:    def __init__(self, url">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-18T12:10:33.163Z">
+<meta property="og:updated_time" content="2018-09-18T12:30:22.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="美团（爬虫，正则）">
-<meta name="twitter:description" content="import requestsimport reimport time class Mei:    def init(self, url):        self.url = url def getHTML(self):     try:         HEADERS = {             &amp;quot;User-Agent&amp;quot;: &amp;quot;Mozilla/5.0 (Wind">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869import requestsimport reimport timeclass Mei:    def __init__(self, url">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -172,62 +172,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>import re<br>import time</p>
-<p>class Mei:<br>    def <strong>init</strong>(self, url):<br>        self.url = url</p>
-<pre><code>def getHTML(self):
-    try:
-        HEADERS = {
-            &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36&quot;,
-            &quot;Host&quot;: &quot;zz.meituan.com&quot;,
-            &quot;Referer&quot;: &quot;http://zz.meituan.com/meishi/&quot;
-        }
-        response = requests.get(self.url, headers=HEADERS)
-        response.raise_for_status()
-        response.encoding = response.apparent_encoding
-        content = response.text
-        # print(content)
-        id_list = re.findall(r&apos;&quot;poiId&quot;:(.+?),&apos;, content)
-
-        return id_list
-    except requests.HTTPError as e:
-        print(&quot;出错&quot;)
-
-def getInfo(self, id_list):
-    ls1 = []
-    for i in id_list:
-        ls = []
-        url1 = &quot;http://www.meituan.com/meishi/{0}&quot;.format(i)
-        try:
-            HEADERS = {
-                &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36&quot;,
-                &quot;Host&quot;: &quot;zz.meituan.com&quot;,
-                &quot;Referer&quot;: &quot;http://www.meituan.com/meishi/{0}&quot;.format(i)
-            }
-            response = requests.get(url1, headers=HEADERS)
-            response.raise_for_status()
-            response.encoding = response.apparent_encoding
-            content = response.text
-
-            name = re.findall(r&apos;&quot;name&quot;:(.+?),&quot;avgScore&quot;&apos;, content)
-
-            avgScore = re.findall(r&apos;&quot;avgScore&quot;:(.+?),&quot;address&quot;&apos;, content)
-            avgPrice = re.findall(r&apos;&quot;avgPrice&quot;:(.+?),&quot;brandId&quot;&apos;, content)
-            address = re.findall(r&apos;&quot;address&quot;:(.+?),&quot;phone&quot;&apos;, content)
-            recommend = re.findall(r&apos;&quot;,&quot;name&quot;:(.+?),&quot;price&quot;&apos;, content)
-            opentime = re.findall(r&apos;&quot;openTime&quot;:(.+?),&quot;extraInfos&quot;&apos;, content)
-            ls += name
-            ls += avgScore
-            ls += avgPrice
-            ls += address
-            ls += recommend
-            ls += opentime
-
-            ls1.append(ls)
-        except requests.HTTPError as e:
-            print(&quot;出错&quot;)
-    return ls1
-</code></pre><p>if <strong>name</strong> == “<strong>main</strong>“:<br>    url = “<a href="http://zz.meituan.com/meishi/b166/&quot;" target="_blank" rel="noopener">http://zz.meituan.com/meishi/b166/&quot;</a><br>    m = Mei(url)<br>    id_list = m.getHTML()<br>    total = m.getInfo(id_list)<br>    print(total)</p>
-
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import re</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Mei:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.url = url</span><br><span class="line"></span><br><span class="line">    def getHTML(self):</span><br><span class="line">        try:</span><br><span class="line">            HEADERS = &#123;</span><br><span class="line">                <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36"</span>,</span><br><span class="line">                <span class="string">"Host"</span>: <span class="string">"zz.meituan.com"</span>,</span><br><span class="line">                <span class="string">"Referer"</span>: <span class="string">"http://zz.meituan.com/meishi/"</span></span><br><span class="line">            &#125;</span><br><span class="line">            response = requests.get(self.url, headers=HEADERS)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            response.encoding = response.apparent_encoding</span><br><span class="line">            content = response.text</span><br><span class="line">            <span class="comment"># print(content)</span></span><br><span class="line">            id_list = re.findall(r<span class="string">'"poiId":(.+?),'</span>, content)</span><br><span class="line"></span><br><span class="line">            <span class="built_in">return</span> id_list</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"出错"</span>)</span><br><span class="line"></span><br><span class="line">    def getInfo(self, id_list):</span><br><span class="line">        ls1 = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> id_list:</span><br><span class="line">            ls = []</span><br><span class="line">            url1 = <span class="string">"http://www.meituan.com/meishi/&#123;0&#125;"</span>.format(i)</span><br><span class="line">            try:</span><br><span class="line">                HEADERS = &#123;</span><br><span class="line">                    <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36"</span>,</span><br><span class="line">                    <span class="string">"Host"</span>: <span class="string">"zz.meituan.com"</span>,</span><br><span class="line">                    <span class="string">"Referer"</span>: <span class="string">"http://www.meituan.com/meishi/&#123;0&#125;"</span>.format(i)</span><br><span class="line">                &#125;</span><br><span class="line">                response = requests.get(url1, headers=HEADERS)</span><br><span class="line">                response.raise_for_status()</span><br><span class="line">                response.encoding = response.apparent_encoding</span><br><span class="line">                content = response.text</span><br><span class="line"></span><br><span class="line">                name = re.findall(r<span class="string">'"name":(.+?),"avgScore"'</span>, content)</span><br><span class="line"></span><br><span class="line">                avgScore = re.findall(r<span class="string">'"avgScore":(.+?),"address"'</span>, content)</span><br><span class="line">                avgPrice = re.findall(r<span class="string">'"avgPrice":(.+?),"brandId"'</span>, content)</span><br><span class="line">                address = re.findall(r<span class="string">'"address":(.+?),"phone"'</span>, content)</span><br><span class="line">                recommend = re.findall(r<span class="string">'","name":(.+?),"price"'</span>, content)</span><br><span class="line">                opentime = re.findall(r<span class="string">'"openTime":(.+?),"extraInfos"'</span>, content)</span><br><span class="line">                ls += name</span><br><span class="line">                ls += avgScore</span><br><span class="line">                ls += avgPrice</span><br><span class="line">                ls += address</span><br><span class="line">                ls += recommend</span><br><span class="line">                ls += opentime</span><br><span class="line"></span><br><span class="line">                ls1.append(ls)</span><br><span class="line">            except requests.HTTPError as e:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">"出错"</span>)</span><br><span class="line">        <span class="built_in">return</span> ls1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    url = <span class="string">"http://zz.meituan.com/meishi/b166/"</span></span><br><span class="line">    m = Mei(url)</span><br><span class="line">    id_list = m.getHTML()</span><br><span class="line">    total = m.getInfo(id_list)</span><br><span class="line">    <span class="built_in">print</span>(total)</span><br></pre></td></tr></table></figure>
       
 
       

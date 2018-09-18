@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>当当（爬虫） | 我的地盘我做主</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="import requestsimport refrom bs4 import BeautifulSoupimport timeimport xlrdfrom xlutils.copy import copy class DangDang:    def init(self, url):        self.__url = url def get_HTML(self, book_type, p">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 <meta name="keywords" content="python、爬虫、Web开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="当当（爬虫）">
 <meta property="og:url" content="http://yoursite.com/2018/09/18/pachong7/index.html">
 <meta property="og:site_name" content="我的地盘我做主">
-<meta property="og:description" content="import requestsimport refrom bs4 import BeautifulSoupimport timeimport xlrdfrom xlutils.copy import copy class DangDang:    def init(self, url):        self.__url = url def get_HTML(self, book_type, p">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-18T12:11:53.955Z">
+<meta property="og:updated_time" content="2018-09-18T12:30:14.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="当当（爬虫）">
-<meta name="twitter:description" content="import requestsimport refrom bs4 import BeautifulSoupimport timeimport xlrdfrom xlutils.copy import copy class DangDang:    def init(self, url):        self.__url = url def get_HTML(self, book_type, p">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
   
     <link rel="alternative" href="/atom.xml" title="我的地盘我做主" type="application/atom+xml">
   
@@ -172,87 +172,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>import re<br>from bs4 import BeautifulSoup<br>import time<br>import xlrd<br>from xlutils.copy import copy</p>
-<p>class DangDang:<br>    def <strong>init</strong>(self, url):<br>        self.__url = url</p>
-<pre><code>def get_HTML(self, book_type, page_num):
-    headers = {
-        &quot;User-Agent&quot;: &apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&apos;,
-        &quot;Host&quot;: &quot;search.dangdang.com&quot;,
-        &quot;Referer&quot;: &quot;http://search.dangdang.com/?key={0}&amp;act=input&amp;page_index={1}&quot;.format(book_type, page_num)
-    }
-    new_url = self.__url.format(book_type, page_num)
-    try:
-        response = requests.get(url=new_url, headers=headers)
-        response.raise_for_status()
-        response.encoding = response.apparent_encoding
-        html = response.text
-        return html
-    except requests.HTTPError as e:
-        print(&apos;出错&apos;)
-
-def get_num(self, html):
-    num = re.findall(r&apos;&lt;span&gt;/(\d{2,3})&lt;/span&gt;&apos;, html)[0]
-    return num
-
-def get_info(self, html):
-    id_list = re.findall(r&apos;&quot; id=&quot;p(\d{7,8})&quot;&gt;&apos;, html)
-    return id_list
-
-def get_coreHTML(self, book_id, book_type, num):
-    headers = {
-        &quot;User-Agent&quot;: &apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&apos;,
-        &quot;Host&quot;: &quot;product.dangdang.com&quot;,
-        &quot;Referer&quot;: &quot;http://search.dangdang.com/?key={0}&amp;act=input&amp;page_index={1}&quot;.format(book_type, num)
-    }
-    core_url = &apos;http://product.dangdang.com/{0}.html&apos;.format(book_id)
-    try:
-        response = requests.get(url=core_url, headers=headers)
-        response.raise_for_status()
-        response.encoding = response.apparent_encoding
-        core_html = response.text
-        return core_html
-    except requests.HTTPError as e:
-        print(&apos;出错&apos;)
-
-def get_core_info(self, core_html):
-    info_list = []
-    soup = BeautifulSoup(core_html, &apos;html.parser&apos;)
-    title = soup.find(&apos;div&apos;, id=&apos;product_info&apos;).find(&apos;h1&apos;)[&apos;title&apos;]
-    info_list.append(title)
-    synopsis = soup.find(&apos;div&apos;, id=&apos;product_info&apos;).find(&apos;h2&apos;).find(&apos;span&apos;, &apos;head_title_name&apos;)[&apos;title&apos;]
-    info_list.append(synopsis[:-2])
-
-    author = re.search(r&apos;》(.+?)【&apos;, core_html)
-    author = author.group(0)[2:-2]
-    info_list.append(author)
-
-    press = soup.find(&apos;div&apos;, &apos;messbox_info&apos;).find_all(&apos;span&apos;, &apos;t1&apos;)
-    info_list.append(press[1].find(&apos;a&apos;).string)
-    info_list.append(press[2].string[0:13])
-    ranking = soup.find(&apos;div&apos;, &apos;messbox_info&apos;).find(&apos;div&apos;, &apos;pinglun&apos;).find_all(&apos;span&apos;, &apos;t1&apos;)
-    info_list.append(ranking[0].get_text())
-    comment = soup.find(&apos;a&apos;, id=&apos;comm_num_down&apos;).string
-    info_list.append(comment)
-    price = soup.find(&apos;p&apos;, id=&apos;dd-price&apos;).get_text()
-    info_list.append(price[2:].strip())
-    original_price = soup.find(&apos;div&apos;, id=&apos;original-price&apos;).get_text()
-    info_list.append(original_price[2:].strip())
-    bk_info = soup.find(&apos;div&apos;, id=&apos;detail_describe&apos;).find(&apos;ul&apos;).find_all(&apos;li&apos;)
-    for i in range(len(bk_info)-1):
-        info_list.append(bk_info[i].string)
-    return info_list
-
-
-def saveExcel(self, lis1):
-    wb = xlrd.open_workbook(&apos;books.xls&apos;)
-    sheet = wb.sheet_by_name(&apos;图书基本信息表&apos;)
-    new_wb = copy(wb)
-    new_sheet = new_wb.get_sheet(0)
-    for m in range(len(lis1)):
-        for n in range(len(lis1[m])):
-            new_sheet.write(m+sheet.nrows, n, lis1[m][n])
-    new_wb.save(&apos;books.xls&apos;)
-</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    booknumber = 1<br>    book_type = input(‘输入查找的书的类型：’)<br>    url = ‘<a href="http://search.dangdang.com/?key={0}&amp;act=input&amp;page_index={1}&#39;" target="_blank" rel="noopener">http://search.dangdang.com/?key={0}&amp;act=input&amp;page_index={1}&#39;</a><br>    dangdang = DangDang(url)<br>    html = dangdang.get_HTML(book_type, 1)<br>    num = dangdang.get_num(html)<br>    for j in range(int(num)):<br>        print(‘页数{0}’.format(j+1))<br>        get_book_info = []<br>        new_html = dangdang.get_HTML(book_type, j+1)<br>        id_list = dangdang.get_info(new_html)<br>        for i in range(len(id_list)):<br>            print(‘书本数{0}’.format(booknumber))<br>            booknumber+=1<br>            core_html = dangdang.get_coreHTML(id_list[i], book_type, j+1)<br>            try:<br>                lis = dangdang.get_core_info(core_html)<br>                get_book_info.append(lis)<br>            except Exception as e:<br>                print(‘查找错误，跳过’)<br>        dangdang.saveExcel(get_book_info)<br>        time.sleep(20)</p>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import re</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import time</span><br><span class="line">import xlrd</span><br><span class="line">from xlutils.copy import copy</span><br><span class="line"></span><br><span class="line">class DangDang:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.__url = url</span><br><span class="line"></span><br><span class="line">    def get_HTML(self, book_type, page_num):</span><br><span class="line">        headers = &#123;</span><br><span class="line">            <span class="string">"User-Agent"</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">"Host"</span>: <span class="string">"search.dangdang.com"</span>,</span><br><span class="line">            <span class="string">"Referer"</span>: <span class="string">"http://search.dangdang.com/?key=&#123;0&#125;&amp;act=input&amp;page_index=&#123;1&#125;"</span>.format(book_type, page_num)</span><br><span class="line">        &#125;</span><br><span class="line">        new_url = self.__url.format(book_type, page_num)</span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=new_url, headers=headers)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            response.encoding = response.apparent_encoding</span><br><span class="line">            html = response.text</span><br><span class="line">            <span class="built_in">return</span> html</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'出错'</span>)</span><br><span class="line"></span><br><span class="line">    def get_num(self, html):</span><br><span class="line">        num = re.findall(r<span class="string">'&lt;span&gt;/(\d&#123;2,3&#125;)&lt;/span&gt;'</span>, html)[0]</span><br><span class="line">        <span class="built_in">return</span> num</span><br><span class="line"></span><br><span class="line">    def get_info(self, html):</span><br><span class="line">        id_list = re.findall(r<span class="string">'" id="p(\d&#123;7,8&#125;)"&gt;'</span>, html)</span><br><span class="line">        <span class="built_in">return</span> id_list</span><br><span class="line"></span><br><span class="line">    def get_coreHTML(self, book_id, book_type, num):</span><br><span class="line">        headers = &#123;</span><br><span class="line">            <span class="string">"User-Agent"</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">"Host"</span>: <span class="string">"product.dangdang.com"</span>,</span><br><span class="line">            <span class="string">"Referer"</span>: <span class="string">"http://search.dangdang.com/?key=&#123;0&#125;&amp;act=input&amp;page_index=&#123;1&#125;"</span>.format(book_type, num)</span><br><span class="line">        &#125;</span><br><span class="line">        core_url = <span class="string">'http://product.dangdang.com/&#123;0&#125;.html'</span>.format(book_id)</span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=core_url, headers=headers)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            response.encoding = response.apparent_encoding</span><br><span class="line">            core_html = response.text</span><br><span class="line">            <span class="built_in">return</span> core_html</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'出错'</span>)</span><br><span class="line"></span><br><span class="line">    def get_core_info(self, core_html):</span><br><span class="line">        info_list = []</span><br><span class="line">        soup = BeautifulSoup(core_html, <span class="string">'html.parser'</span>)</span><br><span class="line">        title = soup.find(<span class="string">'div'</span>, id=<span class="string">'product_info'</span>).find(<span class="string">'h1'</span>)[<span class="string">'title'</span>]</span><br><span class="line">        info_list.append(title)</span><br><span class="line">        synopsis = soup.find(<span class="string">'div'</span>, id=<span class="string">'product_info'</span>).find(<span class="string">'h2'</span>).find(<span class="string">'span'</span>, <span class="string">'head_title_name'</span>)[<span class="string">'title'</span>]</span><br><span class="line">        info_list.append(synopsis[:-2])</span><br><span class="line"></span><br><span class="line">        author = re.search(r<span class="string">'》(.+?)【'</span>, core_html)</span><br><span class="line">        author = author.group(0)[2:-2]</span><br><span class="line">        info_list.append(author)</span><br><span class="line"></span><br><span class="line">        press = soup.find(<span class="string">'div'</span>, <span class="string">'messbox_info'</span>).find_all(<span class="string">'span'</span>, <span class="string">'t1'</span>)</span><br><span class="line">        info_list.append(press[1].find(<span class="string">'a'</span>).string)</span><br><span class="line">        info_list.append(press[2].string[0:13])</span><br><span class="line">        ranking = soup.find(<span class="string">'div'</span>, <span class="string">'messbox_info'</span>).find(<span class="string">'div'</span>, <span class="string">'pinglun'</span>).find_all(<span class="string">'span'</span>, <span class="string">'t1'</span>)</span><br><span class="line">        info_list.append(ranking[0].get_text())</span><br><span class="line">        comment = soup.find(<span class="string">'a'</span>, id=<span class="string">'comm_num_down'</span>).string</span><br><span class="line">        info_list.append(comment)</span><br><span class="line">        price = soup.find(<span class="string">'p'</span>, id=<span class="string">'dd-price'</span>).get_text()</span><br><span class="line">        info_list.append(price[2:].strip())</span><br><span class="line">        original_price = soup.find(<span class="string">'div'</span>, id=<span class="string">'original-price'</span>).get_text()</span><br><span class="line">        info_list.append(original_price[2:].strip())</span><br><span class="line">        bk_info = soup.find(<span class="string">'div'</span>, id=<span class="string">'detail_describe'</span>).find(<span class="string">'ul'</span>).find_all(<span class="string">'li'</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(bk_info)-1):</span><br><span class="line">            info_list.append(bk_info[i].string)</span><br><span class="line">        <span class="built_in">return</span> info_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def saveExcel(self, lis1):</span><br><span class="line">        wb = xlrd.open_workbook(<span class="string">'books.xls'</span>)</span><br><span class="line">        sheet = wb.sheet_by_name(<span class="string">'图书基本信息表'</span>)</span><br><span class="line">        new_wb = copy(wb)</span><br><span class="line">        new_sheet = new_wb.get_sheet(0)</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis1)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis1[m])):</span><br><span class="line">                new_sheet.write(m+sheet.nrows, n, lis1[m][n])</span><br><span class="line">        new_wb.save(<span class="string">'books.xls'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    booknumber = 1</span><br><span class="line">    book_type = input(<span class="string">'输入查找的书的类型：'</span>)</span><br><span class="line">    url = <span class="string">'http://search.dangdang.com/?key=&#123;0&#125;&amp;act=input&amp;page_index=&#123;1&#125;'</span></span><br><span class="line">    dangdang = DangDang(url)</span><br><span class="line">    html = dangdang.get_HTML(book_type, 1)</span><br><span class="line">    num = dangdang.get_num(html)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(int(num)):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'页数&#123;0&#125;'</span>.format(j+1))</span><br><span class="line">        get_book_info = []</span><br><span class="line">        new_html = dangdang.get_HTML(book_type, j+1)</span><br><span class="line">        id_list = dangdang.get_info(new_html)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(id_list)):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'书本数&#123;0&#125;'</span>.format(booknumber))</span><br><span class="line">            booknumber+=1</span><br><span class="line">            core_html = dangdang.get_coreHTML(id_list[i], book_type, j+1)</span><br><span class="line">            try:</span><br><span class="line">                lis = dangdang.get_core_info(core_html)</span><br><span class="line">                get_book_info.append(lis)</span><br><span class="line">            except Exception as e:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'查找错误，跳过'</span>)</span><br><span class="line">        dangdang.saveExcel(get_book_info)</span><br><span class="line">        time.sleep(20)</span><br></pre></td></tr></table></figure>
 
       
 

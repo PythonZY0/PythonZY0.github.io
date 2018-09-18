@@ -232,28 +232,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import urllib<br>import urllib.request<br>import urllib.parse<br>import urllib.error</p>
-<p>‘’’<br>import urllib<br>import urllib.request</p>
-<h1 id="发出连接网址的请求"><a href="#发出连接网址的请求" class="headerlink" title="发出连接网址的请求"></a>发出连接网址的请求</h1><p>response = urllib.request.urlopen(‘<a href="https://python.org/&#39;" target="_blank" rel="noopener">https://python.org/&#39;</a>)<br>print(response.read().decode(‘utf-8’))<br>print(response.getcode()) #返回状态码<br>print(response.info())  #返回头信息<br>print(response.geturl()) # 返回请求的url<br>print(response.status)   # 返回状态码（属性）<br>print(response.reason)   # 返回状态详细信息（属性）<br>‘’’</p>
-<p>‘’’<br>import urllib<br>import urllib.request<br>import urllib.parse<br>import urllib.error</p>
-<p>try:</p>
-<pre><code>#使用parse对传递的参数进行编码
-data = urllib.parse.urlencode({&apos;key&apos;:&apos;hello&apos;}).encode(&apos;utf-8&apos;)
-# 发出连接网址的请求
-reponse = urllib.request.urlopen(&apos;http://httpbin.org/post&apos;, data=data, timeout=1)
-print(type(reponse))
-print(reponse.read().decode(&apos;utf-8&apos;))
-</code></pre><p>except urllib.error.HTTPError as ue:<br>    print(‘出错’)<br>except urllib.error.URLError as ue:<br>    print(‘连接超时’)<br>‘’’</p>
-<p>‘’’<br>from urllib import request,parse</p>
-<p>url = ‘<a href="http://httpbin.org/post&#39;" target="_blank" rel="noopener">http://httpbin.org/post&#39;</a><br>headers = {<br>    ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36’,<br>    ‘Host’: ‘httpbin.org’<br>}<br>dic = {‘name’: ‘小仙女’}</p>
-<p>#使用parse对传递的参数进行编码<br>data = parse.urlencode(dic).encode(‘utf-8’)</p>
-<h1 id="发出连接网址的请求-1"><a href="#发出连接网址的请求-1" class="headerlink" title="发出连接网址的请求"></a>发出连接网址的请求</h1><p>rep = request.Request(url=url, data=data, headers=headers, method=’POST’)<br>repones = request.urlopen(rep)<br>print(repones.read().decode(‘utf-8’))<br>‘’’</p>
-<p>‘’’<br>from urllib import request<br>url = ‘<a href="http://www.tuniu.com/domestic/package/&#39;" target="_blank" rel="noopener">http://www.tuniu.com/domestic/package/&#39;</a><br>headers = {<br>    ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36’,<br>    ‘Host’: ‘<a href="http://www.tuniu.com&#39;" target="_blank" rel="noopener">www.tuniu.com&#39;</a>,<br>    ‘Referer’: ‘<a href="http://www.tuniu.com/?p=13718&amp;cmpid=mkt_03026901&amp;utm_campaign=brand&amp;utm_source=so.com&amp;utm_medium=brand&#39;" target="_blank" rel="noopener">http://www.tuniu.com/?p=13718&amp;cmpid=mkt_03026901&amp;utm_campaign=brand&amp;utm_source=so.com&amp;utm_medium=brand&#39;</a><br>}<br>rep = request.Request(url=url, headers=headers, method=’GET’)<br>repones = request.urlopen(rep)<br>print(repones.read().decode(‘UTF-8’))<br>‘’’</p>
-<p>from urllib import robotparser<br>url = ‘<a href="https://www.jd.com&#39;" target="_blank" rel="noopener">https://www.jd.com&#39;</a></p>
-<h1 id="实例化robots文件解析对象"><a href="#实例化robots文件解析对象" class="headerlink" title="实例化robots文件解析对象"></a>实例化robots文件解析对象</h1><p>rp = robotparser.RobotFileParser()</p>
-<h1 id="打开指定地址的robots文件"><a href="#打开指定地址的robots文件" class="headerlink" title="打开指定地址的robots文件"></a>打开指定地址的robots文件</h1><p>rp.set_url(‘https:/<a href="http://www.jd.com/robots.txt&#39;" target="_blank" rel="noopener">www.jd.com/robots.txt&#39;</a>)<br>rp.read()<br>user_agent = ‘EtaoSpider’</p>
-<h1 id="根据指定的user-agent，抓取url地址"><a href="#根据指定的user-agent，抓取url地址" class="headerlink" title="根据指定的user_agent，抓取url地址"></a>根据指定的user_agent，抓取url地址</h1><p>info = rp.can_fetch(user_agent, url)<br>print(info)</p>
-
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">import urllib</span><br><span class="line">import urllib.request</span><br><span class="line">import urllib.parse</span><br><span class="line">import urllib.error</span><br><span class="line"></span><br><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">import urllib</span></span><br><span class="line"><span class="string">import urllib.request</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 发出连接网址的请求</span></span><br><span class="line"><span class="string">response = urllib.request.urlopen('</span>https://python.org/<span class="string">')</span></span><br><span class="line"><span class="string">print(response.read().decode('</span>utf-8<span class="string">'))</span></span><br><span class="line"><span class="string">print(response.getcode()) #返回状态码</span></span><br><span class="line"><span class="string">print(response.info())  #返回头信息</span></span><br><span class="line"><span class="string">print(response.geturl()) # 返回请求的url</span></span><br><span class="line"><span class="string">print(response.status)   # 返回状态码（属性）</span></span><br><span class="line"><span class="string">print(response.reason)   # 返回状态详细信息（属性）</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">import urllib</span></span><br><span class="line"><span class="string">import urllib.request</span></span><br><span class="line"><span class="string">import urllib.parse</span></span><br><span class="line"><span class="string">import urllib.error</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">try:</span></span><br><span class="line"><span class="string">    #使用parse对传递的参数进行编码</span></span><br><span class="line"><span class="string">    data = urllib.parse.urlencode(&#123;'</span>key<span class="string">':'</span>hello<span class="string">'&#125;).encode('</span>utf-8<span class="string">')</span></span><br><span class="line"><span class="string">    # 发出连接网址的请求</span></span><br><span class="line"><span class="string">    reponse = urllib.request.urlopen('</span>http://httpbin.org/post<span class="string">', data=data, timeout=1)</span></span><br><span class="line"><span class="string">    print(type(reponse))</span></span><br><span class="line"><span class="string">    print(reponse.read().decode('</span>utf-8<span class="string">'))</span></span><br><span class="line"><span class="string">except urllib.error.HTTPError as ue:</span></span><br><span class="line"><span class="string">    print('</span>出错<span class="string">')</span></span><br><span class="line"><span class="string">except urllib.error.URLError as ue:</span></span><br><span class="line"><span class="string">    print('</span>连接超时<span class="string">')</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">from urllib import request,parse</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">url = '</span>http://httpbin.org/post<span class="string">'</span></span><br><span class="line"><span class="string">headers = &#123;</span></span><br><span class="line"><span class="string">    '</span>User-Agent<span class="string">': '</span>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36<span class="string">',</span></span><br><span class="line"><span class="string">    '</span>Host<span class="string">': '</span>httpbin.org<span class="string">'</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">dic = &#123;'</span>name<span class="string">': '</span>小仙女<span class="string">'&#125;</span></span><br><span class="line"><span class="string">#使用parse对传递的参数进行编码</span></span><br><span class="line"><span class="string">data = parse.urlencode(dic).encode('</span>utf-8<span class="string">')</span></span><br><span class="line"><span class="string"># 发出连接网址的请求</span></span><br><span class="line"><span class="string">rep = request.Request(url=url, data=data, headers=headers, method='</span>POST<span class="string">')</span></span><br><span class="line"><span class="string">repones = request.urlopen(rep)</span></span><br><span class="line"><span class="string">print(repones.read().decode('</span>utf-8<span class="string">'))</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">from urllib import request</span></span><br><span class="line"><span class="string">url = '</span>http://www.tuniu.com/domestic/package/<span class="string">'</span></span><br><span class="line"><span class="string">headers = &#123;</span></span><br><span class="line"><span class="string">    '</span>User-Agent<span class="string">': '</span>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36<span class="string">',</span></span><br><span class="line"><span class="string">    '</span>Host<span class="string">': '</span>www.tuniu.com<span class="string">',</span></span><br><span class="line"><span class="string">    '</span>Referer<span class="string">': '</span>http://www.tuniu.com/?p=13718&amp;cmpid=mkt_03026901&amp;utm_campaign=brand&amp;utm_source=so.com&amp;utm_medium=brand<span class="string">'</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">rep = request.Request(url=url, headers=headers, method='</span>GET<span class="string">')</span></span><br><span class="line"><span class="string">repones = request.urlopen(rep)</span></span><br><span class="line"><span class="string">print(repones.read().decode('</span>UTF-8<span class="string">'))</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">from urllib import robotparser</span><br><span class="line">url = <span class="string">'https://www.jd.com'</span></span><br><span class="line"><span class="comment"># 实例化robots文件解析对象</span></span><br><span class="line">rp = robotparser.RobotFileParser()</span><br><span class="line"><span class="comment"># 打开指定地址的robots文件</span></span><br><span class="line">rp.set_url(<span class="string">'https:/www.jd.com/robots.txt'</span>)</span><br><span class="line">rp.read()</span><br><span class="line">user_agent = <span class="string">'EtaoSpider'</span></span><br><span class="line"><span class="comment"># 根据指定的user_agent，抓取url地址</span></span><br><span class="line">info = rp.can_fetch(user_agent, url)</span><br><span class="line"><span class="built_in">print</span>(info)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -315,89 +294,7 @@ print(reponse.read().decode(&apos;utf-8&apos;))
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="lagou-py"><a href="#lagou-py" class="headerlink" title="lagou.py"></a>lagou.py</h2><p>import requests<br>import  math<br>from urllib import parse<br>import xlwt<br>import json<br>class LagouSpider:<br>    def <strong>init</strong>(self, url, city, job):<br>        self.<strong>url = url<br>        self.</strong>city = city<br>        self.__job = job</p>
-<pre><code># 获取到指定url地址的第num页岗位信息，
-def get_json(self,  num):
-    my_headers = {
-        &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36&apos;,
-        &apos;Host&apos;: &apos;www.lagou.com&apos;,
-        &apos;Referer&apos;: &apos;https://www.lagou.com/jobs/list_python?labelWords=&amp;fromSearch=true&amp;suginput=&apos;
-    }
-    request_params = {
-        &apos;px&apos;: &apos;default&apos;,
-        &apos;city&apos;: self.__city,
-        &apos;needAddtionalResult&apos;: &apos;false&apos;,
-        &apos;isSchoolJob&apos;: &apos;0&apos;
-    }
-    url = self.__url + parse.urlencode(request_params)
-
-    my_data = {
-        &apos;first&apos;: &apos;true&apos;,
-        &apos;pn&apos;: num,
-        &apos;kd&apos;: self.__job
-    }
-    try:
-        response = requests.post(url=url, headers=my_headers, data=my_data)
-        response.raise_for_status() #判断状态码是否为200  不是抛异常
-        response.encoding = &apos;utf-8&apos;
-        page = response.json()
-        return page
-    except requests.HTTPError as he:
-        print(he.args)
-
-# 计算要抓取的页数
-def get_page_num(self, count):
-    result = math.ceil(count/15)
-    if result &gt; 30:
-        result = 30
-    return result
-
-
-# 对一个页面的岗位信息，进行解析，返回一个列表
-def get_page_info(self, jobs_list):
-    page_info_list = []
-    for item in jobs_list:
-        job_info = []
-        job_info.append(item[&apos;companyFullName&apos;])
-        job_info.append(item[&apos;companySize&apos;])
-        job_info.append(item[&apos;financeStage&apos;])
-        job_info.append(item[&apos;education&apos;])
-        job_info.append(item[&apos;workYear&apos;])
-        job_info.append(item[&apos;salary&apos;])
-        job_info.append(item[&apos;positionAdvantage&apos;])
-        job_info.append(item[&apos;district&apos;])
-        page_info_list.append(job_info)
-    return page_info_list
-
-def write_excel(self, lis):
-    wbt = xlwt.Workbook()
-    sheet = wbt.add_sheet(&apos;招聘信息表&apos;)
-    get_total = [&apos;companyFullName&apos;, &apos;companySize&apos;, &apos;financeStage&apos;, &apos;education&apos;, &apos;workYear&apos;, &apos;salary&apos;, &apos;positionAdvantage&apos;, &apos;district&apos;]
-    for i in range(len(get_total)):
-        sheet.write(0, i, get_total[i])
-    for m in range(len(lis)):
-        for n in range(len(lis[m])):
-            sheet.write(m+1, n, lis[m][n])
-    wbt.save(&apos;job.xls&apos;)
-</code></pre><h2 id="textLagou-py"><a href="#textLagou-py" class="headerlink" title="textLagou.py"></a>textLagou.py</h2><p>from lagou import LagouSpider<br>import time<br>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    city = input(‘请输入求职城市名称：’)<br>    job = input(‘请输入求职岗位名称：’)<br>    ajax_url = ‘<a href="http://www.lagou.com/jobs/positionAjax.json?&#39;" target="_blank" rel="noopener">http://www.lagou.com/jobs/positionAjax.json?&#39;</a><br>    spider = LagouSpider(ajax_url, city, job)<br>    page = spider.get_json(1)</p>
-<pre><code># 获取到指定岗位的岗位总数
-total_count = page[&apos;content&apos;][&apos;positionResult&apos;][&apos;totalCount&apos;]
-# 根据岗位数量，计算出共有多少页
-num = spider.get_page_num(total_count)
-print(&apos;职位总数：{0}，页数：{1}&apos;.format(total_count, num))
-total_info = []
-for n in range(1, num+1):
-    item = spider.get_json(n)
-    # 根据json字符串的结构，得到岗位信息
-    jobs_list = item[&apos;content&apos;][&apos;positionResult&apos;][&apos;result&apos;]
-    page_info = spider.get_page_info(jobs_list)
-    total_info+=page_info
-    print(&apos;已经抓取第{0}页，职位总数：{1}&apos;.format(n, len(total_info)))
-    time.sleep(20)
-    print(total_info)
-
-spider.write_excel(total_info)
-</code></pre>
+        <h2 id="lagou-py"><a href="#lagou-py" class="headerlink" title="lagou.py"></a>lagou.py</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import  math</span><br><span class="line">from urllib import parse</span><br><span class="line">import xlwt</span><br><span class="line">import json</span><br><span class="line">class LagouSpider:</span><br><span class="line">    def __init__(self, url, city, job):</span><br><span class="line">        self.__url = url</span><br><span class="line">        self.__city = city</span><br><span class="line">        self.__job = job</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取到指定url地址的第num页岗位信息，</span></span><br><span class="line">    def get_json(self,  num):</span><br><span class="line">        my_headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'www.lagou.com'</span>,</span><br><span class="line">            <span class="string">'Referer'</span>: <span class="string">'https://www.lagou.com/jobs/list_python?labelWords=&amp;fromSearch=true&amp;suginput='</span></span><br><span class="line">        &#125;</span><br><span class="line">        request_params = &#123;</span><br><span class="line">            <span class="string">'px'</span>: <span class="string">'default'</span>,</span><br><span class="line">            <span class="string">'city'</span>: self.__city,</span><br><span class="line">            <span class="string">'needAddtionalResult'</span>: <span class="string">'false'</span>,</span><br><span class="line">            <span class="string">'isSchoolJob'</span>: <span class="string">'0'</span></span><br><span class="line">        &#125;</span><br><span class="line">        url = self.__url + parse.urlencode(request_params)</span><br><span class="line"></span><br><span class="line">        my_data = &#123;</span><br><span class="line">            <span class="string">'first'</span>: <span class="string">'true'</span>,</span><br><span class="line">            <span class="string">'pn'</span>: num,</span><br><span class="line">            <span class="string">'kd'</span>: self.__job</span><br><span class="line">        &#125;</span><br><span class="line">        try:</span><br><span class="line">            response = requests.post(url=url, headers=my_headers, data=my_data)</span><br><span class="line">            response.raise_for_status() <span class="comment">#判断状态码是否为200  不是抛异常</span></span><br><span class="line">            response.encoding = <span class="string">'utf-8'</span></span><br><span class="line">            page = response.json()</span><br><span class="line">            <span class="built_in">return</span> page</span><br><span class="line">        except requests.HTTPError as he:</span><br><span class="line">            <span class="built_in">print</span>(he.args)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算要抓取的页数</span></span><br><span class="line">    def get_page_num(self, count):</span><br><span class="line">        result = math.ceil(count/15)</span><br><span class="line">        <span class="keyword">if</span> result &gt; 30:</span><br><span class="line">            result = 30</span><br><span class="line">        <span class="built_in">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 对一个页面的岗位信息，进行解析，返回一个列表</span></span><br><span class="line">    def get_page_info(self, jobs_list):</span><br><span class="line">        page_info_list = []</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> jobs_list:</span><br><span class="line">            job_info = []</span><br><span class="line">            job_info.append(item[<span class="string">'companyFullName'</span>])</span><br><span class="line">            job_info.append(item[<span class="string">'companySize'</span>])</span><br><span class="line">            job_info.append(item[<span class="string">'financeStage'</span>])</span><br><span class="line">            job_info.append(item[<span class="string">'education'</span>])</span><br><span class="line">            job_info.append(item[<span class="string">'workYear'</span>])</span><br><span class="line">            job_info.append(item[<span class="string">'salary'</span>])</span><br><span class="line">            job_info.append(item[<span class="string">'positionAdvantage'</span>])</span><br><span class="line">            job_info.append(item[<span class="string">'district'</span>])</span><br><span class="line">            page_info_list.append(job_info)</span><br><span class="line">        <span class="built_in">return</span> page_info_list</span><br><span class="line"></span><br><span class="line">    def write_excel(self, lis):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'招聘信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'companyFullName'</span>, <span class="string">'companySize'</span>, <span class="string">'financeStage'</span>, <span class="string">'education'</span>, <span class="string">'workYear'</span>, <span class="string">'salary'</span>, <span class="string">'positionAdvantage'</span>, <span class="string">'district'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m+1, n, lis[m][n])</span><br><span class="line">        wbt.save(<span class="string">'job.xls'</span>)</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## textLagou.py</span></span><br><span class="line">``` bash</span><br><span class="line">from lagou import LagouSpider</span><br><span class="line">import time</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    city = input(<span class="string">'请输入求职城市名称：'</span>)</span><br><span class="line">    job = input(<span class="string">'请输入求职岗位名称：'</span>)</span><br><span class="line">    ajax_url = <span class="string">'http://www.lagou.com/jobs/positionAjax.json?'</span></span><br><span class="line">    spider = LagouSpider(ajax_url, city, job)</span><br><span class="line">    page = spider.get_json(1)</span><br><span class="line">    <span class="comment"># 获取到指定岗位的岗位总数</span></span><br><span class="line">    total_count = page[<span class="string">'content'</span>][<span class="string">'positionResult'</span>][<span class="string">'totalCount'</span>]</span><br><span class="line">    <span class="comment"># 根据岗位数量，计算出共有多少页</span></span><br><span class="line">    num = spider.get_page_num(total_count)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'职位总数：&#123;0&#125;，页数：&#123;1&#125;'</span>.format(total_count, num))</span><br><span class="line">    total_info = []</span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> range(1, num+1):</span><br><span class="line">        item = spider.get_json(n)</span><br><span class="line">        <span class="comment"># 根据json字符串的结构，得到岗位信息</span></span><br><span class="line">        jobs_list = item[<span class="string">'content'</span>][<span class="string">'positionResult'</span>][<span class="string">'result'</span>]</span><br><span class="line">        page_info = spider.get_page_info(jobs_list)</span><br><span class="line">        total_info+=page_info</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'已经抓取第&#123;0&#125;页，职位总数：&#123;1&#125;'</span>.format(n, len(total_info)))</span><br><span class="line">        time.sleep(20)</span><br><span class="line">        <span class="built_in">print</span>(total_info)</span><br><span class="line"></span><br><span class="line">    spider.write_excel(total_info)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -459,168 +356,9 @@ spider.write_excel(total_info)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="info-py"><a href="#info-py" class="headerlink" title="info.py"></a>info.py</h2><p>class HouseInfo:</p>
-<pre><code>def __init__(self, housecode, name, address, district, position_info, total_price, unit_price, follow_info):
-    self.__name = name
-    self.__address = address
-    self.__district = district
-    self.__position_info = position_info
-    self.__total_price = total_price
-    self.__unit_price = unit_price
-    self.__follow_info = follow_info
-    self.__housecode = housecode
-
-@property
-def housecode(self):
-    return self.__housecode
-
-@housecode.setter
-def housecode(self, new_housecode):
-    self.__housecode = new_housecode
-
-@property
-def name(self):
-    return self.__name
-
-@name.setter
-def name(self, new_name):
-    self.__name = new_name
-
-@property
-def district(self):
-    return self.__district
-
-@district.setter
-def district(self, new_district):
-    self.__district = new_district
-
-@property
-def unit_price(self):
-    return self.__unit_price
-
-@unit_price.setter
-def unit_price(self, new_unit_price):
-    self.__unit_price = new_unit_price
-
-@property
-def total_price(self):
-    return self.__total_price
-
-@total_price.setter
-def total_price(self, new_total_price):
-    self.__total_price = new_total_price
-
-@property
-def position_info(self):
-    return self.__position_info
-
-@position_info.setter
-def position_info(self, new_position_info):
-    self.__position_info = new_position_info
-
-@property
-def follow_info(self):
-    return self.__follow_info
-
-@follow_info.setter
-def follow_info(self, new_follow_info):
-    self.__follow_info = new_follow_info
-
-@property
-def address(self):
-    return self.__address
-
-@address.setter
-def address(self, new_address):
-    self.__address = new_address
-</code></pre><h2 id="house-py"><a href="#house-py" class="headerlink" title="house.py"></a>house.py</h2><p>import requests<br>from info import HouseInfo<br>from bs4 import BeautifulSoup<br>import urllib.parse as parse<br>import xlwt<br>import xlrd</p>
-<p>class House:<br>    def <strong>init</strong>(self, url):<br>        self.url = url</p>
-<pre><code>def getHouseHTML(self, district):
-    try:
-        new_url = self.url + district
-        response = requests.get(new_url)
-        response.raise_for_status()
-        response.encoding = &apos;UTF-8&apos;
-        return response.text
-    except requests.HTTPError as e:
-        print(&apos;出错了！！！&apos;)
-
-def parseHouseHTML(self, content):
-    houseinfo_list = []
-    soup = BeautifulSoup(content, &apos;html.parser&apos;)
-    house_list = soup.find_all(&apos;div&apos;, &apos;info clear&apos;)
-    for house in house_list:
-        housecode = house.find(&apos;a&apos;)[&apos;data-housecode&apos;]
-        name = house.find(&apos;a&apos;, &apos;no_resblock_a&apos;).string
-        address = house.find(&apos;a&apos;, &apos;no_resblock_a&apos;).string
-        district = house.find(&apos;div&apos;, &apos;positionInfo&apos;).find(&apos;a&apos;).string
-        follow_info = house.find(&apos;div&apos;, &apos;followInfo&apos;).get_text()
-        total_price = house.find(&apos;div&apos;, &apos;totalPrice&apos;).find(&apos;span&apos;).string
-        unit_price = house.find(&apos;div&apos;, &apos;unitPrice&apos;)[&apos;data-price&apos;]
-        position_info = house.find(&apos;div&apos;, &apos;positionInfo&apos;).get_text()
-        houseinfo = HouseInfo(housecode, name, address, district, position_info,total_price, unit_price, follow_info)
-        houseinfo_list.append(houseinfo)
-    return houseinfo_list
-
-def getList(self,lis):
-    house_list = []
-    for item in lis:
-        list1 = []
-        list1.append(item.housecode)
-        list1.append(item.name)
-        list1.append(item.address)
-        list1.append(item.district)
-        list1.append(item.position_info)
-        list1.append(item.total_price)
-        list1.append(item.unit_price)
-        list1.append(item.follow_info)
-        house_list.append(list1)
-    return house_list
-
-def saveExcel(self, lis, lis1):
-    wbt = xlwt.Workbook()
-    sheet = wbt.add_sheet(&apos;房子基本信息表&apos;)
-    sheets = wbt.add_sheet(&apos;房子详细信息表&apos;)
-    get_total = [&apos;housecode&apos;, &apos;name&apos;, &apos;address&apos;, &apos;district&apos;, &apos;position_info&apos;,&apos;total_price&apos;, &apos;unit_price&apos;, &apos;follow_info&apos;]
-    for i in range(len(get_total)):
-        sheet.write(0, i, get_total[i])
-    for m in range(len(lis)):
-        for n in range(len(lis[m])):
-            sheet.write(m + 1, n, lis[m][n])
-    for m in range(len(lis1)):
-        for n in range(len(lis1[m])):
-            sheets.write(m, n, lis1[m][n])
-
-    wbt.save(&apos;houseInfo.xls&apos;)
-
-
-def getDetailedHTML(self, objectHouse):
-    houseID = objectHouse.housecode
-    info_url = &apos;https://zz.lianjia.com/ershoufang/{0}.html&apos;.format(houseID)
-    try:
-        res = requests.get(info_url)
-        res.raise_for_status()
-        res.encoding = &apos;UTF-8&apos;
-        return res.text
-    except requests.HTTPError as e:
-        print(&apos;出错了！！！&apos;)
-
-def getDetailedHouse(self, infoHouse):
-    house_list = []
-    soup = BeautifulSoup(infoHouse, &apos;html.parser&apos;)
-    lis = soup.find_all(&apos;div&apos;, &apos;introContent&apos;)[0].find_all(&apos;div&apos;, &apos;content&apos;)[0].find_all(&apos;li&apos;)
-    for item in lis:
-        house_list.append(item.get_text())
-    return house_list
-
-def transactionAttributes(self, infoHouse):
-    house_list = []
-    soup = BeautifulSoup(infoHouse, &apos;html.parser&apos;)
-    lis = soup.find_all(&apos;div&apos;, &apos;introContent&apos;)[0].find_all(&apos;div&apos;, &apos;content&apos;)[1].find_all(&apos;li&apos;)
-    for item in lis:
-        house_list.append(item.find_all(&apos;span&apos;)[1].string)
-    return house_list
-</code></pre><h2 id="text-house-py"><a href="#text-house-py" class="headerlink" title="text_house.py"></a>text_house.py</h2><p>from house import House<br>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    url = ‘<a href="https://zz.lianjia.com/ershoufang/pg1rs&#39;" target="_blank" rel="noopener">https://zz.lianjia.com/ershoufang/pg1rs&#39;</a><br>    house = House(url)<br>    content = house.getHouseHTML(‘高新区’)<br>    objectHouse = house.parseHouseHTML(content) #获得对象列表<br>    house_list = house.getList(objectHouse) #获得对象属性，添加到表格<br>    total_list1 = []<br>    total_list2 = []<br>    for item in objectHouse:<br>        info_house = house.getDetailedHTML(item) #打开单个住房信息网页<br>        new_house_list1 = house.getDetailedHouse(info_house)<br>        new_house_list2 = house.transactionAttributes(info_house)<br>        total_list1.append(new_house_list1)<br>        total_list2.append(new_house_list2)<br>    lis = total_list1+total_list2<br>    print(lis)<br>    house.saveExcel(house_list, lis)  # 存入Excel</p>
+        <h2 id="info-py"><a href="#info-py" class="headerlink" title="info.py"></a>info.py</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">class HouseInfo:</span><br><span class="line"></span><br><span class="line">    def __init__(self, housecode, name, address, district, position_info, total_price, unit_price, follow_info):</span><br><span class="line">        self.__name = name</span><br><span class="line">        self.__address = address</span><br><span class="line">        self.__district = district</span><br><span class="line">        self.__position_info = position_info</span><br><span class="line">        self.__total_price = total_price</span><br><span class="line">        self.__unit_price = unit_price</span><br><span class="line">        self.__follow_info = follow_info</span><br><span class="line">        self.__housecode = housecode</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def housecode(self):</span><br><span class="line">        <span class="built_in">return</span> self.__housecode</span><br><span class="line"></span><br><span class="line">    @housecode.setter</span><br><span class="line">    def housecode(self, new_housecode):</span><br><span class="line">        self.__housecode = new_housecode</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def name(self):</span><br><span class="line">        <span class="built_in">return</span> self.__name</span><br><span class="line"></span><br><span class="line">    @name.setter</span><br><span class="line">    def name(self, new_name):</span><br><span class="line">        self.__name = new_name</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def district(self):</span><br><span class="line">        <span class="built_in">return</span> self.__district</span><br><span class="line"></span><br><span class="line">    @district.setter</span><br><span class="line">    def district(self, new_district):</span><br><span class="line">        self.__district = new_district</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def unit_price(self):</span><br><span class="line">        <span class="built_in">return</span> self.__unit_price</span><br><span class="line"></span><br><span class="line">    @unit_price.setter</span><br><span class="line">    def unit_price(self, new_unit_price):</span><br><span class="line">        self.__unit_price = new_unit_price</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def total_price(self):</span><br><span class="line">        <span class="built_in">return</span> self.__total_price</span><br><span class="line"></span><br><span class="line">    @total_price.setter</span><br><span class="line">    def total_price(self, new_total_price):</span><br><span class="line">        self.__total_price = new_total_price</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def position_info(self):</span><br><span class="line">        <span class="built_in">return</span> self.__position_info</span><br><span class="line"></span><br><span class="line">    @position_info.setter</span><br><span class="line">    def position_info(self, new_position_info):</span><br><span class="line">        self.__position_info = new_position_info</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def follow_info(self):</span><br><span class="line">        <span class="built_in">return</span> self.__follow_info</span><br><span class="line"></span><br><span class="line">    @follow_info.setter</span><br><span class="line">    def follow_info(self, new_follow_info):</span><br><span class="line">        self.__follow_info = new_follow_info</span><br><span class="line"></span><br><span class="line">    @property</span><br><span class="line">    def address(self):</span><br><span class="line">        <span class="built_in">return</span> self.__address</span><br><span class="line"></span><br><span class="line">    @address.setter</span><br><span class="line">    def address(self, new_address):</span><br><span class="line">        self.__address = new_address</span><br></pre></td></tr></table></figure>
+<h2 id="house-py"><a href="#house-py" class="headerlink" title="house.py"></a>house.py</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from info import HouseInfo</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import urllib.parse as parse</span><br><span class="line">import xlwt</span><br><span class="line">import xlrd</span><br><span class="line"></span><br><span class="line">class House:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.url = url</span><br><span class="line"></span><br><span class="line">    def getHouseHTML(self, district):</span><br><span class="line">        try:</span><br><span class="line">            new_url = self.url + district</span><br><span class="line">            response = requests.get(new_url)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            response.encoding = <span class="string">'UTF-8'</span></span><br><span class="line">            <span class="built_in">return</span> response.text</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'出错了！！！'</span>)</span><br><span class="line"></span><br><span class="line">    def parseHouseHTML(self, content):</span><br><span class="line">        houseinfo_list = []</span><br><span class="line">        soup = BeautifulSoup(content, <span class="string">'html.parser'</span>)</span><br><span class="line">        house_list = soup.find_all(<span class="string">'div'</span>, <span class="string">'info clear'</span>)</span><br><span class="line">        <span class="keyword">for</span> house <span class="keyword">in</span> house_list:</span><br><span class="line">            housecode = house.find(<span class="string">'a'</span>)[<span class="string">'data-housecode'</span>]</span><br><span class="line">            name = house.find(<span class="string">'a'</span>, <span class="string">'no_resblock_a'</span>).string</span><br><span class="line">            address = house.find(<span class="string">'a'</span>, <span class="string">'no_resblock_a'</span>).string</span><br><span class="line">            district = house.find(<span class="string">'div'</span>, <span class="string">'positionInfo'</span>).find(<span class="string">'a'</span>).string</span><br><span class="line">            follow_info = house.find(<span class="string">'div'</span>, <span class="string">'followInfo'</span>).get_text()</span><br><span class="line">            total_price = house.find(<span class="string">'div'</span>, <span class="string">'totalPrice'</span>).find(<span class="string">'span'</span>).string</span><br><span class="line">            unit_price = house.find(<span class="string">'div'</span>, <span class="string">'unitPrice'</span>)[<span class="string">'data-price'</span>]</span><br><span class="line">            position_info = house.find(<span class="string">'div'</span>, <span class="string">'positionInfo'</span>).get_text()</span><br><span class="line">            houseinfo = HouseInfo(housecode, name, address, district, position_info,total_price, unit_price, follow_info)</span><br><span class="line">            houseinfo_list.append(houseinfo)</span><br><span class="line">        <span class="built_in">return</span> houseinfo_list</span><br><span class="line"></span><br><span class="line">    def getList(self,lis):</span><br><span class="line">        house_list = []</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            list1 = []</span><br><span class="line">            list1.append(item.housecode)</span><br><span class="line">            list1.append(item.name)</span><br><span class="line">            list1.append(item.address)</span><br><span class="line">            list1.append(item.district)</span><br><span class="line">            list1.append(item.position_info)</span><br><span class="line">            list1.append(item.total_price)</span><br><span class="line">            list1.append(item.unit_price)</span><br><span class="line">            list1.append(item.follow_info)</span><br><span class="line">            house_list.append(list1)</span><br><span class="line">        <span class="built_in">return</span> house_list</span><br><span class="line"></span><br><span class="line">    def saveExcel(self, lis, lis1):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'房子基本信息表'</span>)</span><br><span class="line">        sheets = wbt.add_sheet(<span class="string">'房子详细信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'housecode'</span>, <span class="string">'name'</span>, <span class="string">'address'</span>, <span class="string">'district'</span>, <span class="string">'position_info'</span>,<span class="string">'total_price'</span>, <span class="string">'unit_price'</span>, <span class="string">'follow_info'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m + 1, n, lis[m][n])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis1)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis1[m])):</span><br><span class="line">                sheets.write(m, n, lis1[m][n])</span><br><span class="line"></span><br><span class="line">        wbt.save(<span class="string">'houseInfo.xls'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def getDetailedHTML(self, objectHouse):</span><br><span class="line">        houseID = objectHouse.housecode</span><br><span class="line">        info_url = <span class="string">'https://zz.lianjia.com/ershoufang/&#123;0&#125;.html'</span>.format(houseID)</span><br><span class="line">        try:</span><br><span class="line">            res = requests.get(info_url)</span><br><span class="line">            res.raise_for_status()</span><br><span class="line">            res.encoding = <span class="string">'UTF-8'</span></span><br><span class="line">            <span class="built_in">return</span> res.text</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'出错了！！！'</span>)</span><br><span class="line"></span><br><span class="line">    def getDetailedHouse(self, infoHouse):</span><br><span class="line">        house_list = []</span><br><span class="line">        soup = BeautifulSoup(infoHouse, <span class="string">'html.parser'</span>)</span><br><span class="line">        lis = soup.find_all(<span class="string">'div'</span>, <span class="string">'introContent'</span>)[0].find_all(<span class="string">'div'</span>, <span class="string">'content'</span>)[0].find_all(<span class="string">'li'</span>)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            house_list.append(item.get_text())</span><br><span class="line">        <span class="built_in">return</span> house_list</span><br><span class="line"></span><br><span class="line">    def transactionAttributes(self, infoHouse):</span><br><span class="line">        house_list = []</span><br><span class="line">        soup = BeautifulSoup(infoHouse, <span class="string">'html.parser'</span>)</span><br><span class="line">        lis = soup.find_all(<span class="string">'div'</span>, <span class="string">'introContent'</span>)[0].find_all(<span class="string">'div'</span>, <span class="string">'content'</span>)[1].find_all(<span class="string">'li'</span>)</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            house_list.append(item.find_all(<span class="string">'span'</span>)[1].string)</span><br><span class="line">        <span class="built_in">return</span> house_list</span><br></pre></td></tr></table></figure>
+<h2 id="text-house-py"><a href="#text-house-py" class="headerlink" title="text_house.py"></a>text_house.py</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">from house import House</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    url = <span class="string">'https://zz.lianjia.com/ershoufang/pg1rs'</span></span><br><span class="line">    house = House(url)</span><br><span class="line">    content = house.getHouseHTML(<span class="string">'高新区'</span>)</span><br><span class="line">    objectHouse = house.parseHouseHTML(content) <span class="comment">#获得对象列表</span></span><br><span class="line">    house_list = house.getList(objectHouse) <span class="comment">#获得对象属性，添加到表格</span></span><br><span class="line">    total_list1 = []</span><br><span class="line">    total_list2 = []</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> objectHouse:</span><br><span class="line">        info_house = house.getDetailedHTML(item) <span class="comment">#打开单个住房信息网页</span></span><br><span class="line">        new_house_list1 = house.getDetailedHouse(info_house)</span><br><span class="line">        new_house_list2 = house.transactionAttributes(info_house)</span><br><span class="line">        total_list1.append(new_house_list1)</span><br><span class="line">        total_list2.append(new_house_list2)</span><br><span class="line">    lis = total_list1+total_list2</span><br><span class="line">    <span class="built_in">print</span>(lis)</span><br><span class="line">    house.saveExcel(house_list, lis)  <span class="comment"># 存入Excel</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -683,87 +421,7 @@ def transactionAttributes(self, infoHouse):
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>import re<br>from bs4 import BeautifulSoup<br>import time<br>import xlrd<br>from xlutils.copy import copy</p>
-<p>class DangDang:<br>    def <strong>init</strong>(self, url):<br>        self.__url = url</p>
-<pre><code>def get_HTML(self, book_type, page_num):
-    headers = {
-        &quot;User-Agent&quot;: &apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&apos;,
-        &quot;Host&quot;: &quot;search.dangdang.com&quot;,
-        &quot;Referer&quot;: &quot;http://search.dangdang.com/?key={0}&amp;act=input&amp;page_index={1}&quot;.format(book_type, page_num)
-    }
-    new_url = self.__url.format(book_type, page_num)
-    try:
-        response = requests.get(url=new_url, headers=headers)
-        response.raise_for_status()
-        response.encoding = response.apparent_encoding
-        html = response.text
-        return html
-    except requests.HTTPError as e:
-        print(&apos;出错&apos;)
-
-def get_num(self, html):
-    num = re.findall(r&apos;&lt;span&gt;/(\d{2,3})&lt;/span&gt;&apos;, html)[0]
-    return num
-
-def get_info(self, html):
-    id_list = re.findall(r&apos;&quot; id=&quot;p(\d{7,8})&quot;&gt;&apos;, html)
-    return id_list
-
-def get_coreHTML(self, book_id, book_type, num):
-    headers = {
-        &quot;User-Agent&quot;: &apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&apos;,
-        &quot;Host&quot;: &quot;product.dangdang.com&quot;,
-        &quot;Referer&quot;: &quot;http://search.dangdang.com/?key={0}&amp;act=input&amp;page_index={1}&quot;.format(book_type, num)
-    }
-    core_url = &apos;http://product.dangdang.com/{0}.html&apos;.format(book_id)
-    try:
-        response = requests.get(url=core_url, headers=headers)
-        response.raise_for_status()
-        response.encoding = response.apparent_encoding
-        core_html = response.text
-        return core_html
-    except requests.HTTPError as e:
-        print(&apos;出错&apos;)
-
-def get_core_info(self, core_html):
-    info_list = []
-    soup = BeautifulSoup(core_html, &apos;html.parser&apos;)
-    title = soup.find(&apos;div&apos;, id=&apos;product_info&apos;).find(&apos;h1&apos;)[&apos;title&apos;]
-    info_list.append(title)
-    synopsis = soup.find(&apos;div&apos;, id=&apos;product_info&apos;).find(&apos;h2&apos;).find(&apos;span&apos;, &apos;head_title_name&apos;)[&apos;title&apos;]
-    info_list.append(synopsis[:-2])
-
-    author = re.search(r&apos;》(.+?)【&apos;, core_html)
-    author = author.group(0)[2:-2]
-    info_list.append(author)
-
-    press = soup.find(&apos;div&apos;, &apos;messbox_info&apos;).find_all(&apos;span&apos;, &apos;t1&apos;)
-    info_list.append(press[1].find(&apos;a&apos;).string)
-    info_list.append(press[2].string[0:13])
-    ranking = soup.find(&apos;div&apos;, &apos;messbox_info&apos;).find(&apos;div&apos;, &apos;pinglun&apos;).find_all(&apos;span&apos;, &apos;t1&apos;)
-    info_list.append(ranking[0].get_text())
-    comment = soup.find(&apos;a&apos;, id=&apos;comm_num_down&apos;).string
-    info_list.append(comment)
-    price = soup.find(&apos;p&apos;, id=&apos;dd-price&apos;).get_text()
-    info_list.append(price[2:].strip())
-    original_price = soup.find(&apos;div&apos;, id=&apos;original-price&apos;).get_text()
-    info_list.append(original_price[2:].strip())
-    bk_info = soup.find(&apos;div&apos;, id=&apos;detail_describe&apos;).find(&apos;ul&apos;).find_all(&apos;li&apos;)
-    for i in range(len(bk_info)-1):
-        info_list.append(bk_info[i].string)
-    return info_list
-
-
-def saveExcel(self, lis1):
-    wb = xlrd.open_workbook(&apos;books.xls&apos;)
-    sheet = wb.sheet_by_name(&apos;图书基本信息表&apos;)
-    new_wb = copy(wb)
-    new_sheet = new_wb.get_sheet(0)
-    for m in range(len(lis1)):
-        for n in range(len(lis1[m])):
-            new_sheet.write(m+sheet.nrows, n, lis1[m][n])
-    new_wb.save(&apos;books.xls&apos;)
-</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    booknumber = 1<br>    book_type = input(‘输入查找的书的类型：’)<br>    url = ‘<a href="http://search.dangdang.com/?key={0}&amp;act=input&amp;page_index={1}&#39;" target="_blank" rel="noopener">http://search.dangdang.com/?key={0}&amp;act=input&amp;page_index={1}&#39;</a><br>    dangdang = DangDang(url)<br>    html = dangdang.get_HTML(book_type, 1)<br>    num = dangdang.get_num(html)<br>    for j in range(int(num)):<br>        print(‘页数{0}’.format(j+1))<br>        get_book_info = []<br>        new_html = dangdang.get_HTML(book_type, j+1)<br>        id_list = dangdang.get_info(new_html)<br>        for i in range(len(id_list)):<br>            print(‘书本数{0}’.format(booknumber))<br>            booknumber+=1<br>            core_html = dangdang.get_coreHTML(id_list[i], book_type, j+1)<br>            try:<br>                lis = dangdang.get_core_info(core_html)<br>                get_book_info.append(lis)<br>            except Exception as e:<br>                print(‘查找错误，跳过’)<br>        dangdang.saveExcel(get_book_info)<br>        time.sleep(20)</p>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import re</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import time</span><br><span class="line">import xlrd</span><br><span class="line">from xlutils.copy import copy</span><br><span class="line"></span><br><span class="line">class DangDang:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.__url = url</span><br><span class="line"></span><br><span class="line">    def get_HTML(self, book_type, page_num):</span><br><span class="line">        headers = &#123;</span><br><span class="line">            <span class="string">"User-Agent"</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">"Host"</span>: <span class="string">"search.dangdang.com"</span>,</span><br><span class="line">            <span class="string">"Referer"</span>: <span class="string">"http://search.dangdang.com/?key=&#123;0&#125;&amp;act=input&amp;page_index=&#123;1&#125;"</span>.format(book_type, page_num)</span><br><span class="line">        &#125;</span><br><span class="line">        new_url = self.__url.format(book_type, page_num)</span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=new_url, headers=headers)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            response.encoding = response.apparent_encoding</span><br><span class="line">            html = response.text</span><br><span class="line">            <span class="built_in">return</span> html</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'出错'</span>)</span><br><span class="line"></span><br><span class="line">    def get_num(self, html):</span><br><span class="line">        num = re.findall(r<span class="string">'&lt;span&gt;/(\d&#123;2,3&#125;)&lt;/span&gt;'</span>, html)[0]</span><br><span class="line">        <span class="built_in">return</span> num</span><br><span class="line"></span><br><span class="line">    def get_info(self, html):</span><br><span class="line">        id_list = re.findall(r<span class="string">'" id="p(\d&#123;7,8&#125;)"&gt;'</span>, html)</span><br><span class="line">        <span class="built_in">return</span> id_list</span><br><span class="line"></span><br><span class="line">    def get_coreHTML(self, book_id, book_type, num):</span><br><span class="line">        headers = &#123;</span><br><span class="line">            <span class="string">"User-Agent"</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">"Host"</span>: <span class="string">"product.dangdang.com"</span>,</span><br><span class="line">            <span class="string">"Referer"</span>: <span class="string">"http://search.dangdang.com/?key=&#123;0&#125;&amp;act=input&amp;page_index=&#123;1&#125;"</span>.format(book_type, num)</span><br><span class="line">        &#125;</span><br><span class="line">        core_url = <span class="string">'http://product.dangdang.com/&#123;0&#125;.html'</span>.format(book_id)</span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=core_url, headers=headers)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            response.encoding = response.apparent_encoding</span><br><span class="line">            core_html = response.text</span><br><span class="line">            <span class="built_in">return</span> core_html</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'出错'</span>)</span><br><span class="line"></span><br><span class="line">    def get_core_info(self, core_html):</span><br><span class="line">        info_list = []</span><br><span class="line">        soup = BeautifulSoup(core_html, <span class="string">'html.parser'</span>)</span><br><span class="line">        title = soup.find(<span class="string">'div'</span>, id=<span class="string">'product_info'</span>).find(<span class="string">'h1'</span>)[<span class="string">'title'</span>]</span><br><span class="line">        info_list.append(title)</span><br><span class="line">        synopsis = soup.find(<span class="string">'div'</span>, id=<span class="string">'product_info'</span>).find(<span class="string">'h2'</span>).find(<span class="string">'span'</span>, <span class="string">'head_title_name'</span>)[<span class="string">'title'</span>]</span><br><span class="line">        info_list.append(synopsis[:-2])</span><br><span class="line"></span><br><span class="line">        author = re.search(r<span class="string">'》(.+?)【'</span>, core_html)</span><br><span class="line">        author = author.group(0)[2:-2]</span><br><span class="line">        info_list.append(author)</span><br><span class="line"></span><br><span class="line">        press = soup.find(<span class="string">'div'</span>, <span class="string">'messbox_info'</span>).find_all(<span class="string">'span'</span>, <span class="string">'t1'</span>)</span><br><span class="line">        info_list.append(press[1].find(<span class="string">'a'</span>).string)</span><br><span class="line">        info_list.append(press[2].string[0:13])</span><br><span class="line">        ranking = soup.find(<span class="string">'div'</span>, <span class="string">'messbox_info'</span>).find(<span class="string">'div'</span>, <span class="string">'pinglun'</span>).find_all(<span class="string">'span'</span>, <span class="string">'t1'</span>)</span><br><span class="line">        info_list.append(ranking[0].get_text())</span><br><span class="line">        comment = soup.find(<span class="string">'a'</span>, id=<span class="string">'comm_num_down'</span>).string</span><br><span class="line">        info_list.append(comment)</span><br><span class="line">        price = soup.find(<span class="string">'p'</span>, id=<span class="string">'dd-price'</span>).get_text()</span><br><span class="line">        info_list.append(price[2:].strip())</span><br><span class="line">        original_price = soup.find(<span class="string">'div'</span>, id=<span class="string">'original-price'</span>).get_text()</span><br><span class="line">        info_list.append(original_price[2:].strip())</span><br><span class="line">        bk_info = soup.find(<span class="string">'div'</span>, id=<span class="string">'detail_describe'</span>).find(<span class="string">'ul'</span>).find_all(<span class="string">'li'</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(bk_info)-1):</span><br><span class="line">            info_list.append(bk_info[i].string)</span><br><span class="line">        <span class="built_in">return</span> info_list</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def saveExcel(self, lis1):</span><br><span class="line">        wb = xlrd.open_workbook(<span class="string">'books.xls'</span>)</span><br><span class="line">        sheet = wb.sheet_by_name(<span class="string">'图书基本信息表'</span>)</span><br><span class="line">        new_wb = copy(wb)</span><br><span class="line">        new_sheet = new_wb.get_sheet(0)</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis1)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis1[m])):</span><br><span class="line">                new_sheet.write(m+sheet.nrows, n, lis1[m][n])</span><br><span class="line">        new_wb.save(<span class="string">'books.xls'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    booknumber = 1</span><br><span class="line">    book_type = input(<span class="string">'输入查找的书的类型：'</span>)</span><br><span class="line">    url = <span class="string">'http://search.dangdang.com/?key=&#123;0&#125;&amp;act=input&amp;page_index=&#123;1&#125;'</span></span><br><span class="line">    dangdang = DangDang(url)</span><br><span class="line">    html = dangdang.get_HTML(book_type, 1)</span><br><span class="line">    num = dangdang.get_num(html)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(int(num)):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'页数&#123;0&#125;'</span>.format(j+1))</span><br><span class="line">        get_book_info = []</span><br><span class="line">        new_html = dangdang.get_HTML(book_type, j+1)</span><br><span class="line">        id_list = dangdang.get_info(new_html)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(id_list)):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'书本数&#123;0&#125;'</span>.format(booknumber))</span><br><span class="line">            booknumber+=1</span><br><span class="line">            core_html = dangdang.get_coreHTML(id_list[i], book_type, j+1)</span><br><span class="line">            try:</span><br><span class="line">                lis = dangdang.get_core_info(core_html)</span><br><span class="line">                get_book_info.append(lis)</span><br><span class="line">            except Exception as e:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">'查找错误，跳过'</span>)</span><br><span class="line">        dangdang.saveExcel(get_book_info)</span><br><span class="line">        time.sleep(20)</span><br></pre></td></tr></table></figure>
 
       
 
@@ -826,62 +484,7 @@ def saveExcel(self, lis1):
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>import re<br>import time</p>
-<p>class Mei:<br>    def <strong>init</strong>(self, url):<br>        self.url = url</p>
-<pre><code>def getHTML(self):
-    try:
-        HEADERS = {
-            &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36&quot;,
-            &quot;Host&quot;: &quot;zz.meituan.com&quot;,
-            &quot;Referer&quot;: &quot;http://zz.meituan.com/meishi/&quot;
-        }
-        response = requests.get(self.url, headers=HEADERS)
-        response.raise_for_status()
-        response.encoding = response.apparent_encoding
-        content = response.text
-        # print(content)
-        id_list = re.findall(r&apos;&quot;poiId&quot;:(.+?),&apos;, content)
-
-        return id_list
-    except requests.HTTPError as e:
-        print(&quot;出错&quot;)
-
-def getInfo(self, id_list):
-    ls1 = []
-    for i in id_list:
-        ls = []
-        url1 = &quot;http://www.meituan.com/meishi/{0}&quot;.format(i)
-        try:
-            HEADERS = {
-                &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36&quot;,
-                &quot;Host&quot;: &quot;zz.meituan.com&quot;,
-                &quot;Referer&quot;: &quot;http://www.meituan.com/meishi/{0}&quot;.format(i)
-            }
-            response = requests.get(url1, headers=HEADERS)
-            response.raise_for_status()
-            response.encoding = response.apparent_encoding
-            content = response.text
-
-            name = re.findall(r&apos;&quot;name&quot;:(.+?),&quot;avgScore&quot;&apos;, content)
-
-            avgScore = re.findall(r&apos;&quot;avgScore&quot;:(.+?),&quot;address&quot;&apos;, content)
-            avgPrice = re.findall(r&apos;&quot;avgPrice&quot;:(.+?),&quot;brandId&quot;&apos;, content)
-            address = re.findall(r&apos;&quot;address&quot;:(.+?),&quot;phone&quot;&apos;, content)
-            recommend = re.findall(r&apos;&quot;,&quot;name&quot;:(.+?),&quot;price&quot;&apos;, content)
-            opentime = re.findall(r&apos;&quot;openTime&quot;:(.+?),&quot;extraInfos&quot;&apos;, content)
-            ls += name
-            ls += avgScore
-            ls += avgPrice
-            ls += address
-            ls += recommend
-            ls += opentime
-
-            ls1.append(ls)
-        except requests.HTTPError as e:
-            print(&quot;出错&quot;)
-    return ls1
-</code></pre><p>if <strong>name</strong> == “<strong>main</strong>“:<br>    url = “<a href="http://zz.meituan.com/meishi/b166/&quot;" target="_blank" rel="noopener">http://zz.meituan.com/meishi/b166/&quot;</a><br>    m = Mei(url)<br>    id_list = m.getHTML()<br>    total = m.getInfo(id_list)<br>    print(total)</p>
-
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import re</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Mei:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.url = url</span><br><span class="line"></span><br><span class="line">    def getHTML(self):</span><br><span class="line">        try:</span><br><span class="line">            HEADERS = &#123;</span><br><span class="line">                <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36"</span>,</span><br><span class="line">                <span class="string">"Host"</span>: <span class="string">"zz.meituan.com"</span>,</span><br><span class="line">                <span class="string">"Referer"</span>: <span class="string">"http://zz.meituan.com/meishi/"</span></span><br><span class="line">            &#125;</span><br><span class="line">            response = requests.get(self.url, headers=HEADERS)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            response.encoding = response.apparent_encoding</span><br><span class="line">            content = response.text</span><br><span class="line">            <span class="comment"># print(content)</span></span><br><span class="line">            id_list = re.findall(r<span class="string">'"poiId":(.+?),'</span>, content)</span><br><span class="line"></span><br><span class="line">            <span class="built_in">return</span> id_list</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"出错"</span>)</span><br><span class="line"></span><br><span class="line">    def getInfo(self, id_list):</span><br><span class="line">        ls1 = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> id_list:</span><br><span class="line">            ls = []</span><br><span class="line">            url1 = <span class="string">"http://www.meituan.com/meishi/&#123;0&#125;"</span>.format(i)</span><br><span class="line">            try:</span><br><span class="line">                HEADERS = &#123;</span><br><span class="line">                    <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.186 Safari/537.36"</span>,</span><br><span class="line">                    <span class="string">"Host"</span>: <span class="string">"zz.meituan.com"</span>,</span><br><span class="line">                    <span class="string">"Referer"</span>: <span class="string">"http://www.meituan.com/meishi/&#123;0&#125;"</span>.format(i)</span><br><span class="line">                &#125;</span><br><span class="line">                response = requests.get(url1, headers=HEADERS)</span><br><span class="line">                response.raise_for_status()</span><br><span class="line">                response.encoding = response.apparent_encoding</span><br><span class="line">                content = response.text</span><br><span class="line"></span><br><span class="line">                name = re.findall(r<span class="string">'"name":(.+?),"avgScore"'</span>, content)</span><br><span class="line"></span><br><span class="line">                avgScore = re.findall(r<span class="string">'"avgScore":(.+?),"address"'</span>, content)</span><br><span class="line">                avgPrice = re.findall(r<span class="string">'"avgPrice":(.+?),"brandId"'</span>, content)</span><br><span class="line">                address = re.findall(r<span class="string">'"address":(.+?),"phone"'</span>, content)</span><br><span class="line">                recommend = re.findall(r<span class="string">'","name":(.+?),"price"'</span>, content)</span><br><span class="line">                opentime = re.findall(r<span class="string">'"openTime":(.+?),"extraInfos"'</span>, content)</span><br><span class="line">                ls += name</span><br><span class="line">                ls += avgScore</span><br><span class="line">                ls += avgPrice</span><br><span class="line">                ls += address</span><br><span class="line">                ls += recommend</span><br><span class="line">                ls += opentime</span><br><span class="line"></span><br><span class="line">                ls1.append(ls)</span><br><span class="line">            except requests.HTTPError as e:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">"出错"</span>)</span><br><span class="line">        <span class="built_in">return</span> ls1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    url = <span class="string">"http://zz.meituan.com/meishi/b166/"</span></span><br><span class="line">    m = Mei(url)</span><br><span class="line">    id_list = m.getHTML()</span><br><span class="line">    total = m.getInfo(id_list)</span><br><span class="line">    <span class="built_in">print</span>(total)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -943,85 +546,8 @@ def getInfo(self, id_list):
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>from bs4 import BeautifulSoup as bs<br>import re<br>import xlwt<br>import time</p>
-<p>class Foods:<br>    page_list = []<br>    def <strong>init</strong>(self, url):<br>        self.__url = url</p>
-<pre><code>def get_json(self, city_id, page_num):
-    headers = {
-        &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0;Win64;x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36&apos;,
-        &apos;Host&apos;: &apos;zz.meituan.com&apos;,
-        &apos;Referer&apos;: &apos;http://zz.meituan.com/meishi/b{0}/pn{1}/&apos;.format(city_id, page_num)
-    }
-    # cookies_dict = {}
-    # cookies_str=&apos;_lxsdk_cuid=1656043f935c8-0c0aff0f0d27b4-43480420-100200-1656043f936c8; ci=73; client-id=f80185ac-3b3d-43d0-9345-c50809672023; mtcdn=K; lsu=; oc=bj8UReuptC5w6zyZA3h8Lx9owdv_dYaMS06zwLR8rzVBtNq5u4EQKl4KI8Yc5Y1KprKMjvTHFp2lGEOs3vUIJhp8hpQI-iW9nb6CCY5ftcj_vzURPwpc6C9Ew4xkCt2Do5O0cEVcmu7t97O6lgqxrNjMjN3j3mbVefopSebC-WU; uuid=9dd58b3b88fe45afa98c.1534986298.1.0.0; _lx_utm=utm_source%3Dso.com%26utm_medium%3Dorganic; __mta=53801623.1534918415546.1534918415546.1534986295320.2&quot;; _lxsdk_s=165645017ba-889-9ca-d1%7C%7C7&apos;
-    # for cookie in cookies_str.split(&quot;;&quot;):
-    #     k, v = cookie.split(&quot;=&quot;, 1)
-    #     cookies_dict[k.strip()] = v.strip()
-    # print(cookies_dict)
-    new_url = self.__url.format(city_id, page_num)
-    try:
-        response = requests.get(url=new_url, headers=headers, cookies=cookies_dict)
-        response.raise_for_status()
-        response.encoding = &apos;utf-8&apos;
-        page = response.json()
-        return page
-    except requests.HTTPError as e:
-        print(&apos;出错了&apos;)
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup as bs</span><br><span class="line">import re</span><br><span class="line">import xlwt</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">class Foods:</span><br><span class="line">    page_list = []</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.__url = url</span><br><span class="line"></span><br><span class="line">    def get_json(self, city_id, page_num):</span><br><span class="line">        headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0;Win64;x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'zz.meituan.com'</span>,</span><br><span class="line">            <span class="string">'Referer'</span>: <span class="string">'http://zz.meituan.com/meishi/b&#123;0&#125;/pn&#123;1&#125;/'</span>.format(city_id, page_num)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"># cookies_dict = &#123;&#125;</span></span><br><span class="line">        <span class="comment"># cookies_str='_lxsdk_cuid=1656043f935c8-0c0aff0f0d27b4-43480420-100200-1656043f936c8; ci=73; client-id=f80185ac-3b3d-43d0-9345-c50809672023; mtcdn=K; lsu=; oc=bj8UReuptC5w6zyZA3h8Lx9owdv_dYaMS06zwLR8rzVBtNq5u4EQKl4KI8Yc5Y1KprKMjvTHFp2lGEOs3vUIJhp8hpQI-iW9nb6CCY5ftcj_vzURPwpc6C9Ew4xkCt2Do5O0cEVcmu7t97O6lgqxrNjMjN3j3mbVefopSebC-WU; uuid=9dd58b3b88fe45afa98c.1534986298.1.0.0; _lx_utm=utm_source%3Dso.com%26utm_medium%3Dorganic; __mta=53801623.1534918415546.1534918415546.1534986295320.2"; _lxsdk_s=165645017ba-889-9ca-d1%7C%7C7'</span></span><br><span class="line">        <span class="comment"># for cookie in cookies_str.split(";"):</span></span><br><span class="line">        <span class="comment">#     k, v = cookie.split("=", 1)</span></span><br><span class="line">        <span class="comment">#     cookies_dict[k.strip()] = v.strip()</span></span><br><span class="line">        <span class="comment"># print(cookies_dict)</span></span><br><span class="line">        new_url = self.__url.format(city_id, page_num)</span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=new_url, headers=headers, cookies=cookies_dict)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            response.encoding = <span class="string">'utf-8'</span></span><br><span class="line">            page = response.json()</span><br><span class="line">            <span class="built_in">return</span> page</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'出错了'</span>)</span><br><span class="line"></span><br><span class="line">    def get_page(self, dic, city_id):</span><br><span class="line">        new_dic = dic[<span class="string">'data'</span>][<span class="string">'poiInfos'</span>]</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> new_dic:</span><br><span class="line">            list1 = []</span><br><span class="line">            list1.append(city_id)</span><br><span class="line">            list1.append(item[<span class="string">'poiId'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'title'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'avgScore'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'allCommentNum'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'address'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'avgPrice'</span>])</span><br><span class="line">            Foods.page_list.append(list1)</span><br><span class="line">        <span class="built_in">return</span> Foods.page_list</span><br><span class="line"></span><br><span class="line">    def get_HTML(self, city_id, poi_id):</span><br><span class="line">        headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0;Win64;x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'www.meituan.com'</span>,</span><br><span class="line">            <span class="string">'Referer'</span>: <span class="string">'http://zz.meituan.com/meishi/b&#123;0&#125;//'</span>.format(city_id)</span><br><span class="line">        &#125;</span><br><span class="line">        new_url = <span class="string">'http://www.meituan.com/meishi/&#123;0&#125;/'</span>.format(poi_id)</span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=new_url, headers=headers)</span><br><span class="line">            response.raise_for_status()</span><br><span class="line">            response.encoding = <span class="string">'utf-8'</span></span><br><span class="line">            page = response.text</span><br><span class="line">            <span class="built_in">return</span> page</span><br><span class="line">        except requests.HTTPError as e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'出错了'</span>)</span><br><span class="line"></span><br><span class="line">    def total_info(self, count):</span><br><span class="line">        total_list = []</span><br><span class="line">        soup = bs(count, <span class="string">'html.parser'</span>)</span><br><span class="line">        li = soup.find(<span class="string">'section'</span>, <span class="string">'detail-wrap'</span>).find(<span class="string">'div'</span>, <span class="string">'address'</span>).find_all(<span class="string">'p'</span>)</span><br><span class="line">        total_list.append(li[1].string)</span><br><span class="line">        total_list.append(li[2].string)</span><br><span class="line">        <span class="built_in">return</span> total_list</span><br><span class="line"></span><br><span class="line">    def write_excel(self, lis):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'店铺信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'区号'</span>, <span class="string">'店编号'</span>, <span class="string">'店名'</span>, <span class="string">'评分'</span>, <span class="string">'评论数'</span>, <span class="string">'地址'</span>, <span class="string">'人均'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m + 1, n, lis[m][n])</span><br><span class="line">        wbt.save(<span class="string">'foods.xls'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    url = <span class="string">'http://zz.meituan.com/meishi/api/poi/getPoiList?cityName=%E9%83%91%E5%B7%9E&amp;cateId=0&amp;areaId=&#123;0&#125;&amp;sort=&amp;dinnerCountAttrId=&amp;page=&#123;1&#125;&amp;userId=279928085&amp;uuid=c00ce35fcd634f118449.1534918393.2.0.1&amp;platform=1&amp;partner=126&amp;originUrl=http%3A%2F%2Fzz.meituan.com%2Fmeishi%2Fb166%2F&amp;riskLevel=1&amp;optimusCode=1&amp;_token=eJyFj0tzmzAUhf%2BLtmEsCfGSdxhjAy51Qiyc0MkCbFweBcc8glCn%2F73K1F101Zk7c46%2Be%2BbM1U%2FQ%2BWewxAhRhBTwkXdgCfACLQyggKGXG51oVNORqlGTKuD0D9Mxlizr4jVYfsPEMBQVGW%2BfJJLgDzEN6025W1VaVZPzmfFlBBTD8L6EUIhFk5fDmLaL07WB0vdFCTNsGFDe8Z%2BQiSGQhc1BFkqt75redfj7DuXXZFtffm%2Bly4MprrJhmITNopcznxL%2FwuIvru1MTjy5zpk3tp%2FQ3h99T9%2BFqxEy93hadfnOZ%2BpzgM5kxU2BTGY51n4mTROXaxS4BwNu5tD2EHkgLSVuK%2FqTnyQ05euLi6q%2BTi7PBX7B89WOAx5RCp05eyy9JrbSMead%2FSr2kVpErzrpZnM3ZNuwbR6%2B8pqZDkwrLwy21hbjyKm08YNwOhU3LA5PDKfRMZ%2FHzeZ29IoZRamF9EyUxE%2BzePwxhje%2B3u3L63tQ1dee1bXBXHNjFpZ4cm8r8Os35fmdEw%3D%3D'</span></span><br><span class="line">    lis = [<span class="string">'166'</span>, <span class="string">'165'</span>, <span class="string">'167'</span>, <span class="string">'168'</span>, <span class="string">'3249'</span>, <span class="string">'169'</span>, <span class="string">'170'</span>, <span class="string">'3250'</span>, <span class="string">'3253'</span>, <span class="string">'3251'</span>, <span class="string">'3252'</span>, <span class="string">'3254'</span>, <span class="string">'7397'</span>]</span><br><span class="line">    get_list = []</span><br><span class="line">    foods = Foods(url)</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(10):</span><br><span class="line">            get_dic = foods.get_json(item, i+1)</span><br><span class="line">            lis1 = foods.get_page(get_dic, item)</span><br><span class="line">            get_list+=lis1</span><br><span class="line">        <span class="built_in">print</span>(get_list)</span><br><span class="line">    foods.write_excel(get_list)</span><br><span class="line">    <span class="comment"># for kw in get_list:</span></span><br><span class="line">    <span class="comment">#     html = foods.get_HTML(kw[0], kw[1])</span></span><br><span class="line">    <span class="comment">#     print(html)</span></span><br><span class="line">    <span class="comment">#     total_list = foods.total_info(html)</span></span><br><span class="line">    <span class="comment">#     kw = kw+total_list</span></span><br></pre></td></tr></table></figure>
 
-def get_page(self, dic, city_id):
-    new_dic = dic[&apos;data&apos;][&apos;poiInfos&apos;]
-    for item in new_dic:
-        list1 = []
-        list1.append(city_id)
-        list1.append(item[&apos;poiId&apos;])
-        list1.append(item[&apos;title&apos;])
-        list1.append(item[&apos;avgScore&apos;])
-        list1.append(item[&apos;allCommentNum&apos;])
-        list1.append(item[&apos;address&apos;])
-        list1.append(item[&apos;avgPrice&apos;])
-        Foods.page_list.append(list1)
-    return Foods.page_list
-
-def get_HTML(self, city_id, poi_id):
-    headers = {
-        &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0;Win64;x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36&apos;,
-        &apos;Host&apos;: &apos;www.meituan.com&apos;,
-        &apos;Referer&apos;: &apos;http://zz.meituan.com/meishi/b{0}//&apos;.format(city_id)
-    }
-    new_url = &apos;http://www.meituan.com/meishi/{0}/&apos;.format(poi_id)
-    try:
-        response = requests.get(url=new_url, headers=headers)
-        response.raise_for_status()
-        response.encoding = &apos;utf-8&apos;
-        page = response.text
-        return page
-    except requests.HTTPError as e:
-        print(&apos;出错了&apos;)
-
-def total_info(self, count):
-    total_list = []
-    soup = bs(count, &apos;html.parser&apos;)
-    li = soup.find(&apos;section&apos;, &apos;detail-wrap&apos;).find(&apos;div&apos;, &apos;address&apos;).find_all(&apos;p&apos;)
-    total_list.append(li[1].string)
-    total_list.append(li[2].string)
-    return total_list
-
-def write_excel(self, lis):
-    wbt = xlwt.Workbook()
-    sheet = wbt.add_sheet(&apos;店铺信息表&apos;)
-    get_total = [&apos;区号&apos;, &apos;店编号&apos;, &apos;店名&apos;, &apos;评分&apos;, &apos;评论数&apos;, &apos;地址&apos;, &apos;人均&apos;]
-    for i in range(len(get_total)):
-        sheet.write(0, i, get_total[i])
-    for m in range(len(lis)):
-        for n in range(len(lis[m])):
-            sheet.write(m + 1, n, lis[m][n])
-    wbt.save(&apos;foods.xls&apos;)
-</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    url = ‘<a href="http://zz.meituan.com/meishi/api/poi/getPoiList?cityName=%E9%83%91%E5%B7%9E&amp;cateId=0&amp;areaId={0}&amp;sort=&amp;dinnerCountAttrId=&amp;page={1}&amp;userId=279928085&amp;uuid=c00ce35fcd634f118449.1534918393.2.0.1&amp;platform=1&amp;partner=126&amp;originUrl=http%3A%2F%2Fzz.meituan.com%2Fmeishi%2Fb166%2F&amp;riskLevel=1&amp;optimusCode=1&amp;_token=eJyFj0tzmzAUhf%2BLtmEsCfGSdxhjAy51Qiyc0MkCbFweBcc8glCn%2F73K1F101Zk7c46%2Be%2BbM1U%2FQ%2BWewxAhRhBTwkXdgCfACLQyggKGXG51oVNORqlGTKuD0D9Mxlizr4jVYfsPEMBQVGW%2BfJJLgDzEN6025W1VaVZPzmfFlBBTD8L6EUIhFk5fDmLaL07WB0vdFCTNsGFDe8Z%2BQiSGQhc1BFkqt75redfj7DuXXZFtffm%2Bly4MprrJhmITNopcznxL%2FwuIvru1MTjy5zpk3tp%2FQ3h99T9%2BFqxEy93hadfnOZ%2BpzgM5kxU2BTGY51n4mTROXaxS4BwNu5tD2EHkgLSVuK%2FqTnyQ05euLi6q%2BTi7PBX7B89WOAx5RCp05eyy9JrbSMead%2FSr2kVpErzrpZnM3ZNuwbR6%2B8pqZDkwrLwy21hbjyKm08YNwOhU3LA5PDKfRMZ%2FHzeZ29IoZRamF9EyUxE%2BzePwxhje%2B3u3L63tQ1dee1bXBXHNjFpZ4cm8r8Os35fmdEw%3D%3D&#39;" target="_blank" rel="noopener">http://zz.meituan.com/meishi/api/poi/getPoiList?cityName=%E9%83%91%E5%B7%9E&amp;cateId=0&amp;areaId={0}&amp;sort=&amp;dinnerCountAttrId=&amp;page={1}&amp;userId=279928085&amp;uuid=c00ce35fcd634f118449.1534918393.2.0.1&amp;platform=1&amp;partner=126&amp;originUrl=http%3A%2F%2Fzz.meituan.com%2Fmeishi%2Fb166%2F&amp;riskLevel=1&amp;optimusCode=1&amp;_token=eJyFj0tzmzAUhf%2BLtmEsCfGSdxhjAy51Qiyc0MkCbFweBcc8glCn%2F73K1F101Zk7c46%2Be%2BbM1U%2FQ%2BWewxAhRhBTwkXdgCfACLQyggKGXG51oVNORqlGTKuD0D9Mxlizr4jVYfsPEMBQVGW%2BfJJLgDzEN6025W1VaVZPzmfFlBBTD8L6EUIhFk5fDmLaL07WB0vdFCTNsGFDe8Z%2BQiSGQhc1BFkqt75redfj7DuXXZFtffm%2Bly4MprrJhmITNopcznxL%2FwuIvru1MTjy5zpk3tp%2FQ3h99T9%2BFqxEy93hadfnOZ%2BpzgM5kxU2BTGY51n4mTROXaxS4BwNu5tD2EHkgLSVuK%2FqTnyQ05euLi6q%2BTi7PBX7B89WOAx5RCp05eyy9JrbSMead%2FSr2kVpErzrpZnM3ZNuwbR6%2B8pqZDkwrLwy21hbjyKm08YNwOhU3LA5PDKfRMZ%2FHzeZ29IoZRamF9EyUxE%2BzePwxhje%2B3u3L63tQ1dee1bXBXHNjFpZ4cm8r8Os35fmdEw%3D%3D&#39;</a><br>    lis = [‘166’, ‘165’, ‘167’, ‘168’, ‘3249’, ‘169’, ‘170’, ‘3250’, ‘3253’, ‘3251’, ‘3252’, ‘3254’, ‘7397’]<br>    get_list = []<br>    foods = Foods(url)<br>    for item in lis:<br>        for i in range(10):<br>            get_dic = foods.get_json(item, i+1)<br>            lis1 = foods.get_page(get_dic, item)<br>            get_list+=lis1<br>        print(get_list)<br>    foods.write_excel(get_list)</p>
-<pre><code># for kw in get_list:
-#     html = foods.get_HTML(kw[0], kw[1])
-#     print(html)
-#     total_list = foods.total_info(html)
-#     kw = kw+total_list
-</code></pre>
       
 
       
@@ -1083,59 +609,7 @@ def write_excel(self, lis):
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>import  math<br>import json<br>from urllib import parse<br>import xlwt<br>class LagouSpider:<br>    def <strong>init</strong>(self, url):<br>        self.__url = url</p>
-<pre><code># 获取到指定url地址的第num页岗位信息，
-def get_json(self):
-    my_headers = {
-        &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&apos;,
-        &apos;Host&apos;: &apos;fe-api.zhaopin.com&apos;
-    }
-
-    try:
-        response = requests.get(url=self.__url, headers=my_headers)
-        response.raise_for_status() #判断状态码是否为200  不是抛异常
-        response.encoding = &apos;utf-8&apos;
-        page = response.json()
-        return page
-    except requests.HTTPError as he:
-        print(&apos;访问服务器错误&apos;)
-
-def get_page_num(self, count):
-    result = math.ceil(count/60)
-    if result &gt; 30:
-        result = 30
-    return result
-
-def get_page(self,dic):
-    get_list = []
-    list2 = dic[&quot;data&quot;][&quot;results&quot;]
-    for item in list2:
-        list3 = []
-        list3.append(item[&quot;company&quot;][&quot;number&quot;])
-        list3.append(item[&quot;company&quot;][&quot;name&quot;])
-        list3.append(item[&quot;company&quot;][&quot;size&quot;][&quot;name&quot;])
-        list3.append(item[&quot;company&quot;][&quot;type&quot;][&quot;name&quot;])
-        list3.append(item[&quot;workingExp&quot;][&quot;name&quot;])
-        list3.append(item[&quot;eduLevel&quot;][&quot;name&quot;])
-        list3.append(item[&quot;salary&quot;])
-        list3.append(item[&quot;emplType&quot;])
-        list3.append(item[&quot;jobName&quot;])
-        list3.append(item[&quot;welfare&quot;])
-        get_list.append(list3)
-    return get_list
-
-def write_excel(self, lis):
-    wbt = xlwt.Workbook()
-    sheet = wbt.add_sheet(&apos;招聘信息表&apos;)
-    get_total = [&apos;公司编号&apos;, &apos;公司名称&apos;, &apos;公司大小&apos;, &apos;公司类型&apos;, &apos;工作年限&apos;, &apos;学历&apos;, &apos;工资&apos;, &apos;工作类型&apos;, &apos;职位名称&apos;, &apos;公司福利&apos;]
-    for i in range(len(get_total)):
-        sheet.write(0, i, get_total[i])
-    for m in range(len(lis)):
-        for n in range(len(lis[m])):
-            sheet.write(m+1, n, lis[m][n])
-    wbt.save(&apos;zhilian.xls&apos;)
-</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    i = 60<br>    ajax_url = ‘<a href="https://fe-api.zhaopin.com/c/i/sou?start=60&amp;pageSize=60&amp;cityId=530&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D&#39;" target="_blank" rel="noopener">https://fe-api.zhaopin.com/c/i/sou?start=60&amp;pageSize=60&amp;cityId=530&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D&#39;</a><br>    spider = LagouSpider(ajax_url)<br>    dic = spider.get_json()<br>    num = spider.get_page_num(dic[‘data’][‘numFound’])<br>    city_num = input(‘城市编码：’)<br>    info_list = []<br>    for item in range(num):<br>        ajax_url = ‘<a href="https://fe-api.zhaopin.com/c/i/sou?start={0}&amp;pageSize=60&amp;cityId={1}&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D&#39;.format(i,city_num)" target="_blank" rel="noopener">https://fe-api.zhaopin.com/c/i/sou?start={0}&amp;pageSize=60&amp;cityId={1}&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D&#39;.format(i,city_num)</a><br>        i = i+60<br>        spider = LagouSpider(ajax_url)<br>        dic = spider.get_json()<br>        lis = spider.get_page(dic)<br>        info_list += lis<br>    spider.write_excel(info_list)</p>
-
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">import  math</span><br><span class="line">import json</span><br><span class="line">from urllib import parse</span><br><span class="line">import xlwt</span><br><span class="line">class LagouSpider:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.__url = url</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取到指定url地址的第num页岗位信息，</span></span><br><span class="line">    def get_json(self):</span><br><span class="line">        my_headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'fe-api.zhaopin.com'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=self.__url, headers=my_headers)</span><br><span class="line">            response.raise_for_status() <span class="comment">#判断状态码是否为200  不是抛异常</span></span><br><span class="line">            response.encoding = <span class="string">'utf-8'</span></span><br><span class="line">            page = response.json()</span><br><span class="line">            <span class="built_in">return</span> page</span><br><span class="line">        except requests.HTTPError as he:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'访问服务器错误'</span>)</span><br><span class="line"></span><br><span class="line">    def get_page_num(self, count):</span><br><span class="line">        result = math.ceil(count/60)</span><br><span class="line">        <span class="keyword">if</span> result &gt; 30:</span><br><span class="line">            result = 30</span><br><span class="line">        <span class="built_in">return</span> result</span><br><span class="line"></span><br><span class="line">    def get_page(self,dic):</span><br><span class="line">        get_list = []</span><br><span class="line">        list2 = dic[<span class="string">"data"</span>][<span class="string">"results"</span>]</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> list2:</span><br><span class="line">            list3 = []</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"number"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"size"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"company"</span>][<span class="string">"type"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"workingExp"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"eduLevel"</span>][<span class="string">"name"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"salary"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"emplType"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"jobName"</span>])</span><br><span class="line">            list3.append(item[<span class="string">"welfare"</span>])</span><br><span class="line">            get_list.append(list3)</span><br><span class="line">        <span class="built_in">return</span> get_list</span><br><span class="line"></span><br><span class="line">    def write_excel(self, lis):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'招聘信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'公司编号'</span>, <span class="string">'公司名称'</span>, <span class="string">'公司大小'</span>, <span class="string">'公司类型'</span>, <span class="string">'工作年限'</span>, <span class="string">'学历'</span>, <span class="string">'工资'</span>, <span class="string">'工作类型'</span>, <span class="string">'职位名称'</span>, <span class="string">'公司福利'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m+1, n, lis[m][n])</span><br><span class="line">        wbt.save(<span class="string">'zhilian.xls'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    i = 60</span><br><span class="line">    ajax_url = <span class="string">'https://fe-api.zhaopin.com/c/i/sou?start=60&amp;pageSize=60&amp;cityId=530&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D'</span></span><br><span class="line">    spider = LagouSpider(ajax_url)</span><br><span class="line">    dic = spider.get_json()</span><br><span class="line">    num = spider.get_page_num(dic[<span class="string">'data'</span>][<span class="string">'numFound'</span>])</span><br><span class="line">    city_num = input(<span class="string">'城市编码：'</span>)</span><br><span class="line">    info_list = []</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> range(num):</span><br><span class="line">        ajax_url = <span class="string">'https://fe-api.zhaopin.com/c/i/sou?start=&#123;0&#125;&amp;pageSize=60&amp;cityId=&#123;1&#125;&amp;workExperience=-1&amp;education=-1&amp;companyType=-1&amp;employmentType=-1&amp;jobWelfareTag=-1&amp;kw=python&amp;kt=3&amp;lastUrlQuery=%7B%22jl%22:%22530%22,%22kw%22:%22python%22,%22kt%22:%223%22%7D'</span>.format(i,city_num)</span><br><span class="line">        i = i+60</span><br><span class="line">        spider = LagouSpider(ajax_url)</span><br><span class="line">        dic = spider.get_json()</span><br><span class="line">        lis = spider.get_page(dic)</span><br><span class="line">        info_list += lis</span><br><span class="line">    spider.write_excel(info_list)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -1197,50 +671,7 @@ def write_excel(self, lis):
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>from urllib import parse<br>import xlwt<br>import json<br>class LagouSpider:<br>    def <strong>init</strong>(self, url):<br>        self.__url = url</p>
-<pre><code># 获取到指定url地址的第num页岗位信息，
-def get_json(self):
-    my_headers = {
-        &apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36&apos;,
-        &apos;Host&apos;: &apos;price.womai.com&apos;
-    }
-
-    try:
-        response = requests.get(url=self.__url, headers=my_headers)
-        response.raise_for_status() #判断状态码是否为200  不是抛异常
-        response.encoding = response.apparent_encoding
-        info = response.text
-        num = info.find(&apos;{&apos;)
-        page = info[num:-1]
-        page = json.loads(page)
-        return page
-    except requests.HTTPError as he:
-        print(&apos;访问服务器错误&apos;)
-
-def get_page(self,dic):
-    get_list = []
-    lis = dic[&apos;result&apos;]
-    for item in lis:
-        list1 = []
-        list1.append(item[&apos;id&apos;])
-        list1.append(item[&apos;price&apos;][&apos;buyPrice&apos;][&apos;priceValue&apos;])
-        list1.append(item[&apos;price&apos;][&apos;WMPrice&apos;][&apos;priceValue&apos;])
-        list1.append(&apos;http://www.womai.com/Product-0-{0}.htm?piwik_keyword=%25E5%2586%25B0%25E7%25AE%25B1&apos;.format(item[&apos;id&apos;]))
-        get_list.append(list1)
-    return get_list
-
-def write_excel(self, lis):
-    wbt = xlwt.Workbook()
-    sheet = wbt.add_sheet(&apos;招聘信息表&apos;)
-    get_total = [&apos;id&apos;, &apos;buyPrice&apos;, &apos;WMPrice&apos;, &apos;链接&apos;]
-    for i in range(len(get_total)):
-        sheet.write(0, i, get_total[i])
-    for m in range(len(lis)):
-        for n in range(len(lis[m])):
-            sheet.write(m+1, n, lis[m][n])
-    wbt.save(&apos;womaiwang.xls&apos;)
-</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    ajax_url =’<a href="http://price.womai.com/PriceServer/open/productlist.do?ids=655198%2C657378%2C657379%2C630669%2C512850%2C338835%2C657023%2C630065%2C642260%2C642259%2C607161%2C650947%2C639387%2C624926%2C624875%2C633490&amp;prices=buyPrice%2CWMPrice%2CmarketPrice%2CspecialPrice&amp;defData=n&amp;mid=0&amp;cityid=31000&amp;usergroupid=100&amp;callback=jsonp1534499503419&#39;" target="_blank" rel="noopener">http://price.womai.com/PriceServer/open/productlist.do?ids=655198%2C657378%2C657379%2C630669%2C512850%2C338835%2C657023%2C630065%2C642260%2C642259%2C607161%2C650947%2C639387%2C624926%2C624875%2C633490&amp;prices=buyPrice%2CWMPrice%2CmarketPrice%2CspecialPrice&amp;defData=n&amp;mid=0&amp;cityid=31000&amp;usergroupid=100&amp;callback=jsonp1534499503419&#39;</a><br>    spider = LagouSpider(ajax_url)<br>    page = spider.get_json()<br>    list1 = spider.get_page(page)<br>    spider.write_excel(list1)</p>
-
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from urllib import parse</span><br><span class="line">import xlwt</span><br><span class="line">import json</span><br><span class="line">class LagouSpider:</span><br><span class="line">    def __init__(self, url):</span><br><span class="line">        self.__url = url</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取到指定url地址的第num页岗位信息，</span></span><br><span class="line">    def get_json(self):</span><br><span class="line">        my_headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'</span>,</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'price.womai.com'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        try:</span><br><span class="line">            response = requests.get(url=self.__url, headers=my_headers)</span><br><span class="line">            response.raise_for_status() <span class="comment">#判断状态码是否为200  不是抛异常</span></span><br><span class="line">            response.encoding = response.apparent_encoding</span><br><span class="line">            info = response.text</span><br><span class="line">            num = info.find(<span class="string">'&#123;'</span>)</span><br><span class="line">            page = info[num:-1]</span><br><span class="line">            page = json.loads(page)</span><br><span class="line">            <span class="built_in">return</span> page</span><br><span class="line">        except requests.HTTPError as he:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">'访问服务器错误'</span>)</span><br><span class="line"></span><br><span class="line">    def get_page(self,dic):</span><br><span class="line">        get_list = []</span><br><span class="line">        lis = dic[<span class="string">'result'</span>]</span><br><span class="line">        <span class="keyword">for</span> item <span class="keyword">in</span> lis:</span><br><span class="line">            list1 = []</span><br><span class="line">            list1.append(item[<span class="string">'id'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'price'</span>][<span class="string">'buyPrice'</span>][<span class="string">'priceValue'</span>])</span><br><span class="line">            list1.append(item[<span class="string">'price'</span>][<span class="string">'WMPrice'</span>][<span class="string">'priceValue'</span>])</span><br><span class="line">            list1.append(<span class="string">'http://www.womai.com/Product-0-&#123;0&#125;.htm?piwik_keyword=%25E5%2586%25B0%25E7%25AE%25B1'</span>.format(item[<span class="string">'id'</span>]))</span><br><span class="line">            get_list.append(list1)</span><br><span class="line">        <span class="built_in">return</span> get_list</span><br><span class="line"></span><br><span class="line">    def write_excel(self, lis):</span><br><span class="line">        wbt = xlwt.Workbook()</span><br><span class="line">        sheet = wbt.add_sheet(<span class="string">'招聘信息表'</span>)</span><br><span class="line">        get_total = [<span class="string">'id'</span>, <span class="string">'buyPrice'</span>, <span class="string">'WMPrice'</span>, <span class="string">'链接'</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):</span><br><span class="line">            sheet.write(0, i, get_total[i])</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):</span><br><span class="line">            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):</span><br><span class="line">                sheet.write(m+1, n, lis[m][n])</span><br><span class="line">        wbt.save(<span class="string">'womaiwang.xls'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    ajax_url =<span class="string">'http://price.womai.com/PriceServer/open/productlist.do?ids=655198%2C657378%2C657379%2C630669%2C512850%2C338835%2C657023%2C630065%2C642260%2C642259%2C607161%2C650947%2C639387%2C624926%2C624875%2C633490&amp;prices=buyPrice%2CWMPrice%2CmarketPrice%2CspecialPrice&amp;defData=n&amp;mid=0&amp;cityid=31000&amp;usergroupid=100&amp;callback=jsonp1534499503419'</span></span><br><span class="line">    spider = LagouSpider(ajax_url)</span><br><span class="line">    page = spider.get_json()</span><br><span class="line">    list1 = spider.get_page(page)</span><br><span class="line">    spider.write_excel(list1)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -1302,45 +733,59 @@ def write_excel(self, lis):
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>import requests<br>import json<br>import xlwt<br>class Movie:<br>    def <strong>init</strong>(self, url):<br>        self.__url = url</p>
-<pre><code>def getHtml(self):
-    try:
-        response = requests.get(self.__url)
-        response.raise_for_status()
-        response.encoding = response.apparent_encoding
-        html = response.json()
-        return html
-    except requests.HTTPError as re:
-        print(&apos;访问服务器出错&apos;)
+        <pre><code class="bash">import requests
+import json
+import xlwt
+class Movie:
+    def __init__(self, url):
+        self.__url = url
 
-def get_info(self, dic):
-    lis = dic[&apos;subjects&apos;]
-    movie_list = []
-    for item in lis:
-        list1 = []
-        actor = []
-        list1.append(item[&apos;title&apos;])
-        list1.append(&apos;,&apos;.join(item[&apos;genres&apos;]))
-        list1.append(item[&apos;rating&apos;][&apos;average&apos;])
-        list1.append(item[&apos;year&apos;])
-        for act in item[&apos;casts&apos;]:
-            actor.append(act[&apos;name&apos;])
-        list1.append(&apos;,&apos;.join(actor))
-        list1.append(item[&apos;directors&apos;][0][&apos;name&apos;])
-        movie_list.append(list1)
-    return movie_list
+    def getHtml(self):
+        try:
+            response = requests.get(self.__url)
+            response.raise_for_status()
+            response.encoding = response.apparent_encoding
+            html = response.json()
+            <span class="built_in">return</span> html
+        except requests.HTTPError as re:
+            <span class="built_in">print</span>(<span class="string">'访问服务器出错'</span>)
 
-def write_excel(self, lis):
-    wbt = xlwt.Workbook()
-    sheet = wbt.add_sheet(&apos;电影信息表&apos;)
-    get_total = [&apos;电影名称&apos;, &apos;电影类型&apos;, &apos;评分&apos;, &apos;上映时间&apos;, &apos;主演&apos;, &apos;导演&apos;]
-    for i in range(len(get_total)):
-        sheet.write(0, i, get_total[i])
-    for m in range(len(lis)):
-        for n in range(len(lis[m])):
-            sheet.write(m+1, n, lis[m][n])
-    wbt.save(&apos;movie.xls&apos;)
-</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    url = ‘<a href="http://api.douban.com/v2/movie/top250&#39;" target="_blank" rel="noopener">http://api.douban.com/v2/movie/top250&#39;</a><br>    spoder = Movie(url)<br>    html = spoder.getHtml()<br>    movie_list = spoder.get_info(html)<br>    spoder.write_excel(movie_list)</p>
+    def get_info(self, dic):
+        lis = dic[<span class="string">'subjects'</span>]
+        movie_list = []
+        <span class="keyword">for</span> item <span class="keyword">in</span> lis:
+            list1 = []
+            actor = []
+            list1.append(item[<span class="string">'title'</span>])
+            list1.append(<span class="string">','</span>.join(item[<span class="string">'genres'</span>]))
+            list1.append(item[<span class="string">'rating'</span>][<span class="string">'average'</span>])
+            list1.append(item[<span class="string">'year'</span>])
+            <span class="keyword">for</span> act <span class="keyword">in</span> item[<span class="string">'casts'</span>]:
+                actor.append(act[<span class="string">'name'</span>])
+            list1.append(<span class="string">','</span>.join(actor))
+            list1.append(item[<span class="string">'directors'</span>][0][<span class="string">'name'</span>])
+            movie_list.append(list1)
+        <span class="built_in">return</span> movie_list
+
+    def write_excel(self, lis):
+        wbt = xlwt.Workbook()
+        sheet = wbt.add_sheet(<span class="string">'电影信息表'</span>)
+        get_total = [<span class="string">'电影名称'</span>, <span class="string">'电影类型'</span>, <span class="string">'评分'</span>, <span class="string">'上映时间'</span>, <span class="string">'主演'</span>, <span class="string">'导演'</span>]
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(get_total)):
+            sheet.write(0, i, get_total[i])
+        <span class="keyword">for</span> m <span class="keyword">in</span> range(len(lis)):
+            <span class="keyword">for</span> n <span class="keyword">in</span> range(len(lis[m])):
+                sheet.write(m+1, n, lis[m][n])
+        wbt.save(<span class="string">'movie.xls'</span>)
+
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    url = <span class="string">'http://api.douban.com/v2/movie/top250'</span>
+    spoder = Movie(url)
+    html = spoder.getHtml()
+    movie_list = spoder.get_info(html)
+    spoder.write_excel(movie_list)
+</code></pre>
 
       
 
